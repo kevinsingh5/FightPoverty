@@ -1,0 +1,8 @@
+variables:
+	AWS_DEFAULT_REGION: us-east-2	
+
+deploy:
+	image: python:latest
+	script:
+	- pip install awscli
+	- aws s3 cp ./static/ s3://fightpoverty.online/ --recursive   #--exclude "*" --include "*.html"
