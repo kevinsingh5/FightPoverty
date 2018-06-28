@@ -5,7 +5,7 @@ file_name = raw_input('Enter file name: ')
 file = open(file_name, 'w')
 print("File succesfully created!")
 
-get_request = raw_input('Enter http get request: ')
+get_request = raw_input('Enter URL of http get request: ')
 try:
     resp = requests.get(str(get_request))
     print("Successful api call")
@@ -19,9 +19,8 @@ try:
 except requests.exceptions.Timeout:
     print('Timeout')
 except requests.exceptions.TooManyRedirects:
-    print('Try different URL')
+    print('Try different URL next time')
 except requests.exceptions.RequestException as e:
     print e
 
 file.close()
-
