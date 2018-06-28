@@ -30,3 +30,12 @@ header a{
 .navbar-custom {
     background-color: black;
 }
+
+img{
+   width:300px;
+   height:400px;
+   border-radius: 50%;
+   max-width:100%;
+   max-height:100%;
+
+}
