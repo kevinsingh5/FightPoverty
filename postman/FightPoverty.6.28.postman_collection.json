@@ -1,0 +1,596 @@
+{
+	"id": "2ff1c063-a220-4896-ae4c-869f6b79e3cc",
+	"name": "FightPoverty API's",
+	"description": "API's to help find the best charities aiming to fight poverty",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [],
+	"folders_order": [
+		"2d325e10-686c-461b-a279-1167bfcc206b",
+		"d6e69e02-9a3e-4b79-8dcb-b8d0296d6206",
+		"e60c2ad5-ce0e-48dc-ad88-d24aa7575117"
+	],
+	"folders": [
+		{
+			"id": "2d325e10-686c-461b-a279-1167bfcc206b",
+			"name": "Charities",
+			"description": "FightPoverty's database of charities",
+			"auth": null,
+			"events": null,
+			"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc",
+			"folder": null,
+			"order": [
+				"858ca19a-96db-405b-be0a-d54e999bb453",
+				"7c32c5e2-19d8-4dbd-b435-4225cd0f5505",
+				"46072aec-fc88-47e7-a124-2f394969f90d",
+				"ab20ae5d-195f-4441-b96f-8d8e8045538c"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "d6e69e02-9a3e-4b79-8dcb-b8d0296d6206",
+			"name": "Cities",
+			"description": "FightPoverty's cities with metadata like populuation, county, and state",
+			"auth": null,
+			"events": null,
+			"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc",
+			"folder": null,
+			"order": [
+				"174f238f-29c8-4395-855d-807aeea6c9ae"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "e60c2ad5-ce0e-48dc-ad88-d24aa7575117",
+			"name": "Counties",
+			"description": "Counties with metadata like percentage in poverty and relation to cities",
+			"auth": null,
+			"events": null,
+			"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc",
+			"folder": null,
+			"order": [
+				"17c22694-9107-44ea-8039-3d47abd656a0",
+				"329c0f94-7abf-4560-9173-1276802c765b"
+			],
+			"folders_order": []
+		}
+	],
+	"requests": [
+		{
+			"id": "174f238f-29c8-4395-855d-807aeea6c9ae",
+			"name": "Cities by location",
+			"url": "api.fightpoverty.online/cities/location?city&state&county&zip",
+			"description": "Find cities and their info in the FightPoverty DB",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "city",
+					"value": "",
+					"equals": false,
+					"description": "Give the name of a city and use \"+\" for spaces. \n\n<i>For example:</i> \"Austin\", \"Los+Angeles\"",
+					"enabled": true
+				},
+				{
+					"key": "state",
+					"value": "",
+					"equals": false,
+					"description": "Give the two letter abbreviation for a state to get a list of cities in that state.\n\n<i>For example:</i> \"TX\", \"CA\"",
+					"enabled": true
+				},
+				{
+					"key": "county",
+					"value": "",
+					"equals": false,
+					"description": "Give a county to get a list of cities in that county and use \"+\" for spaces. \n\n<i>For example:</i> \"Travis\", \"Los+Angeles\"",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "",
+					"equals": false,
+					"description": "Give a zip code to find the city that zip code is in.\n\n<i>For example:</i> 78705, 90069",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": "d6e69e02-9a3e-4b79-8dcb-b8d0296d6206",
+			"responses": [
+				{
+					"id": "ceea38af-c947-464b-a234-502f4822a1fd",
+					"name": "City by location",
+					"status": "",
+					"mime": "",
+					"language": "",
+					"text": "[\n\t{\n\t\t\"city\": \"West City\",\n\t\t\"county\": \"West County\",\n\t\t\"state\": \"West State\",\n\t\t\"populuation\": 100000\n\t}\n]",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/cities/location?state=West+State&county=West+County",
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "city",
+								"value": "",
+								"equals": false,
+								"description": "",
+								"enabled": false
+							},
+							{
+								"key": "state",
+								"value": "West+State",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "county",
+								"value": "West+County",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "zip",
+								"value": "",
+								"equals": false,
+								"description": "",
+								"enabled": false
+							}
+						],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [],
+					"cookies": [],
+					"request": "174f238f-29c8-4395-855d-807aeea6c9ae",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "17c22694-9107-44ea-8039-3d47abd656a0",
+			"name": "Counties by location",
+			"url": "api.fightpoverty.online/counties/location?city&state&county&zip",
+			"description": "Find counties in the FightPoverty DB.",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "city",
+					"value": "",
+					"equals": false,
+					"description": "Give the name of a city and use \"+\" for spaces to find the county that city is in. \n\n<i>For example:</i> \"Austin\", \"Los+Angeles\"",
+					"enabled": true
+				},
+				{
+					"key": "state",
+					"value": "",
+					"equals": false,
+					"description": "Give the two letter abbreviation for a state to get a list of counties in that state.\n\n<i>For example:</i> \"TX\", \"CA\"",
+					"enabled": true
+				},
+				{
+					"key": "county",
+					"value": "",
+					"equals": false,
+					"description": "Give a county and use \"+\" for spaces. \n\n<i>For example:</i> \"Travis\", \"Los+Angeles\"",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "",
+					"equals": false,
+					"description": "Give a zip code to find the county that zip code is in.\n\n<i>For example:</i> 78705, 90069",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": "e60c2ad5-ce0e-48dc-ad88-d24aa7575117",
+			"responses": [
+				{
+					"id": "1d189856-be40-4f2e-ab5d-eee18fa12989",
+					"name": "County by location",
+					"status": "",
+					"mime": "",
+					"language": "",
+					"text": "[\n\t{\n\t\t\"county\": \"West County\",\n\t\t\"state\": \"West State\",\n\t\t\"poverty percentage\": 10.3\n\t\t\"population\": 1000000,\n\t\t\"charities\": [\n\t\t\t{\n\t\t\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\t\t\"Mission Statement\": \"Feed the hungry\",\n\t\t\t\t\"Cause\": \"Human Services\",\n\t\t\t\t\"City\": \"West City\",\n\t\t\t\t\"County\": \"West County\",\n\t\t\t\t\"State\": \"West State\",\n\t\t\t\t\"Zip Code\": 11111,\n\t\t\t\t\"Accountability Rating\": 9.3,\n\t\t\t\t\"Financial Rating\": 6.2,\n\t\t\t\t\"FightPoverty Rating\": 8.3\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\t\t\"Mission Statement\": \"Provide shelter for the homeless\",\n\t\t\t\t\"Cause\": \"Human Services\",\n\t\t\t\t\"City\": \"West City\",\n\t\t\t\t\"County\": \"West County\",\n\t\t\t\t\"State\": \"West State\",\n\t\t\t\t\"Zip Code\": 11115,\n\t\t\t\t\"Accountability Rating\": 8.1,\n\t\t\t\t\"Financial Rating\": 8.5,\n\t\t\t\t\"FightPoverty Rating\": 8.7\n\t\t\t}\n\t\t],\n\t\t\"cities\": [\n\t\t\t{\n\t\t\t\t\"city\": \"West City\",\n\t\t\t\t\"county\": \"West County\",\n\t\t\t\t\"state\": \"West State\",\n\t\t\t\t\"populuation\": 100000\n\t\t\t}\n\t\t]\n\t}\n]",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/counties/location?zip=11111",
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "city",
+								"value": "",
+								"equals": false,
+								"description": "",
+								"enabled": false
+							},
+							{
+								"key": "state",
+								"value": "",
+								"equals": false,
+								"description": "",
+								"enabled": false
+							},
+							{
+								"key": "county",
+								"value": "",
+								"equals": false,
+								"description": "",
+								"enabled": false
+							},
+							{
+								"key": "zip",
+								"value": "11111",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [],
+					"cookies": [],
+					"request": "17c22694-9107-44ea-8039-3d47abd656a0",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "329c0f94-7abf-4560-9173-1276802c765b",
+			"name": "Counties sorted by poverty percentage",
+			"url": "api.fightpoverty.online/counties/sorted",
+			"description": "Find counties in the FightPoverty DB sorted by poverty percentage",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "e60c2ad5-ce0e-48dc-ad88-d24aa7575117",
+			"responses": [
+				{
+					"id": "ac21fed8-adb6-4eee-9df9-e3de14736628",
+					"name": "Counties sorted by poverty percentage",
+					"status": "",
+					"mime": "",
+					"language": "",
+					"text": "[\n\t{\n\t\t\"county\": \"West County\",\n\t\t\"state\": \"West State\",\n\t\t\"poverty percentage\": 10.3\n\t\t\"population\": 1000000,\n\t\t\"charities\": [\n\t\t\t{\n\t\t\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\t\t\"Mission Statement\": \"Feed the hungry\",\n\t\t\t\t\"Cause\": \"Human Services\",\n\t\t\t\t\"City\": \"West City\",\n\t\t\t\t\"County\": \"West County\",\n\t\t\t\t\"State\": \"West State\",\n\t\t\t\t\"Zip Code\": 11111,\n\t\t\t\t\"Accountability Rating\": 9.3,\n\t\t\t\t\"Financial Rating\": 6.2,\n\t\t\t\t\"FightPoverty Rating\": 8.3\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\t\t\"Mission Statement\": \"Provide shelter for the homeless\",\n\t\t\t\t\"Cause\": \"Human Services\",\n\t\t\t\t\"City\": \"West City\",\n\t\t\t\t\"County\": \"West County\",\n\t\t\t\t\"State\": \"West State\",\n\t\t\t\t\"Zip Code\": 11115,\n\t\t\t\t\"Accountability Rating\": 8.1,\n\t\t\t\t\"Financial Rating\": 8.5,\n\t\t\t\t\"FightPoverty Rating\": 8.7\n\t\t\t}\n\t\t],\n\t\t\"cities\": [\n\t\t\t{\n\t\t\t\t\"city\": \"West City\",\n\t\t\t\t\"county\": \"West County\",\n\t\t\t\t\"state\": \"West State\",\n\t\t\t\t\"populuation\": 100000\n\t\t\t}\n\t\t]\n\t},\n\t{\n\t\t\"county\": \"East County\",\n\t\t\"state\": \"East State\",\n\t\t\"poverty percentage\": 9.1\n\t\t\"population\": 10000,\n\t\t\"charities\": [\n\t\t\t{\n\t\t\t\t\"Name\": \"East Regional Food Distributor\",\n\t\t\t\t\"Mission Statement\": \"Feed as many homeless possible\",\n\t\t\t\t\"Cause\": \"Human Services\",\n\t\t\t\t\"City\": \"East City\",\n\t\t\t\t\"County\": \"East County\",\n\t\t\t\t\"State\": \"East State\",\n\t\t\t\t\"Zip Code\": 22222,\n\t\t\t\t\"Accountability Rating\": 6.6,\n\t\t\t\t\"Financial Rating\": 7.9,\n\t\t\t\t\"FightPoverty Rating\": 7.1\n\t\t\t}\n\t\t],\n\t\t\"cities\": [\n\t\t\t{\n\t\t\t\t\"city\": \"East City\",\n\t\t\t\t\"county\": \"East County\",\n\t\t\t\t\"state\": \"East State\",\n\t\t\t\t\"populuation\": 800\n\t\t\t}\n\t\t]\n\t}\n]",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/counties/sorted",
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"enabled": true
+							}
+						],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [],
+					"cookies": [],
+					"request": "329c0f94-7abf-4560-9173-1276802c765b",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "46072aec-fc88-47e7-a124-2f394969f90d",
+			"name": "Charities sorted by FightPoverty rating in a given location",
+			"url": "api.fightpoverty.online/charities/sorted?city&state&county&zip",
+			"description": "Find charities sorted by FightPoverty's rating from highest to lowest in a given location.",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "city",
+					"value": "",
+					"equals": false,
+					"description": "Give the charity's city and use \"+\" for spaces. \n\nIf you include a city, you must also include a state. \n\n<i>For example:</i> \"Austin\", \"Los+Angeles\"",
+					"enabled": true
+				},
+				{
+					"key": "state",
+					"value": "",
+					"equals": false,
+					"description": "Give the charity's two letter abbreviation for its state. \n\nIf you include a state, you must also include a city or county. \n\n<i>For example:</i>  \"TX\", \"CA\"",
+					"enabled": true
+				},
+				{
+					"key": "county",
+					"value": "",
+					"equals": false,
+					"description": "Give the charity's county and use \"+\" for spaces. \n\nIf you include a county, you must also include a state. \n\n<i>For example:</i>  \"Travis\", \"Los+Angeles\"",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "",
+					"equals": false,
+					"description": "Give the charity's zip code. \n\n<i>For example:</i>  78705, 90069",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": "2d325e10-686c-461b-a279-1167bfcc206b",
+			"responses": [
+				{
+					"id": "ce8325dd-6d98-4b24-b13e-f9dabc3c7d78",
+					"name": "Charities sorted by FightPoverty rating in a given locatoin",
+					"status": "",
+					"mime": "",
+					"language": "",
+					"text": "[\n\t{\n\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\"Mission Statement\": \"Provide shelter for the homeless\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": \"West City\",\n\t\t\"County\": \"West County\",\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11115,\n\t\t\"Accountability Rating\": 8.1,\n\t\t\"Financial Rating\": 8.5,\n\t\t\"FightPoverty Rating\": 8.7\n\t},\n\t{\n\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\"Mission Statement\": \"Feed the hungry\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": \"West City\",\n\t\t\"County\": \"West County\",\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11111,\n\t\t\"Accountability Rating\": 9.3,\n\t\t\"Financial Rating\": 6.2,\n\t\t\"FightPoverty Rating\": 8.3\n\t}\n]",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/charities/sorted?city=West+City&state=West+State",
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "city",
+								"value": "West+City",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "state",
+								"value": "West+State",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [],
+					"cookies": [],
+					"request": "46072aec-fc88-47e7-a124-2f394969f90d",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "7c32c5e2-19d8-4dbd-b435-4225cd0f5505",
+			"name": "Charities by location",
+			"url": "api.fightpoverty.online/charities/location?city&state&county&zip",
+			"description": "Find charities that match given city/state, county/state, or zip code.",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "city",
+					"value": "",
+					"equals": false,
+					"description": "Give the charity's city and use \"+\" for spaces. \n\nIf you include a city, you must also include a state. \n\n<i>For example:</i> \"Austin\", \"Los+Angeles\"",
+					"enabled": true
+				},
+				{
+					"key": "state",
+					"value": "",
+					"equals": false,
+					"description": "Give the charity's two letter abbreviation for its state. \n\nIf you include a state, you must also include a city or county. \n\n<i>For example:</i> \"TX\", \"CA\"",
+					"enabled": true
+				},
+				{
+					"key": "county",
+					"value": "",
+					"equals": false,
+					"description": "Give the charity's county and use \"+\" for spaces. \n\nIf you include a county, you must also include a state. \n\n<i>For example:</i> \"Travis\", \"Los+Angeles\"",
+					"enabled": true
+				},
+				{
+					"key": "zip",
+					"value": "",
+					"equals": false,
+					"description": "Give the charity's zip code. \n\n<i>For example:</i> 78705, 90069",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": "2d325e10-686c-461b-a279-1167bfcc206b",
+			"responses": [
+				{
+					"id": "af4aac74-dbb6-4dae-9bf6-5093c11f8abf",
+					"name": "Charities by location",
+					"status": "",
+					"mime": "",
+					"language": "",
+					"text": "[\n\t{\n\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\"Mission Statement\": \"Feed the hungry\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": \"West City\",\n\t\t\"County\": \"West County\",\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11111,\n\t\t\"Accountability Rating\": 9.3,\n\t\t\"Financial Rating\": 6.2,\n\t\t\"FightPoverty Rating\": 8.3\n\t},\n\t{\n\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\"Mission Statement\": \"Provide shelter for the homeless\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": \"West City\",\n\t\t\"County\": \"West County\",\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11115,\n\t\t\"Accountability Rating\": 8.1,\n\t\t\"Financial Rating\": 8.5,\n\t\t\"FightPoverty Rating\": 8.7\n\t}\n]",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/charities/location?city=West+City&state=West+State",
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "city",
+								"value": "West+City",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "state",
+								"value": "West+State",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [],
+					"cookies": [],
+					"request": "7c32c5e2-19d8-4dbd-b435-4225cd0f5505",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "858ca19a-96db-405b-be0a-d54e999bb453",
+			"name": "Charity by name",
+			"url": "api.fightpoverty.online/charities/:name",
+			"description": "Find a charity by its name.",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "name",
+					"value": "",
+					"description": "Give the name of the charity and use \"%20\" for spaces.\n<br/>\n<br/>\n<i>For example:</i>  \"West%20Regional%20Food%20Bank\" to search for \"West Regional Food Bank\""
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "2d325e10-686c-461b-a279-1167bfcc206b",
+			"responses": [
+				{
+					"id": "82ab4a7f-2528-4440-a3a7-87c04c6945e9",
+					"name": "Charity by name",
+					"status": "",
+					"mime": "",
+					"language": "",
+					"text": "{\n\t\"Name\": \"West Regional Food Bank\",\n\t\"Mission Statement\": \"Feed the hungry\",\n\t\"Cause\": \"Human Services\",\n\t\"City\": \"West City\",\n\t\"County\": \"West County\",\n\t\"State\": \"West State\",\n\t\"Zip Code\": 11111,\n\t\"Accountability Rating\": 9.3,\n\t\"Financial Rating\": 6.2,\n\t\"FightPoverty Rating\": 8.3\n}",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/charities/West%20Regional%20Food%20Bank",
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [],
+					"cookies": [],
+					"request": "858ca19a-96db-405b-be0a-d54e999bb453",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {
+				"name": ""
+			}
+		},
+		{
+			"id": "ab20ae5d-195f-4441-b96f-8d8e8045538c",
+			"name": "Charities by cause",
+			"url": "api.fightpoverty.online/charities/cause/:cause",
+			"description": "Find charities by cause it supports.",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "cause",
+					"value": "",
+					"description": "Give the charity's cause and use \"%20\" for spaces.\n<br/>\n<br/>\n<i>For example:</i> \"Human%20Services\" \n"
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "2d325e10-686c-461b-a279-1167bfcc206b",
+			"responses": [
+				{
+					"id": "87bf53cb-df5e-475b-b303-20764acc1a2e",
+					"name": "Charities by cause",
+					"status": "",
+					"mime": "",
+					"language": "",
+					"text": "[\n\t{\n\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\"Mission Statement\": \"Feed the hungry\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": \"West City\",\n\t\t\"County\": \"West County\",\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11111,\n\t\t\"Accountability Rating\": 9.3,\n\t\t\"Financial Rating\": 6.2,\n\t\t\"FightPoverty Rating\": 8.3\n\t},\n\t{\n\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\"Mission Statement\": \"Provide shelter for the homeless\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": \"West City\",\n\t\t\"County\": \"West County\",\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11115,\n\t\t\"Accountability Rating\": 8.1,\n\t\t\"Financial Rating\": 8.5,\n\t\t\"FightPoverty Rating\": 8.7\n\t}\n]",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/charities/cause/Human%20Services",
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [],
+					"cookies": [],
+					"request": "ab20ae5d-195f-4441-b96f-8d8e8045538c",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {
+				"cause": ""
+			}
+		}
+	]
+}
