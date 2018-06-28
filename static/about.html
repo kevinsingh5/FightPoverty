@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="about_stats.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -57,7 +59,7 @@
           <h2 class="my-4">Our Team</h2>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="justin.jpg" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="MemberImages/justin.jpg" alt="">
           <h3>Justin Berman
           </h3>
           <p><i>Backend Developer</i></p>
@@ -68,7 +70,7 @@
 
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="chris.jpg" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="MemberImages/chris.jpg" alt="">
           <h3>Chris Amini
           </h3>
           <p><i>Backend Developer</i></p>
@@ -78,7 +80,7 @@
           <p>No. of Unit Tests:</p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" style = "width: 204px;" src="charlie.jpg" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" style = "width: 204px;" src="MemberImages/charlie.jpg" alt="">
           <h3>Charlie Matar
           </h3>
           <p><i>Frontend Developer</i></p>
@@ -88,8 +90,8 @@
           <p>No. of Unit Tests:</p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <div style="position:absolute; right:-100px; top:0px;"> 
-          <img class="rounded-circle img-fluid d-block mx-auto " style = "width: 204px;" src="yijie.jpg" alt="">
+<!--           <div style="position:absolute; right:-100px; top:0px;"> 
+ -->          <img class="rounded-circle img-fluid d-block mx-auto " style = "width: 204px;" src="MemberImages/yijie.jpg" alt="">
           <h3>Yijie Tang
           </h3>
           <p><i>Frontend Developer</i></p>
@@ -99,8 +101,8 @@
           <p>No. of Unit Tests:</p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <div style="position:absolute; right:-750px; top:0px;"> 
-          <img class="rounded-circle img-fluid d-block mx-auto" src="kevin.jpg" alt="">
+<!--           <div style="position:absolute; right:-750px; top:0px;"> 
+ -->          <img class="rounded-circle img-fluid d-block mx-auto" src="MemberImages/kevin.jpg" alt="">
           <h3>Kevin Singh
           </h3>
           <p><i>Backend Developer</i></p>
@@ -123,8 +125,18 @@
           <a href="http://gitlab.com/chris.amini/FightingPoverty">GitLab Repo</a>
           <br> </br>
           <a href="http://documenter.getpostman.com/view/4703596/RWEjqJFb#2d325e10-686c-461b-a279-1167bfcc206b">Postman API</a>
-    </div>
+          <br> </br>
 
+      <h2>Gitlab Stats</h2>
+        <p>Project name: <b><span id="name"></span></b></p>
+        <p>Description: <b><span id="description"></span></b></p>
+        <p>URL: <b><span id="URL"></span></b></p>
+        <p>README: <b><span id="readme"></span></b></p>
+        <p>Created on: <b><span id="time_created"></span></b></p>
+        <p>Last updated on: <b><span id="time_last_update"></span></b></p>
+        <p>Starred: <b><span id="num_stars"></span></b> times</p>
+        <p>Forked: <b><span id="num_forks"></span></b> times</p>
+    </div>
     <!-- /.container -->
 
     <!-- Footer -->
