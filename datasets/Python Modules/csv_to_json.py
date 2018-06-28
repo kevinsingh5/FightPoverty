@@ -1,7 +1,7 @@
 import csv
 import json
 
-csv_file_name = raw_input('Enter CSV file name to convert: ')
+csv_file_name = raw_input('Enter CSV file name to convert to json: ')
 
 with open(csv_file_name) as csv_file:
     reader = csv.DictReader(csv_file)
