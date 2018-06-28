@@ -65,7 +65,7 @@
           <h3>Justin Berman
           </h3>
           <p><i>Backend Developer</i></p>
-          <p>Bio:</p>
+          <p>Originally from LA (very chill). Currently a 5th and a half year senior studying CS and Finance. In addition to traffic and the beach, I'm also very into Bitcoin, Ethereum, and the cryptocurrency space.</p>
           <p>No. of Commits:</p>
           <p>No. of Issues:</p>
           <p>No. of Unit Tests: 0</p>
@@ -124,11 +124,35 @@
         <p>Total no. of Unit Tests: 0</p>
       
       <h2 class="my-4">Data</h2>
-        <a href="https://www.charitynavigator.org/index.cfm?bay=content.view&cpid=1397">Charity Navigator</a> 
+        <a href="https://www.charitynavigator.org/index.cfm?bay=content.view&cpid=1397">Charity Navigator</a>
+        <br> </br>
+          <span>
+            How data was scraped: First requested a key from the Charity Navigator website. 
+            Then used <a href="https://gitlab.com/chris.amini/FightingPoverty/blob/master/datasets/Python%20Modules/json_scraper.py">this python module</a> 
+            to scrape data from the api into a json file. See <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Charities">this folder</a> 
+            to see which queries were used. 
+          </span>
+        <br> </br>
+        <a href="https://www.census.gov/developers/">Census Poverty Statistics and Geography Info</a> 
           <br> </br>
-          <a href="https://www.census.gov/data/developers/data-sets/Poverty-Statistics.html">Census Poverty Statistics</a> 
+            <span>
+              How data was scraped: Used <a href="https://gitlab.com/chris.amini/FightingPoverty/blob/master/datasets/Python%20Modules/json_scraper.py">this python module</a> 
+              to scrape data from the api into a json file. See the 
+                <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Cities">cities folder</a>, 
+                <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Counties">counties folder</a>,  
+                <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/States">states folder</a>, and 
+                <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Zip%20Codes">zip code folder</a> 
+              to see exact queries used.
+            </span>
           <br> </br>
-          <a href="https://www.census.gov/data/developers/data-sets/TIGERweb-map-service.html">Census TIGERweb</a>
+          <a href="https://www.unitedstateszipcodes.org/zip-code-database/">United States Zip Codes</a>
+          <br> </br>
+            <span>
+              How data was scraped: Downloaded csv file from the United States Zip Codes website for free. 
+              Then used <a href="https://gitlab.com/chris.amini/FightingPoverty/blob/master/datasets/Python%20Modules/csv_to_json.py">this python module</a>
+              to convert the downloaded csv into <a href=href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Zip%20Codes/zip_codes_detailed.json">this json file</a>.
+              This dataset will enable us to link all scraped zip codes, cities, states, and counties.
+            </span>
       
       <h2 class="my-4">Tools</h2>
         <p>Amazon Web Services (AWS): To host our website</p>
