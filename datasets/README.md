@@ -1,1 +1,1 @@
-For the most part used './json_scraper.py' to scrape data from various RESTful api's. Each folder contains a README file specifying the exact query used for each json file.
+For the most part used `./json_scraper.py` to scrape data from various RESTful api's. Each folder contains a README file specifying the exact query used for each json file.
