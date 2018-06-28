@@ -5,3 +5,5 @@ deploy:
     script:
     - pip install awscli
     - aws s3 cp ./static/ s3://fightpoverty.online/ --recursive   #--exclude "*" --include "*.html"
+    - aws s3 cp ./api/index.html s3://api.fightpoverty.online/
+    - aws s3 cp ./datasets/ s3://api.fightpoverty.online/ --recursive --exclude "*" --include "*.json"
