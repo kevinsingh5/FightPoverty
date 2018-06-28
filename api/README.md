@@ -1,4 +1,4 @@
-[![pipeline status](https://gitlab.com/chris.amini/FightingPoverty/badges/master/pipeline.svg)](https://gitlab.com/chris.amini/FightingPoverty/commits/master)
+[![build status](https://gitlab.com/chris.amini/FightingPoverty/badges/master/build.svg)](https://gitlab.com/chris.amini/FightingPoverty/commits/master)
 
 Fight Poverty API
 
