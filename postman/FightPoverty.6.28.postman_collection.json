@@ -24,7 +24,8 @@
 				"858ca19a-96db-405b-be0a-d54e999bb453",
 				"7c32c5e2-19d8-4dbd-b435-4225cd0f5505",
 				"46072aec-fc88-47e7-a124-2f394969f90d",
-				"ab20ae5d-195f-4441-b96f-8d8e8045538c"
+				"ab20ae5d-195f-4441-b96f-8d8e8045538c",
+				"354c1a48-bd88-430c-b532-3911da0c2384"
 			],
 			"folders_order": []
 		},
@@ -37,7 +38,8 @@
 			"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc",
 			"folder": null,
 			"order": [
-				"174f238f-29c8-4395-855d-807aeea6c9ae"
+				"174f238f-29c8-4395-855d-807aeea6c9ae",
+				"898bc850-3fb8-4b52-b6cd-e2d1c193c219"
 			],
 			"folders_order": []
 		},
@@ -51,7 +53,8 @@
 			"folder": null,
 			"order": [
 				"17c22694-9107-44ea-8039-3d47abd656a0",
-				"329c0f94-7abf-4560-9173-1276802c765b"
+				"329c0f94-7abf-4560-9173-1276802c765b",
+				"ba6e5f5b-1854-4662-99e1-babf65299e46"
 			],
 			"folders_order": []
 		}
@@ -107,7 +110,7 @@
 					"status": "",
 					"mime": "",
 					"language": "",
-					"text": "[\n\t{\n\t\t\"city\": \"West City\",\n\t\t\"county\": \"West County\",\n\t\t\"state\": \"West State\",\n\t\t\"populuation\": 100000\n\t}\n]",
+					"text": "[\n\t{\n\t\t\"city\": \"West City\",\n\t\t\"id\": 10,\n\t\t\"counties\": [\n\t\t\t{\n\t\t\t\t\"Name\": \"West County\",\n\t\t\t\t\"id\": 100\n\t\t\t}\n\t\t],\n\t\t\"state\": \"West State\",\n\t\t\"population\": 100000,\n\t\t\"charities\": [\n\t\t\t{\n\t\t\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\t\t\"id\": 1\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"Name\": \"West Homeless Shelter\", \n\t\t\t\t\"id\": 2\n\t\t\t}\n\t\t]\n\t}\n]",
 					"responseCode": {
 						"code": 200,
 						"name": "OK"
@@ -209,7 +212,7 @@
 					"status": "",
 					"mime": "",
 					"language": "",
-					"text": "[\n\t{\n\t\t\"county\": \"West County\",\n\t\t\"state\": \"West State\",\n\t\t\"poverty percentage\": 10.3\n\t\t\"population\": 1000000,\n\t\t\"charities\": [\n\t\t\t{\n\t\t\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\t\t\"Mission Statement\": \"Feed the hungry\",\n\t\t\t\t\"Cause\": \"Human Services\",\n\t\t\t\t\"City\": \"West City\",\n\t\t\t\t\"County\": \"West County\",\n\t\t\t\t\"State\": \"West State\",\n\t\t\t\t\"Zip Code\": 11111,\n\t\t\t\t\"Accountability Rating\": 9.3,\n\t\t\t\t\"Financial Rating\": 6.2,\n\t\t\t\t\"FightPoverty Rating\": 8.3\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\t\t\"Mission Statement\": \"Provide shelter for the homeless\",\n\t\t\t\t\"Cause\": \"Human Services\",\n\t\t\t\t\"City\": \"West City\",\n\t\t\t\t\"County\": \"West County\",\n\t\t\t\t\"State\": \"West State\",\n\t\t\t\t\"Zip Code\": 11115,\n\t\t\t\t\"Accountability Rating\": 8.1,\n\t\t\t\t\"Financial Rating\": 8.5,\n\t\t\t\t\"FightPoverty Rating\": 8.7\n\t\t\t}\n\t\t],\n\t\t\"cities\": [\n\t\t\t{\n\t\t\t\t\"city\": \"West City\",\n\t\t\t\t\"county\": \"West County\",\n\t\t\t\t\"state\": \"West State\",\n\t\t\t\t\"populuation\": 100000\n\t\t\t}\n\t\t]\n\t}\n]",
+					"text": "[\n\t{\n\t\t\"name\": \"West County\",\n\t\t\"id\": 100,\n\t\t\"state\": \"West State\",\n\t\t\"poverty percentage\": 10.3\n\t\t\"population\": 1000000,\n\t\t\"charities\": [\n\t\t\t{\n\t\t\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\t\t\"id\": 1\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\t\t\"id\": 2\n\t\t\t}\n\t\t],\n\t\t\"cities\": [\n\t\t\t{\n\t\t\t\t\"Name\": \"West City\",\n\t\t\t\t\"id\": 10\n\t\t\t}\n\t\t]\n\t}\n]",
 					"responseCode": {
 						"code": 200,
 						"name": "OK"
@@ -282,7 +285,7 @@
 					"status": "",
 					"mime": "",
 					"language": "",
-					"text": "[\n\t{\n\t\t\"county\": \"West County\",\n\t\t\"state\": \"West State\",\n\t\t\"poverty percentage\": 10.3\n\t\t\"population\": 1000000,\n\t\t\"charities\": [\n\t\t\t{\n\t\t\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\t\t\"Mission Statement\": \"Feed the hungry\",\n\t\t\t\t\"Cause\": \"Human Services\",\n\t\t\t\t\"City\": \"West City\",\n\t\t\t\t\"County\": \"West County\",\n\t\t\t\t\"State\": \"West State\",\n\t\t\t\t\"Zip Code\": 11111,\n\t\t\t\t\"Accountability Rating\": 9.3,\n\t\t\t\t\"Financial Rating\": 6.2,\n\t\t\t\t\"FightPoverty Rating\": 8.3\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\t\t\"Mission Statement\": \"Provide shelter for the homeless\",\n\t\t\t\t\"Cause\": \"Human Services\",\n\t\t\t\t\"City\": \"West City\",\n\t\t\t\t\"County\": \"West County\",\n\t\t\t\t\"State\": \"West State\",\n\t\t\t\t\"Zip Code\": 11115,\n\t\t\t\t\"Accountability Rating\": 8.1,\n\t\t\t\t\"Financial Rating\": 8.5,\n\t\t\t\t\"FightPoverty Rating\": 8.7\n\t\t\t}\n\t\t],\n\t\t\"cities\": [\n\t\t\t{\n\t\t\t\t\"city\": \"West City\",\n\t\t\t\t\"county\": \"West County\",\n\t\t\t\t\"state\": \"West State\",\n\t\t\t\t\"populuation\": 100000\n\t\t\t}\n\t\t]\n\t},\n\t{\n\t\t\"county\": \"East County\",\n\t\t\"state\": \"East State\",\n\t\t\"poverty percentage\": 9.1\n\t\t\"population\": 10000,\n\t\t\"charities\": [\n\t\t\t{\n\t\t\t\t\"Name\": \"East Regional Food Distributor\",\n\t\t\t\t\"Mission Statement\": \"Feed as many homeless possible\",\n\t\t\t\t\"Cause\": \"Human Services\",\n\t\t\t\t\"City\": \"East City\",\n\t\t\t\t\"County\": \"East County\",\n\t\t\t\t\"State\": \"East State\",\n\t\t\t\t\"Zip Code\": 22222,\n\t\t\t\t\"Accountability Rating\": 6.6,\n\t\t\t\t\"Financial Rating\": 7.9,\n\t\t\t\t\"FightPoverty Rating\": 7.1\n\t\t\t}\n\t\t],\n\t\t\"cities\": [\n\t\t\t{\n\t\t\t\t\"city\": \"East City\",\n\t\t\t\t\"county\": \"East County\",\n\t\t\t\t\"state\": \"East State\",\n\t\t\t\t\"populuation\": 800\n\t\t\t}\n\t\t]\n\t}\n]",
+					"text": "[\n\t{\n\t\t\"Name\": \"West County\",\n\t\t\"id\": 100\n\t\t\"state\": \"West State\",\n\t\t\"poverty percentage\": 10.3\n\t\t\"population\": 1000000,\n\t\t\"charities\": [\n\t\t\t{\n\t\t\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\t\t\"id\": 1\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\t\t\"id\": 2\n\t\t\t}\n\t\t],\n\t\t\"cities\": [\n\t\t\t{\n\t\t\t\t\"Name\": \"West City\",\n\t\t\t\t\"id\": 10\n\t\t\t}\n\t\t]\n\t},\n\t{\n\t\t\"county\": \"East County\",\n\t\t\"id\": 101\n\t\t\"state\": \"East State\",\n\t\t\"poverty percentage\": 9.1\n\t\t\"population\": 10000,\n\t\t\"charities\": [\n\t\t],\n\t\t\"cities\": [\n\t\t\t{\n\t\t\t\t\"Name\": \"East City\",\n\t\t\t\t\"id\": 11\n\t\t\t}\n\t\t]\n\t}\n]",
 					"responseCode": {
 						"code": 200,
 						"name": "OK"
@@ -311,6 +314,64 @@
 			],
 			"headers": "",
 			"pathVariables": {}
+		},
+		{
+			"id": "354c1a48-bd88-430c-b532-3911da0c2384",
+			"name": "Charity by id",
+			"url": "api.fightpoverty.online/charities/:id",
+			"description": "Find a charity by unique identifier created by FightPoverty db",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": "",
+					"description": "Give the charity's unique identifier created by the FightPoverty database."
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "2d325e10-686c-461b-a279-1167bfcc206b",
+			"responses": [
+				{
+					"id": "f2b35897-f260-437b-9f8b-a8475c9c5976",
+					"name": "Charity by id",
+					"status": "",
+					"mime": "",
+					"language": "",
+					"text": "{\n\t\"Name\": \"West Regional Food Bank\",\n\t\"id\": 1\n\t\"Mission Statement\": \"Feed the hungry\",\n\t\"Cause\": \"Human Services\",\n\t\"City\": {\n\t\t\"Name\": \"West City\",\n\t\t\"id\": 10\n\t},\n\t\"County\": {\n\t\t\"Name\": \"West County\",\n\t\t\"id\": 100\n\t},\n\t\"State\": \"West State\",\n\t\"Zip Code\": 11111,\n\t\"Accountability Rating\": 9.3,\n\t\"Financial Rating\": 6.2,\n\t\"FightPoverty Rating\": 8.3\n}",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/charities/:id",
+						"pathVariableData": [
+							{
+								"key": "id",
+								"value": "1",
+								"description": "Give the charity's unique identifier created by the FightPoverty database."
+							}
+						],
+						"queryParams": [],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [],
+					"cookies": [],
+					"request": "354c1a48-bd88-430c-b532-3911da0c2384",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {
+				"id": ""
+			}
 		},
 		{
 			"id": "46072aec-fc88-47e7-a124-2f394969f90d",
@@ -362,7 +423,7 @@
 					"status": "",
 					"mime": "",
 					"language": "",
-					"text": "[\n\t{\n\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\"Mission Statement\": \"Provide shelter for the homeless\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": \"West City\",\n\t\t\"County\": \"West County\",\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11115,\n\t\t\"Accountability Rating\": 8.1,\n\t\t\"Financial Rating\": 8.5,\n\t\t\"FightPoverty Rating\": 8.7\n\t},\n\t{\n\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\"Mission Statement\": \"Feed the hungry\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": \"West City\",\n\t\t\"County\": \"West County\",\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11111,\n\t\t\"Accountability Rating\": 9.3,\n\t\t\"Financial Rating\": 6.2,\n\t\t\"FightPoverty Rating\": 8.3\n\t}\n]",
+					"text": "[\n\t{\n\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\"id\": 2\n\t\t\"Mission Statement\": \"Provide shelter for the homeless\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": {\n\t\t\t\"Name\": \"West City\",\n\t\t\t\"id\": 10\n\t\t},\n\t\t\"County\": {\n\t\t\t\"Name\": \"West County\",\n\t\t\t\"id\": 100\n\t\t},\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11115,\n\t\t\"Accountability Rating\": 8.1,\n\t\t\"Financial Rating\": 8.5,\n\t\t\"FightPoverty Rating\": 8.7\n\t},\n\t{\n\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\"id\": 1\n\t\t\"Mission Statement\": \"Feed the hungry\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": {\n\t\t\t\"Name\": \"West City\",\n\t\t\t\"id\": 10\n\t\t},\n\t\t\"County\": {\n\t\t\t\"Name\": \"West County\",\n\t\t\t\"id\": 100\n\t\t},\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11111,\n\t\t\"Accountability Rating\": 9.3,\n\t\t\"Financial Rating\": 6.2,\n\t\t\"FightPoverty Rating\": 8.3\n\t}\n]",
 					"responseCode": {
 						"code": 200,
 						"name": "OK"
@@ -450,7 +511,7 @@
 					"status": "",
 					"mime": "",
 					"language": "",
-					"text": "[\n\t{\n\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\"Mission Statement\": \"Feed the hungry\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": \"West City\",\n\t\t\"County\": \"West County\",\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11111,\n\t\t\"Accountability Rating\": 9.3,\n\t\t\"Financial Rating\": 6.2,\n\t\t\"FightPoverty Rating\": 8.3\n\t},\n\t{\n\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\"Mission Statement\": \"Provide shelter for the homeless\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": \"West City\",\n\t\t\"County\": \"West County\",\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11115,\n\t\t\"Accountability Rating\": 8.1,\n\t\t\"Financial Rating\": 8.5,\n\t\t\"FightPoverty Rating\": 8.7\n\t}\n]",
+					"text": "[\n\t{\n\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\"id\": 1\n\t\t\"Mission Statement\": \"Feed the hungry\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": {\n\t\t\t\"Name\": \"West City\",\n\t\t\t\"id\": 10\n\t\t},\n\t\t\"County\": {\n\t\t\t\"Name\": \"West County\",\n\t\t\t\"id\": 100\n\t\t},\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11111,\n\t\t\"Accountability Rating\": 9.3,\n\t\t\"Financial Rating\": 6.2,\n\t\t\"FightPoverty Rating\": 8.3\n\t},\n\t{\n\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\"id\": 2\n\t\t\"Mission Statement\": \"Provide shelter for the homeless\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": {\n\t\t\t\"Name\": \"West City\",\n\t\t\t\"id\": 10\n\t\t},\n\t\t\"County\": {\n\t\t\t\"Name\": \"West County\",\n\t\t\t\"id\": 100\n\t\t},\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11115,\n\t\t\"Accountability Rating\": 8.1,\n\t\t\"Financial Rating\": 8.5,\n\t\t\"FightPoverty Rating\": 8.7\n\t}\n]",
 					"responseCode": {
 						"code": 200,
 						"name": "OK"
@@ -491,20 +552,22 @@
 		{
 			"id": "858ca19a-96db-405b-be0a-d54e999bb453",
 			"name": "Charity by name",
-			"url": "api.fightpoverty.online/charities/:name",
+			"url": "api.fightpoverty.online/charities?name",
 			"description": "Find a charity by its name.",
 			"data": null,
 			"dataMode": "params",
 			"headerData": [],
 			"method": "GET",
-			"pathVariableData": [
+			"pathVariableData": [],
+			"queryParams": [
 				{
 					"key": "name",
 					"value": "",
-					"description": "Give the name of the charity and use \"%20\" for spaces.\n<br/>\n<br/>\n<i>For example:</i>  \"West%20Regional%20Food%20Bank\" to search for \"West Regional Food Bank\""
+					"equals": false,
+					"description": "Give the name of the charity and use \"+\" for spaces. \n\nFor example: \"West+Regional+Food+Bank\" to search for \"West Regional Food Bank\"",
+					"enabled": true
 				}
 			],
-			"queryParams": [],
 			"auth": null,
 			"events": [],
 			"folder": "2d325e10-686c-461b-a279-1167bfcc206b",
@@ -515,15 +578,23 @@
 					"status": "",
 					"mime": "",
 					"language": "",
-					"text": "{\n\t\"Name\": \"West Regional Food Bank\",\n\t\"Mission Statement\": \"Feed the hungry\",\n\t\"Cause\": \"Human Services\",\n\t\"City\": \"West City\",\n\t\"County\": \"West County\",\n\t\"State\": \"West State\",\n\t\"Zip Code\": 11111,\n\t\"Accountability Rating\": 9.3,\n\t\"Financial Rating\": 6.2,\n\t\"FightPoverty Rating\": 8.3\n}",
+					"text": "{\n\t\"Name\": \"West Regional Food Bank\",\n\t\"id\": 1\n\t\"Mission Statement\": \"Feed the hungry\",\n\t\"Cause\": \"Human Services\",\n\t\"City\": {\n\t\t\"Name\": \"West City\",\n\t\t\"id\": 10\n\t},\n\t\"County\": {\n\t\t\"Name\": \"West County\",\n\t\t\"id\": 100\n\t},\n\t\"State\": \"West State\",\n\t\"Zip Code\": 11111,\n\t\"Accountability Rating\": 9.3,\n\t\"Financial Rating\": 6.2,\n\t\"FightPoverty Rating\": 8.3\n}",
 					"responseCode": {
 						"code": 200,
 						"name": "OK"
 					},
 					"requestObject": {
-						"url": "api.fightpoverty.online/charities/West%20Regional%20Food%20Bank",
+						"url": "api.fightpoverty.online/charities?name=West+Regional+Food+Bank",
 						"pathVariableData": [],
-						"queryParams": [],
+						"queryParams": [
+							{
+								"key": "name",
+								"value": "West+Regional+Food+Bank",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
 						"headerData": [],
 						"data": null,
 						"method": "GET",
@@ -536,8 +607,64 @@
 				}
 			],
 			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "898bc850-3fb8-4b52-b6cd-e2d1c193c219",
+			"name": "City by id",
+			"url": "api.fightpoverty.online/cities/:id",
+			"description": "Find a city by its unique id given to it by FightPoverty db",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": "",
+					"description": "Give the city's unique identifier created by the FightPoverty database."
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "d6e69e02-9a3e-4b79-8dcb-b8d0296d6206",
+			"responses": [
+				{
+					"id": "beba923b-152c-4e7d-8475-e5f646ad963a",
+					"name": "City by id",
+					"status": "",
+					"mime": "",
+					"language": "",
+					"text": "{\n\t\"city\": \"West City\",\n\t\"id\": 10,\n\t\"counties\": [\n\t\t{\n\t\t\t\"Name\": \"West County\",\n\t\t\t\"id\": 100\n\t\t}\n\t],\n\t\"state\": \"West State\",\n\t\"population\": 100000,\n\t\"charities\": [\n\t\t{\n\t\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\t\"id\": 1\n\t\t},\n\t\t{\n\t\t\t\"Name\": \"West Homeless Shelter\", \n\t\t\t\"id\": 2\n\t\t}\n\t]\n}",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/cities/:id",
+						"pathVariableData": [
+							{
+								"key": "id",
+								"value": "10",
+								"description": "Give the city's unique identifier created by the FightPoverty database."
+							}
+						],
+						"queryParams": [],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [],
+					"cookies": [],
+					"request": "898bc850-3fb8-4b52-b6cd-e2d1c193c219",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
 			"pathVariables": {
-				"name": ""
+				"id": ""
 			}
 		},
 		{
@@ -567,7 +694,7 @@
 					"status": "",
 					"mime": "",
 					"language": "",
-					"text": "[\n\t{\n\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\"Mission Statement\": \"Feed the hungry\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": \"West City\",\n\t\t\"County\": \"West County\",\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11111,\n\t\t\"Accountability Rating\": 9.3,\n\t\t\"Financial Rating\": 6.2,\n\t\t\"FightPoverty Rating\": 8.3\n\t},\n\t{\n\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\"Mission Statement\": \"Provide shelter for the homeless\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": \"West City\",\n\t\t\"County\": \"West County\",\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11115,\n\t\t\"Accountability Rating\": 8.1,\n\t\t\"Financial Rating\": 8.5,\n\t\t\"FightPoverty Rating\": 8.7\n\t}\n]",
+					"text": "[\n\t{\n\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\"id\": 1\n\t\t\"Mission Statement\": \"Feed the hungry\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": {\n\t\t\t\"Name\": \"West City\",\n\t\t\t\"id\": 10\n\t\t},\n\t\t\"County\": {\n\t\t\t\"Name\": \"West County\",\n\t\t\t\"id\": 100\n\t\t},\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11111,\n\t\t\"Accountability Rating\": 9.3,\n\t\t\"Financial Rating\": 6.2,\n\t\t\"FightPoverty Rating\": 8.3\n\t},\n\t{\n\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\"id\": 2\n\t\t\"Mission Statement\": \"Provide shelter for the homeless\",\n\t\t\"Cause\": \"Human Services\",\n\t\t\"City\": {\n\t\t\t\"Name\": \"West City\",\n\t\t\t\"id\": 10\n\t\t},\n\t\t\"County\": {\n\t\t\t\"Name\": \"West County\",\n\t\t\t\"id\": 100\n\t\t},\n\t\t\"State\": \"West State\",\n\t\t\"Zip Code\": 11115,\n\t\t\"Accountability Rating\": 8.1,\n\t\t\"Financial Rating\": 8.5,\n\t\t\"FightPoverty Rating\": 8.7\n\t}\n]",
 					"responseCode": {
 						"code": 200,
 						"name": "OK"
@@ -590,6 +717,64 @@
 			"headers": "",
 			"pathVariables": {
 				"cause": ""
+			}
+		},
+		{
+			"id": "ba6e5f5b-1854-4662-99e1-babf65299e46",
+			"name": "County by id",
+			"url": "api.fightpoverty.online/counties/:id",
+			"description": "Find a county by its unique id created by the FightPoverty DB",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": "",
+					"description": "Give the county's unique identifier created by the FightPoverty database."
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "e60c2ad5-ce0e-48dc-ad88-d24aa7575117",
+			"responses": [
+				{
+					"id": "a3fd42ab-209a-41e9-b013-613bb43f0dfa",
+					"name": "County by id",
+					"status": "",
+					"mime": "",
+					"language": "",
+					"text": "{\n\t\"name\": \"West County\",\n\t\"id\": 100,\n\t\"state\": \"West State\",\n\t\"poverty percentage\": 10.3\n\t\"population\": 1000000,\n\t\"charities\": [\n\t\t{\n\t\t\t\"Name\": \"West Regional Food Bank\",\n\t\t\t\"id\": 1\n\t\t},\n\t\t{\n\t\t\t\"Name\": \"West Homeless Shelter\",\n\t\t\t\"id\": 2\n\t\t}\n\t],\n\t\"cities\": [\n\t\t{\n\t\t\t\"Name\": \"West City\",\n\t\t\t\"id\": 10\n\t\t}\n\t]\n}",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/counties/:id",
+						"pathVariableData": [
+							{
+								"key": "id",
+								"value": "100",
+								"description": "Give the county's unique identifier created by the FightPoverty database."
+							}
+						],
+						"queryParams": [],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [],
+					"cookies": [],
+					"request": "ba6e5f5b-1854-4662-99e1-babf65299e46",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {
+				"id": ""
 			}
 		}
 	]
