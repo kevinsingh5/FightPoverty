@@ -1,10 +1,12 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restless import APIManager
+from config import db_connection
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql:////tmp/test.db' # database url
+app.config['SQLALCHEMY_DATABASE_URI'] = db_connection
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
 
@@ -28,7 +30,7 @@ class Charity(db.Model):
     fight_poverty_rating = db.Column(db.Float, unique=False)
 
     def __repr__(self):
-        return 'User %r' % self.username
+        return 'Charity name %r' % self.name
 
 
 class City(db.Model):
@@ -42,6 +44,8 @@ class City(db.Model):
 class County(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=False, nullable=False)
+
+    state = db.Column(db.String(40), unique=False, nullable=False)
 
 ### END TABLES
 
@@ -77,14 +81,14 @@ try:
     # Create the database tables
     db.create_all()
 except Exception as exp:
-    print(exp)
+    print('Failed to drop/create tables', exp)
 
 
 added_test_cities = False
 try:
     if not added_test_cities:
         # test add county
-        county = County(name='Travis')
+        county = County(name='Travis', state='Texas')
         db.session.add(county)
         db.session.commit()
 
@@ -113,7 +117,7 @@ try:
 
 except Exception as exp:
     print('')
-    print(exp)
+    print('Failed to add test data', exp)
     print('')
 
 
