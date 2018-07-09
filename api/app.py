@@ -4,7 +4,7 @@ from flask_restless import APIManager
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db' # database url
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql:////tmp/test.db' # database url
 db = SQLAlchemy(app)
 
 
@@ -42,7 +42,6 @@ class City(db.Model):
 class County(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=False, nullable=False)
-
 
 ### END TABLES
 

@@ -3,12 +3,11 @@ import React, { Component } from 'react';
 class Carousel extends Component {
   constructor(props){
     super(props)
-    this.state = {onHP = true};
+    this.state = {
+      onHP: true
+    };
   }
 
-  navbarClicked{
-    
-  }
 
   render(){
   return(
@@ -25,7 +24,7 @@ class Carousel extends Component {
               <div className="carousel-caption text-left">
                 <h1>Cities</h1>
                 <p>Browse our huge database of cities in the U.S.</p>
-                <p><a className="btn btn-lg btn-primary" role="button" href= "cities.html">Cities</a></p>
+                <p><a className="btn btn-lg btn-primary" role="button" href= "cities">Cities</a></p>
               </div>
             </div>
           </div>
@@ -35,7 +34,7 @@ class Carousel extends Component {
               <div className="carousel-caption">
                 <h1>Counties</h1>
                 <p>Look up any of the counties in the U.S. and find out information about local charities and poverty statistics</p>
-                <p><a className="btn btn-lg btn-primary" href="counties.html" role="button">Counties</a></p>
+                <p><a className="btn btn-lg btn-primary" href="counties" role="button">Counties</a></p>
               </div>
             </div>
           </div>
@@ -45,7 +44,7 @@ class Carousel extends Component {
               <div className="carousel-caption text-right">
                 <h1>Charities</h1>
                 <p>Browse our list of charities and organizations and find one you would like to help out</p>
-                <p><a className="btn btn-lg btn-primary" href="charities.html" role="button">Charities</a></p>
+                <p><a className="btn btn-lg btn-primary" href="charities" role="button">Charities</a></p>
               </div>
             </div>
           </div>

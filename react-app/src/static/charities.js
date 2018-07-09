@@ -1,4 +1,4 @@
-export const charities_response = {
+export const charitiesResponse = {
   "num_results": 1, 
   "objects": [
     {
