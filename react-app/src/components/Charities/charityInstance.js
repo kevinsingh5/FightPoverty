@@ -19,33 +19,32 @@ class CharityInstance extends Component {
   render() {
 
     return (
-      <div>
-        <ul>
-          {this.state.charities.map((charity, i) => {
-            return (
-              <div key={i}>
-                <section className="jumbotron text-center">
-                    <div className="container">
-                      <h1 className="jumbotron-heading">{charity.name}</h1>
-                      <p className="lead text-muted">{charity.mission_statement}</p>
-                    </div>
-                </section>
+      <ul>
+        {this.state.charities.map((charity, i) => {
+          return (
+            <div key={i}>
+              <section className="jumbotron text-center">
+                  <div className="container">
+                    <h1 className="jumbotron-heading">{charity.name}</h1>
+                    <p className="lead text-muted">{charity.mission_statement}</p>
+                  </div>
+              </section>
 
-                <ul>
-                  <li>Cause: {charity.cause}</li>
-                  <li>City: {charity.city.name}</li>
-                  <li>County: {charity.county.name}</li>
-                  <li>State: {charity.state}</li>
-                  <li>Zip Code: {charity.zip} </li>
-                  <li>Accountability Rating: {charity.accRat}</li>
-                  <li >Financial Rating:{charity.finRat}</li>
-                  <li >FightPoverty Rating: {charity.FPRat} </li>
-                </ul>
-              </div>
-            )
-          })}        
-        </ul>
-      </div>
+              <ul>
+                <li>Cause: {charity.cause}</li>
+                <li>City: {charity.city.name}</li>
+                <li>County: {charity.county.name}</li>
+                <li>State: {charity.state}</li>
+                <li>Zip Code: {charity.zip_code} </li>
+                <li>Accountability Rating: {charity.accountability_rating}</li>
+                <li >Financial Rating:{charity.financial_rating}</li>
+                <li >FightPoverty Rating: {charity.fight_poverty_rating} </li>
+              </ul>
+            </div>
+          )
+        })}        
+      </ul>
+
     );
   }
 }
