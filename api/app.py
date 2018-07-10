@@ -1,8 +1,20 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restless import APIManager
-from config import db_connection
 
+
+db_name = os.environ.get("RDS_DB_NAME", "testdb")
+username = os.environ.get("RDS_USERNAME", "root")
+password = os.environ.get("RDS_PASSWORD", "password")
+hostname = os.environ.get("RDS_HOSTNAME", "testdbinstance.cydh8jzkegid.us-west-2.rds.amazonaws.com")
+
+
+db_connection = ''
+if db_name and username and password and hostname :
+    db_connection = 'mysql://' + username + ':' + password + '@' + hostname + '/' + db_name
+else :
+    db_connection = 'sqlite:////tmp/test.db'
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_connection
@@ -76,7 +88,7 @@ def hello():
 
 try: 
     # Drop already created tables for testing purposes
-    db.drop_all()
+    # db.drop_all()
 
     # Create the database tables
     db.create_all()
@@ -88,30 +100,30 @@ added_test_cities = False
 try:
     if not added_test_cities:
         # test add county
-        county = County(name='Travis', state='Texas')
-        db.session.add(county)
-        db.session.commit()
+        # county = County(name='Travis', state='Texas')
+        # db.session.add(county)
+        # db.session.commit()
 
-        # test add city
-        city = City(name='Austin', county_id=1)
-        db.session.add(city)
-        db.session.commit()
+        # # test add city
+        # city = City(name='Austin', county_id=1)
+        # db.session.add(city)
+        # db.session.commit()
 
-        # test add charity
-        charity = Charity(
-            name='West Regional Food Bank',
-            mission_statement='Feed the hungry',
-            cause='Human Services',
-            city_id=1,
-            county_id=1,
-            state='West State',
-            zip_code=11111,
-            accountability_rating=9.3,
-            financial_rating=6.2,
-            fight_poverty_rating=8.3
-        )
-        db.session.add(charity)
-        db.session.commit()
+        # # test add charity
+        # charity = Charity(
+        #     name='West Regional Food Bank',
+        #     mission_statement='Feed the hungry',
+        #     cause='Human Services',
+        #     city_id=1,
+        #     county_id=1,
+        #     state='West State',
+        #     zip_code=11111,
+        #     accountability_rating=9.3,
+        #     financial_rating=6.2,
+        #     fight_poverty_rating=8.3
+        # )
+        # db.session.add(charity)
+        # db.session.commit()
 
         added_test_cities = True
 

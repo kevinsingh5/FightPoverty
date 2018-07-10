@@ -5,7 +5,7 @@ sql_query = "INSERT INTO county (name, state) VALUES (%s, %s)"
 
 
 # Constructs individual county tuple to be inserted into MySQL DB
-def construct_sql_records (data) :
+def construct_sql_records (data, _) :
   array_of_tuples_to_insert = []
   
   # skip first element which has names of attributes
