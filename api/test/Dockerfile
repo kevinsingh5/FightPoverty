@@ -2,9 +2,10 @@ FROM ubuntu:latest
 #LABEL Fight Poverty "ksingh@utexas.edu"
 RUN apt-get update -y && \
     apt-get install -y python-pip python-dev
-COPY ./requirements.txt /test/requirements.txt
-WORKDIR /test
+COPY ./requirements.txt /app/requirements.txt
+WORKDIR /app
 RUN pip install -r requirements.txt
-COPY . /test
+COPY . /app
 ENTRYPOINT ["python"]
-CMD ["restless_test.py"]
+CMD ["app.py"]
+
