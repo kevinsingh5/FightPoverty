@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { getCharities } from '../../queries/charityQueries';
+import { getCounties } from '../../queries/countyQueries';
 import Pagination from "react-js-pagination";
 import CountyCard from './CountyCard.js'
 class CountyModel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activePage: 1
+      activePage: 1,
+      counties: []
     };
   }
  
@@ -16,8 +17,8 @@ class CountyModel extends Component {
   }
 
   async componentWillMount () {
-    const charities = await getCharities()
-    this.setState({ charities: charities });
+    const counties = await getCounties()
+    this.setState({ counties: counties });
   }
 
 
@@ -36,7 +37,8 @@ class CountyModel extends Component {
         <div class="container">
 
           <div class="row">
-            <CountyCard />
+            {this.state.counties.map((dynamicCounty, i) => <CountyCard 
+                  key = {i} countyInfo = {dynamicCounty}/>)}
         </div>
         </div>
       </div>

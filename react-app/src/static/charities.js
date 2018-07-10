@@ -42,7 +42,7 @@ export const charitiesResponse =
       "financial_rating": 6.2, 
       "id": 1, 
       "mission_statement": "Feed the hungry", 
-      "name": "West Regional Food Bank", 
+      "name": "SECOND FOOD BANK TEST", 
       "state": "West State", 
       "zip_code": 11111
     }

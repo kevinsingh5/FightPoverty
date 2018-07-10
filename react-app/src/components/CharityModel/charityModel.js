@@ -41,7 +41,7 @@ class CharityModel extends Component {
 
           <div class="row">
             {this.state.charities.map((dynamicCharity, i) => <CharityCard 
-                  key = {i} cityInfo = {dynamicCharity}/>)}
+                  key = {i} charityInfo = {dynamicCharity}/>)}
           </div>
           </div>
           </div>

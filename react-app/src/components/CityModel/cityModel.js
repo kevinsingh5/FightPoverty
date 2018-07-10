@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getCharities } from '../../queries/charityQueries';
+import { getCities } from '../../queries/cityQueries';
 import Pagination from "react-js-pagination";
 import CityCard from './CityCard.js'
 
@@ -16,12 +16,12 @@ class CityModel extends Component {
     console.log(`active page is ${pageNumber}`);
     this.setState({activePage: pageNumber});
   }
-/*
+
   async componentWillMount () {
     const cities = await getCities() 
     this.setState({ cities: cities }); 
   }
-*/
+
 
 
   render() {
