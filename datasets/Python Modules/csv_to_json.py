@@ -20,12 +20,6 @@ with open(csv_file_name) as csv_file:
     else :
         data_to_write_to_json = rows
 
-    
-
-    
-
-
-
 file_name = raw_input('Enter new json file name: ')
 
 # Write the contents of the screened list into the json file

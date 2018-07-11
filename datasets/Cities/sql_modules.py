@@ -1,10 +1,11 @@
 import json
 
 # SQL query statement
-sql_query = "INSERT INTO city (name, state, ) VALUES (%s, %s)"
+sql_query = "INSERT INTO city (name, state, county_id) VALUES (%s, %s, %d)"
 
 
 # Constructs individual county tuple to be inserted into MySQL DB
+# EXPECTING FILE: ../Zip Codes/zip_codes_detailed.json
 def construct_sql_records (data, cur) :
   array_of_tuples_to_insert = []
   city_county_states_inserted = {}
@@ -14,7 +15,12 @@ def construct_sql_records (data, cur) :
   data_iter.next()
   
   # Data from zip_code_database.csv
+  counter = 0
   for item in data_iter :
+    if counter % 1000 == 0 :
+      print('Done creating ' + str(counter) + ' entries')
+    counter += 1
+
     city_name = item[1]
     county_name = item[3]
 
@@ -41,22 +47,19 @@ def construct_sql_records (data, cur) :
 
         # Query for county ID using county name and state        
         sql_query = 'SELECT id FROM county WHERE name="' + county_name + '" AND state="' + state_name + '"'
-        print(sql_query)
-        
-        resp = cur.execute(sql_query)
-        # entries = [dict(county_id=row[0]) for row in cur.fetchall()]
+        cur.execute(sql_query)
 
-        print(str(cur.fetchall()))
+        resp = cur.fetchall()
+        if len(resp) > 0 :
+          county_id = resp[0][0]
+          
+          tuple_to_insert = (city_name, state_name, county_id)
 
-        print('resp: ' + str(resp))
-        
+          array_of_tuples_to_insert.append(tuple_to_insert)
 
+        else :
+          print('No county ID for ' + city_county_state)
 
-        # # if no county ID, print and move on
-
-        # tuple_to_insert = (city_name, state_name)
-
-        # array_of_tuples_to_insert.append(tuple_to_insert)
 
   
   return array_of_tuples_to_insert

@@ -5,6 +5,7 @@ sql_query = "INSERT INTO county (name, state) VALUES (%s, %s)"
 
 
 # Constructs individual county tuple to be inserted into MySQL DB
+# EXPECTING FILE: ./Counties.json
 def construct_sql_records (data, _) :
   array_of_tuples_to_insert = []
   
@@ -20,7 +21,7 @@ def construct_sql_records (data, _) :
     state_num = str(int(item[4]))
     with open("../States/states_by_num_dict.json") as f:
       states_dict = json.load(f)  
-    state_name = states_dict[state_num]  
+    state_name = states_dict[state_num]
 
     tuple_to_insert = (county_name, state_name)
 

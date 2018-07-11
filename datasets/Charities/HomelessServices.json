@@ -13633,7 +13633,7 @@
         "mailingAddress": {
             "streetAddress2": null, 
             "streetAddress1": "71 Summit Avenue", 
-            "city": "Summit ", 
+            "city": "Summit", 
             "country": null, 
             "postalCode": "07901", 
             "stateOrProvince": "NJ"

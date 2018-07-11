@@ -40,11 +40,10 @@ array_of_tuples_to_insert = construct_sql_records(data, cur)
 
 
 # Batch insert into db
-# print("Inserting into db...")
-# cur.executemany(
-#     sql_query,
-#     array_of_tuples_to_insert
-# )
-# cnx.commit()
-# print("Done inserting...")
-
+print("Inserting into db...")
+cur.executemany(
+    sql_query,
+    array_of_tuples_to_insert
+)
+cnx.commit()
+print("Done inserting...")

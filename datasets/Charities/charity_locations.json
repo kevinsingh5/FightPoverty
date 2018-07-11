@@ -1,0 +1,2042 @@
+{
+    "4101": [
+        "Portland", 
+        "ME"
+    ], 
+    "59403": [
+        "Great Falls", 
+        "MT"
+    ], 
+    "12305": [
+        "Schenectady", 
+        "NY"
+    ], 
+    "79901": [
+        "El Paso", 
+        "TX"
+    ], 
+    "32801": [
+        "Orlando", 
+        "FL"
+    ], 
+    "32802": [
+        "Orlando", 
+        "FL"
+    ], 
+    "32805": [
+        "Orlando", 
+        "FL"
+    ], 
+    "92201": [
+        "Indio", 
+        "CA"
+    ], 
+    "49201": [
+        "Jackson", 
+        "MI"
+    ], 
+    "28722": [
+        "Columbus", 
+        "NC"
+    ], 
+    "41011": [
+        "Covington", 
+        "KY"
+    ], 
+    "33460": [
+        "Lake Worth", 
+        "FL"
+    ], 
+    "2108": [
+        "Boston", 
+        "MA"
+    ], 
+    "2111": [
+        "Boston", 
+        "MA"
+    ], 
+    "2116": [
+        "Boston", 
+        "MA"
+    ], 
+    "2118": [
+        "Boston", 
+        "MA"
+    ], 
+    "77901": [
+        "Victoria", 
+        "TX"
+    ], 
+    "92243": [
+        "El Centro", 
+        "CA"
+    ], 
+    "22201": [
+        "Arlington", 
+        "VA"
+    ], 
+    "2139": [
+        "Cambridge", 
+        "MA"
+    ], 
+    "98661": [
+        "Vancouver", 
+        "WA"
+    ], 
+    "98402": [
+        "Tacoma", 
+        "WA"
+    ], 
+    "60433": [
+        "Joliet", 
+        "IL"
+    ], 
+    "55405": [
+        "Minneapolis", 
+        "MN"
+    ], 
+    "4210": [
+        "Auburn", 
+        "ME"
+    ], 
+    "43123": [
+        "Grove City", 
+        "OH"
+    ], 
+    "16501": [
+        "Erie", 
+        "PA"
+    ], 
+    "55414": [
+        "Minneapolis", 
+        "MN"
+    ], 
+    "47807": [
+        "Terre Haute", 
+        "IN"
+    ], 
+    "55420": [
+        "Bloomington", 
+        "MN"
+    ], 
+    "97301": [
+        "Salem", 
+        "OR"
+    ], 
+    "55426": [
+        "St. Louis Park", 
+        "MN"
+    ], 
+    "34947": [
+        "Fort Pierce", 
+        "FL"
+    ], 
+    "55428": [
+        "New Hope", 
+        "MN"
+    ], 
+    "28805": [
+        "Asheville", 
+        "NC"
+    ], 
+    "39054": [
+        "Cary", 
+        "MS"
+    ], 
+    "45202": [
+        "Cincinnati", 
+        "OH"
+    ], 
+    "84119": [
+        "Salt Lake City", 
+        "UT"
+    ], 
+    "80027": [
+        "Louisville", 
+        "CO"
+    ], 
+    "45215": [
+        "Lockland", 
+        "OH"
+    ], 
+    "49321": [
+        "Comstock Park", 
+        "MI"
+    ], 
+    "71854": [
+        "Texarkana", 
+        "AR"
+    ], 
+    "49341": [
+        "Rockford", 
+        "MI"
+    ], 
+    "32962": [
+        "Vero Beach", 
+        "FL"
+    ], 
+    "98499": [
+        "Lakewood", 
+        "WA"
+    ], 
+    "98501": [
+        "Olympia", 
+        "WA"
+    ], 
+    "47302": [
+        "Muncie", 
+        "IN"
+    ], 
+    "47303": [
+        "Muncie", 
+        "IN"
+    ], 
+    "74103": [
+        "Tulsa", 
+        "OK"
+    ], 
+    "43215": [
+        "Columbus", 
+        "OH"
+    ], 
+    "8401": [
+        "Atlantic City", 
+        "NJ"
+    ], 
+    "61652": [
+        "Peoria", 
+        "IL"
+    ], 
+    "98520": [
+        "Aberdeen", 
+        "WA"
+    ], 
+    "93221": [
+        "Exeter", 
+        "CA"
+    ], 
+    "59624": [
+        "Helena", 
+        "MT"
+    ], 
+    "10474": [
+        "Bronx", 
+        "NY"
+    ], 
+    "33901": [
+        "Fort Myers", 
+        "FL"
+    ], 
+    "33023": [
+        "Pembroke Park", 
+        "FL"
+    ], 
+    "61701": [
+        "Bloomington", 
+        "IL"
+    ], 
+    "65803": [
+        "Springfield", 
+        "MO"
+    ], 
+    "49423": [
+        "Holland", 
+        "MI"
+    ], 
+    "14615": [
+        "Rochester", 
+        "NY"
+    ], 
+    "10523": [
+        "Elmsford", 
+        "NY"
+    ], 
+    "39203": [
+        "Jackson", 
+        "MS"
+    ], 
+    "63801": [
+        "Sikeston", 
+        "MO"
+    ], 
+    "53562": [
+        "Middleton", 
+        "WI"
+    ], 
+    "94524": [
+        "Concord", 
+        "CA"
+    ], 
+    "27701": [
+        "Durham", 
+        "NC"
+    ], 
+    "61761": [
+        "Normal", 
+        "IL"
+    ], 
+    "94533": [
+        "Fairfield", 
+        "CA"
+    ], 
+    "76102": [
+        "Fort Worth", 
+        "TX"
+    ], 
+    "33563": [
+        "Plant City", 
+        "FL"
+    ], 
+    "94538": [
+        "Fremont", 
+        "CA"
+    ], 
+    "76107": [
+        "Fort Worth", 
+        "TX"
+    ], 
+    "80204": [
+        "Denver", 
+        "CO"
+    ], 
+    "94541": [
+        "Hayward", 
+        "CA"
+    ], 
+    "37203": [
+        "Nashville", 
+        "TN"
+    ], 
+    "37206": [
+        "Nashville", 
+        "TN"
+    ], 
+    "80215": [
+        "Lakewood", 
+        "CO"
+    ], 
+    "80216": [
+        "Denver", 
+        "CO"
+    ], 
+    "37210": [
+        "Nashville", 
+        "TN"
+    ], 
+    "6492": [
+        "Wallingford", 
+        "CT"
+    ], 
+    "49503": [
+        "Grand Rapids", 
+        "MI"
+    ], 
+    "57701": [
+        "Rapid City", 
+        "SD"
+    ], 
+    "33127": [
+        "Miami", 
+        "FL"
+    ], 
+    "45417": [
+        "Dayton", 
+        "OH"
+    ], 
+    "61802": [
+        "Urbana", 
+        "IL"
+    ], 
+    "37228": [
+        "Nashville", 
+        "TN"
+    ], 
+    "80239": [
+        "Denver", 
+        "CO"
+    ], 
+    "33136": [
+        "Overtown, Miami", 
+        "FL"
+    ], 
+    "20850": [
+        "Rockville", 
+        "MD"
+    ], 
+    "6519": [
+        "New Haven", 
+        "CT"
+    ], 
+    "74106": [
+        "Tulsa", 
+        "OK"
+    ], 
+    "35202": [
+        "Birmingham", 
+        "AL"
+    ], 
+    "78213": [
+        "San Antonio", 
+        "TX"
+    ], 
+    "20877": [
+        "Gaithersburg", 
+        "MD"
+    ], 
+    "74127": [
+        "Tulsa", 
+        "OK"
+    ], 
+    "78227": [
+        "San Antonio", 
+        "TX"
+    ], 
+    "76180": [
+        "North Richland Hills", 
+        "TX"
+    ], 
+    "2453": [
+        "Waltham", 
+        "MA"
+    ], 
+    "59801": [
+        "Missoula", 
+        "MT"
+    ], 
+    "94621": [
+        "Oakland", 
+        "CA"
+    ], 
+    "48197": [
+        "Ypsilanti", 
+        "MI"
+    ], 
+    "59808": [
+        "Missoula", 
+        "MT"
+    ], 
+    "8609": [
+        "Trenton", 
+        "NJ"
+    ], 
+    "20910": [
+        "Silver Spring", 
+        "MD"
+    ], 
+    "80304": [
+        "Boulder", 
+        "CO"
+    ], 
+    "80305": [
+        "Boulder", 
+        "CO"
+    ], 
+    "21701": [
+        "Frederick", 
+        "MD"
+    ], 
+    "53704": [
+        "Madison", 
+        "WI"
+    ], 
+    "92618": [
+        "Irvine", 
+        "CA"
+    ], 
+    "6605": [
+        "Bridgeport", 
+        "CT"
+    ], 
+    "92627": [
+        "Costa Mesa", 
+        "CA"
+    ], 
+    "1102": [
+        "Springfield", 
+        "MA"
+    ], 
+    "53718": [
+        "Madison", 
+        "WI"
+    ], 
+    "27703": [
+        "Durham", 
+        "NC"
+    ], 
+    "27101": [
+        "Winston-Salem", 
+        "NC"
+    ], 
+    "84101": [
+        "Salt Lake City", 
+        "UT"
+    ], 
+    "27105": [
+        "Winston-Salem", 
+        "NC"
+    ], 
+    "27107": [
+        "Winston-Salem", 
+        "NC"
+    ], 
+    "39401": [
+        "Hattiesburg", 
+        "MS"
+    ], 
+    "70123": [
+        "New Orleans", 
+        "LA"
+    ], 
+    "31217": [
+        "Macon", 
+        "GA"
+    ], 
+    "95354": [
+        "Modesto", 
+        "CA"
+    ], 
+    "55802": [
+        "Duluth", 
+        "MN"
+    ], 
+    "59901": [
+        "Kalispell", 
+        "MT"
+    ], 
+    "55811": [
+        "Duluth", 
+        "MN"
+    ], 
+    "68102": [
+        "Omaha", 
+        "NE"
+    ], 
+    "68107": [
+        "Omaha", 
+        "NE"
+    ], 
+    "68108": [
+        "Omaha", 
+        "NE"
+    ], 
+    "76301": [
+        "Wichita Falls", 
+        "TX"
+    ], 
+    "76302": [
+        "Wichita Falls", 
+        "TX"
+    ], 
+    "29201": [
+        "Columbia", 
+        "SC"
+    ], 
+    "96793": [
+        "Wailuku", 
+        "HI"
+    ], 
+    "37406": [
+        "Chattanooga", 
+        "TN"
+    ], 
+    "68127": [
+        "Omaha", 
+        "NE"
+    ], 
+    "84401": [
+        "Ogden", 
+        "UT"
+    ], 
+    "21032": [
+        "Crownsville", 
+        "MD"
+    ], 
+    "96817": [
+        "Honolulu", 
+        "HI"
+    ], 
+    "96819": [
+        "Honolulu", 
+        "HI"
+    ], 
+    "75034": [
+        "Frisco", 
+        "TX"
+    ], 
+    "78408": [
+        "Corpus Christi", 
+        "TX"
+    ], 
+    "23120": [
+        "Moseley", 
+        "VA"
+    ], 
+    "94801": [
+        "Richmond", 
+        "CA"
+    ], 
+    "43604": [
+        "Toledo", 
+        "OH"
+    ], 
+    "48910": [
+        "Lansing", 
+        "MI"
+    ], 
+    "90712": [
+        "Lakewood", 
+        "CA"
+    ], 
+    "43609": [
+        "Toledo", 
+        "OH"
+    ], 
+    "80218": [
+        "Denver", 
+        "CO"
+    ], 
+    "60517": [
+        "Woodridge", 
+        "IL"
+    ], 
+    "55904": [
+        "Rochester", 
+        "MN"
+    ], 
+    "64106": [
+        "Kansas City", 
+        "MO"
+    ], 
+    "90731": [
+        "San Pedro", 
+        "CA"
+    ], 
+    "64108": [
+        "Kansas City", 
+        "MO"
+    ], 
+    "64110": [
+        "Kansas City", 
+        "MO"
+    ], 
+    "64111": [
+        "Kansas City", 
+        "MO"
+    ], 
+    "64126": [
+        "Kansas City", 
+        "MO"
+    ], 
+    "33407": [
+        "West Palm Beach", 
+        "FL"
+    ], 
+    "64129": [
+        "Kansas City", 
+        "MO"
+    ], 
+    "80524": [
+        "Fort Collins", 
+        "CO"
+    ], 
+    "95682": [
+        "Cameron Park", 
+        "CA"
+    ], 
+    "23661": [
+        "Hampton", 
+        "VA"
+    ], 
+    "19103": [
+        "Philadelphia", 
+        "PA"
+    ], 
+    "19107": [
+        "Philadelphia", 
+        "PA"
+    ], 
+    "78502": [
+        "Pharr", 
+        "TX"
+    ], 
+    "31401": [
+        "Savannah", 
+        "GA"
+    ], 
+    "8648": [
+        "Lawrenceville", 
+        "NJ"
+    ], 
+    "23220": [
+        "Richmond", 
+        "VA"
+    ], 
+    "60085": [
+        "Waukegan", 
+        "IL"
+    ], 
+    "43702": [
+        "Zanesville", 
+        "OH"
+    ], 
+    "19130": [
+        "Philadelphia", 
+        "PA"
+    ], 
+    "90813": [
+        "Long Beach", 
+        "CA"
+    ], 
+    "60095": [
+        "Palatine", 
+        "IL"
+    ], 
+    "46601": [
+        "South Bend", 
+        "IN"
+    ], 
+    "6854": [
+        "Norwalk", 
+        "CT"
+    ], 
+    "19144": [
+        "Philadelphia", 
+        "PA"
+    ], 
+    "19148": [
+        "Philadelphia", 
+        "PA"
+    ], 
+    "17105": [
+        "Harrisburg", 
+        "PA"
+    ], 
+    "21202": [
+        "Baltimore", 
+        "MD"
+    ], 
+    "17109": [
+        "Harrisburg", 
+        "PA"
+    ], 
+    "23260": [
+        "Richmond", 
+        "VA"
+    ], 
+    "29405": [
+        "Charleston", 
+        "SC"
+    ], 
+    "6880": [
+        "Westport", 
+        "CT"
+    ], 
+    "37601": [
+        "Johnson City", 
+        "TN"
+    ], 
+    "21218": [
+        "Baltimore", 
+        "MD"
+    ], 
+    "94949": [
+        "Novato", 
+        "CA"
+    ], 
+    "60134": [
+        "Geneva", 
+        "IL"
+    ], 
+    "46204": [
+        "Indianapolis", 
+        "IN"
+    ], 
+    "21227": [
+        "Baltimore", 
+        "MD"
+    ], 
+    "21230": [
+        "Baltimore", 
+        "MD"
+    ], 
+    "37620": [
+        "Bristol", 
+        "TN"
+    ], 
+    "6902": [
+        "Stamford", 
+        "CT"
+    ], 
+    "80631": [
+        "Greeley", 
+        "CO"
+    ], 
+    "6906": [
+        "Stamford", 
+        "CT"
+    ], 
+    "15110": [
+        "Duquesne", 
+        "PA"
+    ], 
+    "15116": [
+        "Glanshaw", 
+        "PA"
+    ], 
+    "80002": [
+        "Arvada", 
+        "CO"
+    ], 
+    "27406": [
+        "Greensboro", 
+        "NC"
+    ], 
+    "60187": [
+        "Wheaton", 
+        "IL"
+    ], 
+    "37663": [
+        "Kingsport", 
+        "TN"
+    ], 
+    "47904": [
+        "Lafayette", 
+        "IN"
+    ], 
+    "48605": [
+        "Saginaw", 
+        "MI"
+    ], 
+    "33602": [
+        "Tampa", 
+        "FL"
+    ], 
+    "33605": [
+        "Tampa", 
+        "FL"
+    ], 
+    "31201": [
+        "Macon", 
+        "GA"
+    ], 
+    "58201": [
+        "Grand Forks", 
+        "ND"
+    ], 
+    "2907": [
+        "Providence", 
+        "RI"
+    ], 
+    "95076": [
+        "Watsonville", 
+        "CA"
+    ], 
+    "93030": [
+        "Oxnard", 
+        "CA"
+    ], 
+    "93036": [
+        "Oxnard", 
+        "CA"
+    ], 
+    "30525": [
+        "Clayton", 
+        "GA"
+    ], 
+    "15233": [
+        "Pittsburgh", 
+        "PA"
+    ], 
+    "99202": [
+        "Spokane", 
+        "WA"
+    ], 
+    "5001": [
+        "White River Junction", 
+        "VT"
+    ], 
+    "13202": [
+        "Syracuse", 
+        "NY"
+    ], 
+    "68501": [
+        "Lincoln", 
+        "NE"
+    ], 
+    "78744": [
+        "Austin", 
+        "TX"
+    ], 
+    "13209": [
+        "Syracuse", 
+        "NY"
+    ], 
+    "95131": [
+        "San Jose", 
+        "CA"
+    ], 
+    "68508": [
+        "Lincoln", 
+        "NE"
+    ], 
+    "78751": [
+        "Austin", 
+        "TX"
+    ], 
+    "29607": [
+        "Greenville", 
+        "SC"
+    ], 
+    "37801": [
+        "Maryville", 
+        "TN"
+    ], 
+    "93101": [
+        "Santa Barbara", 
+        "CA"
+    ], 
+    "93103": [
+        "Santa Barbara", 
+        "CA"
+    ], 
+    "94025": [
+        "Menlo Park", 
+        "CA"
+    ], 
+    "29625": [
+        "Anderson", 
+        "SC"
+    ], 
+    "97211": [
+        "Portland", 
+        "OR"
+    ], 
+    "97213": [
+        "Portland", 
+        "OR"
+    ], 
+    "7102": [
+        "Newark", 
+        "NJ"
+    ], 
+    "15301": [
+        "Washington", 
+        "PA"
+    ], 
+    "89030": [
+        "Las Vegas", 
+        "NV"
+    ], 
+    "48072": [
+        "Berkley", 
+        "MI"
+    ], 
+    "97227": [
+        "Portland", 
+        "OR"
+    ], 
+    "97230": [
+        "Portland", 
+        "OR"
+    ], 
+    "23504": [
+        "Norfolk", 
+        "VA"
+    ], 
+    "27601": [
+        "Raleigh", 
+        "NC"
+    ], 
+    "72658": [
+        "Norfork", 
+        "AR"
+    ], 
+    "27604": [
+        "Raleigh", 
+        "NC"
+    ], 
+    "33755": [
+        "Clearwater", 
+        "FL"
+    ], 
+    "91104": [
+        "Pasadena", 
+        "CA"
+    ], 
+    "99301": [
+        "Pasco", 
+        "WA"
+    ], 
+    "35816": [
+        "Huntsville", 
+        "AL"
+    ], 
+    "48113": [
+        "Ann Arbor", 
+        "MI"
+    ], 
+    "46202": [
+        "Indianapolis", 
+        "IN"
+    ], 
+    "19446": [
+        "Lansdale", 
+        "PA"
+    ], 
+    "64505": [
+        "Saint Joseph", 
+        "MO"
+    ], 
+    "17405": [
+        "York", 
+        "PA"
+    ], 
+    "80903": [
+        "Colorado Springs", 
+        "CO"
+    ], 
+    "33801": [
+        "Lakeland", 
+        "FL"
+    ], 
+    "60426": [
+        "Harvey", 
+        "IL"
+    ], 
+    "1038": [
+        "Hatfield", 
+        "MA"
+    ], 
+    "85009": [
+        "Phoenix", 
+        "AZ"
+    ], 
+    "89106": [
+        "Las Vegas", 
+        "NV"
+    ], 
+    "80915": [
+        "Colorado Springs", 
+        "CO"
+    ], 
+    "44053": [
+        "Lorain", 
+        "OH"
+    ], 
+    "80918": [
+        "Colorado Springs", 
+        "CO"
+    ], 
+    "80919": [
+        "Colorado Springs", 
+        "CO"
+    ], 
+    "89115": [
+        "Las Vegas", 
+        "NV"
+    ], 
+    "37917": [
+        "Knoxville", 
+        "TN"
+    ], 
+    "3103": [
+        "Manchester", 
+        "NH"
+    ], 
+    "7201": [
+        "Elizabeth", 
+        "NJ"
+    ], 
+    "85027": [
+        "Phoenix", 
+        "AZ"
+    ], 
+    "1060": [
+        "Northampton", 
+        "MA"
+    ], 
+    "7205": [
+        "Hillside", 
+        "NJ"
+    ], 
+    "66608": [
+        "Topeka", 
+        "KS"
+    ], 
+    "97333": [
+        "Corvallis", 
+        "OR"
+    ], 
+    "5641": [
+        "Barre", 
+        "VT"
+    ], 
+    "72764": [
+        "Bethel Heights", 
+        "AR"
+    ], 
+    "92782": [
+        "Tustin", 
+        "CA"
+    ], 
+    "87109": [
+        "Albuquerque", 
+        "NM"
+    ], 
+    "48201": [
+        "Detroit", 
+        "MI"
+    ], 
+    "44110": [
+        "Cleveland", 
+        "OH"
+    ], 
+    "48207": [
+        "Detroit", 
+        "MI"
+    ], 
+    "44113": [
+        "Cleveland", 
+        "OH"
+    ], 
+    "68110": [
+        "Omaha", 
+        "NE"
+    ], 
+    "44120": [
+        "Cleveland", 
+        "OH"
+    ], 
+    "60506": [
+        "Aurora", 
+        "IL"
+    ], 
+    "22031": [
+        "Fairfax", 
+        "VA"
+    ], 
+    "25701": [
+        "Huntington", 
+        "WV"
+    ], 
+    "72209": [
+        "Little Rock", 
+        "AR"
+    ], 
+    "93292": [
+        "Visalia", 
+        "CA"
+    ], 
+    "48237": [
+        "Oak Park", 
+        "MI"
+    ], 
+    "30909": [
+        "Augusta", 
+        "GA"
+    ], 
+    "93305": [
+        "Bakersfield", 
+        "CA"
+    ], 
+    "97402": [
+        "Eugene", 
+        "OR"
+    ], 
+    "60540": [
+        "Naperville", 
+        "IL"
+    ], 
+    "50304": [
+        "Des Moines", 
+        "IA"
+    ], 
+    "50309": [
+        "Des Moines", 
+        "IA"
+    ], 
+    "19608": [
+        "Reading", 
+        "PA"
+    ], 
+    "70815": [
+        "Baton Rouge", 
+        "LA"
+    ], 
+    "46241": [
+        "Indianapolis", 
+        "IN"
+    ], 
+    "95403": [
+        "Santa Rosa", 
+        "CA"
+    ], 
+    "99501": [
+        "Anchorage", 
+        "AK"
+    ], 
+    "60601": [
+        "Chicago", 
+        "IL"
+    ], 
+    "17603": [
+        "Lancaster", 
+        "PA"
+    ], 
+    "60612": [
+        "Chicago", 
+        "IL"
+    ], 
+    "60613": [
+        "Chicago", 
+        "IL"
+    ], 
+    "77002": [
+        "Houston", 
+        "TX"
+    ], 
+    "60622": [
+        "Chicago", 
+        "IL"
+    ], 
+    "60624": [
+        "Chicago", 
+        "IL"
+    ], 
+    "85201": [
+        "Mesa", 
+        "AZ"
+    ], 
+    "77011": [
+        "Houston", 
+        "TX"
+    ], 
+    "48342": [
+        "Pontiac", 
+        "MI"
+    ], 
+    "60632": [
+        "Chicago", 
+        "IL"
+    ], 
+    "38105": [
+        "Memphis", 
+        "TN"
+    ], 
+    "85210": [
+        "Mesa", 
+        "AZ"
+    ], 
+    "60640": [
+        "Chicago", 
+        "IL"
+    ], 
+    "77026": [
+        "Houston", 
+        "TX"
+    ], 
+    "77029": [
+        "Houston", 
+        "TX"
+    ], 
+    "21741": [
+        "Hagerstown", 
+        "MD"
+    ], 
+    "62703": [
+        "Springfield", 
+        "IL"
+    ], 
+    "25321": [
+        "Charleston", 
+        "WV"
+    ], 
+    "97526": [
+        "Grants Pass", 
+        "OR"
+    ], 
+    "28202": [
+        "Charlotte", 
+        "NC"
+    ], 
+    "79102": [
+        "Amarillo", 
+        "TX"
+    ], 
+    "19713": [
+        "Newark", 
+        "DE"
+    ], 
+    "27909": [
+        "Elizabeth City", 
+        "NC"
+    ], 
+    "93447": [
+        "Paso Robles", 
+        "CA"
+    ], 
+    "28204": [
+        "Charlotte", 
+        "NC"
+    ], 
+    "15626": [
+        "Delmont", 
+        "PA"
+    ], 
+    "36108": [
+        "Montgomery", 
+        "AL"
+    ], 
+    "95501": [
+        "Eureka", 
+        "CA"
+    ], 
+    "44303": [
+        "Akron", 
+        "OH"
+    ], 
+    "38104": [
+        "Memphis", 
+        "TN"
+    ], 
+    "44307": [
+        "Akron", 
+        "OH"
+    ], 
+    "77081": [
+        "Houston", 
+        "TX"
+    ], 
+    "5402": [
+        "Burlington", 
+        "VT"
+    ], 
+    "11550": [
+        "Hempstead", 
+        "NY"
+    ], 
+    "21795": [
+        "Williamsport", 
+        "MD"
+    ], 
+    "40228": [
+        "Louisville", 
+        "KY"
+    ], 
+    "68901": [
+        "Hastings", 
+        "NE"
+    ], 
+    "75057": [
+        "Lewisville", 
+        "TX"
+    ], 
+    "56201": [
+        "Willmar", 
+        "MN"
+    ], 
+    "42301": [
+        "Owensboro", 
+        "KY"
+    ], 
+    "75071": [
+        "Mckinney", 
+        "TX"
+    ], 
+    "46408": [
+        "Gary", 
+        "IN"
+    ], 
+    "30030": [
+        "Decatur", 
+        "GA"
+    ], 
+    "30033": [
+        "Decatur", 
+        "GA"
+    ], 
+    "19801": [
+        "Wilmington", 
+        "DE"
+    ], 
+    "89434": [
+        "McCarran", 
+        "NV"
+    ], 
+    "30061": [
+        "Marietta", 
+        "GA"
+    ], 
+    "99701": [
+        "Fairbanks", 
+        "AK"
+    ], 
+    "48503": [
+        "Flint", 
+        "MI"
+    ], 
+    "30076": [
+        "Roswell", 
+        "GA"
+    ], 
+    "95125": [
+        "San Jose", 
+        "CA"
+    ], 
+    "95624": [
+        "Elk Grove", 
+        "CA"
+    ], 
+    "56716": [
+        "Crookston", 
+        "MN"
+    ], 
+    "30096": [
+        "Duluth", 
+        "GA"
+    ], 
+    "68504": [
+        "Lincoln", 
+        "NE"
+    ], 
+    "73106": [
+        "Oklahoma City", 
+        "OK"
+    ], 
+    "20036": [
+        "Washington", 
+        "DC"
+    ], 
+    "34205": [
+        "Bradenton", 
+        "FL"
+    ], 
+    "98203": [
+        "Everett", 
+        "WA"
+    ], 
+    "54702": [
+        "Eau Claire", 
+        "WI"
+    ], 
+    "94109": [
+        "San Francisco", 
+        "CA"
+    ], 
+    "73137": [
+        "Oklahoma City", 
+        "OK"
+    ], 
+    "46516": [
+        "Elkhart", 
+        "IN"
+    ], 
+    "90015": [
+        "Los Angeles", 
+        "CA"
+    ], 
+    "23508": [
+        "Norfolk", 
+        "VA"
+    ], 
+    "71101": [
+        "Shreveport", 
+        "LA"
+    ], 
+    "71103": [
+        "Shreveport", 
+        "LA"
+    ], 
+    "34240": [
+        "Sarasota", 
+        "FL"
+    ], 
+    "75201": [
+        "Dallas", 
+        "TX"
+    ], 
+    "44482": [
+        "Warren", 
+        "OH"
+    ], 
+    "75204": [
+        "Dallas", 
+        "TX"
+    ], 
+    "75206": [
+        "Dallas", 
+        "TX"
+    ], 
+    "32202": [
+        "Jacksonville", 
+        "FL"
+    ], 
+    "24013": [
+        "Roanoke", 
+        "VA"
+    ], 
+    "75215": [
+        "Dallas", 
+        "TX"
+    ], 
+    "7632": [
+        "Englewood Cliffs", 
+        "NJ"
+    ], 
+    "87507": [
+        "Santa Fe", 
+        "NM"
+    ], 
+    "44501": [
+        "Youngstown", 
+        "OH"
+    ], 
+    "44509": [
+        "Youngstown", 
+        "OH"
+    ], 
+    "48607": [
+        "Saginaw", 
+        "MI"
+    ], 
+    "75234": [
+        "Farmers Branch", 
+        "TX"
+    ], 
+    "75236": [
+        "Dallas", 
+        "TX"
+    ], 
+    "28144": [
+        "Salisbury", 
+        "NC"
+    ], 
+    "28802": [
+        "Asheville", 
+        "NC"
+    ], 
+    "32254": [
+        "Jacksonville", 
+        "FL"
+    ], 
+    "1545": [
+        "Shrewsbury", 
+        "MA"
+    ], 
+    "11788": [
+        "Hauppauge", 
+        "NY"
+    ], 
+    "22030": [
+        "Fairfax", 
+        "VA"
+    ], 
+    "50703": [
+        "Waterloo", 
+        "IA"
+    ], 
+    "93716": [
+        "Fresno", 
+        "CA"
+    ], 
+    "93725": [
+        "Fresno", 
+        "CA"
+    ], 
+    "20001": [
+        "Washington", 
+        "DC"
+    ], 
+    "71203": [
+        "Monroe", 
+        "LA"
+    ], 
+    "20005": [
+        "Washington", 
+        "DC"
+    ], 
+    "20009": [
+        "Washington", 
+        "DC"
+    ], 
+    "20010": [
+        "Washington", 
+        "DC"
+    ], 
+    "20011": [
+        "Washington", 
+        "DC"
+    ], 
+    "79404": [
+        "Lubbock", 
+        "TX"
+    ], 
+    "28206": [
+        "Charlotte", 
+        "NC"
+    ], 
+    "11714": [
+        "Bethpage", 
+        "NY"
+    ], 
+    "20017": [
+        "Washington", 
+        "DC"
+    ], 
+    "20020": [
+        "Washington", 
+        "DC"
+    ], 
+    "32310": [
+        "Tallahassee", 
+        "FL"
+    ], 
+    "40508": [
+        "Lexington", 
+        "KY"
+    ], 
+    "40202": [
+        "Louisville", 
+        "KY"
+    ], 
+    "40511": [
+        "Lexington", 
+        "KY"
+    ], 
+    "52802": [
+        "Davenport", 
+        "IA"
+    ], 
+    "95811": [
+        "Sacramento", 
+        "CA"
+    ], 
+    "63044": [
+        "St. Louis", 
+        "MO"
+    ], 
+    "20037": [
+        "Washington", 
+        "DC"
+    ], 
+    "95816": [
+        "Sacramento", 
+        "CA"
+    ], 
+    "7753": [
+        "Neptune", 
+        "NJ"
+    ], 
+    "95828": [
+        "Sacramento", 
+        "CA"
+    ], 
+    "97209": [
+        "Portland", 
+        "OR"
+    ], 
+    "24153": [
+        "Salem", 
+        "VA"
+    ], 
+    "30303": [
+        "Atlanta", 
+        "GA"
+    ], 
+    "30314": [
+        "Atlanta", 
+        "GA"
+    ], 
+    "30318": [
+        "Atlanta", 
+        "GA"
+    ], 
+    "63088": [
+        "Valley Park", 
+        "MO"
+    ], 
+    "72206": [
+        "Little Rock", 
+        "AR"
+    ], 
+    "85628": [
+        "Nogales", 
+        "AZ"
+    ], 
+    "63101": [
+        "St. Louis", 
+        "MO"
+    ], 
+    "54911": [
+        "Appleton", 
+        "WI"
+    ], 
+    "63106": [
+        "St. Louis", 
+        "MO"
+    ], 
+    "71301": [
+        "Alexandria", 
+        "LA"
+    ], 
+    "67211": [
+        "Wichita", 
+        "KS"
+    ], 
+    "32401": [
+        "Panama City", 
+        "FL"
+    ], 
+    "63125": [
+        "Saint Louis", 
+        "MO"
+    ], 
+    "63132": [
+        "St. Louis", 
+        "MO"
+    ], 
+    "23834": [
+        "Colonial Heights", 
+        "VA"
+    ], 
+    "60137": [
+        "Glen Ellyn", 
+        "IL"
+    ], 
+    "27262": [
+        "High Point", 
+        "NC"
+    ], 
+    "61102": [
+        "Rockford", 
+        "IL"
+    ], 
+    "65202": [
+        "Columbia", 
+        "MO"
+    ], 
+    "18105": [
+        "Allentown", 
+        "PA"
+    ], 
+    "93901": [
+        "Salinas", 
+        "CA"
+    ], 
+    "20175": [
+        "Leesburg", 
+        "VA"
+    ], 
+    "85713": [
+        "Tucson", 
+        "AZ"
+    ], 
+    "23502": [
+        "Norfolk", 
+        "VA"
+    ], 
+    "3801": [
+        "Portsmouth", 
+        "NH"
+    ], 
+    "7901": [
+        "Summit", 
+        "NJ"
+    ], 
+    "59103": [
+        "Billings", 
+        "MT"
+    ], 
+    "46816": [
+        "Fort Wayne", 
+        "IN"
+    ], 
+    "36582": [
+        "Theodore", 
+        "AL"
+    ], 
+    "30333": [
+        "Atlanta", 
+        "GA"
+    ], 
+    "28401": [
+        "Wilmington", 
+        "NC"
+    ], 
+    "98034": [
+        "Seattle", 
+        "WA"
+    ], 
+    "79603": [
+        "Abilene", 
+        "TX"
+    ], 
+    "32501": [
+        "Pensacola", 
+        "FL"
+    ], 
+    "83705": [
+        "Boise", 
+        "ID"
+    ], 
+    "96001": [
+        "Redding", 
+        "CA"
+    ], 
+    "46855": [
+        "Fort Wayne", 
+        "IN"
+    ], 
+    "98056": [
+        "Renton", 
+        "WA"
+    ], 
+    "67202": [
+        "Wichita", 
+        "KS"
+    ], 
+    "7950": [
+        "Morris Plains", 
+        "NJ"
+    ], 
+    "10001": [
+        "New York", 
+        "NY"
+    ], 
+    "57107": [
+        "Sioux Falls", 
+        "SD"
+    ], 
+    "7960": [
+        "Morristown", 
+        "NJ"
+    ], 
+    "10013": [
+        "New York", 
+        "NY"
+    ], 
+    "10016": [
+        "New York", 
+        "NY"
+    ], 
+    "22314": [
+        "Alexandria", 
+        "VA"
+    ], 
+    "1841": [
+        "Lawrence", 
+        "MA"
+    ], 
+    "46901": [
+        "Kokomo", 
+        "IN"
+    ], 
+    "98102": [
+        "Seattle", 
+        "WA"
+    ], 
+    "98104": [
+        "Seattle", 
+        "WA"
+    ], 
+    "98105": [
+        "Seattle", 
+        "WA"
+    ], 
+    "98107": [
+        "Seattle", 
+        "WA"
+    ], 
+    "98108": [
+        "Seattle", 
+        "WA"
+    ], 
+    "55101": [
+        "St. Paul", 
+        "MN"
+    ], 
+    "98110": [
+        "Bainbridge Island", 
+        "WA"
+    ], 
+    "55109": [
+        "St. Paul", 
+        "MN"
+    ], 
+    "55110": [
+        "White Bear Lake", 
+        "MN"
+    ], 
+    "67401": [
+        "Salina", 
+        "KS"
+    ], 
+    "98125": [
+        "Seattle", 
+        "WA"
+    ], 
+    "98126": [
+        "Seattle", 
+        "WA"
+    ], 
+    "75604": [
+        "Longview", 
+        "TX"
+    ], 
+    "32601": [
+        "Gainesville", 
+        "FL"
+    ], 
+    "98144": [
+        "Seattle", 
+        "WA"
+    ], 
+    "49001": [
+        "Kalamazoo", 
+        "MI"
+    ], 
+    "1902": [
+        "Lynn", 
+        "MA"
+    ], 
+    "49007": [
+        "Kalamazoo", 
+        "MI"
+    ], 
+    "6002": [
+        "Bloomfield", 
+        "CT"
+    ], 
+    "14203": [
+        "Buffalo", 
+        "NY"
+    ], 
+    "14206": [
+        "Buffalo", 
+        "NY"
+    ], 
+    "94086": [
+        "Sunnyvale", 
+        "CA"
+    ], 
+    "22408": [
+        "Fredericksburg", 
+        "VA"
+    ], 
+    "1930": [
+        "Gloucester", 
+        "MA"
+    ], 
+    "79761": [
+        "Odessa", 
+        "TX"
+    ], 
+    "94102": [
+        "San Francisco", 
+        "CA"
+    ], 
+    "94107": [
+        "San Francisco", 
+        "CA"
+    ], 
+    "90013": [
+        "Los Angeles", 
+        "CA"
+    ], 
+    "90014": [
+        "Los Angeles", 
+        "CA"
+    ], 
+    "51103": [
+        "Sioux City", 
+        "IA"
+    ], 
+    "51105": [
+        "Sioux City", 
+        "IA"
+    ], 
+    "24482": [
+        "Verona", 
+        "VA"
+    ], 
+    "4011": [
+        "Brunswick", 
+        "ME"
+    ], 
+    "90028": [
+        "Los Angeles", 
+        "CA"
+    ], 
+    "8110": [
+        "Pennsauken", 
+        "NJ"
+    ], 
+    "92083": [
+        "Vista", 
+        "CA"
+    ], 
+    "75701": [
+        "Tyler", 
+        "TX"
+    ], 
+    "53186": [
+        "Waukesha", 
+        "WI"
+    ], 
+    "32707": [
+        "Casselberry", 
+        "FL"
+    ], 
+    "92101": [
+        "San Diego", 
+        "CA"
+    ], 
+    "92102": [
+        "San Diego", 
+        "CA"
+    ], 
+    "90058": [
+        "Los Angeles", 
+        "CA"
+    ], 
+    "24526": [
+        "Big Island", 
+        "VA"
+    ], 
+    "53205": [
+        "Milwaukee", 
+        "WI"
+    ], 
+    "45014": [
+        "Fairfield", 
+        "OH"
+    ], 
+    "90071": [
+        "Los Angeles", 
+        "CA"
+    ], 
+    "92121": [
+        "San Diego", 
+        "CA"
+    ], 
+    "53214": [
+        "Milwaukee", 
+        "WI"
+    ], 
+    "19110": [
+        "Philadelphia", 
+        "PA"
+    ], 
+    "10038": [
+        "New York", 
+        "NY"
+    ], 
+    "77803": [
+        "Bryan", 
+        "TX"
+    ], 
+    "32765": [
+        "Oviedo", 
+        "FL"
+    ]
+}

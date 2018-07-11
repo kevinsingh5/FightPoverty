@@ -3399,7 +3399,7 @@
         "mailingAddress": {
             "streetAddress2": null, 
             "streetAddress1": "1685 Jaggie Fox Way", 
-            "city": "Lexington ", 
+            "city": "Lexington", 
             "country": null, 
             "postalCode": "40511", 
             "stateOrProvince": "KY"
@@ -4031,7 +4031,7 @@
         "mailingAddress": {
             "streetAddress2": null, 
             "streetAddress1": "3744 North Industry Ave. #401", 
-            "city": "Lakewood ", 
+            "city": "Lakewood", 
             "country": null, 
             "postalCode": "90712", 
             "stateOrProvince": "CA"
@@ -11319,7 +11319,7 @@
         "mailingAddress": {
             "streetAddress2": "Building 6", 
             "streetAddress1": "4702 Transport Drive", 
-            "city": "Tampa ", 
+            "city": "Tampa", 
             "country": null, 
             "postalCode": "33605", 
             "stateOrProvince": "FL"

@@ -25,7 +25,7 @@ db = SQLAlchemy(app)
 ### TABLES
 class Charity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), unique=True, nullable=False)
+    name = db.Column(db.String(80), index=True, unique=True, nullable=False)
     mission_statement = db.Column(db.String(300), nullable=True)
     cause = db.Column(db.String(40), unique=False)
 
@@ -35,7 +35,6 @@ class Charity(db.Model):
     county_id = db.Column(db.Integer, db.ForeignKey('county.id'), nullable=False)
     county = db.relationship('County', backref=db.backref('charities', lazy='dynamic'))
 
-    state = db.Column(db.String(40), unique=False)
     zip_code = db.Column(db.Integer, unique=False)
     accountability_rating = db.Column(db.Float, unique=False)
     financial_rating = db.Column(db.Float, unique=False)
@@ -47,17 +46,23 @@ class Charity(db.Model):
 
 class City(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), unique=False, nullable=False)
+    name = db.Column(db.String(80), index=True, unique=False, nullable=False)
+
+    state = db.Column(db.String(40), unique=False)
 
     county_id = db.Column(db.Integer, db.ForeignKey('county.id'), nullable=False)
     county = db.relationship('County', backref=db.backref('cities', lazy='dynamic'))
 
+    __table_args__ = (db.Index('city_state_index', "name", "state"), )
+
 
 class County(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), unique=False, nullable=False)
+    name = db.Column(db.String(80), index=True, unique=False, nullable=False)
 
     state = db.Column(db.String(40), unique=False, nullable=False)
+
+    __table_args__ = (db.Index('county_state_index', "name", "state"), )
 
 ### END TABLES
 
