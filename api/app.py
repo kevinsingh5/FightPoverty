@@ -45,9 +45,13 @@ class Charity(db.Model):
     county = db.relationship('County', backref=db.backref('charities', lazy='dynamic'))
 
     zip_code = db.Column(db.Integer, unique=False)
-    accountability_rating = db.Column(db.Float, unique=False)
-    financial_rating = db.Column(db.Float, unique=False)
-    fight_poverty_rating = db.Column(db.Float, unique=False)
+    address = db.Column(db.String(80), unique=False)
+    
+    charity_navigator_accountability_score = db.Column(db.Float, unique=False)
+    charity_navigator_financial_score = db.Column(db.Float, unique=False)
+    charity_navigator_score = db.Column(db.Float, unique=False)
+
+    fight_poverty_score = db.Column(db.Float, unique=False)
 
     def __repr__(self):
         return 'Charity name %r' % self.name

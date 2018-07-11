@@ -3,109 +3,110 @@ import mysql.connector
 from mysql.connector import errorcode
 
 # iterate over all charities in json files, 
-# query the database for city+state combo to get city id, 
-# and query the database for county+state combo to get county id
+# query the database for city+state combo to get city id and county id
 
 
+# Connect to SQL db
+print("Enter credentials to connect to MySQL database...")
+db = raw_input("DB name: ")
+username = raw_input("DB username: ")
+password = raw_input("DB password: ")
+hostname = raw_input("DB hostname: ")
+cnx = ''
+try:
+    cnx = mysql.connector.connect(
+        user=username, 
+        password=password,
+        host=hostname,
+        database=db
+    )
+except Exception as exp:
+    raise exp
+cur = cnx.cursor()
 
-# # Connect to SQL db
-# print("Enter credentials to connect to MySQL database...")
-# db = raw_input("DB name: ")
-# username = raw_input("DB username: ")
-# password = raw_input("DB password: ")
-# hostname = raw_input("DB hostname: ")
-# cnx = ''
-# try:
-#     cnx = mysql.connector.connect(
-#         user=username, 
-#         password=password,
-#         host=hostname,
-#         database=db
-#     )
-# except Exception as exp:
-#     raise exp
-# cur = cnx.cursor()
+charities = []
 
+# Grab charities from FoodBanks.json
+with open("./FoodBanks.json") as f:
+  charities = json.load(f)
 
-# Get all zip codes from json file
-with open("../Zip Codes/zip_codes_detailed.json") as f:
-  all_zip_codes = json.load(f)
-
-
-# Get zip codes we have charities for
-with open("../Charities/charity_locations.json") as f:
-  known_zip_codes = json.load(f)
-
-
-# # If we have already added a city/state to DB, do not need to add county or city again
-# known_city_states = {}
-# known_county_states = {}
+# Grab charities from HomelessServices.json
+with open("./HomelessServices.json") as f:
+  charities += json.load(f)
 
 
-# # If we know about this zip code, add its county and city to SQL db
+array_of_tuples_to_insert = []
 
-# Skip first one
-all_zip_iter = iter(all_zip_codes)
-all_zip_iter.next()
 
-known_cities = {}
+print('Getting all charities...')
+for charity in charities :
+  name = charity['charityName']
+  mission_statement = charity['mission']
+  cause = charity['cause']['causeName']
 
-for zip_code in known_zip_codes.keys() :
-  city = known_zip_codes[zip_code][0]
-  if city not in known_cities :
-    known_cities[city] = True
-
-print(len(known_cities.keys()))
-
-# for zip_code in all_zip_iter :
-#   actual_zip = str(int(zip_code[0]))
-
+  accountability_score = charity['currentRating']['accountabilityRating']['score']
+  financial_score = charity['currentRating']['financialRating']['score']
+  charity_navigator_score = charity['currentRating']['score']
   
-#   if actual_zip in known_zip_codes :
-#     city = zip_code[1]
-#     state_abbrev = zip_code[2]
-#     county = zip_code[3]
+  # Temporarily before ranking set
+  fight_poverty_score = charity_navigator_score
 
+  charity_mailing_address = charity['mailingAddress']
+  zip_code = str(int(charity_mailing_address['postalCode']))
+  address = charity_mailing_address['streetAddress1']
+  city = charity_mailing_address['city']
+  
+  state_abbrev = charity_mailing_address['stateOrProvince']
+  state_name = ''
+  with open("../States/states_by_abbrev_dict.json") as f:
+    states_by_abbrev_dict = json.load(f)  
+  state_name = ''
+  if state_abbrev in states_by_abbrev_dict :
+    state_name = states_by_abbrev_dict[state_abbrev]
+  
 
+  # Get county id and city id from database
+  find_city_and_county_ids = 'SELECT county_id, id FROM city WHERE name="' + city + '" AND state="' + state_name + '"'
+  cur.execute(find_city_and_county_ids)
 
-#     # Make sure city/state matches up with city in known_zip_codes
-#     charity_city = known_zip_codes[actual_zip][0]
-#     charity_state = known_zip_codes[actual_zip][1]
+  resp = cur.fetchall()
+  
+  county_id = resp[0][0]
+  city_id = resp[0][1]
+  
+  tuple_to_insert = (
+    name, 
+    mission_statement, 
+    cause, 
+    accountability_score, 
+    financial_score, 
+    charity_navigator_score, 
+    fight_poverty_score, 
+    zip_code, 
+    address, 
+    county_id, 
+    city_id
+  )
 
-#     if city != charity_city :
-#       print(city, charity_city)
+  array_of_tuples_to_insert.append(tuple_to_insert)
+  
+print("Inserting into db...")
+cur.executemany(
+  "INSERT INTO charity ( \
+    name, \
+    mission_statement, \
+    cause, \
+    charity_navigator_accountability_score, \
+    charity_navigator_financial_score, \
+    charity_navigator_score, \
+    fight_poverty_score, \
+    zip_code, \
+    address, \
+    county_id, \
+    city_id \
+  ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+  array_of_tuples_to_insert
+)
+cnx.commit()
+print("Done inserting...")
 
-
-
-#     # Make sure this city/state has not been added already
-#     # city_state_combo = city + state_abbrev
-#     # if city_state_combo not in known_city_states :
-#     #   known_city_states[city_state_combo] = True
-
-
-#     #   # Get state name from abbrev
-#     #   with open("../States/states_by_abbrev_dict.json") as f:
-#     #     states_by_abbrev_dict = json.load(f)  
-#     #   state_name = ''
-#     #   if state_abbrev in states_by_abbrev_dict :
-#     #     state_name = states_by_abbrev_dict[state_abbrev]
-
-
-
-#       # Add county/state
-#       # county_id = 0
-#       # county_state_combo = county + state_abbrev
-#       # if county_state_combo not in known_county_states :
-#       #   insert_county_state_query = 'INSERT INTO county (name, state) VALUES ("' + county + '", "' + state_name + '")' 
-#       #   cur.execute(insert_county_state_query)
-#       #   county_id = cur.lastrowid
-#       #   known_county_states[county_state_combo] = county_id
-#       # else :
-#       #   county_id = known_county_states[county_state_combo]
-    
-
-#       # Add city/state using county id
-# #       insert_city_state_query = 'INSERT INTO city (name, state, county_id) VALUES ("' + city + '", "' + state_name + '", ' + str(county_id) + ')' 
-# #       cur.execute(insert_city_state_query)
-
-# # cnx.commit()

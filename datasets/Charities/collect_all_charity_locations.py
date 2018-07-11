@@ -10,8 +10,9 @@ with open("./HomelessServices.json") as f:
   charities += json.load(f)
 
 
-# New json file
+# Create new json file called charity_locations.json
 with open("./charity_locations.json", 'w') as json_file:
+  # collect all locations in dictionary where zip code is key and [city, state] are values
   zip_code_dict = {}
 
   for charity in charities :
@@ -20,7 +21,7 @@ with open("./charity_locations.json", 'w') as json_file:
     charity_city = charity_address['city']
     charity_state = charity_address['stateOrProvince']
 
-    zip_code_dict[charity_zip] = [ charity_city, charity_state ]
+    zip_code_dict[charity_zip] = [charity_city, charity_state]
 
   json_file.write(json.dumps(zip_code_dict, indent=4, ensure_ascii=True))
 
