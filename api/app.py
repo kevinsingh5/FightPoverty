@@ -2,6 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restless import APIManager
+from flask_cors import CORS
 
 
 '''db_name = os.environ.get("RDS_DB_NAME", "testdb")
@@ -24,6 +25,7 @@ else :
 #db_connection = "mysql+mysqldb://root:downing@mysql01:3306/testdb"
 
 app = Flask(__name__)
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_connection
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
