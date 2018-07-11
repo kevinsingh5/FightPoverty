@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getCounties } from '../../queries/countyQueries';
 
 
-class CityInstance extends Component {
+class CountyInstance extends Component {
   constructor(props){
     super(props);
     this.state = { 
@@ -20,29 +20,30 @@ class CityInstance extends Component {
 
     return (
       <ul>
-        {this.state.counties.map((county, i) => {
+        {this.state.counties.map((charity, i) => {
           return (
             <div key={i}>
               <section className="jumbotron text-center">
                   <div className="container">
-                    <h1 className="jumbotron-heading">{county.city}</h1>
-                    <p className="lead text-muted"></p>
+                    <h1 className="jumbotron-heading">{charity.name}</h1>
+                    <p className="lead text-muted">{charity.mission_statement}</p>
                   </div>
               </section>
 
               <ul>
-                <li>Population: {county.population}</li>
-                <li>Cities: {county.cities.name}</li>
-                <li>State: {county.state}</li>
-                <li>Poverty Percentage: {county.poverty_percentage}</li>
-
+                <li>Population: {charity.cause}</li>
+                <li>Cities: {charity.city.name}</li>
+                <li>State: {charity.county.name}</li>
+                <li>Poverty Percentage: {charity.state}</li>
               </ul>
             </div>
           )
         })}        
       </ul>
+          
+             
     );
   }
 }
 
-export default CityInstance;   
+export default CountyInstance;   

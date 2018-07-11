@@ -6,7 +6,7 @@ class CityInstance extends Component {
   constructor(props){
     super(props);
     this.state = { 
-      cities: []
+      name : props.match.params.name
     };
   }
 
@@ -19,26 +19,25 @@ class CityInstance extends Component {
   render() {
 
     return (
-      <ul>
-        {this.state.cities.map((city, i) => {
-          return (
-            <div key={i}>
+      
+            <div>
               <section className="jumbotron text-center">
                   <div className="container">
-                    <h1 className="jumbotron-heading">{city.city}</h1>
+                    <h1 className="jumbotron-heading">{this.state.name}</h1>
                     <p className="lead text-muted"></p>
                   </div>
               </section>
 
               <ul>
-                <li>Population: {city.population}</li>
-                <li>State: {city.state}</li>
-                <li>Counties: {charity.counties.Name}</li>
+                <li>Population: </li>
+                <li>State: </li>
+                <li>Counties: </li>
+
               </ul>
             </div>
-          )
-        })}        
-      </ul>
+          
+                
+      
   
     );
   }

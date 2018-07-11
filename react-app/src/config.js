@@ -1,0 +1,1 @@
+export const backendAPI = "http://ec2-18-191-142-62.us-east-2.compute.amazonaws.com/"

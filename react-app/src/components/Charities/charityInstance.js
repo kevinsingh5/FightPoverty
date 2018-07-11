@@ -11,39 +11,35 @@ class CharityInstance extends Component {
   }
 
   async componentWillMount () {
-    const charities = await getCharities()
-    this.setState({ charities: charities });
+    const charity = await getCharities();
+    this.setState({ charities: charity });
   }
 
 
   render() {
 
     return (
-      <ul>
-        {this.state.charities.map((charity, i) => {
-          return (
-            <div key={i}>
-              <section className="jumbotron text-center">
+          <div>
+                  <section className="jumbotron text-center">
                   <div className="container">
-                    <h1 className="jumbotron-heading">{charity.name}</h1>
-                    <p className="lead text-muted">{charity.mission_statement}</p>
+                    <h1 className="jumbotron-heading">{this.props.match.params.name}</h1>
+                    <p className="lead text-muted"></p>
                   </div>
               </section>
 
               <ul>
-                <li>Cause: {charity.cause}</li>
-                <li>City: {charity.city.name}</li>
-                <li>County: {charity.county.name}</li>
-                <li>State: {charity.state}</li>
-                <li>Zip Code: {charity.zip_code} </li>
-                <li>Accountability Rating: {charity.accountability_rating}</li>
-                <li >Financial Rating:{charity.financial_rating}</li>
-                <li >FightPoverty Rating: {charity.fight_poverty_rating} </li>
+                <li>Cause: </li>
+                <li>City: </li>
+                <li>County: </li>
+                <li>State: </li>
+                <li>Zip Code:  </li>
+                <li>Accountability Rating: </li>
+                <li >Financial Rating:</li>
+                <li >FightPoverty Rating:  </li>
               </ul>
             </div>
-          )
-        })}        
-      </ul>
+              
+      
 
     );
   }

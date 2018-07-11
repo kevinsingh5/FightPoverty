@@ -27,16 +27,16 @@ class CountyModel extends Component {
 
     return (
       <div>
-         <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Counties</h1>
-          <p class="lead text-muted">Look up any of the counties in the U.S. and find out information about local charities and poverty statistics</p>
+         <section className="jumbotron text-center">
+        <div className="container">
+          <h1 className="jumbotron-heading">Counties</h1>
+          <p className="lead text-muted">Look up any of the counties in the U.S. and find out information about local charities and poverty statistics</p>
         </div>
          </section>
-         <div class="album py-5 bg-dark">
-        <div class="container">
+         <div className="album py-5 bg-dark">
+        <div className="container">
 
-          <div class="row">
+          <div className="row">
             {this.state.counties.map((dynamicCounty, i) => <CountyCard 
                   key = {i} countyInfo = {dynamicCounty}/>)}
         </div>

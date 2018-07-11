@@ -1,22 +1,14 @@
 import React, {Component} from 'react';
-
 class About extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        onHP: true
-      };
-    }
 
   render() {
     return(
-      <div class="container">
+      <div className="container">
 
         <div align = "center">
 
-        <!-- Introduction Row -->
 
-          <h1 class="my-4">About Us
+          <h1 className="my-4">About Us
 </h1>
 
           <p>Our goal is to allow users to browse a database that ranks charities
@@ -26,19 +18,18 @@ class About extends Component {
 
         </div>
 
-        <!-- Team Members Row -->
 
-        <div class="row">
+        <div className="row">
 
-          <div class="col-lg-12" align="center">
+          <div className="col-lg-12" align="center">
 
-            <h1 class="my-4">Our Team</h2>
+            <h1 className="my-4">Our Team</h1>
 
           </div>
 
-          <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <div className="col-lg-4 col-sm-6 text-center mb-4">
 
-            <img src="https://jbermancs373.files.wordpress.com/2018/06/img_e2540-1.jpg?w=600&h=712" alt="">
+            <img src="https://jbermancs373.files.wordpress.com/2018/06/img_e2540-1.jpg?w=600&h=712" alt="" />
 
             <h3>Justin Berman
 </h3>
@@ -56,16 +47,16 @@ class About extends Component {
 
           </div>
 
-          <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <div className="col-lg-4 col-sm-6 text-center mb-4">
 
-            <img  src="https://image.ibb.co/bvMyc8/blog_picture.jpg" alt="">
+            <img  src="https://image.ibb.co/bvMyc8/blog_picture.jpg" alt="" />
 
             <h3>Chris Amini
 </h3>
 
             <p><i>Frontend Developer</i></p>
 
-            <p>Junior Computer Science major. Big Mavericks and Cowboys fan. Enjoys traveling, playing basketball, and Fortnite</p>
+            <p>Junior Computer Science major. Big Mavericks and Cowboys fan.</p>
 
             <p>No. of Commits: <span id="chris_commits"></span></p>
 
@@ -76,9 +67,9 @@ class About extends Component {
           </div>
 
 
-          <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <div className="col-lg-4 col-sm-6 text-center mb-4">
 
-            <img  src="https://charliematar.files.wordpress.com/2018/06/1528682464316165-e1528682569990.jpg" alt="">
+            <img  src="https://charliematar.files.wordpress.com/2018/06/1528682464316165-e1528682569990.jpg" alt="" />
 
             <h3>Charlie Matar
 </h3>
@@ -96,9 +87,9 @@ class About extends Component {
           </div>
 
 
-          <div class="col-lg-6 col-sm-6 text-center mb-4" align="center">
+          <div className="col-lg-6 col-sm-6 text-center mb-4" align="center">
 
-            <img src="https://cdn-images-1.medium.com/max/1600/1*Is7SvqGQjHFkRVfM7w0odg.jpeg" alt="">
+            <img src="https://cdn-images-1.medium.com/max/1600/1*Is7SvqGQjHFkRVfM7w0odg.jpeg" alt="" />
 
             <h3>Yijie Tang
 </h3>
@@ -116,9 +107,9 @@ class About extends Component {
           </div>
 
 
-          <div class="col-lg-6 col-sm-6 text-center mb-4">
+          <div className="col-lg-6 col-sm-6 text-center mb-4">
 
-            <img src="https://image.ibb.co/gNvJc8/kevin.jpg" alt="">
+            <img src="https://image.ibb.co/gNvJc8/kevin.jpg" alt="" />
 
             <h3>Kevin Singh
 </h3>
@@ -140,7 +131,7 @@ class About extends Component {
 
         <div align="center">
 
-          <h2 class="my-4">Stats</h2>
+          <h2 className="my-4">Stats</h2>
 
           <p>Total no. of Commits: <span id="total_commits"></span></p>
 
@@ -148,54 +139,55 @@ class About extends Component {
 
           <p>Total no. of Unit Tests: 0</p>
 
-          <h2 class="my-4">Data</h2>
+          <h2 className="my-4">Data</h2>
 
           <a href="https://www.charitynavigator.org/index.cfm?bay=content.view&cpid=1397">Charity Navigator</a>
-
-          <br> </br>
+          <br />
 
           <span>
 
             How data was scraped: First requested a key from the Charity Navigator website.
-            Then used <a href="https://gitlab.com/chris.amini/FightingPoverty/blob/master/datasets/Python%20Modules/json_scraper.py">this python module</a>
-            to scrape data from the api into a json file. See <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Charities">this folder</a>
-            to see which queries were used.
+            Then used <a href="https://gitlab.com/chris.amini/FightingPoverty/blob/master/datasets/Python%20Modules/json_scraper.py">this python module </a>
+            to scrape data from the api into a json file. See <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Charities">this folder </a> 
+             to see which queries were used.
           </span>
 
-          <br> </br>
+          <br />
+          <br />
 
           <a href="https://www.census.gov/developers/">Census Poverty Statistics and Geography Info</a>
-          <br> </br>
+          <br />
 
           <span>
 
-            How data was scraped: Used <a href="https://gitlab.com/chris.amini/FightingPoverty/blob/master/datasets/Python%20Modules/json_scraper.py">this python module</a>
+            How data was scraped: Used <a href="https://gitlab.com/chris.amini/FightingPoverty/blob/master/datasets/Python%20Modules/json_scraper.py">this python module </a>
             to scrape data from the api into a json file. See the
-            <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Cities">cities folder</a>,
-            <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Counties">counties folder</a>,
-            <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/States">states folder</a>, and
-            <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Zip%20Codes">zip code folder</a>
+            <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Cities"> cities folder</a>,
+            <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Counties"> counties folder</a>,
+            <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/States"> states folder</a>, and
+            <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Zip%20Codes"> zip code folder </a>
             to see exact queries used.
 
           </span>
+          <br />
+          <br />
 
-          <br> </br>
 
           <a href="https://www.unitedstateszipcodes.org/zip-code-database/">United States Zip Codes</a>
-
-          <br> </br>
+          <br />
 
           <span>
             How data was scraped: Downloaded csv file from the United States Zip Codes website for free.
-            Then used <a href="https://gitlab.com/chris.amini/FightingPoverty/blob/master/datasets/Python%20Modules/csv_to_json.py">this python module</a>
+            Then used <a href="https://gitlab.com/chris.amini/FightingPoverty/blob/master/datasets/Python%20Modules/csv_to_json.py">this python module </a>
 
-            to convert the downloaded csv into <a href=href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Zip%20Codes/zip_codes_detailed.json">this json file</a>.
+            to convert the downloaded csv into <a href="https://gitlab.com/chris.amini/FightingPoverty/tree/master/datasets/Zip%20Codes/zip_codes_detailed.json">this json file</a>.
 
             This dataset will enable us to link all scraped zip codes, cities, states, and counties.
 
           </span>
+          <br />
 
-          <h2 class="my-4">Tools</h2>
+          <h2 className="my-4">Tools</h2>
 
           <p>Amazon Web Services (AWS): To host our website</p>
 
@@ -212,15 +204,19 @@ class About extends Component {
           <p>S3: For hosting our front-end</p>
 
 
-          <h2 class="my-4">Links</h2>
+          <h2 className="my-4">Links</h2>
 
           <a href="http://gitlab.com/chris.amini/FightingPoverty">GitLab Repo</a>
+          <br />
+          <br />
 
-          <br> </br>
+
 
           <a href="http://documenter.getpostman.com/view/4703596/RWEjqJFb#2d325e10-686c-461b-a279-1167bfcc206b">Postman API</a>
+           <br />
+          <br />
 
-          <br> </br>
+      
 
 
           <h2>Gitlab Stats</h2>

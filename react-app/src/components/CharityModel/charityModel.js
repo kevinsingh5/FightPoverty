@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { getCharities } from '../../queries/charityQueries';
 import Pagination from "react-js-pagination";
 import CharityCard from './CharityCard.js';
-require('bootstrap-less/bootstrap/bootstrap.less');
 
 class CharityModel extends Component {
   constructor(props) {
@@ -29,17 +28,17 @@ class CharityModel extends Component {
 
     return (
       <div>
-        <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Charities</h1>
-          <p class="lead text-muted">Learn about different charities around the U.S.</p>
+        <section className="jumbotron text-center">
+        <div className="container">
+          <h1 className="jumbotron-heading">Charities</h1>
+          <p className="lead text-muted">Learn about different charities around the U.S.</p>
         </div>
       </section>
 
-      <div class="album py-5 bg-dark">
-        <div class="container">
+      <div className="album py-5 bg-dark">
+        <div className="container">
 
-          <div class="row">
+          <div className="row">
             {this.state.charities.map((dynamicCharity, i) => <CharityCard 
                   key = {i} charityInfo = {dynamicCharity}/>)}
           </div>
