@@ -5,8 +5,8 @@ deploy:
     script:
     - pip install awscli
     - aws s3 cp ./static/ s3://fightpoverty.online/ --recursive     # copy all website files into the S3 bucket
-    - aws s3 cp ./api/index.html s3://api.fightpoverty.online/      # copy the api html file to its respective bucket
-    - aws s3 cp ./datasets/ s3://api.fightpoverty.online/ --recursive --exclude "*" --include "*.json"      # copy json datasets into api bucket
+    #- aws s3 cp ./api/index.html s3://api.fightpoverty.online/      # copy the api html file to its respective bucket
+    #- aws s3 cp ./datasets/ s3://api.fightpoverty.online/ --recursive --exclude "*" --include "*.json"      # copy json datasets into api bucket
     - bash .gitlab-deploy.sh
     only:
     - deployment
