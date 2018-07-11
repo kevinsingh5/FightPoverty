@@ -10,10 +10,11 @@ array=(${server//,/ })
 
 #Iterate servers for deploy and pull last commit
 for i in "${!array[@]}"; do    
-    echo "Deploying project on server ${array[i]}"
-    echo "$SSH_PRIVATE_KEY" > ~/key.pem
-    ssh -i ~/key.pem ubuntu@${array[i]} "cd FightingPoverty/api && docker ps"
-done
-#      echo "Deploy project on server ${array[i]}"    
-#      ssh ubuntu@${array[i]} "cd /var/www && git pull origin master"
+    #echo "Deploying project on server ${array[i]}"
+    #echo "$SSH_PRIVATE_KEY" > ~/key.pem
+    #ssh -i ~/key.pem ubuntu@${array[i]} "cd FightingPoverty/api && docker ps"
 #done
+     echo "Deploy project on server ${array[i]}"    
+     #ssh ubuntu@${array[i]} "cd /var/www && git pull origin master"
+     ssh ubuntu@${array[i]} "pwd && git log --graph"
+done
