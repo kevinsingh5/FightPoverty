@@ -75,6 +75,9 @@ class County(db.Model):
 
     state = db.Column(db.String(40), unique=False, nullable=False)
 
+    county_poverty_percentage = db.Column(db.Float)
+    county_poverty_population = db.Column(db.Float)
+
     __table_args__ = (db.Index('county_state_index', "name", "state"), )
 
 ### END TABLES
