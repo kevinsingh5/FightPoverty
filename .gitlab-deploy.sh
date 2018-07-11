@@ -16,5 +16,5 @@ for i in "${!array[@]}"; do
 #done
      echo "Deploy project on server ${array[i]}"    
      #ssh ubuntu@${array[i]} "cd /var/www && git pull origin master"
-     ssh ubuntu@${array[i]} "pwd && git log --graph"
+     ssh ubuntu@${array[i]} "pwd && cd FightingPoverty/api && docker images"
 done
