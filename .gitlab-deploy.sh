@@ -14,7 +14,9 @@ for i in "${!array[@]}"; do
     #echo "$SSH_PRIVATE_KEY" > ~/key.pem
     #ssh -i ~/key.pem ubuntu@${array[i]} "cd FightingPoverty/api && docker ps"
 #done
-     echo "Deploy project on server ${array[i]}"    
+     echo "Deploy project on server ${array[i]}"
+     echo "Current files:"
+     ls -al
      #ssh ubuntu@${array[i]} "cd /var/www && git pull origin master"
-     ssh ubuntu@${array[i]} "pwd && cd FightingPoverty/api && docker images"
+     ssh ubuntu@${array[i]} "pwd && cd FightingPoverty/api && docker ps"
 done

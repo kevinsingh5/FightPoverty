@@ -7,19 +7,21 @@ stages:
 
 #Production stage
 staging:   
-   stage: staging   
-   before_script: 
-   #generate ssh key   
-     - mkdir -p ~/.ssh     
-     - echo -e "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa     
-     - chmod 600 ~/.ssh/id_rsa     
-     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'   
-   script:     
-      - bash .gitlab-deploy.sh   
-   #environment:     
-   #   name: production     
-   #   url: https://your.url.com   
-   #when: manual
+    stage: staging   
+    before_script: 
+    #generate ssh key   
+    - mkdir -p ~/.ssh     
+    - echo -e "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa     
+    - chmod 600 ~/.ssh/id_rsa     
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'   
+    script:     
+    - bash .gitlab-deploy.sh   
+    only:
+    - deployment
+    #environment:     
+    #   name: production     
+    #   url: https://your.url.com   
+    #when: manual
 
 deploy:
     stage: deployment
