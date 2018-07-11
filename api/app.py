@@ -84,9 +84,9 @@ class County(db.Model):
 manager = APIManager(app, flask_sqlalchemy_db=db)
 
 # creates api at host:port/api/<name>
-manager.create_api(Charity)
-manager.create_api(City)
-manager.create_api(County)
+manager.create_api(Charity, results_per_page=9)
+manager.create_api(City, results_per_page=9)
+manager.create_api(County, results_per_page=9)
 
 
 @app.route("/")
