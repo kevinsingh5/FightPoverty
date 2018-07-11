@@ -1,5 +1,4 @@
-export const charitiesResponse = 
-  {
+export const citiesResponse = {
   "num_results": 1, 
   "objects": [
     {
@@ -20,7 +19,7 @@ export const charitiesResponse =
       "financial_rating": 6.2, 
       "id": 1, 
       "mission_statement": "Feed the hungry", 
-      "name": "West Regional Food Bank", 
+      "name": "LA", 
       "state": "West State", 
       "zip_code": 11111
     },
@@ -42,12 +41,9 @@ export const charitiesResponse =
       "financial_rating": 6.2, 
       "id": 1, 
       "mission_statement": "Feed the hungry", 
-      "name": "SECOND FOOD BANK TEST", 
+      "name": "AUSTIN", 
       "state": "West State", 
       "zip_code": 11111
     }
   ]
 };
-
-
-

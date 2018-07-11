@@ -4,17 +4,24 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_restless import APIManager
 
 
-db_name = os.environ.get("RDS_DB_NAME", "testdb")
+'''db_name = os.environ.get("RDS_DB_NAME", "testdb")
 username = os.environ.get("RDS_USERNAME", "root")
 password = os.environ.get("RDS_PASSWORD", "password")
-hostname = os.environ.get("RDS_HOSTNAME", "testdbinstance.cydh8jzkegid.us-west-2.rds.amazonaws.com")
+hostname = os.environ.get("RDS_HOSTNAME", "testdbinstance.cydh8jzkegid.us-west-2.rds.amazonaws.com")'''
+
+db_name = os.environ.get("DB", "testdb")
+username = os.environ.get("USER", "root")
+password = os.environ.get("PASSWORD", "downing")
+hostname = os.environ.get("HOST", "mysql01")
+port = os.environ.get("PORT", "3306")
 
 
 db_connection = ''
-if db_name and username and password and hostname :
-    db_connection = 'mysql://' + username + ':' + password + '@' + hostname + '/' + db_name
+if db_name and username and password and hostname and port:
+    db_connection = 'mysql+mysqldb://' + username + ':' + password + '@' + hostname + ':' + port + '/' + db_name
 else :
     db_connection = 'sqlite:////tmp/test.db'
+#db_connection = "mysql+mysqldb://root:downing@mysql01:3306/testdb"
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_connection
