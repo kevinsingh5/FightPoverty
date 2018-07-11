@@ -94,17 +94,7 @@ manager.create_api(County, results_per_page=9)
 
 @app.route("/")
 def hello():
-    print(Charity.query.all())
-    charities = Charity.query.all()
-
-    result = ''
-    for charity in charities:
-        print(str(charity))
-        result = result + str(charity) + ' '
-
-    print(result)
-
-    return result
+    return "Welcome to the Fight Poverty API"
 
 
 try: 

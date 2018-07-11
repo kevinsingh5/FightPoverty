@@ -9,3 +9,8 @@
   `https://www.unitedstateszipcodes.org/zip-code-database/`
 
   - Then used `../csv_to_json.py` to convert downloaded csv into json
+
+
+#### add_known_locations_to_db.py
+
+  - Run this to get counties and cities into db
