@@ -3,7 +3,14 @@
 all:
 
 status:
-	git status
+	@echo "status for 'fightpoverty.online':"
+	curl -I fightpoverty.online
+	@echo
+	@echo "status for 'www.fightpoverty.online:'"
+	curl -I www.fightpoverty.online
+	@echo
+	@echo "status for 'api.fightpoverty.online:'"
+	curl -I api.fightpoverty.online
 
 log:
 	git log
