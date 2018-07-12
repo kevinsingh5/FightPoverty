@@ -13,5 +13,5 @@ for i in "${!array[@]}"; do
      echo "Copying file"
      scp -r api/app.py ubuntu@${array[i]}:FightingPoverty/api/
      echo "Connecting to EC2 host..."
-     ssh ubuntu@${array[i]} "pwd && cd FightingPoverty/api && docker ps && docker stop fightpoverty && docker rm fightpoverty && docker build -t fp . && nohup docker run --link mysql01:mysql -p 80:80 --name fightpoverty -t fp > dockerrun.log & ~."
+     ssh ubuntu@${array[i]} "pwd && cd FightingPoverty/api && docker ps && docker stop fightpoverty && docker rm fightpoverty && docker build -t fp . && nohup docker run --link mysql01:mysql -p 80:80 --name fightpoverty -t fp > dockerrun.log &" -e ~.
 done
