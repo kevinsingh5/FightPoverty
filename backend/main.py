@@ -5,10 +5,6 @@ from flask_restless import APIManager
 from flask_cors import CORS
 
 
-'''db_name = os.environ.get("RDS_DB_NAME", "testdb")
-username = os.environ.get("RDS_USERNAME", "root")
-password = os.environ.get("RDS_PASSWORD", "password")
-hostname = os.environ.get("RDS_HOSTNAME", "testdbinstance.cydh8jzkegid.us-west-2.rds.amazonaws.com")'''
 
 db_name = os.environ.get("DB", "testdb")
 username = os.environ.get("USER", "root")
@@ -17,12 +13,23 @@ hostname = os.environ.get("HOST", "mysql01")
 port = os.environ.get("PORT", "3306")
 
 
+# db_name = os.environ.get("RDS_DB_NAME", "testdb")
+# username = os.environ.get("RDS_USERNAME", "root")
+# password = os.environ.get("RDS_PASSWORD", "password")
+# hostname = os.environ.get("RDS_HOSTNAME", "testdbinstance.cydh8jzkegid.us-west-2.rds.amazonaws.com")
+
+
 db_connection = ''
 if db_name and username and password and hostname and port:
+    # Prod database
     db_connection = 'mysql+mysqldb://' + username + ':' + password + '@' + hostname + ':' + port + '/' + db_name
+elif db_name and username and password and hostname:
+    # Test database
+    db_connection = 'mysql://' + username + ':' + password + '@' + hostname + '/' + db_name
 else :
+    # Local database
     db_connection = 'sqlite:////tmp/test.db'
-#db_connection = "mysql+mysqldb://root:downing@mysql01:3306/testdb"
+
 
 app = Flask(__name__)
 CORS(app)
@@ -111,43 +118,6 @@ try:
     db.create_all()
 except Exception as exp:
     print('Failed to drop/create tables', exp)
-
-
-added_test_cities = False
-try:
-    if not added_test_cities:
-        # test add county
-        # county = County(name='Travis', state='Texas')
-        # db.session.add(county)
-        # db.session.commit()
-
-        # # test add city
-        # city = City(name='Austin', county_id=1)
-        # db.session.add(city)
-        # db.session.commit()
-
-        # # test add charity
-        # charity = Charity(
-        #     name='West Regional Food Bank',
-        #     mission_statement='Feed the hungry',
-        #     cause='Human Services',
-        #     city_id=1,
-        #     county_id=1,
-        #     state='West State',
-        #     zip_code=11111,
-        #     accountability_rating=9.3,
-        #     financial_rating=6.2,
-        #     fight_poverty_rating=8.3
-        # )
-        # db.session.add(charity)
-        # db.session.commit()
-
-        added_test_cities = True
-
-except Exception as exp:
-    print('')
-    print('Failed to add test data', exp)
-    print('')
 
 
 if __name__ == "__main__":
