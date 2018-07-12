@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { getCounties, getCounty, getNumOfCounties } from '../../queries/countyQueries';
+import { getCounties, getMoreCounties, getNumOfCounties } from '../../queries/countyQueries';
 import Pagination from "react-js-pagination";
 import CountyCard from './CountyCard.js'
-import CountyInstance from '../Counties/countyInstance.js'
 
 
 
@@ -27,8 +26,8 @@ class CountyModel extends Component {
   }
 
  async handlePageChange(pageNumber) {
-    console.log(`active page is ${pageNumber}`);
-    const newCounties = await getCounty(pageNumber);
+    // console.log(`active page is ${pageNumber}`);
+    const newCounties = await getMoreCounties(pageNumber);
     window.scrollTo(0, 0)
 
     this.setState({activePage: pageNumber, counties: newCounties});
@@ -51,7 +50,7 @@ class CountyModel extends Component {
 
                   <div className="row">
                     {this.state.counties.map((dynamicCounty, i) => <CountyCard 
-                          key = {i} countyInfo = {dynamicCounty} onClick = {(dynamicCounty) => this.handleSelectCard(dynamicCounty)}/>)}
+                          key = {i} countyInfo = {dynamicCounty} />)}
                 </div>
                 </div>
               </div>

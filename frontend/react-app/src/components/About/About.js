@@ -35,8 +35,7 @@ class About extends Component {
 
             <img className = "aboutPic" src="https://jbermancs373.files.wordpress.com/2018/06/img_e2540-1.jpg?w=600&h=712" alt="" />
 
-            <h3>Justin Berman
-</h3>
+            <h3>Justin Berman</h3>
 
             <p><i>Backend Developer</i></p>
 

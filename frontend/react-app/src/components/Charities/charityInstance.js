@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
-import { getCharities } from '../../queries/charityQueries';
+import CityCard from '../CityModel/CityCard.js';
+import CountyCard from '../CountyModel/CountyCard.js';
+import {getSpecificCounty} from '../../queries/countyQueries';
+import {getSpecificCity} from '../../queries/cityQueries';
+
 
 
 class CharityInstance extends Component {
   constructor(props){
     super(props);
     this.state = { 
-      charities: []
+      cityInfo: [],
+      countyInfo: []
     };
   }
 
   async componentWillMount () {
-    const charity = await getCharities();
-    this.setState({ charities: charity });
+    const city = await getSpecificCity(this.props.location.state.city.name);
+    const county = await getSpecificCounty(this.props.location.state.county.name);
+
+
+    this.setState({ cityInfo: city, countyInfo: county });
   }
   
   componentDidMount() {
@@ -44,11 +52,16 @@ class CharityInstance extends Component {
 
               <h1 align="center"> Cities related to {this.props.location.state.name}</h1>
             <div align="center">
+                 {this.state.cityInfo.splice(0,1).map((dynamicCity, i) => <CityCard 
+                  key = {i} cityInfo = {dynamicCity}/>)}
+
             </div>
 
 
             <h1 align="center"> Counties related to {this.props.location.state.name}</h1>
             <div align = "center">
+              {this.state.countyInfo.splice(0,1).map((dynamicCounty, i) => <CountyCard 
+                          key = {i} countyInfo = {dynamicCounty} />)}
 
               </div>
        </div>

@@ -1,19 +1,28 @@
 import React, { Component } from 'react';
-import { getCities } from '../../queries/cityQueries';
-import CountyCard from '../CountyModel/CountyCard.js'
+import CountyCard from '../CountyModel/CountyCard.js';
+import CharityCard from '../CharityModel/CharityCard.js';
+import {getSpecificCharity} from '../../queries/charityQueries';
+import {getSpecificCounty} from '../../queries/countyQueries';
+
 
 
 class CityInstance extends Component {
   constructor(props){
     super(props);
     this.state = { 
-      name : props.match.params.name
+      charityInfo : [],
+      countyInfo : []
     };
   }
 
   async componentWillMount () {
-    const cities = await getCities()
-    this.setState({ cities: cities });
+    // console.log(this.props.location.state.charities[0].name)
+    const charity = await getSpecificCharity(this.props.location.state.charities[0].name)
+    // console.log(charity)
+    const county = await getSpecificCounty(this.props.location.state.county.name);
+    console.log(county);
+
+    this.setState({ charityInfo: charity, countyInfo: county});
   }
   //scroll to top after clicking on card
   componentDidMount() {
@@ -34,7 +43,6 @@ class CityInstance extends Component {
               </section>
 
               <ul>
-                <li>Population: </li>
                 <li>State: {this.props.location.state.state} </li>
                 <li>Counties: {this.props.location.state.county.name}</li>
 
@@ -42,12 +50,17 @@ class CityInstance extends Component {
 
         <h1 align="center"> Charities in {this.props.location.state.name}</h1>
       <div align="center">
-            </div>
+        {this.state.charityInfo.map((dynamicCharity, i) => <CharityCard 
+                  key = {i} charityInfo = {dynamicCharity}/>)}
+
+        
+      </div>
 
 
         <h1 align="center"> Counties related to {this.props.location.state.name}</h1>
       <div align = "center">
-            <CountyCard countyInfo = {this.props.location.state} />
+        {this.state.countyInfo.splice(0,1).map((dynamicCounty, i) => <CountyCard 
+                          key = {i} countyInfo = {dynamicCounty} />)}
 
           </div>
 
