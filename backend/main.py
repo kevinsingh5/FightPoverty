@@ -35,8 +35,8 @@ db = SQLAlchemy(app)
 class Charity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), index=True, unique=True, nullable=False)
-    mission_statement = db.Column(db.String(1250), nullable=True)
-    cause = db.Column(db.String(50), unique=False)
+    mission_statement = db.Column(db.String(1250))
+    cause = db.Column(db.String(50))
 
     city_id = db.Column(db.Integer, db.ForeignKey('city.id'), nullable=False)
     city = db.relationship('City', backref=db.backref('charities', lazy='dynamic'))
@@ -44,14 +44,14 @@ class Charity(db.Model):
     county_id = db.Column(db.Integer, db.ForeignKey('county.id'), nullable=False)
     county = db.relationship('County', backref=db.backref('charities', lazy='dynamic'))
 
-    zip_code = db.Column(db.Integer, unique=False)
-    address = db.Column(db.String(80), unique=False)
+    zip_code = db.Column(db.Integer)
+    address = db.Column(db.String(80))
     
-    charity_navigator_accountability_score = db.Column(db.Float, unique=False)
-    charity_navigator_financial_score = db.Column(db.Float, unique=False)
-    charity_navigator_score = db.Column(db.Float, unique=False)
+    charity_navigator_accountability_score = db.Column(db.Float)
+    charity_navigator_financial_score = db.Column(db.Float)
+    charity_navigator_score = db.Column(db.Float)
 
-    fight_poverty_score = db.Column(db.Float, unique=False)
+    fight_poverty_score = db.Column(db.Float)
 
     def __repr__(self):
         return 'Charity name %r' % self.name
@@ -59,9 +59,9 @@ class Charity(db.Model):
 
 class City(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), index=True, unique=False, nullable=False)
+    name = db.Column(db.String(80), index=True, nullable=False)
 
-    state = db.Column(db.String(40), unique=False)
+    state = db.Column(db.String(40))
 
     county_id = db.Column(db.Integer, db.ForeignKey('county.id'), nullable=False)
     county = db.relationship('County', backref=db.backref('cities', lazy='dynamic'))
@@ -74,9 +74,9 @@ class City(db.Model):
 
 class County(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), index=True, unique=False, nullable=False)
+    name = db.Column(db.String(80), index=True, nullable=False)
 
-    state = db.Column(db.String(40), unique=False, nullable=False)
+    state = db.Column(db.String(40), nullable=False)
 
     county_poverty_percentage = db.Column(db.Float)
     county_poverty_population = db.Column(db.Integer)

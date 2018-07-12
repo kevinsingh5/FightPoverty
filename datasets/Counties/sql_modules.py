@@ -16,7 +16,8 @@ import json
 #     county_poverty_percentage=values(county_poverty_percentage), \
 #     county_poverty_population=values(county_poverty_population)"
 
-sql_query = "UPDATE county SET county_poverty_percentage=%s, county_poverty_population=%s \
+sql_query = "UPDATE county \
+SET county_poverty_percentage=%s, county_poverty_population=%s \
 WHERE name=%s AND state=%s"
 
 

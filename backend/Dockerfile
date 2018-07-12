@@ -13,5 +13,5 @@ ENV PASSWORD="downing"
 ENV HOST="mysql01"
 ENV PORT="3306"
 ENTRYPOINT ["python"]
-CMD ["app.py"]
+CMD ["main.py"]
 
