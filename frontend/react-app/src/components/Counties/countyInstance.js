@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
-import { getCounties } from '../../queries/countyQueries';
+import CityCard from '../CityModel/CityCard.js';
+import CharityCard from '../CharityModel/CharityCard.js';
+import {getSpecificCharity} from '../../queries/charityQueries';
+import {getSpecificCity} from '../../queries/cityQueries';
 
 
 class CountyInstance extends Component {
   constructor(props){
     super(props);
     this.state = { 
-      name : null
+      charityInfo: [],
+      cityInfo: []
     };
   }
 
 
 
   async componentWillMount () {
-    const counties = await getCounties()
-    this.setState({ counties: counties});
+    const charity = await getSpecificCharity(this.props.location.state.charities[0].name)
+    const city = await getSpecificCity(this.props.location.state.cities[0].name);
+
+
+    this.setState({ charityInfo: charity, cityInfo: city});
   }
 
   //scroll to top after clicking on card
@@ -37,18 +44,22 @@ class CountyInstance extends Component {
               </section>
 
               <ul>
-                <li>Cities: {this.props.location.state.cities[0].name} </li>
+                <li>Cities: {this.props.location.state.cities[0].name} </li> 
                 <li>State: {this.props.location.state.state}</li>
                 <li>Poverty Population: {this.props.location.state.county_poverty_population} </li>
-                <li>Poverty Percentage: {this.props.location.state.county_poverty_percentage}</li>
+                <li>Poverty Percentage: {this.props.location.state.county_poverty_percentage}%</li>
               </ul>
               <h1 align="center"> Cities related to {this.props.location.state.name}</h1>
              <div align="center">
+                {this.state.cityInfo.splice(0,1).map((dynamicCity, i) => <CityCard 
+                  key = {i} cityInfo = {dynamicCity}/>)}
               </div>
 
 
             <h1 align="center"> Charities related to {this.props.location.state.name}</h1>
             <div align = "center">
+              {this.state.charityInfo.splice(0,1).map((dynamicCharity, i) => <CharityCard 
+                  key = {i} charityInfo = {dynamicCharity}/>)}
 
             </div>
        </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getCities, getCity,getNumOfCities } from '../../queries/cityQueries';
+import { getCities, getMoreCities,getNumOfCities } from '../../queries/cityQueries';
 import Pagination from "react-js-pagination";
 import CityCard from './CityCard.js'
 
@@ -24,8 +24,8 @@ class CityModel extends Component {
   }
 
   async handlePageChange(pageNumber) {
-    console.log(`active page is ${pageNumber}`);
-    const newCities = await getCity(pageNumber);
+    // console.log(`active page is ${pageNumber}`);
+    const newCities = await getMoreCities(pageNumber);
     window.scrollTo(0, 0)
     this.setState({activePage: pageNumber, cities: newCities});
   }

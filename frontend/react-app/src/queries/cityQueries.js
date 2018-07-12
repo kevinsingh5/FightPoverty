@@ -1,4 +1,3 @@
-import { countiesResponse } from '../static/cities.js'
 import { backendAPI }  from '../config.js'
 import axios from 'axios';
 
@@ -31,7 +30,7 @@ export async function getNumOfCities () {
 	  
 }
 
-export async function getCity (pageNumber) {
+export async function getMoreCities (pageNumber) {
   const response = await axios.get(backendAPI+ 'api/city?page=' + pageNumber)
 	  // .then(function (response) {
 	  //   console.log(response);
@@ -43,3 +42,18 @@ export async function getCity (pageNumber) {
 	  // console.log("hello");
 	  return response.data.objects;
 }
+
+export async function getSpecificCity (city) {
+  const response = await axios.get(backendAPI+ 'api/city?q={"filters":[{"name":"name","op":"eq","val":"' + city + '"}]}');
+	  // .then(function (response) {
+	  //   console.log(response);
+	  //   return response.data.objects;
+	  // })
+	  // .catch(function (error) {
+	  //   console.log(error);
+	  // });
+	  // console.log("hello");
+	    return response.data.objects;
+}
+
+

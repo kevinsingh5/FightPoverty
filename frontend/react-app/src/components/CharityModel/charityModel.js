@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getCharities,getCharity, getNumOfCharities } from '../../queries/charityQueries';
+import { getCharities,getMoreCharities, getNumOfCharities } from '../../queries/charityQueries';
 import Pagination from "react-js-pagination";
 import CharityCard from './CharityCard.js';
 
@@ -24,8 +24,8 @@ class CharityModel extends Component {
   }
 
   async handlePageChange(pageNumber) {
-    console.log(`active page is ${pageNumber}`);
-    const newCharities = await getCharity(pageNumber);
+    // console.log(`active page is ${pageNumber}`);
+    const newCharities = await getMoreCharities(pageNumber);
     this.setState({activePage: pageNumber, charities: newCharities});
     window.scrollTo(0, 0)
 

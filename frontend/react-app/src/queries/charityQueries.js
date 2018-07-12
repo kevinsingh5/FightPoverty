@@ -31,8 +31,20 @@ export async function getNumOfCharities () {
 	  
 }
 
-export async function getCharity (pageNumber) {
+export async function getMoreCharities (pageNumber) {
   const response = await axios.get(backendAPI+ 'api/charity?page=' + pageNumber);
+	  // .then(function (response) {
+	  //   console.log(response);
+	  //   return response.data.objects;
+	  // })
+	  // .catch(function (error) {
+	  //   console.log(error);
+	  // });
+	  // console.log("hello");
+	  return response.data.objects;
+}
+export async function getSpecificCharity (charity) {
+  const response = await axios.get(backendAPI+ 'api/charity?q={"filters":[{"name":"name","op":"eq","val":"' + charity + '"}]}');
 	  // .then(function (response) {
 	  //   console.log(response);
 	  //   return response.data.objects;
