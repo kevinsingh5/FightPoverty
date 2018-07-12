@@ -1,47 +1,33 @@
-import json
-import mysql.connector
-from mysql.connector import errorcode
+from get_all_charities_from_jsons import get_all_charities_from_jsons
+import sys
 
 
 # Use this to insert charities into db AFTER inserted cities and counties
+# Note: does not use Python module insert_into_MySQL_db.py because that batch inserts.
+# Need to get county id and city id from db using charity's listed city/state
 
-# What it does:
+# What the module does:
 # iterate over all charities in json files, 
 # query the database for city+state combo to get city id and county id
 # then add charity using all that info
 
 
+# Add path to allow importing from same level directory, then disable pylint import warning
+sys.path.insert(0, "../Python_Utils")
+# pylint: disable=F0401
+from MySQL_utils import connect_to_db, get_db_input, get_username_input, get_password_input, get_hostname_input
+from state_utils import get_state_name_from_abbrev
+
 # Connect to SQL db
-print("Enter credentials to connect to MySQL database...")
-db = raw_input("DB name: ")
-username = raw_input("DB username: ")
-password = raw_input("DB password: ")
-hostname = raw_input("DB hostname: ")
-cnx = ''
-try:
-    cnx = mysql.connector.connect(
-        user=username, 
-        password=password,
-        host=hostname,
-        database=db
-    )
-except Exception as exp:
-    raise exp
-cur = cnx.cursor()
-
-charities = []
-
-# Grab charities from FoodBanks.json
-with open("./FoodBanks.json") as f:
-  charities = json.load(f)
-
-# Grab charities from HomelessServices.json
-with open("./HomelessServices.json") as f:
-  charities += json.load(f)
+(cnx, cur) = connect_to_db(get_db_input, get_username_input, get_password_input, get_hostname_input)
 
 
+# Put all charities in an array
+charities = get_all_charities_from_jsons()
+
+
+# Will batch insert into SQL DB
 array_of_tuples_to_insert = []
-
 
 print('Getting all charities (expected completion time ~1 minute)...')
 for charity in charities :
@@ -62,12 +48,7 @@ for charity in charities :
   city = charity_mailing_address['city']
   
   state_abbrev = charity_mailing_address['stateOrProvince']
-  state_name = ''
-  with open("../States/states_by_abbrev_dict.json") as f:
-    states_by_abbrev_dict = json.load(f)  
-  state_name = ''
-  if state_abbrev in states_by_abbrev_dict :
-    state_name = states_by_abbrev_dict[state_abbrev]
+  state_name = get_state_name_from_abbrev(state_abbrev)
   
 
   # Get county id and city id from database

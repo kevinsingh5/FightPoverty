@@ -1,6 +1,6 @@
 import unittest
-import datasets.Python_Modules.state_utils as state_utils
-import datasets.Python_Modules.MySQL_utils as sql_utils
+import datasets.Python_Utils.state_utils as state_utils
+import datasets.Python_Utils.MySQL_utils as sql_utils
 import mysql.connector
 
 class TestPythonModules(unittest.TestCase):

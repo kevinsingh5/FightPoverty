@@ -1,6 +1,4 @@
-import json
-import mysql.connector
-from mysql.connector import errorcode
+import sys
 
 # Use this to get counties and cities into database
 # Note: does not use Python module insert_into_MySQL_db.py because that batch inserts.
@@ -13,46 +11,36 @@ from mysql.connector import errorcode
 # Then use that added county's id to add the city/state to the SQL database
 
 
+# Add path to allow importing from same level directory, then disable pylint import warning
+sys.path.insert(0, "../Python_Utils")
+# pylint: disable=F0401
+from MySQL_utils import connect_to_db, get_db_input, get_username_input, get_password_input, get_hostname_input
+from state_utils import get_state_name_from_abbrev
+from json_utils import read_json_file
+
 
 # Connect to SQL db
-print("Enter credentials to connect to MySQL database...")
-db = raw_input("DB name: ")
-username = raw_input("DB username: ")
-password = raw_input("DB password: ")
-hostname = raw_input("DB hostname: ")
-cnx = ''
-try:
-    cnx = mysql.connector.connect(
-        user=username, 
-        password=password,
-        host=hostname,
-        database=db
-    )
-except Exception as exp:
-    raise exp
-cur = cnx.cursor()
+(cnx, cur) = connect_to_db(get_db_input, get_username_input, get_password_input, get_hostname_input)
 
 
 # Get all zip codes from json file
-with open("./zip_codes_detailed.json") as f:
-  all_zip_codes = json.load(f)
+all_zip_codes = read_json_file("./zip_codes_detailed.json")
 
 
 # Get zip codes we have charities for
-with open("../Charities/charity_locations.json") as f:
-  known_zip_codes = json.load(f)
+known_zip_codes = read_json_file("../Charities/charity_locations.json")
 
 
+# If we know about this zip code, will add its county and city to SQL db
 # If we have already added a city/state to DB, do not need to add county or city again
 known_city_states = {}
 known_county_states = {}
 
 
-# If we know about this zip code, add its county and city to SQL db
-
 # Skip first one
 all_zip_iter = iter(all_zip_codes)
 all_zip_iter.next()
+
 
 print('Expected completion time is ~2 minutes...')
 for zip_code in all_zip_iter :
@@ -74,16 +62,13 @@ for zip_code in all_zip_iter :
 
 
       # Get state name from abbrev
-      with open("../States/states_by_abbrev_dict.json") as f:
-        states_by_abbrev_dict = json.load(f)  
-      state_name = ''
-      if state_abbrev in states_by_abbrev_dict :
-        state_name = states_by_abbrev_dict[state_abbrev]
+      state_name = get_state_name_from_abbrev(state_abbrev)
 
 
       # Add county/state
       county_id = 0
       county_state_combo = county + state_abbrev
+
 
       # Do not need to add county again if already added
       if county_state_combo not in known_county_states :

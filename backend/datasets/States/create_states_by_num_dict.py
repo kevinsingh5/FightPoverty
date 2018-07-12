@@ -1,31 +1,25 @@
-import json
-import StringIO
+import sys
 
-with open("./states.json") as f:
-  states = json.load(f)
+# Add path to allow importing from same level directory, then disable pylint import warning
+sys.path.insert(0, "../Python_Utils")
+# pylint: disable=F0401
+from json_utils import read_json_file, write_json_file
 
 
-# Write the contents of the zip_codes list into the json file
-with open("states_by_num_dict.json", 'w') as json_file:
-  
-  json_file.write("{\n")
+# Get all scraped states with numbers
+states = read_json_file("./states.json")
 
-  # skip first record denoting attributes
-  states_iter = iter(states)
-  states_iter.next()
+# Dict will be writing to json file
+states_by_num_dict_to_write = {}
 
-  last_elem_in_states = states[len(states) - 1]
+# Skip first one
+states_iter = iter(states)
+states_iter.next()
 
-  for state in states_iter:
-    state_num = int(state[2])
-    state_name = state[0]
+for state in states_iter:
+  state_num = int(state[2])
+  state_name = state[0]
 
-    # Example: "01": "Alabama",
-    key_value_pair = '  "' + str(state_num) + '": "' + str(state_name) + '"'
-    if state is not last_elem_in_states :
-      key_value_pair += ","
-    key_value_pair += "\n"
+  states_by_num_dict_to_write[state_num] = state_name
 
-    json_file.write(key_value_pair)
-  
-  json_file.write("}")
+write_json_file("../States/states_by_num_dict.json", states_by_num_dict_to_write)

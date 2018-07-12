@@ -1,4 +1,10 @@
-import json
+import sys
+
+# Add path to allow importing from same level directory, then disable pylint import warning
+sys.path.insert(0, "../Python_Utils")
+# pylint: disable=F0401
+from state_utils import get_state_name_from_abbrev
+
 
 # SQL query statement
 sql_query = "INSERT INTO city (name, state, county_id) VALUES (%s, %s, %d)"
@@ -26,11 +32,7 @@ def construct_sql_records (data, cur) :
 
     # Get state name from state_abbrev json dict
     state_abbrev = item[2]
-    with open("../States/states_by_abbrev_dict.json") as f:
-      states_by_abbrev_dict = json.load(f)  
-    state_name = ''
-    if state_abbrev in states_by_abbrev_dict :
-      state_name = states_by_abbrev_dict[state_abbrev]
+    state_name = get_state_name_from_abbrev(state_abbrev)
 
     # must have city, state, and county
     if city_name and county_name and state_name :

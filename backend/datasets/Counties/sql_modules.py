@@ -1,4 +1,9 @@
-import json
+import sys
+
+# Add path to allow importing from same level directory, then disable pylint import warning
+sys.path.insert(0, "../Python_Utils")
+# pylint: disable=F0401
+from state_utils import get_state_name_from_num
 
 
 # Use this module to get county poverty percentage and county poverty population into
@@ -32,7 +37,7 @@ def construct_sql_records (data, cur) :
 
 
   # FIRST GET ALL KNOWN COUNTIES. These are counties we have charities for
-  cur.execute("SELECT id, name, state FROM county");
+  cur.execute("SELECT id, name, state FROM county")
   known_counties = cur.fetchall()
 
   # Store result in dict for O(1) lookup
@@ -50,9 +55,7 @@ def construct_sql_records (data, cur) :
 
     # Get state name from json dict
     state_num = str(int(item[4]))
-    with open("../States/states_by_num_dict.json") as f:
-      states_dict = json.load(f)  
-    state_name = states_dict[state_num]
+    state_name = get_state_name_from_num(state_num)
 
     county_state_combo = county_name + state_name
 
