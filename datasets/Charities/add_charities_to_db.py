@@ -2,8 +2,13 @@ import json
 import mysql.connector
 from mysql.connector import errorcode
 
+
+# Use this to insert charities into db AFTER inserted cities and counties
+
+# What it does:
 # iterate over all charities in json files, 
 # query the database for city+state combo to get city id and county id
+# then add charity using all that info
 
 
 # Connect to SQL db
@@ -38,7 +43,7 @@ with open("./HomelessServices.json") as f:
 array_of_tuples_to_insert = []
 
 
-print('Getting all charities...')
+print('Getting all charities (expected completion time ~1 minute)...')
 for charity in charities :
   name = charity['charityName']
   mission_statement = charity['mission']
@@ -89,7 +94,7 @@ for charity in charities :
   )
 
   array_of_tuples_to_insert.append(tuple_to_insert)
-  
+
 print("Inserting into db...")
 cur.executemany(
   "INSERT INTO charity ( \

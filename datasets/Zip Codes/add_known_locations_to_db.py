@@ -2,6 +2,12 @@ import json
 import mysql.connector
 from mysql.connector import errorcode
 
+# Use this to get counties and cities into database
+# Note: does not use Python module insert_into_MySQL_db.py because that batch inserts.
+# Need to add county first then use county id to add city immediately after and cannot
+# do that with a batch insertion.
+
+# What this module does:
 # Iterate over entire zip_codes_detailed.json
 # If zip code is in ../Charities/charity_locations.json, add county and its state to the SQL database
 # Then use that added county's id to add the city/state to the SQL database
@@ -48,6 +54,7 @@ known_county_states = {}
 all_zip_iter = iter(all_zip_codes)
 all_zip_iter.next()
 
+print('Expected completion time is ~2 minutes...')
 for zip_code in all_zip_iter :
   actual_zip = str(int(zip_code[0]))
   

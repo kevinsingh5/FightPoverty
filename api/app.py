@@ -35,8 +35,8 @@ db = SQLAlchemy(app)
 class Charity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), index=True, unique=True, nullable=False)
-    mission_statement = db.Column(db.String(300), nullable=True)
-    cause = db.Column(db.String(40), unique=False)
+    mission_statement = db.Column(db.String(1250), nullable=True)
+    cause = db.Column(db.String(50), unique=False)
 
     city_id = db.Column(db.Integer, db.ForeignKey('city.id'), nullable=False)
     city = db.relationship('City', backref=db.backref('charities', lazy='dynamic'))
@@ -66,7 +66,10 @@ class City(db.Model):
     county_id = db.Column(db.Integer, db.ForeignKey('county.id'), nullable=False)
     county = db.relationship('County', backref=db.backref('cities', lazy='dynamic'))
 
-    __table_args__ = (db.Index('city_state_index', "name", "state"), )
+    __table_args__ = (
+        # Must have unique city/state combo
+        db.UniqueConstraint('name', 'state', name='city_state_index'), 
+    )
 
 
 class County(db.Model):
@@ -78,7 +81,10 @@ class County(db.Model):
     county_poverty_percentage = db.Column(db.Float)
     county_poverty_population = db.Column(db.Integer)
 
-    __table_args__ = (db.Index('county_state_index', "name", "state"), )
+    __table_args__ = (
+        # Must have unique county/state combo
+        db.UniqueConstraint('name', 'state', name='county_state_index'), 
+    )
 
 ### END TABLES
 
@@ -94,7 +100,7 @@ manager.create_api(County, results_per_page=9)
 
 @app.route("/")
 def hello():
-    return "Welcome to the Fight Poverty API"
+    return "Welcome to the Fight Poverty API!"
 
 
 try: 

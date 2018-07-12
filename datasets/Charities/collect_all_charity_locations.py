@@ -26,3 +26,4 @@ with open("./charity_locations.json", 'w') as json_file:
   json_file.write(json.dumps(zip_code_dict, indent=4, ensure_ascii=True))
 
 
+  
