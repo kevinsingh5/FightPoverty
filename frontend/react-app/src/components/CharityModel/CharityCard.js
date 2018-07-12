@@ -16,7 +16,7 @@ class CharityCard extends Component {
 
                        <Link to={{pathname: '/charities/'+ this.props.charityInfo.name, state: this.props.charityInfo}} style = {{textDecoration:'none', color:'black'}}>
 
-                        <img className="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" src="https://portalbuzzuserfiles.s3.amazonaws.com/ou-19745/userfiles/images/logos/food%20bank.png"/>
+                        <img className="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" src="https://static.makeuseof.com/wp-content/uploads/2016/01/best-sponsor-charity-670x335.jpg"/>
                           <div className="card-body">
 
                           <h2 className="card-title">{this.props.charityInfo.name}</h2>
