@@ -1,5 +1,5 @@
 import json
-from pprint import pprint
+
 
 # Grab charities from FoodBanks.json
 with open("./FoodBanks.json") as f:

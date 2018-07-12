@@ -3,25 +3,11 @@ import mysql.connector
 from mysql.connector import errorcode
 import importlib
 import sys
+from MySQL_utils import connect_to_db, get_db_input, get_username_input, get_hostname_input, get_password_input
 
 
 # First connect to SQL db
-print("Enter credentials to connect to MySQL database...")
-db = raw_input("DB name: ")
-username = raw_input("DB username: ")
-password = raw_input("DB password: ")
-hostname = raw_input("DB hostname: ")
-cnx = ''
-try:
-    cnx = mysql.connector.connect(
-        user=username, 
-        password=password,
-        host=hostname,
-        database=db
-    )
-except Exception as exp:
-    raise exp
-cur = cnx.cursor()
+(cnx, cur) = connect_to_db(get_db_input, get_username_input, get_password_input, get_hostname_input)
 
 
 # Get SQL query statement and record constructor
