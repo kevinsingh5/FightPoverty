@@ -147,13 +147,13 @@ class TestPythonUtils(unittest.TestCase):
 
     def test_sql_utils(self):
         '''
-        Testing utils used to interact with sql database
+        Testing utils used to interact with a sql database
         '''
         db_credentials = (
             'testdb',
             'root',
             'password',
-            'testdbinstance.cydh8jzkegid.us-west-2.rds.amazonaws.com'
+            'fptestdbinstance.cydh8jzkegid.us-west-2.rds.amazonaws.com'
         )
 
         (cnx, cur) = sql_utils.connect_to_mysql_db(db_credentials)

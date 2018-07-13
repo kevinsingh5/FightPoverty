@@ -18,21 +18,21 @@ PORT = os.environ.get("PORT", None)
 
 
 # Production database
-# DB_NAME = os.environ.get("DB", "testdb")
-# USERNAME = os.environ.get("USER", "root")
-# PASSWORD = os.environ.get("PASSWORD", "downing")
-# HOSTNAME = os.environ.get("HOST", "mysql01")
-# PORT = os.environ.get("PORT", "3306")
-# EXPOSE_ON_PORT = 80
+DB_NAME = os.environ.get("DB", "testdb")
+USERNAME = os.environ.get("USER", "root")
+PASSWORD = os.environ.get("PASSWORD", "downing")
+HOSTNAME = os.environ.get("HOST", "mysql01")
+PORT = os.environ.get("PORT", "3306")
+EXPOSE_ON_PORT = 80
 
 
 # Test database
-DB_NAME = "testdb"
-USERNAME = "root"
-PASSWORD = "PASSWORD"
-HOSTNAME = "testdbinstance.cydh8jzkegid.us-west-2.rds.amazonaws.com"
-PORT = None
-EXPOSE_ON_PORT = 5000
+# DB_NAME = "testdb"
+# USERNAME = "root"
+# PASSWORD = "password"
+# HOSTNAME = "fptestdbinstance.cydh8jzkegid.us-west-2.rds.amazonaws.com"
+# PORT = None
+# EXPOSE_ON_PORT = 5000
 
 
 DB_CONNECTION = ''
