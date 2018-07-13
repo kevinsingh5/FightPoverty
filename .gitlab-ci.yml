@@ -26,6 +26,7 @@ staging:
     after_script:
     - pwd | ls -al
     - cd backend
+    - ls -al datasets/python_utils/
     - make test
     - echo "all tests passed!"
     only:
