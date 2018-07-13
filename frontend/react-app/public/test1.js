@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-var chris_commits= 0;
-var kevin_commits = 0;
-var yijie_commits=0;
-var justin_commits=0;
-var charles_commits=0;
-var charles_issues=0;
-=======
-=======
->>>>>>> origin/master
 var charles_commits = 0;
 var chris_commits = 0;
 var kevin_commits = 0;
@@ -17,10 +6,6 @@ var justin_commits = 0;
 var unidentified_commits = 0;
 var total_commits = 0;
 
-<<<<<<< HEAD
->>>>>>> Updated Commits
-=======
->>>>>>> origin/master
 var chris_issues = 0;
 var kevin_issues = 0;
 var yijie_issues = 0;
