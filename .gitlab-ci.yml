@@ -26,6 +26,7 @@ staging:
     after_script:
     - pwd | ls -al
     - cd backend
+    - chmod 774 datasets/python_utils/*
     - ls -al datasets/python_utils/
     - make test
     - echo "all tests passed!"
