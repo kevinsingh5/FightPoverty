@@ -14,4 +14,3 @@ ENV HOST="mysql01"
 ENV PORT="3306"
 ENTRYPOINT ["python"]
 CMD ["main.py"]
-RUN make test
