@@ -1,25 +1,30 @@
+'''
+Module used to create the states by number dictionary. Iterates over
+all states scraped from US census to do this.
+'''
 import sys
 
 # Add path to allow importing from same level directory, then disable pylint import warning
 sys.path.insert(0, "../Python_Utils")
-# pylint: disable=F0401
+# pylint: disable=import-error, wrong-import-position, wrong-import-order
 from json_utils import read_json_file, write_json_file
 
 
 # Get all scraped states with numbers
-states = read_json_file("./states.json")
+STATES = read_json_file("./states.json")
 
 # Dict will be writing to json file
-states_by_num_dict_to_write = {}
+STATES_BY_NUM_DICT_TO_WRITE = {}
 
 # Skip first one
-states_iter = iter(states)
-states_iter.next()
+STATES_ITER = iter(STATES)
+STATES_ITER.next()
 
-for state in states_iter:
-  state_num = int(state[2])
-  state_name = state[0]
+for state in STATES_ITER:
+    state_num = int(state[2])
+    state_name = state[0]
 
-  states_by_num_dict_to_write[state_num] = state_name
+    STATES_BY_NUM_DICT_TO_WRITE[state_num] = state_name
 
-write_json_file("../States/states_by_num_dict.json", states_by_num_dict_to_write)
+write_json_file("../States/states_by_num_dict.json",
+                STATES_BY_NUM_DICT_TO_WRITE)

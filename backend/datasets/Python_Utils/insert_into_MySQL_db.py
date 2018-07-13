@@ -1,36 +1,40 @@
-import mysql.connector
-from mysql.connector import errorcode
-import importlib
+'''
+Helps batch insert data into a mysql db. The user of this module is expected to
+provide the SQL statement, as well as a function that constructs
+the values that will be inserted into the database.
+'''
 import sys
-from MySQL_utils import connect_to_db, get_db_input, get_username_input, get_hostname_input, get_password_input
+# pylint: disable=relative-import
+from mysql_utils import connect_to_mysql_db
 from json_utils import read_json_file
 
 
-# First connect to SQL db
-(cnx, cur) = connect_to_db(get_db_input, get_username_input, get_password_input, get_hostname_input)
+# Connect to SQL db
+(CNX, CUR) = connect_to_mysql_db(None)
 
 
 # Get SQL query statement and record constructor
 # Add path to allow importing from same level directory, then disable pylint import warning
-sys.path.insert(0, raw_input('Input path to SQL query statement and record constructor: '))
-# pylint: disable=F0401
-from sql_modules import sql_query, construct_sql_records
+sys.path.insert(0, raw_input(
+    'Input path to SQL query statement and record constructor: '))
+# pylint: disable=import-error, wrong-import-position, wrong-import-order
+from sql_modules import SQL_QUERY, construct_sql_records
 
 
 # Then get data will be inserting into SQL db from the json file
-file_name = raw_input('Insert the following json file into SQL db: ')
-data = read_json_file(file_name)
+JSON_FILE_NAME = raw_input('Insert the following json file into SQL db: ')
+DATA = read_json_file(JSON_FILE_NAME)
 
 
 # Construct the query using SQL record constructor
-array_of_tuples_to_insert = construct_sql_records(data, cur)
+ARRAY_OF_TUPLES_TO_INSERT = construct_sql_records(DATA, CUR)
 
 
 # Batch insert into db
 print("Inserting into db...")
-cur.executemany(
-    sql_query,
-    array_of_tuples_to_insert
+CUR.executemany(
+    SQL_QUERY,
+    ARRAY_OF_TUPLES_TO_INSERT
 )
-cnx.commit()
+CNX.commit()
 print("Done inserting...")

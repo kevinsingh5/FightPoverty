@@ -20,4 +20,4 @@ Used `./Python Modules/json_scraper.py` to scrape data from various census surve
 
 ### [United States Zip Codes](https://www.unitedstateszipcodes.org/zip-code-database/)
 
-Downloaded csv file from the United States Zip Codes website for free. Then used `./Python Modules/csv_to_json.py` to convert the downloaded csv into the json file `./Zip Codes/zip_codes_detailed.json`. This dataset will enable us to link all scraped zip codes, cities, states, and counties.
+Downloaded csv file from the United States Zip Codes website for free. Then used `./Python Modules/csv_to_json.py` to convert the downloaded csv into the json file `./Zip_Codes/zip_codes_detailed.json`. This dataset will enable us to link all scraped zip codes, cities, states, and counties.

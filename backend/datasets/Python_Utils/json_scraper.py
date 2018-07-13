@@ -1,26 +1,24 @@
+'''
+Scrapes json data from RESTful api and outputs to json file
+'''
 import requests
-import json
+# pylint: disable=relative-import
+from json_utils import write_json_file
 
-file_name = raw_input('Enter file name: ')
-file = open(file_name, 'w')
-print("File succesfully created!")
+JSON_FILE_NAME = raw_input('Enter file name: ')
 
-get_request = raw_input('Enter URL of http get request: ')
+GET_REQUEST = raw_input('Enter URL of http get request: ')
 try:
-    resp = requests.get(str(get_request))
+    RESPONSE = requests.get(str(GET_REQUEST))
     print("Successful api call")
 
     print("Writing response to file")
-    
-    # json.dumps takes unicode JSON and converts to regular JSON
-    file.write(json.dumps(resp.json(), indent=4))
-    print("Successfully written to file: " + file_name)
+    write_json_file(JSON_FILE_NAME, RESPONSE.json())
+    print("Successfully written to file: " + JSON_FILE_NAME)
 
 except requests.exceptions.Timeout:
     print('Timeout')
 except requests.exceptions.TooManyRedirects:
     print('Try different URL next time')
-except requests.exceptions.RequestException as e:
-    print e
-
-file.close()
+except requests.exceptions.RequestException as exp:
+    print exp
