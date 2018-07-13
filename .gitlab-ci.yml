@@ -13,8 +13,7 @@ staging:
     # run tests
     - cd backend/
     - make install
-    - make test
-    - echo "all tests passed!"
+    - cd
     # generate ssh key   
     - mkdir -p ~/.ssh     
     - echo -e "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa     
@@ -22,6 +21,9 @@ staging:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'   
     script:     
     - bash .gitlab-stage.sh   
+    - cd ~/backend
+    - make test
+    - echo "all tests passed!"
     only:
     - deployment
     #environment:     
