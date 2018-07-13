@@ -5,7 +5,7 @@ all states scraped from US census to do this.
 import sys
 
 # Add path to allow importing from same level directory, then disable pylint import warning
-sys.path.insert(0, "../Python_Utils")
+sys.path.insert(0, "../python_utils")
 # pylint: disable=import-error, wrong-import-position, wrong-import-order
 from json_utils import read_json_file, write_json_file
 
@@ -26,5 +26,5 @@ for state in STATES_ITER:
 
     STATES_BY_NUM_DICT_TO_WRITE[state_num] = state_name
 
-write_json_file("../States/states_by_num_dict.json",
+write_json_file("../states/states_by_num_dict.json",
                 STATES_BY_NUM_DICT_TO_WRITE)
