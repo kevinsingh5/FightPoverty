@@ -8,7 +8,7 @@ FILES := tests.py 	\
    	--disable=broad-except --disable=superfluous-parens --reports=no --generate-rcfile > $@
 
 
-TestBackend.pyx: .pylintrc tests.py
+TestBackend.pyx: tests.py
 	# make 	checkFormat	
 	python 	tests.py -b
 	@echo 	"ALL BACKEND TESTS PASSING"
