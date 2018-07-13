@@ -1,3 +1,9 @@
+var chris_commits= 0;
+var kevin_commits = 0;
+var yijie_commits=0;
+var justin_commits=0;
+var charlie_commits=0;
+var charlie_issues=0;
 var chris_issues = 0;
 var kevin_issues = 0;
 var yijie_issues = 0;
@@ -44,7 +50,6 @@ $.ajax(
   console.log("https://gitlab.com/api/v4/projects/7268012/repository/commits?page=" + pg + "&per_page=100&private_token=wYwwhFPaUQFis_Zj7_y1");
 }
 
-console.log(chris_commits);
 
 $.ajax(
   {
