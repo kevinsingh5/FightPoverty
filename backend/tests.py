@@ -11,7 +11,7 @@ import requests
 import datasets.Python_Utils.json_scraper as scraper
 import datasets.Python_Utils.json_utils as json_utils
 import datasets.Python_Utils.state_utils as state_utils
-import datasets.Python_Utils.MySQL_utils as sql_utils
+import datasets.Python_Utils.mysql_utils as sql_utils
 
 
 class TestPythonUtils(unittest.TestCase):

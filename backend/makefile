@@ -18,11 +18,18 @@ test: TestBackend.pyx
 
 
 clean:
-	rm -r  .pylintrc	||  :
-	rm -rf *.pyc 		||  :
-	rm -r  *.tmp		||  :
-	rm -rf __pycache__  ||  :
-	rm -rf .mypy_cache  ||  :
+	rm -r  .pylintrc				      || :
+	rm -rf *.pyc 						  || :
+	rm -rf ./datasets/*.pyc 			  || :
+	rm -rf ./datasets/Charities/*.pyc     || :
+	rm -rf ./datasets/Cities/*.pyc		  || :
+	rm -rf ./datasets/Counties/*.pyc      || :
+	rm -rf ./datasets/Python_Utils/*.pyc  || :
+	rm -rf ./States/*.pyc 			      || :
+	rm -rf ./Zip_Codes/*.pyc 			  || :
+	rm -r  *.tmp						  || :
+	rm -rf __pycache__  				  || :
+	rm -rf .mypy_cache  				  || :
 
 
 format:
