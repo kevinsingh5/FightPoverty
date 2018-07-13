@@ -10,6 +10,7 @@ Charity : zip_code: Integer
 Charity : address: String(80)
 Charity : charity_navigator_accountability_score: Float
 Charity : charity_navigator_financial_score: Float
+Charity : charity_navigator_score: Float
 Charity : fight_poverty_score: Float
 
 

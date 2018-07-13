@@ -37,9 +37,9 @@ for charity in CHARITIES:
     mission_statement = charity['mission']
     cause = charity['cause']['causeName']
 
-    accountability_score = charity['CURrentRating']['accountabilityRating']['score']
-    financial_score = charity['CURrentRating']['financialRating']['score']
-    charity_navigator_score = charity['CURrentRating']['score']
+    accountability_score = charity['currentRating']['accountabilityRating']['score']
+    financial_score = charity['currentRating']['financialRating']['score']
+    charity_navigator_score = charity['currentRating']['score']
 
     # Temporarily before ranking set
     fight_poverty_score = charity_navigator_score

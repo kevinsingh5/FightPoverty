@@ -11,7 +11,7 @@ import requests
 import datasets.Python_Utils.json_scraper as scraper
 import datasets.Python_Utils.json_utils as json_utils
 import datasets.Python_Utils.state_utils as state_utils
-import datasets.Python_Utils.MySQL_utils as sql_utils
+import datasets.Python_Utils.mysql_utils as sql_utils
 
 
 class TestPythonUtils(unittest.TestCase):
@@ -62,13 +62,13 @@ class TestPythonUtils(unittest.TestCase):
     def test_json_scraper(self):
         '''
         Testing restful api scraper to see if it returns expected value
-        from a sample api
+        from the FightPoverty api
         '''
         # Will store response in temp file
         temp_test_file = './temp_test_file.json'
 
         # Sample request
-        request = 'https://api.coinbase.com/v2/prices/BTC-USD/spot?date=2016-06-10'
+        request = 'http://api.fightpoverty.online/api/county'
 
         # Scrape response into temp_test_file
         scraper.restful_api_scraper(request, temp_test_file)
@@ -77,7 +77,7 @@ class TestPythonUtils(unittest.TestCase):
         response = json_utils.read_json_file(temp_test_file)
 
         # Make sure it returns value as expected
-        self.assertEqual(response['data']['amount'], "577.85")
+        self.assertEqual(response['num_results'], 291)
 
         # Clean up and delete temp test file
         os.remove(temp_test_file)
@@ -85,13 +85,13 @@ class TestPythonUtils(unittest.TestCase):
     def test_json_scraper2(self):
         '''
         Testing restful api scraper to see if it returns expected value
-        from a different sample api
+        from the FightPoverty api
         '''
         # Will store response in temp file
         temp_test_file = './temp_test_file.json'
 
         # Sample request
-        request = 'https://api.coinmarketcap.com/v2/ticker/'
+        request = 'http://api.fightpoverty.online/api/county?page=15'
 
         # Scrape response into temp_test_file
         scraper.restful_api_scraper(request, temp_test_file)
@@ -100,7 +100,8 @@ class TestPythonUtils(unittest.TestCase):
         response = json_utils.read_json_file(temp_test_file)
 
         # Make sure it returns value as expected
-        self.assertEqual(response['data']['1027']['name'], "Ethereum")
+        self.assertEqual(response['page'], 15)
+        self.assertEqual(len(response['objects']), 9)
 
         # Clean up and delete temp test file
         os.remove(temp_test_file)
@@ -147,13 +148,13 @@ class TestPythonUtils(unittest.TestCase):
 
     def test_sql_utils(self):
         '''
-        Testing utils used to interact with sql database
+        Testing utils used to interact with a sql database
         '''
         db_credentials = (
             'testdb',
             'root',
             'password',
-            'testdbinstance.cydh8jzkegid.us-west-2.rds.amazonaws.com'
+            'fptestdbinstance.cydh8jzkegid.us-west-2.rds.amazonaws.com'
         )
 
         (cnx, cur) = sql_utils.connect_to_mysql_db(db_credentials)
@@ -169,7 +170,7 @@ class TestPythonUtils(unittest.TestCase):
         '''
         Testing flask restless app is returning expected value
         '''
-        flaskless_app_server = 'http://ec2-18-191-142-62.us-east-2.compute.amazonaws.com/'
+        flaskless_app_server = 'http://api.fightpoverty.online/'
         resp = requests.get(flaskless_app_server).content
 
         self.assertEqual(resp, 'Welcome to the Fight Poverty API!')

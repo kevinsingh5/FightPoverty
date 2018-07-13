@@ -21,7 +21,7 @@ sys.path.insert(0, raw_input(
 from sql_modules import SQL_QUERY, construct_sql_records
 
 
-# Then get data will be inserting into SQL db from the json file
+# Get data will be inserting into SQL db from the json file
 JSON_FILE_NAME = raw_input('Insert the following json file into SQL db: ')
 DATA = read_json_file(JSON_FILE_NAME)
 
