@@ -19,7 +19,8 @@ staging:
     - echo -e "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa     
     - chmod 600 ~/.ssh/id_rsa     
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'   
-    script:     
+    script:   
+    - cd  
     - bash .gitlab-stage.sh   
     - cd ~/backend
     - make test
