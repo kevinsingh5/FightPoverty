@@ -23,7 +23,7 @@ def restful_api_scraper(request, json_file_name):
     except requests.exceptions.TooManyRedirects:
         print('Try different URL next time')
     except requests.exceptions.RequestException as exp:
-        print exp
+        print(exp)
 
 
 if __name__ == "__main__":
