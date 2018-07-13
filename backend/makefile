@@ -9,7 +9,6 @@ FILES := tests.py 	\
 
 
 TestBackend.pyx: tests.py main.py .pylintrc
-	-mypy     tests.py
 	-pylint   tests.py
 	-pylint   main.py
 	-pylint   ./datasets/Charities/add_charities_to_db.py
