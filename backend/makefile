@@ -45,7 +45,7 @@ format:
 
 
 run:
-	python2 main.py
+	python main.py
 
 
 install:
