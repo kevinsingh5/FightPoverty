@@ -11,38 +11,44 @@ from flask_cors import CORS
 
 
 DB_NAME = os.environ.get("DB", None)
-USERNAME = os.environ.get("USER", None)
+USER_NAME = os.environ.get("USER_NAME", None)
 PASSWORD = os.environ.get("PASSWORD", None)
 HOSTNAME = os.environ.get("HOST", None)
 PORT = os.environ.get("PORT", None)
+EXPOSE_ON_PORT = os.environ.get("EXPOSE_ON_PORT", "5000")
 
 
 # Production database
 DB_NAME = os.environ.get("DB", "testdb")
-USERNAME = os.environ.get("USER", "root")
+USER_NAME = os.environ.get("USER_NAME", "root")
 PASSWORD = os.environ.get("PASSWORD", "downing")
-HOSTNAME = os.environ.get("HOST", "mysql01")
+HOSTNAME = os.environ.get(
+    "HOST", "ec2-18-191-142-62.us-east-2.compute.amazonaws.com")
 PORT = os.environ.get("PORT", "3306")
-EXPOSE_ON_PORT = 80
 
 
 # Test database
 # DB_NAME = "testdb"
-# USERNAME = "root"
+# USER_NAME = "root"
 # PASSWORD = "password"
 # HOSTNAME = "fptestdbinstance.cydh8jzkegid.us-west-2.rds.amazonaws.com"
 # PORT = None
-# EXPOSE_ON_PORT = 5000
 
 
+print('Attempting to connect with the following credentials: ')
+print('DB_NAME: ' + DB_NAME)
+print('USER_NAME: ' + USER_NAME)
+print('PASSWORD: ' + PASSWORD)
+print('HOST: ' + HOSTNAME)
+print('PORT: ' + PORT)
 DB_CONNECTION = ''
-if DB_NAME and USERNAME and PASSWORD and HOSTNAME and PORT:
+if DB_NAME and USER_NAME and PASSWORD and HOSTNAME and PORT:
     # Prod database
-    DB_CONNECTION = 'mysql+mysqlDB://' + USERNAME + ':' + \
+    DB_CONNECTION = 'mysql://' + USER_NAME + ':' + \
         PASSWORD + '@' + HOSTNAME + ':' + PORT + '/' + DB_NAME
-elif DB_NAME and USERNAME and PASSWORD and HOSTNAME:
+elif DB_NAME and USER_NAME and PASSWORD and HOSTNAME:
     # Test database
-    DB_CONNECTION = 'mysql://' + USERNAME + ':' + \
+    DB_CONNECTION = 'mysql://' + USER_NAME + ':' + \
         PASSWORD + '@' + HOSTNAME + '/' + DB_NAME
 else:
     # Local database

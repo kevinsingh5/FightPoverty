@@ -230,7 +230,7 @@
 		},
 		{
 			"id": "17c22694-9107-44ea-8039-3d47abd656a0",
-			"name": "Counties by location",
+			"name": "Counties by name",
 			"url": "api.fightpoverty.online/api/county?q={\"filters\":[{\"name\":\"name\",\"op\":\"eq\",\"val\":\"Travis County\"}]}",
 			"description": "Find counties in the FightPoverty DB.",
 			"data": null,
@@ -283,15 +283,14 @@
 			"responses": [
 				{
 					"id": "02de1873-31e4-4edf-8da0-e9ce34c6892f",
-					"name": "Counties by location",
+					"name": "Counties by name",
 					"status": "",
 					"mime": "",
 					"language": "json",
 					"text": "{\"num_results\":1,\"objects\":[{\"charities\":[{\"address\":\"6500 Metropolis Dr.\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":94.82,\"charity_navigator_score\":96.33,\"city_id\":277,\"county_id\":226,\"fight_poverty_score\":96.33,\"id\":173,\"mission_statement\":\"In its 35th year of service, the Central Texas Food Bank (formerly the Capital Area Food Bank of Texas) provides food and grocery products to 250 Partner Agencies in 21 Central Texas counties. The Food Bank service area covers 19,604 square miles in Central Texas. The mission of the Central Texas Food Bank is to nourish hungry people and lead the community in ending hunger. Food and grocery products distributed by the Food Bank go to human and social service agencies. These Partner Agencies provide hot meals served on-site or groceries to families and individuals in need. The Food Bank distributed nearly 34 million pounds of food in its last fiscal year. \",\"name\":\"Central Texas Food Bank\",\"zip_code\":78744},{\"address\":\"4911 Harmon Avenue\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":89.74,\"charity_navigator_score\":92.74,\"city_id\":277,\"county_id\":226,\"fight_poverty_score\":92.74,\"id\":495,\"mission_statement\":\"Manos de Cristo was founded in 1988 and is committed to empowering low-income individuals regardless of age, gender, race, or religious preference by promoting dignity and self-reliance. Inspired by the Christian ideals of service and compassion, Manos de Christo's services empower homeless individuals and the working poor of Austin to builds self-esteem and self-confidence and the ability to participate fully in the life of the community. Manos is a safe place for the homeless and working poor of Austin to come for emergency food and clothing, oral health care, and education.\",\"name\":\"Manos De Cristo\",\"zip_code\":78751}],\"cities\":[{\"county_id\":226,\"id\":277,\"name\":\"Austin\",\"state\":\"Texas\"}],\"county_poverty_percentage\":12.2,\"county_poverty_population\":143948,\"id\":226,\"name\":\"Travis County\",\"state\":\"Texas\"}],\"page\":1,\"total_pages\":1}\n",
 					"responseCode": {
 						"code": 200,
-						"name": "OK",
-						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+						"name": "OK"
 					},
 					"requestObject": {
 						"url": "api.fightpoverty.online/api/county?q={\"filters\":[{\"name\":\"name\",\"op\":\"eq\",\"val\":\"Travis County\"}]}",
@@ -508,9 +507,9 @@
 		},
 		{
 			"id": "7c32c5e2-19d8-4dbd-b435-4225cd0f5505",
-			"name": "Charities by location",
+			"name": "Charities by zip code",
 			"url": "api.fightpoverty.online/api/charity?q={\"filters\":[{\"name\":\"zip_code\",\"op\":\"eq\",\"val\":6906}]}",
-			"description": "Find charities that match given city/state, county/state, or zip code.",
+			"description": "Find charities that match given zip code.",
 			"data": null,
 			"dataMode": "params",
 			"headerData": [],
