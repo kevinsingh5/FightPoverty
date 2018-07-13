@@ -13,7 +13,6 @@ staging:
     # run tests
     - cd backend/
     - make install
-    - make run
     - make test
     - echo "all tests passed!"
     # generate ssh key   
