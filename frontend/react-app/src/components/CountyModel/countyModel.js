@@ -57,7 +57,7 @@ class CountyModel extends Component {
 
             </div>
         
-     <div style={{display: 'flex', justifyContent: 'center'}}>
+    <div style  = {{width: "50%",  margin: "0 auto"}}>
     <Pagination
       
       pageRangeDisplayed={10}

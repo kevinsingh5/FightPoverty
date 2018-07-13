@@ -55,8 +55,7 @@ class CharityModel extends Component {
           </div>
           
 
-
-    <div style={{display: 'flex', justifyContent: 'center'}}>
+    <div style  = {{width: "50%",  margin: "0 auto"}}>
     <Pagination className = "pagination"
       pageRangeDisplayed={10}
       activePage={this.state.activePage}
@@ -65,7 +64,7 @@ class CharityModel extends Component {
       totalItemsCount={this.state.totalNum}
       onChange={this.handlePageChange}
     />
-    </div>
+  </div>
     </div>
 
     );
