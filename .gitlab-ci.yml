@@ -20,8 +20,10 @@ staging:
     - chmod 600 ~/.ssh/id_rsa     
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'   
     script:   
-    - cd  
+    - pwd
+    - ls -al
     - bash .gitlab-stage.sh   
+    after_script:
     - cd ~/backend
     - make test
     - echo "all tests passed!"
@@ -34,7 +36,7 @@ staging:
 
 deploy:
     stage: deployment
-    #image: python:3.6
+    # image: alpine
     before_script: 
     #generate ssh key   
     - mkdir -p ~/.ssh     

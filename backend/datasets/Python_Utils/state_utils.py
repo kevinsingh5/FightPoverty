@@ -27,7 +27,7 @@ def get_state_name_from_num(state_num):
     '''
     Takes in a state's number and returns the state's name
     '''
-    states_by_num_file = "../States/states_by_num_dict.json"
+    states_by_num_file = "../states/states_by_num_dict.json"
 
     # Need absolute path to file
     states_by_num_file = os.path.join(BASE, states_by_num_file)
@@ -39,7 +39,7 @@ def get_state_name_from_abbrev(state_abbrev):
     '''
     Takes in a state's abbreviation and returns the state's name
     '''
-    states_by_abbrev_file = "../States/states_by_abbrev_dict.json"
+    states_by_abbrev_file = "../states/states_by_abbrev_dict.json"
 
     # Need absolute path to file
     states_by_abbrev_file = os.path.join(BASE, states_by_abbrev_file)

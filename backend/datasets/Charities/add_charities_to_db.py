@@ -1,6 +1,6 @@
 '''
 Use this to insert charities into db AFTER inserted cities and counties
-Note: does not use ../Python_Utils/insert_into_mysql_db.py because that batch inserts.
+Note: does not use ../python_utils/insert_into_mysql_db.py because that batch inserts.
 Need to get county id and city id from db using charity's listed city/state
 
 What the module does:
@@ -13,7 +13,7 @@ import sys
 from get_all_charities_from_jsons import get_all_charities_from_jsons
 
 # Add path to allow importing from same level directory, then disable pylint import warning
-sys.path.insert(0, "../Python_Utils")
+sys.path.insert(0, "../python_utils")
 # pylint: disable=import-error, wrong-import-position, wrong-import-order
 from mysql_utils import connect_to_mysql_db
 from state_utils import get_state_name_from_abbrev

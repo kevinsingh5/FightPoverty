@@ -1,19 +1,19 @@
 '''
 Use this to get counties and cities into database.
-Note: does not use ../Python_Utils/insert_into_mysql_db.py because that batch inserts.
+Note: does not use ../python_utils/insert_into_mysql_db.py because that batch inserts.
 Need to add county first then use county id to add city immediately after and cannot
 do that with a batch insertion.
 
 What this module does:
     - Iterates over entire zip_codes_detailed.json
-    - If zip code is in ../Charities/charity_locations.json, add county and state to SQL database
+    - If zip code is in ../charities/charity_locations.json, add county and state to SQL database
     - Then use that added county's id to add the city/state to the SQL database
 '''
 import sys
 
 
 # Add path to allow importing from same level directory, then disable pylint import warning
-sys.path.insert(0, "../Python_Utils")
+sys.path.insert(0, "../python_utils")
 # pylint: disable=import-error, wrong-import-position, wrong-import-order
 from mysql_utils import connect_to_mysql_db
 from state_utils import get_state_name_from_abbrev
@@ -29,7 +29,7 @@ ALL_ZIP_CODES = read_json_file("./zip_codes_detailed.json")
 
 
 # Get zip codes we have charities for
-KNOWN_ZIP_CODES = read_json_file("../Charities/charity_locations.json")
+KNOWN_ZIP_CODES = read_json_file("../charities/charity_locations.json")
 
 
 # If we know about this zip code, will add its county and city to SQL db

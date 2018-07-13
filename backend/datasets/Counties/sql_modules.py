@@ -9,7 +9,7 @@ database AFTER already added the counties, cities, and charities.
 import sys
 
 # Add path to allow importing from same level directory, then disable pylint import warning
-sys.path.insert(0, "../Python_Utils")
+sys.path.insert(0, "../python_utils")
 # pylint: disable=import-error, wrong-import-position, wrong-import-order
 from state_utils import get_state_name_from_num
 

@@ -7,7 +7,7 @@ import sys
 from get_all_charities_from_jsons import get_all_charities_from_jsons
 
 # Add path to allow importing from same level directory, then disable pylint import warning
-sys.path.insert(0, "../Python_Utils")
+sys.path.insert(0, "../python_utils")
 # pylint: disable=import-error, wrong-import-position, wrong-import-order
 from json_utils import write_json_file
 
@@ -27,4 +27,4 @@ for charity in CHARITIES:
 
 
 # Create new json file called charity_locations.json
-write_json_file("../Charities/charity_locations.json", ZIP_CODE_DICT)
+write_json_file("../charities/charity_locations.json", ZIP_CODE_DICT)
