@@ -62,3 +62,8 @@ run:
 
 install:
 	pip install -r requirements.txt
+
+
+add: format test checkFormat clean
+	cd ..
+	git add .

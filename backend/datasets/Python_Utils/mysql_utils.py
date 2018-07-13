@@ -16,7 +16,7 @@ def get_db_credentials():
     If no defaults set, gets user input.
     '''
     print("Enter credentials to connect to MySQL database...")
-    
+
     db_name = DEFAULT_DB or raw_input("DB name: ")
     username = DEFAULT_USERNAME or raw_input("DB username: ")
     password = DEFAULT_PASSWORD or raw_input("DB password: ")

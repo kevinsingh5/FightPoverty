@@ -123,7 +123,8 @@ class TestPythonUtils(unittest.TestCase):
         '''
         Testing state name from abbrev returns empty when not found
         '''
-        empty = state_utils.get_state_name_from_abbrev('not a real abbreviation')
+        empty = state_utils.get_state_name_from_abbrev(
+            'not a real abbreviation')
         self.assertEqual(empty, '')
 
     def test_state_name_from_num(self):
