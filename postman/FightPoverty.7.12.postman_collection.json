@@ -1,0 +1,1874 @@
+{
+	"id": "2ff1c063-a220-4896-ae4c-869f6b79e3cc",
+	"name": "FightPoverty API's",
+	"description": "API's to help find the best charities aiming to fight poverty",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [],
+	"folders_order": [
+		"2d325e10-686c-461b-a279-1167bfcc206b",
+		"d6e69e02-9a3e-4b79-8dcb-b8d0296d6206",
+		"e60c2ad5-ce0e-48dc-ad88-d24aa7575117"
+	],
+	"folders": [
+		{
+			"id": "2d325e10-686c-461b-a279-1167bfcc206b",
+			"name": "Charities",
+			"description": "FightPoverty's database of charities",
+			"auth": null,
+			"events": null,
+			"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc",
+			"folder": null,
+			"order": [
+				"863412df-adee-49c6-9e4c-b72eb31d715a",
+				"354c1a48-bd88-430c-b532-3911da0c2384",
+				"858ca19a-96db-405b-be0a-d54e999bb453",
+				"7c32c5e2-19d8-4dbd-b435-4225cd0f5505",
+				"ab20ae5d-195f-4441-b96f-8d8e8045538c"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "d6e69e02-9a3e-4b79-8dcb-b8d0296d6206",
+			"name": "Cities",
+			"description": "FightPoverty's database of cities which have charities in them",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "66301fa5-1f1d-4195-ab3f-29ba952326b2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d7484ecc-6587-4d5c-bf8b-5d2edf36461b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc",
+			"folder": null,
+			"order": [
+				"d8fab649-c17a-457f-aa54-7636d686c30c",
+				"898bc850-3fb8-4b52-b6cd-e2d1c193c219",
+				"174f238f-29c8-4395-855d-807aeea6c9ae"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "e60c2ad5-ce0e-48dc-ad88-d24aa7575117",
+			"name": "Counties",
+			"description": "Counties with metadata like percentage in poverty and relation to cities",
+			"auth": null,
+			"events": null,
+			"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc",
+			"folder": null,
+			"order": [
+				"89acc3fe-6895-4ba7-89a2-e845441c9908",
+				"ba6e5f5b-1854-4662-99e1-babf65299e46",
+				"17c22694-9107-44ea-8039-3d47abd656a0"
+			],
+			"folders_order": []
+		}
+	],
+	"requests": [
+		{
+			"id": "174f238f-29c8-4395-855d-807aeea6c9ae",
+			"name": "Cities by name",
+			"url": "api.fightpoverty.online/api/city?q={\"filters\":[{\"name\":\"name\",\"op\":\"eq\",\"val\":\"Austin\"}]}",
+			"description": "Find cities and their info in the FightPoverty DB",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "q",
+					"value": "{\"filters\":[{\"name\":\"name\",\"op\":\"eq\",\"val\":\"Austin\"}]}",
+					"equals": true,
+					"description": "\"name\": is the attribute name\n\n\"op\": is the operation (\"eq\" means equal to)\n\n\"val\": is the value of the attribute. In this case the name of the city\n\nSee [here](https://flask-restless.readthedocs.io/en/stable/searchformat.html#searchformat) for more info on building a request",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "456ba23a-6def-4bc5-b46b-665c9fe89b76",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"expect response to have status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"expect reponse to have OK status\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"response should not have error\", function () {",
+							"    pm.response.to.not.be.error; ",
+							"});",
+							"",
+							"pm.test(\"response should have json body\", function () { ",
+							"    pm.response.to.have.jsonBody(\"\"); ",
+							"});",
+							"",
+							"pm.test(\"response should not have json body error\", function () {",
+							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"folder": "d6e69e02-9a3e-4b79-8dcb-b8d0296d6206",
+			"responses": [
+				{
+					"id": "09639e81-5574-4ad3-bb77-9e91d5606909",
+					"name": "Cities by location",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"num_results\":1,\"objects\":[{\"charities\":[{\"address\":\"6500 Metropolis Dr.\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":94.82,\"charity_navigator_score\":96.33,\"city_id\":277,\"county_id\":226,\"fight_poverty_score\":96.33,\"id\":173,\"mission_statement\":\"In its 35th year of service, the Central Texas Food Bank (formerly the Capital Area Food Bank of Texas) provides food and grocery products to 250 Partner Agencies in 21 Central Texas counties. The Food Bank service area covers 19,604 square miles in Central Texas. The mission of the Central Texas Food Bank is to nourish hungry people and lead the community in ending hunger. Food and grocery products distributed by the Food Bank go to human and social service agencies. These Partner Agencies provide hot meals served on-site or groceries to families and individuals in need. The Food Bank distributed nearly 34 million pounds of food in its last fiscal year. \",\"name\":\"Central Texas Food Bank\",\"zip_code\":78744},{\"address\":\"4911 Harmon Avenue\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":89.74,\"charity_navigator_score\":92.74,\"city_id\":277,\"county_id\":226,\"fight_poverty_score\":92.74,\"id\":495,\"mission_statement\":\"Manos de Cristo was founded in 1988 and is committed to empowering low-income individuals regardless of age, gender, race, or religious preference by promoting dignity and self-reliance. Inspired by the Christian ideals of service and compassion, Manos de Christo's services empower homeless individuals and the working poor of Austin to builds self-esteem and self-confidence and the ability to participate fully in the life of the community. Manos is a safe place for the homeless and working poor of Austin to come for emergency food and clothing, oral health care, and education.\",\"name\":\"Manos De Cristo\",\"zip_code\":78751}],\"county\":{\"county_poverty_percentage\":12.2,\"county_poverty_population\":143948,\"id\":226,\"name\":\"Travis County\",\"state\":\"Texas\"},\"county_id\":226,\"id\":277,\"name\":\"Austin\",\"state\":\"Texas\"}],\"page\":1,\"total_pages\":1}\n",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/api/city?q={\"filters\":[{\"name\":\"name\",\"op\":\"eq\",\"val\":\"Austin\"}]}",
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "q",
+								"value": "{\"filters\":[{\"name\":\"name\",\"op\":\"eq\",\"val\":\"Austin\"}]}",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Content-Length",
+							"value": "2169",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jul 2018 01:42:42 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/city?page=1&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/city?page=1&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/2.7.15rc1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						}
+					],
+					"cookies": [],
+					"request": "174f238f-29c8-4395-855d-807aeea6c9ae",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "17c22694-9107-44ea-8039-3d47abd656a0",
+			"name": "Counties by location",
+			"url": "api.fightpoverty.online/api/county?q={\"filters\":[{\"name\":\"name\",\"op\":\"eq\",\"val\":\"Travis County\"}]}",
+			"description": "Find counties in the FightPoverty DB.",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "q",
+					"value": "{\"filters\":[{\"name\":\"name\",\"op\":\"eq\",\"val\":\"Travis County\"}]}",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c360ae53-e86c-4fa2-a1b6-d8bdd4cf4aca",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"expect response to have status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"expect reponse to have OK status\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"response should not have error\", function () {",
+							"    pm.response.to.not.be.error; ",
+							"});",
+							"",
+							"pm.test(\"response should have json body\", function () { ",
+							"    pm.response.to.have.jsonBody(\"\"); ",
+							"});",
+							"",
+							"pm.test(\"response should not have json body error\", function () {",
+							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"folder": "e60c2ad5-ce0e-48dc-ad88-d24aa7575117",
+			"responses": [
+				{
+					"id": "02de1873-31e4-4edf-8da0-e9ce34c6892f",
+					"name": "Counties by location",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"num_results\":1,\"objects\":[{\"charities\":[{\"address\":\"6500 Metropolis Dr.\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":94.82,\"charity_navigator_score\":96.33,\"city_id\":277,\"county_id\":226,\"fight_poverty_score\":96.33,\"id\":173,\"mission_statement\":\"In its 35th year of service, the Central Texas Food Bank (formerly the Capital Area Food Bank of Texas) provides food and grocery products to 250 Partner Agencies in 21 Central Texas counties. The Food Bank service area covers 19,604 square miles in Central Texas. The mission of the Central Texas Food Bank is to nourish hungry people and lead the community in ending hunger. Food and grocery products distributed by the Food Bank go to human and social service agencies. These Partner Agencies provide hot meals served on-site or groceries to families and individuals in need. The Food Bank distributed nearly 34 million pounds of food in its last fiscal year. \",\"name\":\"Central Texas Food Bank\",\"zip_code\":78744},{\"address\":\"4911 Harmon Avenue\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":89.74,\"charity_navigator_score\":92.74,\"city_id\":277,\"county_id\":226,\"fight_poverty_score\":92.74,\"id\":495,\"mission_statement\":\"Manos de Cristo was founded in 1988 and is committed to empowering low-income individuals regardless of age, gender, race, or religious preference by promoting dignity and self-reliance. Inspired by the Christian ideals of service and compassion, Manos de Christo's services empower homeless individuals and the working poor of Austin to builds self-esteem and self-confidence and the ability to participate fully in the life of the community. Manos is a safe place for the homeless and working poor of Austin to come for emergency food and clothing, oral health care, and education.\",\"name\":\"Manos De Cristo\",\"zip_code\":78751}],\"cities\":[{\"county_id\":226,\"id\":277,\"name\":\"Austin\",\"state\":\"Texas\"}],\"county_poverty_percentage\":12.2,\"county_poverty_population\":143948,\"id\":226,\"name\":\"Travis County\",\"state\":\"Texas\"}],\"page\":1,\"total_pages\":1}\n",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/api/county?q={\"filters\":[{\"name\":\"name\",\"op\":\"eq\",\"val\":\"Travis County\"}]}",
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "q",
+								"value": "{\"filters\":[{\"name\":\"name\",\"op\":\"eq\",\"val\":\"Travis County\"}]}",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Content-Length",
+							"value": "2171",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jul 2018 01:47:17 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/county?page=1&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/county?page=1&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/2.7.15rc1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						}
+					],
+					"cookies": [],
+					"request": "17c22694-9107-44ea-8039-3d47abd656a0",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "354c1a48-bd88-430c-b532-3911da0c2384",
+			"name": "Charity by id",
+			"url": "api.fightpoverty.online/api/charity/:id",
+			"description": "Find a charity by unique identifier created by FightPoverty db",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": "",
+					"description": "Give the charity's unique identifier created by the FightPoverty database."
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5f285dce-5d77-4ccb-85ad-993a811fcf3e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"expect response to have status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"expect reponse to have OK status\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"response should not have error\", function () {",
+							"    pm.response.to.not.be.error; ",
+							"});",
+							"",
+							"pm.test(\"response should have json body\", function () { ",
+							"    pm.response.to.have.jsonBody(\"\"); ",
+							"});",
+							"",
+							"pm.test(\"response should not have json body error\", function () {",
+							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"folder": "2d325e10-686c-461b-a279-1167bfcc206b",
+			"responses": [
+				{
+					"id": "342a1d3d-752f-4fa5-bea8-eef5c3781ce8",
+					"name": "Charity by id",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"address\":\"461 Glenbrook Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":85.0,\"charity_navigator_score\":89.39,\"city\":{\"county_id\":17,\"id\":26,\"name\":\"Stamford\",\"state\":\"Connecticut\"},\"city_id\":26,\"county\":{\"county_poverty_percentage\":8.6,\"county_poverty_population\":79966,\"id\":17,\"name\":\"Fairfield County\",\"state\":\"Connecticut\"},\"county_id\":17,\"fight_poverty_score\":89.39,\"id\":1,\"mission_statement\":\"The Food Bank of Lower Fairfield County is lower Fairfield County's primary hunger-relief organization. We provide food to approximately 75 non-profit agencies and programs that serve low income people in our six town service area through bags of groceries and congregate meals. These include soup kitchens, food pantries, child care programs, homeless shelters, senior centers, domestic violence safe houses, and rehabilitation programs. Our mission statement is to raise awareness of, and promote action to combat, hunger in these communities.\",\"name\":\"The Food Bank of Lower Fairfield County\",\"zip_code\":6906}\n",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/api/charity/:id",
+						"pathVariableData": [
+							{
+								"key": "id",
+								"value": "1",
+								"description": "Give the charity's unique identifier created by the FightPoverty database."
+							}
+						],
+						"queryParams": [],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Content-Length",
+							"value": "1113",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jul 2018 00:49:48 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/2.7.15rc1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						}
+					],
+					"cookies": [],
+					"request": "354c1a48-bd88-430c-b532-3911da0c2384",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {
+				"id": ""
+			}
+		},
+		{
+			"id": "7c32c5e2-19d8-4dbd-b435-4225cd0f5505",
+			"name": "Charities by location",
+			"url": "api.fightpoverty.online/api/charity?q={\"filters\":[{\"name\":\"zip_code\",\"op\":\"eq\",\"val\":6906}]}",
+			"description": "Find charities that match given city/state, county/state, or zip code.",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "q",
+					"value": "{\"filters\":[{\"name\":\"zip_code\",\"op\":\"eq\",\"val\":6906}]}",
+					"equals": true,
+					"description": "\"name\": is the attribute name\n\n\"op\": is the operation (\"eq\" means equal to)\n\n\"val\": is the value of the attribute. In this case the zip code in which a charity resides\n\nSee [here](https://flask-restless.readthedocs.io/en/stable/searchformat.html#searchformat) for more info on building a request",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a3973e35-6d35-4caa-abcf-259aabb63094",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"expect response to have status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"expect reponse to have OK status\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"response should not have error\", function () {",
+							"    pm.response.to.not.be.error; ",
+							"});",
+							"",
+							"pm.test(\"response should have json body\", function () { ",
+							"    pm.response.to.have.jsonBody(\"\"); ",
+							"});",
+							"",
+							"pm.test(\"response should not have json body error\", function () {",
+							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"folder": "2d325e10-686c-461b-a279-1167bfcc206b",
+			"responses": [
+				{
+					"id": "1297408b-2246-42d7-9c91-ce2cdf9c7b21",
+					"name": "Charities by zip code",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"num_results\":1,\"objects\":[{\"address\":\"461 Glenbrook Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":85.0,\"charity_navigator_score\":89.39,\"city\":{\"county_id\":17,\"id\":26,\"name\":\"Stamford\",\"state\":\"Connecticut\"},\"city_id\":26,\"county\":{\"county_poverty_percentage\":8.6,\"county_poverty_population\":79966,\"id\":17,\"name\":\"Fairfield County\",\"state\":\"Connecticut\"},\"county_id\":17,\"fight_poverty_score\":89.39,\"id\":1,\"mission_statement\":\"The Food Bank of Lower Fairfield County is lower Fairfield County's primary hunger-relief organization. We provide food to approximately 75 non-profit agencies and programs that serve low income people in our six town service area through bags of groceries and congregate meals. These include soup kitchens, food pantries, child care programs, homeless shelters, senior centers, domestic violence safe houses, and rehabilitation programs. Our mission statement is to raise awareness of, and promote action to combat, hunger in these communities.\",\"name\":\"The Food Bank of Lower Fairfield County\",\"zip_code\":6906}],\"page\":1,\"total_pages\":1}\n",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/api/charity?q={\"filters\":[{\"name\":\"zip_code\",\"op\":\"eq\",\"val\":6906}]}",
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "q",
+								"value": "{\"filters\":[{\"name\":\"zip_code\",\"op\":\"eq\",\"val\":6906}]}",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Content-Length",
+							"value": "1168",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jul 2018 00:24:00 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/charity?page=1&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/charity?page=1&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/2.7.15rc1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						}
+					],
+					"cookies": [],
+					"request": "7c32c5e2-19d8-4dbd-b435-4225cd0f5505",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "858ca19a-96db-405b-be0a-d54e999bb453",
+			"name": "Charity by name",
+			"url": "api.fightpoverty.online/api/charity?q={\"filters\":[{\"name\":\"name\",\"op\":\"eq\",\"val\":\"The Food Bank of Lower Fairfield County\"}]}",
+			"description": "Find a charity by its name.",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "q",
+					"value": "{\"filters\":[{\"name\":\"name\",\"op\":\"eq\",\"val\":\"The Food Bank of Lower Fairfield County\"}]}",
+					"equals": true,
+					"description": "\"name\": is the attribute name\n\n\"op\": is the operation (\"eq\" means equal to)\n\n\"val\": is the value of the attribute. In this case the charity's name\n\nSee [here](https://flask-restless.readthedocs.io/en/stable/searchformat.html#searchformat) for more info on building a request",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f8e63ee-518c-45c7-9015-2f7d6b6a5aaa",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"expect response to have status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"expect reponse to have OK status\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"response should not have error\", function () {",
+							"    pm.response.to.not.be.error; ",
+							"});",
+							"",
+							"pm.test(\"response should have json body\", function () { ",
+							"    pm.response.to.have.jsonBody(\"\"); ",
+							"});",
+							"",
+							"pm.test(\"response should not have json body error\", function () {",
+							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"folder": "2d325e10-686c-461b-a279-1167bfcc206b",
+			"responses": [
+				{
+					"id": "6caab19a-54ea-4a4b-a4da-d3c970963987",
+					"name": "Charity by name",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"num_results\":1,\"objects\":[{\"address\":\"461 Glenbrook Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":85.0,\"charity_navigator_score\":89.39,\"city\":{\"county_id\":17,\"id\":26,\"name\":\"Stamford\",\"state\":\"Connecticut\"},\"city_id\":26,\"county\":{\"county_poverty_percentage\":8.6,\"county_poverty_population\":79966,\"id\":17,\"name\":\"Fairfield County\",\"state\":\"Connecticut\"},\"county_id\":17,\"fight_poverty_score\":89.39,\"id\":1,\"mission_statement\":\"The Food Bank of Lower Fairfield County is lower Fairfield County's primary hunger-relief organization. We provide food to approximately 75 non-profit agencies and programs that serve low income people in our six town service area through bags of groceries and congregate meals. These include soup kitchens, food pantries, child care programs, homeless shelters, senior centers, domestic violence safe houses, and rehabilitation programs. Our mission statement is to raise awareness of, and promote action to combat, hunger in these communities.\",\"name\":\"The Food Bank of Lower Fairfield County\",\"zip_code\":6906}],\"page\":1,\"total_pages\":1}\n",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/api/charity?q={\"filters\":[{\"name\":\"name\",\"op\":\"eq\",\"val\":\"The Food Bank of Lower Fairfield County\"}]}",
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "q",
+								"value": "{\"filters\":[{\"name\":\"name\",\"op\":\"eq\",\"val\":\"The Food Bank of Lower Fairfield County\"}]}",
+								"equals": true,
+								"description": "\"name\": is the attribute name\n\n\"op\": is the operation (\"eq\" means equal to)\n\n\"val\": is the value of the attribute. In this case the charity's name\n\nSee [here](https://flask-restless.readthedocs.io/en/stable/searchformat.html#searchformat) for more info on building a request",
+								"enabled": true
+							}
+						],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Content-Length",
+							"value": "1168",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jul 2018 00:58:14 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/charity?page=1&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/charity?page=1&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/2.7.15rc1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						}
+					],
+					"cookies": [],
+					"request": "858ca19a-96db-405b-be0a-d54e999bb453",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "863412df-adee-49c6-9e4c-b72eb31d715a",
+			"name": "Charities paginated",
+			"url": "api.fightpoverty.online/api/charity",
+			"description": "Get all charities paginated",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "822ef4c7-00bc-4dcd-9125-705f75130365",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"expect response to have status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"expect reponse to have OK status\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"response should not have error\", function () {",
+							"    pm.response.to.not.be.error; ",
+							"});",
+							"",
+							"pm.test(\"response should have json body\", function () { ",
+							"    pm.response.to.have.jsonBody(\"\"); ",
+							"});",
+							"",
+							"pm.test(\"response should not have json body error\", function () {",
+							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"folder": "2d325e10-686c-461b-a279-1167bfcc206b",
+			"responses": [
+				{
+					"id": "5b93e00a-6c93-4e4a-a79b-b1333ae7b800",
+					"name": "Page 10 of charities",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"num_results\":571,\"objects\":[{\"address\":\"21800 Greenfield Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":82.5,\"charity_navigator_score\":85.38,\"city\":{\"county_id\":147,\"id\":180,\"name\":\"Oak Park\",\"state\":\"Michigan\"},\"city_id\":180,\"county\":{\"county_poverty_percentage\":8.7,\"county_poverty_population\":106650,\"id\":147,\"name\":\"Oakland County\",\"state\":\"Michigan\"},\"county_id\":147,\"fight_poverty_score\":85.38,\"id\":82,\"mission_statement\":\"Forgotten Harvest is dedicated to relieving hunger in metro Detroit and preventing nutritious food waste. Established in 1990, Forgotten Harvest rescues fresh food from 800 donors, including wholesalers, farmers, dairies, and 267 grocery stores. This food, which would otherwise go to waste, is delivered at no charge to 257 food pantries, soup kitchens, shelters, and mobile pantries serving food-insecure families and individuals across metro Detroit. During fiscal year 2015 - 2016, Forgotten Harvest rescued and distributed 42.3 million pounds of food.\",\"name\":\"Forgotten Harvest\",\"zip_code\":48237},{\"address\":\"940 East Genesee Avenue\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":95.37,\"charity_navigator_score\":91.56,\"city\":{\"county_id\":151,\"id\":183,\"name\":\"Saginaw\",\"state\":\"Michigan\"},\"city_id\":183,\"county\":{\"county_poverty_percentage\":17.8,\"county_poverty_population\":33068,\"id\":151,\"name\":\"Saginaw County\",\"state\":\"Michigan\"},\"county_id\":151,\"fight_poverty_score\":91.56,\"id\":83,\"mission_statement\":\"Founded in 1994, HIDDEN HARVEST strives to alleviate hunger and end food waste in the Bay, Midland and Saginaw region by providing a safe and coordinated system of rescuing surplus food and redistributing it to feed people in need. Each day, HIDDEN HARVEST rescues thousands of pounds of food from hospitals, hotels, restaurants, wholesalers, bakeries, grocery stores, and other health department or USDA approved sources. This food is immediately delivered free of charge, to soup kitchens, food pantries, shelters, and other nonprofit community programs that help many of our neighbors every day.\",\"name\":\"HIDDEN HARVEST\",\"zip_code\":48605},{\"address\":\"9820 Dino Drive\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":77.0,\"charity_navigator_financial_score\":100.0,\"charity_navigator_score\":83.73,\"city\":{\"county_id\":271,\"id\":337,\"name\":\"Elk Grove\",\"state\":\"California\"},\"city_id\":337,\"county\":{\"county_poverty_percentage\":16.3,\"county_poverty_population\":243760,\"id\":271,\"name\":\"Sacramento County\",\"state\":\"California\"},\"county_id\":271,\"fight_poverty_score\":83.73,\"id\":84,\"mission_statement\":\"Elk Grove Food Bank Services (EGFBS) was founded in 1973 at a local church by the Elk Grove Ministerial Association. Since its founding EGFBS has distributed over 5,412,130 meals and approximately 9,800,000 pounds of food in our local community and surrounding areas. For 43 years EGFBS has led the fight against hunger by working with caring donors, volunteers, foundations, local government, churches and community groups. Over the years the Food Bank has expanded and evolved to serve the needs of food insecure individuals by providing emergency food, eight mobile distribution sites, CalFresh, clothing, nutrition classes and other services at no cost.\",\"name\":\"Elk Grove Food Bank Services\",\"zip_code\":95624},{\"address\":\"201 South Hawley Court\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":88.84,\"charity_navigator_score\":91.61,\"city\":{\"county_id\":162,\"id\":196,\"name\":\"Milwaukee\",\"state\":\"Wisconsin\"},\"city_id\":196,\"county\":{\"county_poverty_percentage\":19.8,\"county_poverty_population\":183511,\"id\":162,\"name\":\"Milwaukee County\",\"state\":\"Wisconsin\"},\"county_id\":162,\"fight_poverty_score\":91.61,\"id\":85,\"mission_statement\":\"Hunger Task Force believes that every person has a right to adequate food obtained with dignity. We work to prevent hunger and malnutrition by providing food to people in need today and by promoting social policies to achieve a hunger free community tomorrow.\\r\\n\\r\\nHunger Task Force is Milwaukee's Free & Local food bank and Wisconsin's leading anti-hunger organization. Hunger Task Force was founded in 1974 by a group of parent advocates who were fighting for a school breakfast program in Milwaukee Public Schools. \\r\\n\\r\\nToday, Hunger Task Force provides a safety net of emergency food to a network of local food pantries and meal programs. Hunger Task Force is the only food bank in Milwaukee that does not charge for food, delivery, or network membership. Hunger Task Force continues to advocate for social policies and strong nutrition programs that fight future hunger.\",\"name\":\"Hunger Task Force\",\"zip_code\":53214},{\"address\":\"1700 West Fond du Lac Avenue\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":92.0,\"charity_navigator_financial_score\":89.44,\"charity_navigator_score\":90.63,\"city\":{\"county_id\":162,\"id\":196,\"name\":\"Milwaukee\",\"state\":\"Wisconsin\"},\"city_id\":196,\"county\":{\"county_poverty_percentage\":19.8,\"county_poverty_population\":183511,\"id\":162,\"name\":\"Milwaukee County\",\"state\":\"Wisconsin\"},\"county_id\":162,\"fight_poverty_score\":90.63,\"id\":86,\"mission_statement\":\"Feeding America Eastern Wisconsin is the largest, private, nonprofit hunger relief organization in the state with locations in Milwaukee and the Fox Valley. Founded in 1982 by the Rotary Club of Milwaukee, Feeding America Eastern Wisconsin is a local and independent member of the Feeding America network. Feeding America Eastern Wisconsin collaborates with more than 570 partner hunger relief organizations, including food pantries, meal programs, shelters and community-based mobile pantries to provide 20 million meals annually to 377,000 people across 36 counties in eastern Wisconsin. Feeding America Eastern Wisconsin also supports programs that improve food security for people in need, advocates on their behalf and works collaboratively to solve hunger.\",\"name\":\"Feeding America Eastern Wisconsin\",\"zip_code\":53205},{\"address\":\"2802 Dairy Drive\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":97.0,\"charity_navigator_financial_score\":96.85,\"charity_navigator_score\":96.92,\"city\":{\"county_id\":163,\"id\":198,\"name\":\"Madison\",\"state\":\"Wisconsin\"},\"city_id\":198,\"county\":{\"county_poverty_percentage\":10.9,\"county_poverty_population\":56594,\"id\":163,\"name\":\"Dane County\",\"state\":\"Wisconsin\"},\"county_id\":163,\"fight_poverty_score\":96.92,\"id\":87,\"mission_statement\":\"Second Harvest Foodbank of Southern Wisconsin is a nonprofit organization dedicated to ending hunger in southwestern Wisconsin through community partnerships, serving nearly 141,000 people annually, including 43 percent who are children. Through food and financial donations and volunteer support, Second Harvest acquires and distributes food to 350 partner programs in 16 counties. From July 1, 2010 -June 30, 2011, Second Harvest distributed 8.6 million pounds of food. It is one of 200 affiliates of Feeding America, the nation's leading domestic hunger-relief charity.\\r\\n\\r\\n\\r\\n\",\"name\":\"Second Harvest Foodbank of Southern Wisconsin\",\"zip_code\":53718},{\"address\":\"1301 Sentry Drive\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":87.15,\"charity_navigator_score\":88.03,\"city\":{\"county_id\":161,\"id\":195,\"name\":\"Waukesha\",\"state\":\"Wisconsin\"},\"city_id\":195,\"county\":{\"county_poverty_percentage\":5.2,\"county_poverty_population\":20315,\"id\":161,\"name\":\"Waukesha County\",\"state\":\"Wisconsin\"},\"county_id\":161,\"fight_poverty_score\":88.03,\"id\":88,\"mission_statement\":\"The Food Pantry of Waukesha County provides food, hope, and dignity to county residents in need, and advocates to increase awareness of hunger in the community through collaborative action. We distribute food based on nutritional guidelines, family size, special dietary needs and availability of provisions. The Food Pantry provides a variety of items from nonperishable food and goods to perishable items like frozen meat, fresh milk and produce. There is also a high demand for baby products, so formula, diapers and hygiene products are available as well.\",\"name\":\"Food Pantry of Waukesha County\",\"zip_code\":53186},{\"address\":\"8501 54th Avenue, N\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":80.98,\"charity_navigator_score\":86.55,\"city\":{\"county_id\":167,\"id\":206,\"name\":\"New Hope\",\"state\":\"Minnesota\"},\"city_id\":206,\"county\":{\"county_poverty_percentage\":10.9,\"county_poverty_population\":132137,\"id\":167,\"name\":\"Hennepin County\",\"state\":\"Minnesota\"},\"county_id\":167,\"fight_poverty_score\":86.55,\"id\":89,\"mission_statement\":\"The Food Group's (formerly Emergency Foodshelf Network) mission is to be an innovative foodbank dedicated to serving the hunger needs of our changing communities.<br><br>Established in 1976, The Food Group collects, warehouses and distributes high quality food and essential support services to Minnesota hunger relief organizations. The Food Group was created to help food shelves pool their resources and receive quantities of food equal to their demand. Before The Food Group was formed, it was not uncommon for one food shelf to experience an excess of resources while a neighboring shelf turned clients away due to lack of food or money. The Food Group's network consists of 230+ hunger relief programs throughout 27 Minnesota counties. These agencies provide more than seven million pounds of nonperishable, perishable and prepared food to hunger relief organizations annually.\",\"name\":\"The Food Group\",\"zip_code\":55428},{\"address\":\"131 35th Street, SE\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":93.0,\"charity_navigator_financial_score\":94.75,\"charity_navigator_score\":93.81,\"city\":{\"county_id\":169,\"id\":208,\"name\":\"Rochester\",\"state\":\"Minnesota\"},\"city_id\":208,\"county\":{\"county_poverty_percentage\":8.6,\"county_poverty_population\":13027,\"id\":169,\"name\":\"Olmsted County\",\"state\":\"Minnesota\"},\"county_id\":169,\"fight_poverty_score\":93.81,\"id\":90,\"mission_statement\":\"Channel One Regional Food Bank helps feed people in need through an efficient system of collection and distribution of food and non-food items to non-profit organizations that serve low-income people. Channel One Regional Food Bank takes in millions of pounds of surplus food from the food industry. That food is then distributed through our network of member agencies, including food shelves, soup kitchens, group homes and shelters. This past year, the Channel One obtained 4.8 million pounds of food and distributed 4.6 million pounds through the hunger relief network that serves a 14 county service area in Southeast Minnesota and Western Wisconsin. Channel One is certified member of Feeding America, The Nation's Food Bank Network.\",\"name\":\"Channel One Regional Food Bank\",\"zip_code\":55904}],\"page\":10,\"total_pages\":64}\n",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/api/charity?page=10",
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "page",
+								"value": "10",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Content-Length",
+							"value": "11309",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jul 2018 00:55:52 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/charity?page=11&results_per_page=9>; rel=\"next\", <http://api.fightpoverty.online/api/charity?page=64&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/charity?page=11&results_per_page=9>; rel=\"next\", <http://api.fightpoverty.online/api/charity?page=64&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/2.7.15rc1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						}
+					],
+					"cookies": [],
+					"request": "863412df-adee-49c6-9e4c-b72eb31d715a",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				},
+				{
+					"id": "c06cc22a-0a1f-4565-b2b5-11f09c87fb75",
+					"name": "All charities paginated",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"num_results\":571,\"objects\":[{\"address\":\"461 Glenbrook Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":85.0,\"charity_navigator_score\":89.39,\"city\":{\"county_id\":17,\"id\":26,\"name\":\"Stamford\",\"state\":\"Connecticut\"},\"city_id\":26,\"county\":{\"county_poverty_percentage\":8.6,\"county_poverty_population\":79966,\"id\":17,\"name\":\"Fairfield County\",\"state\":\"Connecticut\"},\"county_id\":17,\"fight_poverty_score\":89.39,\"id\":1,\"mission_statement\":\"The Food Bank of Lower Fairfield County is lower Fairfield County's primary hunger-relief organization. We provide food to approximately 75 non-profit agencies and programs that serve low income people in our six town service area through bags of groceries and congregate meals. These include soup kitchens, food pantries, child care programs, homeless shelters, senior centers, domestic violence safe houses, and rehabilitation programs. Our mission statement is to raise awareness of, and promote action to combat, hunger in these communities.\",\"name\":\"The Food Bank of Lower Fairfield County\",\"zip_code\":6906},{\"address\":\"70 South Bay Avenue\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":87.61,\"charity_navigator_score\":91.23,\"city\":{\"county_id\":5,\"id\":8,\"name\":\"Boston\",\"state\":\"Massachusetts\"},\"city_id\":8,\"county\":{\"county_poverty_percentage\":19.5,\"county_poverty_population\":143799,\"id\":5,\"name\":\"Suffolk County\",\"state\":\"Massachusetts\"},\"county_id\":5,\"fight_poverty_score\":91.23,\"id\":2,\"mission_statement\":\"Founded in 1981, The Greater Boston Food Bank is the largest hunger relief organization in New England, and one of the largest food banks in the country. <br><br>GBFB was able to meet or exceed all of our organizational goals for the 2014 fiscal year. Highlights from the past year include: - GBFB distributed over 50 million pounds of food, or over 40 million meals to community members in need through our member agencies and programs. <br><br>- Fresh produce accounted for one quarter of our overall distribution, a dramatic 230% increase from only three years ago. <br>- 25,000 volunteers donated their time to GBFB, saving $1 million in labor costs. <br>- GBFB's mobile markets and school-based pantries reached isolated and low-income communities with an average of 30 pounds of healthy food per household per distribution, such as frozen meats and fresh produce. \",\"name\":\"The Greater Boston Food Bank\",\"zip_code\":2118},{\"address\":\"97 North Hatfield Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":97.5,\"charity_navigator_score\":98.23,\"city\":{\"county_id\":1,\"id\":1,\"name\":\"Hatfield\",\"state\":\"Massachusetts\"},\"city_id\":1,\"county\":{\"county_poverty_percentage\":11.9,\"county_poverty_population\":16535,\"id\":1,\"name\":\"Hampshire County\",\"state\":\"Massachusetts\"},\"county_id\":1,\"fight_poverty_score\":98.23,\"id\":3,\"mission_statement\":\"Mission: To feed our neighbors in need and lead the community to end hunger.<br><br>Vision: A Western Massachusetts where no one goes hungry and everyone has access to nutritious food.<br><br>Overarching value: We believe that everyone has the right to healthy food regardless of their circumstances. <br><br>The Food Bank is the leader provider of emergency food and other food assistance to more than 223,457 individuals at risk of hunger in the four counties of Western Massachusetts (Hampden, Hampshire, Franklin and Berkshire counties). We also lead the community to end hunger through public education and advocacy.<br><br>For more information on how you can get involved in your community, visit www.foodbankwma.org<br><br>\",\"name\":\"The Food Bank of Western Massachusetts\",\"zip_code\":1038},{\"address\":\"265 Prospect Street\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":86.14,\"charity_navigator_score\":87.48,\"city\":{\"county_id\":1,\"id\":2,\"name\":\"Northampton\",\"state\":\"Massachusetts\"},\"city_id\":2,\"county\":{\"county_poverty_percentage\":11.9,\"county_poverty_population\":16535,\"id\":1,\"name\":\"Hampshire County\",\"state\":\"Massachusetts\"},\"county_id\":1,\"fight_poverty_score\":87.48,\"id\":4,\"mission_statement\":\"The Northampton Survival Center is an emergency food pantry that provides low-income individuals and families in 18 communities in Hampshire County with free food, clothing, personal care items, and referrals for emergency assistance. From its two locations in Northampton and Goshen, the Center distributes over 650,000 pounds of food each year. From its Hilltown Pantry in Goshen, the NSC distributes another 40,000 pounds of food each year in the nine northern hilltowns. All together, from its two locations, the NSC distributes about 2,500 pounds of food in nutritionally-balanced food boxes every weekday.\",\"name\":\"Northampton Survival Center\",\"zip_code\":1060},{\"address\":\"474 Boston Turnpike Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":95.21,\"charity_navigator_score\":95.58,\"city\":{\"county_id\":3,\"id\":4,\"name\":\"Shrewsbury\",\"state\":\"Massachusetts\"},\"city_id\":4,\"county\":{\"county_poverty_percentage\":9.6,\"county_poverty_population\":75902,\"id\":3,\"name\":\"Worcester County\",\"state\":\"Massachusetts\"},\"county_id\":3,\"fight_poverty_score\":95.58,\"id\":5,\"mission_statement\":\"The Worcester County Food Bank's (WCFB) mission is to engage, educate, and lead Worcester County in creating a hunger-free community. 95 percent of all donated resources go directly towards creating a hunger-free community.<br><br>WCFB is the leading anti-hunger organization in Central Massachusetts, distributing over 5 million pounds of donated food and grocery product in partnership with food donors, financial supporters, and volunteers. WCFB provides this product to a network of 138 partner agencies that have programs for feeding hungry people of all ages including food pantries, community meal sites, and shelters.<br><br>WCFB also advocates within the community and at the state and federal levels for systemic and sustainable solutions to the problem of hunger.\",\"name\":\"Worcester County Food Bank\",\"zip_code\":1545},{\"address\":\"200 Niantic Avenue\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":97.0,\"charity_navigator_financial_score\":78.85,\"charity_navigator_score\":84.89,\"city\":{\"county_id\":7,\"id\":11,\"name\":\"Providence\",\"state\":\"Rhode Island\"},\"city_id\":11,\"county\":{\"county_poverty_percentage\":15.8,\"county_poverty_population\":96214,\"id\":7,\"name\":\"Providence County\",\"state\":\"Rhode Island\"},\"county_id\":7,\"fight_poverty_score\":84.89,\"id\":6,\"mission_statement\":\"Our Mission<br><br>To improve the quality of life for all Rhode Islanders by advancing solutions to the problem of hunger.<br><br>Our Vision<br><br>We envision a state where no one goes hungry.\",\"name\":\"Rhode Island Community Food Bank\",\"zip_code\":2907},{\"address\":\"2 Research Parkway\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":92.0,\"charity_navigator_financial_score\":88.78,\"charity_navigator_score\":90.25,\"city\":{\"county_id\":16,\"id\":21,\"name\":\"Wallingford\",\"state\":\"Connecticut\"},\"city_id\":21,\"county\":{\"county_poverty_percentage\":11.4,\"county_poverty_population\":94687,\"id\":16,\"name\":\"New Haven County\",\"state\":\"Connecticut\"},\"county_id\":16,\"fight_poverty_score\":90.25,\"id\":7,\"mission_statement\":\"Founded in 1982, the Connecticut Food Bank is the largest centralized source of charitable food donations in Connecticut. The Connecticut Food Bank is a private organization whose mission is to provide nutritious food to people in need by supplying food products and resources to eligible agencies throughout our service area in Connecticut, and to promote public awareness about the problem of hunger. The Connecticut Food Bank provides grocery products to some 700 soup kitchens, shelters, food pantries, and day programs in Fairfield, Litchfield, Middlesex, New Haven, New London and Windham counties.\",\"name\":\"Connecticut Food Bank\",\"zip_code\":6492},{\"address\":\"10 Davids Drive\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":88.61,\"charity_navigator_score\":91.94,\"city\":{\"county_id\":30,\"id\":44,\"name\":\"Hauppauge\",\"state\":\"New York\"},\"city_id\":44,\"county\":{\"county_poverty_percentage\":7.6,\"county_poverty_population\":111341,\"id\":30,\"name\":\"Suffolk County\",\"state\":\"New York\"},\"county_id\":30,\"fight_poverty_score\":91.94,\"id\":8,\"mission_statement\":\"Long Island Cares, Inc.-The Harry Chapin Food Bank is the regional food bank for Nassau and Suffolk County. Founded by the late singer/songwriter and social activist, Harry Chapin in 1980, Long Island Cares brings together all available resources for the benefit of the hungry and food insecure on Long Island and, to the best of our ability, provides for the humanitarian needs of our community. Our goals are to improve food security for families, sponsor programs that help individuals and families achieve self-sufficiency, and educate the general public about the causes and consequences of hunger and food insecurity on Long Island. Our organization contracts with New York State and the Department of Health, Hunger Prevention Nutrition Assistance Program, and the USDA Emergency Food Assistance Program to administer two of the government's major hunger relief programs for the Long Island Region\",\"name\":\"Long Island Cares\",\"zip_code\":11788},{\"address\":\"15 Grumman Road W STE 1450\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":87.41,\"charity_navigator_score\":91.09,\"city\":{\"county_id\":29,\"id\":43,\"name\":\"Bethpage\",\"state\":\"New York\"},\"city_id\":43,\"county\":{\"county_poverty_percentage\":6.1,\"county_poverty_population\":82192,\"id\":29,\"name\":\"Nassau County\",\"state\":\"New York\"},\"county_id\":29,\"fight_poverty_score\":91.09,\"id\":9,\"mission_statement\":\"Island Harvest Food Bank is a leading hunger-relief organization that provides food and other resources to people in need. Always treating those it helps with dignity and respect, our goal is to end hunger and reduce poverty on Long Island through efficient food collection and distribution; enhanced hunger-awareness and nutrition-education programs; job training; and direct services targeted at children, senior citizens, veterans and others at risk. More than 94% of resources expended directly support our programs and services for 316,000 Long Islanders. Island Harvest is a lead agency in the region's emergency-response preparedness for food and product distribution, and is a member of Feeding America, the nation's leading domestic hunger-relief organization.  More information can be found at www.islandharvest.org. \",\"name\":\"Island Harvest\",\"zip_code\":11714}],\"page\":1,\"total_pages\":64}\n",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/api/charity",
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "page",
+								"value": "",
+								"equals": false,
+								"description": "Optional. Can include page number to return. Returns 9 per results per page.",
+								"enabled": false
+							}
+						],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Content-Length",
+							"value": "11134",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jul 2018 01:27:14 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/charity?page=2&results_per_page=9>; rel=\"next\", <http://api.fightpoverty.online/api/charity?page=64&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/charity?page=2&results_per_page=9>; rel=\"next\", <http://api.fightpoverty.online/api/charity?page=64&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/2.7.15rc1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						}
+					],
+					"cookies": [],
+					"request": "863412df-adee-49c6-9e4c-b72eb31d715a",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "898bc850-3fb8-4b52-b6cd-e2d1c193c219",
+			"name": "City by id",
+			"url": "api.fightpoverty.online/api/city/:id",
+			"description": "Find a city by its unique id given to it by FightPoverty db",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": "1",
+					"description": "Give the city's unique identifier created by the FightPoverty database."
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "64d5c0ac-e2ba-4415-b29a-6b19f2bf5e85",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"expect response to have status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"expect reponse to have OK status\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"response should not have error\", function () {",
+							"    pm.response.to.not.be.error; ",
+							"});",
+							"",
+							"pm.test(\"response should have json body\", function () { ",
+							"    pm.response.to.have.jsonBody(\"\"); ",
+							"});",
+							"",
+							"pm.test(\"response should not have json body error\", function () {",
+							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"folder": "d6e69e02-9a3e-4b79-8dcb-b8d0296d6206",
+			"responses": [
+				{
+					"id": "fffd4141-6a26-4e6c-8b0b-e0d44eace191",
+					"name": "City by id",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"charities\":[{\"address\":\"97 North Hatfield Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":97.5,\"charity_navigator_score\":98.23,\"city_id\":1,\"county_id\":1,\"fight_poverty_score\":98.23,\"id\":3,\"mission_statement\":\"Mission: To feed our neighbors in need and lead the community to end hunger.<br><br>Vision: A Western Massachusetts where no one goes hungry and everyone has access to nutritious food.<br><br>Overarching value: We believe that everyone has the right to healthy food regardless of their circumstances. <br><br>The Food Bank is the leader provider of emergency food and other food assistance to more than 223,457 individuals at risk of hunger in the four counties of Western Massachusetts (Hampden, Hampshire, Franklin and Berkshire counties). We also lead the community to end hunger through public education and advocacy.<br><br>For more information on how you can get involved in your community, visit www.foodbankwma.org<br><br>\",\"name\":\"The Food Bank of Western Massachusetts\",\"zip_code\":1038}],\"county\":{\"county_poverty_percentage\":11.9,\"county_poverty_population\":16535,\"id\":1,\"name\":\"Hampshire County\",\"state\":\"Massachusetts\"},\"county_id\":1,\"id\":1,\"name\":\"Hatfield\",\"state\":\"Massachusetts\"}\n",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/api/city/:id",
+						"pathVariableData": [
+							{
+								"key": "id",
+								"value": "1",
+								"description": "Give the city's unique identifier created by the FightPoverty database."
+							}
+						],
+						"queryParams": [],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Content-Length",
+							"value": "1308",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jul 2018 01:09:49 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/2.7.15rc1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						}
+					],
+					"cookies": [],
+					"request": "898bc850-3fb8-4b52-b6cd-e2d1c193c219",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {
+				"id": "1"
+			}
+		},
+		{
+			"id": "89acc3fe-6895-4ba7-89a2-e845441c9908",
+			"name": "Counties paginated",
+			"url": "api.fightpoverty.online/api/county",
+			"description": "Get all counties in FightPoverty db paginated",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8daf14be-f11e-492a-8e0a-4aad6b5a02eb",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"expect response to have status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"expect reponse to have OK status\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"response should not have error\", function () {",
+							"    pm.response.to.not.be.error; ",
+							"});",
+							"",
+							"pm.test(\"response should have json body\", function () { ",
+							"    pm.response.to.have.jsonBody(\"\"); ",
+							"});",
+							"",
+							"pm.test(\"response should not have json body error\", function () {",
+							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"folder": "e60c2ad5-ce0e-48dc-ad88-d24aa7575117",
+			"responses": [
+				{
+					"id": "833ea2e8-2a55-44d1-b9d4-4a68a1946f96",
+					"name": "All counties paginated",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"num_results\":291,\"objects\":[{\"charities\":[{\"address\":\"97 North Hatfield Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":97.5,\"charity_navigator_score\":98.23,\"city_id\":1,\"county_id\":1,\"fight_poverty_score\":98.23,\"id\":3,\"mission_statement\":\"Mission: To feed our neighbors in need and lead the community to end hunger.<br><br>Vision: A Western Massachusetts where no one goes hungry and everyone has access to nutritious food.<br><br>Overarching value: We believe that everyone has the right to healthy food regardless of their circumstances. <br><br>The Food Bank is the leader provider of emergency food and other food assistance to more than 223,457 individuals at risk of hunger in the four counties of Western Massachusetts (Hampden, Hampshire, Franklin and Berkshire counties). We also lead the community to end hunger through public education and advocacy.<br><br>For more information on how you can get involved in your community, visit www.foodbankwma.org<br><br>\",\"name\":\"The Food Bank of Western Massachusetts\",\"zip_code\":1038},{\"address\":\"265 Prospect Street\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":86.14,\"charity_navigator_score\":87.48,\"city_id\":2,\"county_id\":1,\"fight_poverty_score\":87.48,\"id\":4,\"mission_statement\":\"The Northampton Survival Center is an emergency food pantry that provides low-income individuals and families in 18 communities in Hampshire County with free food, clothing, personal care items, and referrals for emergency assistance. From its two locations in Northampton and Goshen, the Center distributes over 650,000 pounds of food each year. From its Hilltown Pantry in Goshen, the NSC distributes another 40,000 pounds of food each year in the nine northern hilltowns. All together, from its two locations, the NSC distributes about 2,500 pounds of food in nutritionally-balanced food boxes every weekday.\",\"name\":\"Northampton Survival Center\",\"zip_code\":1060}],\"cities\":[{\"county_id\":1,\"id\":1,\"name\":\"Hatfield\",\"state\":\"Massachusetts\"},{\"county_id\":1,\"id\":2,\"name\":\"Northampton\",\"state\":\"Massachusetts\"}],\"county_poverty_percentage\":11.9,\"county_poverty_population\":16535,\"id\":1,\"name\":\"Hampshire County\",\"state\":\"Massachusetts\"},{\"charities\":[{\"address\":\"10 Mill Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":80.13,\"charity_navigator_score\":83.94,\"city_id\":3,\"county_id\":2,\"fight_poverty_score\":83.94,\"id\":396,\"mission_statement\":\"Established in 1892, the goal of the Springfield Rescue Mission is to meet the physical and spiritual needs of the hungry, homeless, addicted and poor by introducing them to Christ and helping them apply the Word of God to every area of their lives. The Emergency Shelter on Taylor Street meets the immediate and basic needs of homeless men. Each guest is encouraged to enter a local or regional rehabilitation program to deal with the issues that led them to homelessness. The Transitional Living Program meets basic life needs while allowing the guest to work on the next phase of rehabilitation; such as finding gainful employment, budgeting their money, obtaining an apartment, returning to family, or returning to college as well as taking actions necessary to become a productive citizen.\",\"name\":\"Springfield Rescue Mission\",\"zip_code\":1102}],\"cities\":[{\"county_id\":2,\"id\":3,\"name\":\"Springfield\",\"state\":\"Massachusetts\"}],\"county_poverty_percentage\":16.5,\"county_poverty_population\":74898,\"id\":2,\"name\":\"Hampden County\",\"state\":\"Massachusetts\"},{\"charities\":[{\"address\":\"474 Boston Turnpike Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":95.21,\"charity_navigator_score\":95.58,\"city_id\":4,\"county_id\":3,\"fight_poverty_score\":95.58,\"id\":5,\"mission_statement\":\"The Worcester County Food Bank's (WCFB) mission is to engage, educate, and lead Worcester County in creating a hunger-free community. 95 percent of all donated resources go directly towards creating a hunger-free community.<br><br>WCFB is the leading anti-hunger organization in Central Massachusetts, distributing over 5 million pounds of donated food and grocery product in partnership with food donors, financial supporters, and volunteers. WCFB provides this product to a network of 138 partner agencies that have programs for feeding hungry people of all ages including food pantries, community meal sites, and shelters.<br><br>WCFB also advocates within the community and at the state and federal levels for systemic and sustainable solutions to the problem of hunger.\",\"name\":\"Worcester County Food Bank\",\"zip_code\":1545}],\"cities\":[{\"county_id\":3,\"id\":4,\"name\":\"Shrewsbury\",\"state\":\"Massachusetts\"}],\"county_poverty_percentage\":9.6,\"county_poverty_population\":75902,\"id\":3,\"name\":\"Worcester County\",\"state\":\"Massachusetts\"},{\"charities\":[{\"address\":\"302 Essex Avenue\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":93.0,\"charity_navigator_financial_score\":90.07,\"charity_navigator_score\":91.4,\"city_id\":7,\"county_id\":4,\"fight_poverty_score\":91.4,\"id\":245,\"mission_statement\":\"Founded in 1981, Wellspring House empowers individuals and families to live more secure lives through basic needs assistance, education and job training. Our basic needs assistance program provides emergency shelter for families, housing search assistance for families living in motels, emergency homeless prevention funding and guidance, assistance for recently homeless families, permanent homes for 11 low-income people at our lodging house, and advocacy for affordable housing and issues related to homelessness. Wellspring House also offers education and job training opportunities through curriculums that are designed to make sure that adult students can access information in different learning styles, and respectful of the adult learner.\",\"name\":\"Wellspring House\",\"zip_code\":1930},{\"address\":\"412 Hampshire Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":85.22,\"charity_navigator_score\":89.54,\"city_id\":5,\"county_id\":4,\"fight_poverty_score\":89.54,\"id\":246,\"mission_statement\":\"Lazarus House Ministries is spiritually based and welcomes all in the name of God. We provide a continuum of care encompassing, but not limited to: shelter, food, clothing, advocacy, education, work preparation, health services, a listening ear, a welcoming heart, and the restoration of dignity and self-respect to people who are poor and in dire need. Although we are a faith-based ministry, we are not affiliated with any church. We serve to empower our guests to move beyond poverty and crisis and to become productive members of their community.\",\"name\":\"Lazarus House\",\"zip_code\":1841},{\"address\":\"73 Buffum Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":92.0,\"charity_navigator_financial_score\":90.15,\"charity_navigator_score\":91.02,\"city_id\":6,\"county_id\":4,\"fight_poverty_score\":91.02,\"id\":274,\"mission_statement\":\"Founded in 1981, the Massachusetts Coalition for the Homeless (MCH) is committed to ensuring that everyone has a place to call home. MCH's policy work and programs address this issue on three fronts. First, the Coalition provides bridges over short-term crisis, helping homeless and at-risk people to relocate quickly into new housing or avoid homelessness altogether. Second, MCH works to ensure adequate and appropriate shelter if homelessness is unavoidable. Third, MCH advocates for long-term solutions to the housing crisis, promoting government support for income and housing resources so that all Massachusetts residents can obtain and maintain safe, affordable housing. As MCH works to address the causes, not just the symptoms of homelessness, it remains committed to creating opportunities for families and individuals to advocate for their own needs.\",\"name\":\"Massachusetts Coalition for the Homeless\",\"zip_code\":1902}],\"cities\":[{\"county_id\":4,\"id\":5,\"name\":\"Lawrence\",\"state\":\"Massachusetts\"},{\"county_id\":4,\"id\":6,\"name\":\"Lynn\",\"state\":\"Massachusetts\"},{\"county_id\":4,\"id\":7,\"name\":\"Gloucester\",\"state\":\"Massachusetts\"}],\"county_poverty_percentage\":10.7,\"county_poverty_population\":81646,\"id\":4,\"name\":\"Essex County\",\"state\":\"Massachusetts\"},{\"charities\":[{\"address\":\"70 South Bay Avenue\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":87.61,\"charity_navigator_score\":91.23,\"city_id\":8,\"county_id\":5,\"fight_poverty_score\":91.23,\"id\":2,\"mission_statement\":\"Founded in 1981, The Greater Boston Food Bank is the largest hunger relief organization in New England, and one of the largest food banks in the country. <br><br>GBFB was able to meet or exceed all of our organizational goals for the 2014 fiscal year. Highlights from the past year include: - GBFB distributed over 50 million pounds of food, or over 40 million meals to community members in need through our member agencies and programs. <br><br>- Fresh produce accounted for one quarter of our overall distribution, a dramatic 230% increase from only three years ago. <br>- 25,000 volunteers donated their time to GBFB, saving $1 million in labor costs. <br>- GBFB's mobile markets and school-based pantries reached isolated and low-income communities with an average of 30 pounds of healthy food per household per distribution, such as frozen meats and fresh produce. \",\"name\":\"The Greater Boston Food Bank\",\"zip_code\":2118},{\"address\":\"39 Kingston Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":84.05,\"charity_navigator_score\":88.37,\"city_id\":8,\"county_id\":5,\"fight_poverty_score\":88.37,\"id\":242,\"mission_statement\":\"Founded in 1899, the Boston Rescue Mission offers resources that prevent and end homelessness. We support the recovery, health, faith and independence of those who have a history of substance abuse, incarceration, and homelessness. We raise awareness about the root causes of these life risks, and serve everyone with respect, integrity and grace. We aim to reflect the teachings of Jesus and the love of God in all we do. At the Boston Rescue Mission, our programs and services focus a great deal on preventing homelessness. Our range of services also strives to meet the needs of a population of female ex-offenders. The goal of this re-entry program is to reduce recidivism, increase public safety, and help female ex-offenders to re-enter society as independent women living fulfilling and crime-free lives.\",\"name\":\"Boston Rescue Mission\",\"zip_code\":2111},{\"address\":\"444 Harrison Avenue\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":85.99,\"charity_navigator_score\":87.4,\"city_id\":8,\"county_id\":5,\"fight_poverty_score\":87.4,\"id\":243,\"mission_statement\":\"Pine Street Inn works to be a community of respect and hope for each guest it serves; to be a resource through which neighbors and friends can help to meet the basic needs of others; and to serve as a national leader in the fight to end homelessness. Our services include permanent supportive housing, emergency and transitional shelter, over 3,000 prepared meals served each day, street outreach, job training, and mental health support and substance abuse treatment. Founded in 1969, Pine Street Inn serves more than 1,300 homeless individuals daily and 10,000 annually, providing the full spectrum of services to help men and women reach their highest level of independence and get back to a place they can call home.\",\"name\":\"Pine Street Inn\",\"zip_code\":2118},{\"address\":\"889 Harrison Avenue\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":93.0,\"charity_navigator_financial_score\":92.32,\"charity_navigator_score\":92.65,\"city_id\":8,\"county_id\":5,\"fight_poverty_score\":92.65,\"id\":244,\"mission_statement\":\"Since 1974 poor and homeless women have found an oasis of hope and nourishment at Rosie's Place. The mission of Rosie's Place is to help women maintain their dignity, seek opportunity and find security in their lives. With the help of people who believe change is possible and share our vision of justice, Rosie's Place has accomplished amazing things, both big and small. Each year: 74,000 nutritionally balanced meals are served in our warm and cheery dining room; 800 women choose free non-perishable food items and fresh produce from our groceries program each month; more than 500 women find safety and nurturing in our emergency and short-term housing; and advocates help more than 100 women find a home of their own and avoid eviction.\",\"name\":\"Rosie's Place\",\"zip_code\":2118},{\"address\":\"17 Court Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":97.0,\"charity_navigator_financial_score\":80.03,\"charity_navigator_score\":85.72,\"city_id\":8,\"county_id\":5,\"fight_poverty_score\":85.72,\"id\":247,\"mission_statement\":\"The New England Center and Home for Veterans (NECHV) was founded in 1989 and is one of the Nation's largest private resource providers for Veterans of every era who face challenges and/or are at-risk of homelessness.<br><br>The Center currently houses approximately 280 male and female Veterans every night at its downtown Boston facility. It has a capacity to provide transitional and emergency housing for 183 Veterans who are working to escape homelessness; and permanent supportive housing units for 97 Veterans.<br><br>NECHV is continually expanding, refining and improving its programs of service to ensure it is able to address the complex challenges that Veterans may face. Collaborative partnerships with medical facilities, government agencies, educational institutions, the businesses community, and other community-based service providers have enabled NECHV to emerge as one of the country's largest private Veteran service providers.<br>\",\"name\":\"New England Center and Home for Veterans\",\"zip_code\":2108},{\"address\":\"67 Newbury Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":89.19,\"charity_navigator_score\":91.84,\"city_id\":8,\"county_id\":5,\"fight_poverty_score\":91.84,\"id\":269,\"mission_statement\":\"Since 1982, thousands of women in Greater Boston have found refuge and welcome at Women's Lunch Place. <br><br>Women's Lunch Place provides a safe, comfortable day time shelter, nutritious food, and vital services for women experiencing homelessness or poverty. We treat women with dignity and respect, and foster a community committed to meeting each woman's needs. <br><br>We are open six days a week, year-round, to serve anyone who identifies as a woman, with no requirements to receive any service. In the words of one guest, \\\"I was half a person in the street and they put me together.\\\"\",\"name\":\"Women's Lunch Place\",\"zip_code\":2116},{\"address\":\"39 Boylston Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":79.38,\"charity_navigator_score\":83.47,\"city_id\":8,\"county_id\":5,\"fight_poverty_score\":83.47,\"id\":270,\"mission_statement\":\"Founded in 1984, St. Francis House is New England's largest day shelter for the poor and homeless. We are nonprofit and nonsectarian, providing basic and rehabilitative services designed to help homeless adults establish lives independent of shelters and institutions. Our goal is to provide our guests with everything they need to reclaim their dignity and rebuild their lives: nutritious meals, clothing, access to medical care, counseling, vocational rehabilitation, and housing. Vocational rehabilitation, in particular, is a strategic institutional goal, focused on helping our guests re-enter the workforce and positively engage with the world, strengthening themselves, their families, and the social and economic fabric of our communities.<br><br>St. Francis House provides 800 meals per day and is the only place in Boston where adults can receive a free breakfast and lunch every day of the year, no questions asked. \",\"name\":\"St. Francis House\",\"zip_code\":2116}],\"cities\":[{\"county_id\":5,\"id\":8,\"name\":\"Boston\",\"state\":\"Massachusetts\"}],\"county_poverty_percentage\":19.5,\"county_poverty_population\":143799,\"id\":5,\"name\":\"Suffolk County\",\"state\":\"Massachusetts\"},{\"charities\":[{\"address\":\"341 Broadway\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":86.47,\"charity_navigator_score\":90.02,\"city_id\":9,\"county_id\":6,\"fight_poverty_score\":90.02,\"id\":248,\"mission_statement\":\"On The Rise's mission is to support the initiative and strength of women living in crisis or homelessness. In a physically and psychologically safe environment, we build the relationships and provide the tools that each woman needs to rise to her potential. On The Rise annually reaches and assists nearly 400 of the most highly marginalized and socially isolated women. We use a relational model designed to offer respect, dignity, connection, information, guidance and hope to women who have fallen through the cracks of our social service system. We meet each woman where she is, help her build on her strengths, and partner with her on her journey from surviving, to living, to thriving.\",\"name\":\"On The Rise\",\"zip_code\":2139},{\"address\":\"800 South Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":85.0,\"charity_navigator_financial_score\":86.58,\"charity_navigator_score\":85.76,\"city_id\":10,\"county_id\":6,\"fight_poverty_score\":85.76,\"id\":420,\"mission_statement\":\"Founded in 1999 by Paul and Phyllis Fireman and family, One Family, Inc. is dedicated to ending family homelessness in Massachusetts. This mission grows out of a core belief that no parent and child should be without a place to call home in such a richly resourced state. One Family works for change by collaborating with elected officials, faith and community leaders, businesses and foundations, and higher learning institutions to develop and implement innovative programs that reverse the widespread, chronic effects of poverty and strengthen lower-income and homeless families.\",\"name\":\"One Family\",\"zip_code\":2453}],\"cities\":[{\"county_id\":6,\"id\":9,\"name\":\"Cambridge\",\"state\":\"Massachusetts\"},{\"county_id\":6,\"id\":10,\"name\":\"Waltham\",\"state\":\"Massachusetts\"}],\"county_poverty_percentage\":7.7,\"county_poverty_population\":117964,\"id\":6,\"name\":\"Middlesex County\",\"state\":\"Massachusetts\"},{\"charities\":[{\"address\":\"200 Niantic Avenue\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":97.0,\"charity_navigator_financial_score\":78.85,\"charity_navigator_score\":84.89,\"city_id\":11,\"county_id\":7,\"fight_poverty_score\":84.89,\"id\":6,\"mission_statement\":\"Our Mission<br><br>To improve the quality of life for all Rhode Islanders by advancing solutions to the problem of hunger.<br><br>Our Vision<br><br>We envision a state where no one goes hungry.\",\"name\":\"Rhode Island Community Food Bank\",\"zip_code\":2907},{\"address\":\"627 Cranston Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":74.0,\"charity_navigator_financial_score\":76.98,\"charity_navigator_score\":75.44,\"city_id\":11,\"county_id\":7,\"fight_poverty_score\":75.44,\"id\":249,\"mission_statement\":\"The Providence Rescue Mission works to reach the homeless and needy of Rhode Island's urban centers with the Gospel of Jesus Christ while providing physical, emotional, educational and rehabilitative services at no expense to those in need. We conduct chapel service followed by an evening meal seven nights a week, provide overnight shelter for homeless men and women, a food pantry, clothing room, education and career center, and a one-year discipleship program for homeless men. Each of these services provides for specific needs of the community we serve.\",\"name\":\"Providence Rescue Mission\",\"zip_code\":2907}],\"cities\":[{\"county_id\":7,\"id\":11,\"name\":\"Providence\",\"state\":\"Rhode Island\"}],\"county_poverty_percentage\":15.8,\"county_poverty_population\":96214,\"id\":7,\"name\":\"Providence County\",\"state\":\"Rhode Island\"},{\"charities\":[{\"address\":\"199 Manchester Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":87.5,\"charity_navigator_score\":88.22,\"city_id\":12,\"county_id\":8,\"fight_poverty_score\":88.22,\"id\":294,\"mission_statement\":\"Founded in 1974, New Horizons for New Hampshire, Inc., works to provide food and shelter to the people in need and offer supportive services to achieve self-sufficiency. On site, clients have access to case management services, referral services, medical and mental health services, substance abuse counseling, Alcoholics Anonymous meetings and Narcotics Anonymous meetings. Angie's Shelter for Women provides a safe structured, home-like environment where clients have access to the support and services they need while working to rebuild their lives. The soup kitchen serves breakfast for shelter guests daily, and the food pantry provides groceries to impoverished families and individuals in Manchester.\",\"name\":\"New Horizons\",\"zip_code\":3103}],\"cities\":[{\"county_id\":8,\"id\":12,\"name\":\"Manchester\",\"state\":\"New Hampshire\"}],\"county_poverty_percentage\":8.0,\"county_poverty_population\":31972,\"id\":8,\"name\":\"Hillsborough County\",\"state\":\"New Hampshire\"},{\"charities\":[{\"address\":\"600 Lafayette Road\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":93.0,\"charity_navigator_financial_score\":95.55,\"charity_navigator_score\":94.13,\"city_id\":13,\"county_id\":9,\"fight_poverty_score\":94.13,\"id\":273,\"mission_statement\":\"Cross Roads House opened its doors in 1982 to assist homeless individuals and families. We have since become the largest emergency and transitional shelter in New Hampshire, serving eastern New Hampshire and southern Maine. We currently house up to 96 people on any given night, and our emergency shelter is available 24 hours a day, 7 days a week. Cross Roads House provides secure, transitional shelter and a proven program that helps our residents move with dignity and purpose to stable and decent housing.\",\"name\":\"Cross Roads House\",\"zip_code\":3801}],\"cities\":[{\"county_id\":9,\"id\":13,\"name\":\"Portsmouth\",\"state\":\"New Hampshire\"}],\"county_poverty_percentage\":4.2,\"county_poverty_population\":12681,\"id\":9,\"name\":\"Rockingham County\",\"state\":\"New Hampshire\"}],\"page\":1,\"total_pages\":33}\n",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/api/county",
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Content-Length",
+							"value": "22646",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jul 2018 01:35:08 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/county?page=2&results_per_page=9>; rel=\"next\", <http://api.fightpoverty.online/api/county?page=33&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/county?page=2&results_per_page=9>; rel=\"next\", <http://api.fightpoverty.online/api/county?page=33&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/2.7.15rc1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						}
+					],
+					"cookies": [],
+					"request": "89acc3fe-6895-4ba7-89a2-e845441c9908",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				},
+				{
+					"id": "d6ed41fb-8974-4bf1-914e-8cf71d9aea11",
+					"name": "Page 24 of counties",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"num_results\":291,\"objects\":[{\"charities\":[{\"address\":\"4301 West 65th Street\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":85.0,\"charity_navigator_financial_score\":96.92,\"charity_navigator_score\":89.17,\"city_id\":256,\"county_id\":208,\"fight_poverty_score\":89.17,\"id\":162,\"mission_statement\":\"Arkansas Foodbank, the largest food bank in Arkansas, is a member of Feeding America and the Arkansas Hunger Relief Alliance. Its recent merger with the Arkansas Rice Depot creates new and innovative programming focused on serving hungry Arkansans with more healthy and nutritious food. Programs like Food For Kids, Food For Families, and Food For Seniors provide food and other resources for more than 450 food pantries, soup kitchens, schools, colleges, shelters, senior centers, summer feeding sites, and other agencies that provide aid directly to hungry Arkansans. The Foodbank primarily serves 33 counties in Central and Southern Arkansas but also assists other Feeding America food banks in the state and region. For information on how you can fight hunger, visit www.arkansasfoodbank.org.<br><br>\",\"name\":\"Arkansas Foodbank\",\"zip_code\":72209},{\"address\":\"3001 Springer Blvd\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":55.0,\"charity_navigator_financial_score\":72.92,\"charity_navigator_score\":62.86,\"city_id\":256,\"county_id\":208,\"fight_poverty_score\":62.86,\"id\":486,\"mission_statement\":\"The Union Rescue Mission (URM) has been the primary service provider to the homeless, domestically abused woman and children and the desperate addict for nearly 60 years. Our mission is to provide an environment where the love and compassion of Jesus Christ can help people overcome and prevent life's adversities. <br><br>We have the Dorcas House that provides a 9 month long residential program for women and children coming out of domestic violence situations, as well as, a program for women needing drug and alcohol treatment.<br><br>For the men, the Nehemiah House provides a drug and alcohol program, a work program for working homeless men and a homeless shelter.<br><br>\",\"name\":\"Union Rescue Mission, Little Rock\",\"zip_code\":72206},{\"address\":\"302 East Roosevelt Road\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":100.0,\"charity_navigator_score\":100.0,\"city_id\":256,\"county_id\":208,\"fight_poverty_score\":100.0,\"id\":487,\"mission_statement\":\"Our House empowers homeless and near-homeless families and individuals to succeed in the workforce, in school, and in life through hard work, wise decision-making, and active participation in the community. Our House maintains an emergency shelter and transitional housing for up to 110 people each day. Our Children's Programs include a licensed child development center for homeless children in Arkansas, as well as out of school-time programs: after school, summer, spring break, and more. State-licensed adult education instructors teach in the Career Center. Reentry services, job training, financial literacy and other programs are available for all residents. Families stay connected to Our House for a year after moving out through the Central Arkansas Family Stability Institute, our homeless-prevention case management program. We serve over 1,700 men, women and children each year. Of those, at least 75% move out of homelessness.\",\"name\":\"Our House, Arkansas\",\"zip_code\":72206}],\"cities\":[{\"county_id\":208,\"id\":256,\"name\":\"Little Rock\",\"state\":\"Arkansas\"}],\"county_poverty_percentage\":17.2,\"county_poverty_population\":66302,\"id\":208,\"name\":\"Pulaski County\",\"state\":\"Arkansas\"},{\"charities\":[{\"address\":\"14215 Highway 5 South\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":87.04,\"charity_navigator_score\":87.97,\"city_id\":257,\"county_id\":209,\"fight_poverty_score\":87.97,\"id\":140,\"mission_statement\":\"The Food Bank of North Central Arkansas obtains, processes, warehouses and distributes food, supplies and donated items to approximately 90 agencies across our nine county service area. Our mission of \\\"Building Bridges from Hunger to Hope\\\" goes beyond our core of feeding the hungry, to providing educational tools and connecting individuals, churches, schools, and civic organizations in our service area in the common goal of \\\"Create Communities without Hunger.\\\" We understand that we can accomplish much more together than we could ever accomplish on our own. That is why part of our mission focuses on making these connections. We believe a community working together can solve its problems.\",\"name\":\"Food Bank of North Central Arkansas\",\"zip_code\":72658}],\"cities\":[{\"county_id\":209,\"id\":257,\"name\":\"Norfork\",\"state\":\"Arkansas\"}],\"county_poverty_percentage\":12.7,\"county_poverty_population\":5144,\"id\":209,\"name\":\"Baxter County\",\"state\":\"Arkansas\"},{\"charities\":[{\"address\":\"1378 June Self Drive\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":77.0,\"charity_navigator_financial_score\":100.0,\"charity_navigator_score\":83.73,\"city_id\":258,\"county_id\":210,\"fight_poverty_score\":83.73,\"id\":163,\"mission_statement\":\"The Northwest Arkansas Food Bank was founded in 1988 to serve four Northwest Arkansas counties by providing an affordable and credible food source to our partner agencies serving the hungry. The NWA Food Bank currently has about 160 partner agencies ranging from food pantries, soup kitchens, shelters, and many more. In 2016 we distributed over 11.4 million pounds of food to these partners.\",\"name\":\"Northwest Arkansas Food Bank\",\"zip_code\":72764}],\"cities\":[{\"county_id\":210,\"id\":258,\"name\":\"Bethel Heights\",\"state\":\"Arkansas\"}],\"county_poverty_percentage\":15.8,\"county_poverty_population\":34567,\"id\":210,\"name\":\"Washington County\",\"state\":\"Arkansas\"},{\"charities\":[{\"address\":\"3355 South Purdue\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":92.0,\"charity_navigator_financial_score\":91.6,\"charity_navigator_score\":91.79,\"city_id\":259,\"county_id\":211,\"fight_poverty_score\":91.79,\"id\":169,\"mission_statement\":\"With a mission of \\\"Fighting Hunger \\u2026 Feeding Hope,\\\" the Regional Food Bank has more than 30 years of experience in feeding hungry Oklahomans of all ages, races and genders. The Food Bank serves as a link between food distributors, donors in the community and Oklahomans in need by efficiently distributing food and products through its programs to 850 charitable partner agencies and schools located in 53 central and western Oklahoma counties. More than 1,200 deliveries, including deliveries to rural, underserved areas of the state, are made throughout a 48,000 square mile area each month.\",\"name\":\"Regional Food Bank of Oklahoma\",\"zip_code\":73137},{\"address\":\"800 West California Avenue\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":81.38,\"charity_navigator_score\":86.83,\"city_id\":259,\"county_id\":211,\"fight_poverty_score\":86.83,\"id\":489,\"mission_statement\":\"Since 1960, City Rescue Mission has been a center for transformation, changing lives plagued with addiction, poverty, mental illness and homelessness to lives filled with stability, health and hope. Our emergency relief services meet the immediate physical needs of men, women and children who are homeless: nourishing food, a hot shower, clean clothing and a safe night's rest. For some, this help is all they need to get back on their feet. Our recovery program provides opportunities for men, women and families to address life issues-addiction to drugs, alcohol and gambling, domestic violence, lack of education and job skills, mental illness, spiritual bankruptcy-and to gain the confidence and knowledge to become productive members of our community.\",\"name\":\"City Rescue Mission, Oklahoma City\",\"zip_code\":73106}],\"cities\":[{\"county_id\":211,\"id\":259,\"name\":\"Oklahoma City\",\"state\":\"Oklahoma\"}],\"county_poverty_percentage\":16.3,\"county_poverty_population\":124834,\"id\":211,\"name\":\"Oklahoma County\",\"state\":\"Oklahoma\"},{\"charities\":[{\"address\":\"1304 North Kenosha Avenue\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":100.0,\"charity_navigator_score\":100.0,\"city_id\":260,\"county_id\":212,\"fight_poverty_score\":100.0,\"id\":170,\"mission_statement\":\"The Community Food Bank of Eastern Oklahoma is the largest hunger-relief organization in eastern Oklahoma. The Food Bank distributes food through a network of 465 Partner Programs in 24 counties in eastern Oklahoma. These programs include food pantries, soup kitchens, emergency shelters, low-income after-school programs, senior citizen centers, and veteran initiatives. Collectively, the Food Bank provides more than 396,000 meals each week.\",\"name\":\"Community Food Bank of Eastern Oklahoma\",\"zip_code\":74106},{\"address\":\"575 N 39th W Ave\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":85.0,\"charity_navigator_financial_score\":86.82,\"charity_navigator_score\":85.88,\"city_id\":260,\"county_id\":212,\"fight_poverty_score\":85.88,\"id\":490,\"mission_statement\":\"John 3:16 Mission is an interdenominational Christian ministry that provides food, shelter, clothing and rehabilitation services to Tulsa's homeless and at-risk population. Founded in 1952, the Mission has served thousands of homeless men, women and children through the decades, showing them the way to a better life through Jesus Christ. Our shelter provides a safe refuge from the street each night for up to 150 men. We also serve around 550 meals each day to the homeless and to men enrolled in our recovery program. Additionally, the Mission operates a Family and Youth Center (FYC) located in north Tulsa. The FYC provides material, spiritual and educational support to at-risk, low-income families living in inner-city environments.\",\"name\":\"John 3:16 Mission\",\"zip_code\":74127},{\"address\":\"2960 Charles Page Boulevard\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":88.0,\"charity_navigator_score\":91.51,\"city_id\":260,\"county_id\":212,\"fight_poverty_score\":91.51,\"id\":491,\"mission_statement\":\"Restore Hope Ministries, a United Methodist Church affiliate, works to restore families in crisis to economic and spiritual vitality. Restore Hope Ministries offers a comprehensive package of services to reach its goals. Programs are designed to achieve our dual purpose of equipping families to help themselves restore their economic and spiritual vitality and to mobilize congregations to serve families in economic need. Our programs include: emergency aid; chapel ministry; case management services.\",\"name\":\"Restore Hope Ministries\",\"zip_code\":74127},{\"address\":\"415 West Archer Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":93.0,\"charity_navigator_financial_score\":93.26,\"charity_navigator_score\":93.12,\"city_id\":260,\"county_id\":212,\"fight_poverty_score\":93.12,\"id\":492,\"mission_statement\":\"The mission of the Tulsa Day Center for the Homeless is to provide a safe, healthy environment for people who are homeless and to provide opportunities and to encourage participation for homeless people to achieve self-sufficiency. The Tulsa Day Center for the Homeless is Tulsa County's only daytime shelter for people who are experiencing homelessness. The Day Center offers a safe daytime refuge to people living on the streets of Tulsa County. Our basic human services provide immediate assistance to women, men and families in distress. While the Day Center is the only organization in Tulsa providing shelter during the day, we also provide night shelter for approximately 116 of the most vulnerable and at-risk segments of the homeless population.\",\"name\":\"Tulsa Day Center for the Homeless\",\"zip_code\":74103}],\"cities\":[{\"county_id\":212,\"id\":260,\"name\":\"Tulsa\",\"state\":\"Oklahoma\"}],\"county_poverty_percentage\":15.7,\"county_poverty_population\":99417,\"id\":212,\"name\":\"Tulsa County\",\"state\":\"Oklahoma\"},{\"charities\":[{\"address\":\"200 South Mill Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":85.0,\"charity_navigator_score\":86.84,\"city_id\":262,\"county_id\":213,\"fight_poverty_score\":86.84,\"id\":295,\"mission_statement\":\"In the spirit of Jesus Christ, Christian Community Action (CCA) ministers to the poor by providing comprehensive services that alleviate suffering, bring hope, and change lives. When a family is hungry, tired and has no place to go, it is hard for them to help themselves. Since 1973, Christian Community Action has been feeding, sheltering, educating and training families in need within 42 communities throughout Collin, Dallas, Denton, Tarrant and Wise counties. In one year, CCA assists more than 12,000 individuals. We distribute more than $1.4 million of food and see more than 4,000 low-income patients in our health center each year. We have more than 1,660 people taking educational and vocational training programs at our facility annually.\",\"name\":\"Christian Community Action, Texas\",\"zip_code\":75057},{\"address\":\"8780 Third Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":93.0,\"charity_navigator_financial_score\":82.15,\"charity_navigator_score\":86.44,\"city_id\":261,\"county_id\":213,\"fight_poverty_score\":86.44,\"id\":507,\"mission_statement\":\"Founded in 1995, Frisco Family Services is a 501(c)(3) non-profit tax-deductible organization who for 22 years has helped members of our communities who are facing hunger, homelessness and other urgent needs improve their quality of life and achieve self-sufficiency in the Frisco and Frisco ISD (which includes Frisco, Little Elm, McKinney and Plano) communities.\",\"name\":\"Frisco Family Services\",\"zip_code\":75034}],\"cities\":[{\"county_id\":213,\"id\":261,\"name\":\"Frisco\",\"state\":\"Texas\"},{\"county_id\":213,\"id\":262,\"name\":\"Lewisville\",\"state\":\"Texas\"}],\"county_poverty_percentage\":8.2,\"county_poverty_population\":65057,\"id\":213,\"name\":\"Denton County\",\"state\":\"Texas\"},{\"charities\":[{\"address\":\"1725 N. McDonald Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":95.92,\"charity_navigator_score\":91.7,\"city_id\":263,\"county_id\":214,\"fight_poverty_score\":91.7,\"id\":499,\"mission_statement\":\"The Samaritan Inn began in 1984, and today is the largest residential homeless program in Collin County. We serve the mission \\\"We are a comprehensive homeless program that helps willing people regain dignity and independence\\\". The Samaritan Inn teaches self-sufficiency and life skills through its Transitional Residential Shelter Program to help people regain sustainable employment and permanent residency. In 2014, we sheltered 624 individuals, 218 children and 406 adults. \",\"name\":\"The Samaritan Inn\",\"zip_code\":75071}],\"cities\":[{\"county_id\":214,\"id\":263,\"name\":\"Mckinney\",\"state\":\"Texas\"}],\"county_poverty_percentage\":6.3,\"county_poverty_population\":58619,\"id\":214,\"name\":\"Collin County\",\"state\":\"Texas\"},{\"charities\":[{\"address\":\"4500 South Cockrell Hill Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":92.5,\"charity_navigator_score\":94.69,\"city_id\":264,\"county_id\":215,\"fight_poverty_score\":94.69,\"id\":182,\"mission_statement\":\"The North Texas Food Bank (NTFB) is a top-ranked nonprofit relief organization, providing access to more than 190,000 meals each day for hungry children, seniors and families through a network of more than 1,000 programs and 200 Partner Agencies in our 13-county service area. In fiscal year 2016, NTFB provided access to some 70 million meals but the need for hunger relief in North Texas today is much larger. To combat increasing food insecurity in North Texas, the Food Bank recently launched a 10-year plan to provide access to 92 million nutritious meals annually by 2025. NTFB is a member of Feeding America, a national hunger relief organization.<br>\",\"name\":\"North Texas Food Bank\",\"zip_code\":75236},{\"address\":\"13801 Hutton Drive\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":90.0,\"charity_navigator_score\":92.38,\"city_id\":265,\"county_id\":215,\"fight_poverty_score\":92.38,\"id\":497,\"mission_statement\":\"The mission of Metrocrest Social Services is to provide emergency assistance and comprehensive programs to move families toward self-sufficiency; serving residents of Carrollton, Farmers Branch, Addison, Coppell and city of Dallas in Denton County. Metrocrest Social Services assists families dealing with crisis situations and assist them in making plans for the future. Through their assistance with rent, utility payments, food, clothing, medical prescriptions, and more, Metrocrest Social Services truly prevent families from being homeless.\",\"name\":\"Metrocrest Social Services\",\"zip_code\":75234},{\"address\":\"5600 Ross Avenue\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":86.92,\"charity_navigator_score\":90.75,\"city_id\":264,\"county_id\":215,\"fight_poverty_score\":90.75,\"id\":501,\"mission_statement\":\"Interfaith Family Services (formerly Interfaith Housing Coalition) was founded in 1985 to provide transitional housing and support services to homeless families. Through the years, a broad coalition of individuals, foundations, churches, and service groups have joined the ministry. Initially designed to help families with situational homelessness stabilize and move forward within 90 days, the Interfaith Housing program has evolved to provide an in-depth approach to address the root issues of generational poverty and homelessness with families now staying up to 12 months depending on their specific needs. Our programs promote family stability, teach skills to break the poverty cycle, and build a strong sense of community in the process.\",\"name\":\"Interfaith Family Services\",\"zip_code\":75206},{\"address\":\"711 South Saint Paul Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":88.04,\"charity_navigator_score\":91.08,\"city_id\":264,\"county_id\":215,\"fight_poverty_score\":91.08,\"id\":502,\"mission_statement\":\"For over 25 years, Family Gateway has worked to help break the generational cycle of poverty and homelessness by providing individualized care to homeless children and their families to restore the dignity, stability, and self-reliance of the family unit through housing, social services and education.\",\"name\":\"Family Gateway\",\"zip_code\":75201},{\"address\":\"1738 Gano Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":67.84,\"charity_navigator_score\":75.96,\"city_id\":264,\"county_id\":215,\"fight_poverty_score\":75.96,\"id\":503,\"mission_statement\":\"Vogel Alcove is a non-profit childcare facility that serves homeless children ages six weeks to 12 years old. We provide early childhood education; dedicated developmental and therapeutic services; after-school and summer camps; and a safe and nurturing environment in which to learn and grow-all at no cost to families. Vogel Alcove is the only free comprehensive early childhood education program in the city of Dallas whose primary focus is to provide free childcare and case management for children and their families referred by local emergency shelters, domestic violence shelters, housing programs and organizations that serve homeless families.\",\"name\":\"Vogel Alcove\",\"zip_code\":75215},{\"address\":\"1421 N. Peak Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":81.0,\"charity_navigator_financial_score\":82.22,\"charity_navigator_score\":81.59,\"city_id\":264,\"county_id\":215,\"fight_poverty_score\":81.59,\"id\":504,\"mission_statement\":\"Reconciliation Outreach was founded in 1986 by Dorothy Moore as an outreach to inner city kids and has grown as a leader in urban services to men, women, and children and one of the largest providers of rehabilitative faith-based residential services in the city of Dallas. Our mission is to establish a strong viable community within the inner city of Dallas and to provide a safe, loving environment for healing lives, restoring families, individuals and at-risk children and youth to a productive lifestyle. Reconciliation Outreach provides services in Old East Dallas to the homeless, the addicted, the impoverished and working poor.\",\"name\":\"Reconciliation Outreach\",\"zip_code\":75204},{\"address\":\"1100 Cadiz Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":93.0,\"charity_navigator_financial_score\":96.27,\"charity_navigator_score\":94.39,\"city_id\":264,\"county_id\":215,\"fight_poverty_score\":94.39,\"id\":506,\"mission_statement\":\"Opened in 1954 as the Dallas Rescue Mission, the Dallas Life Foundation is designed to meet the needs of homeless men, women, children and families in the Dallas metropolis. For over 50 years now we have had a profound impact on thousands of people as we reach out with kind, compassionate Christian love toward those in desperate need. Dallas Life Foundation has developed a series of programs designed to help those assisted to return to a productive role in society. Each program targets a different group of Dallas Life Foundation residents. Programs are available to each resident once a referral has been made through our intake case management staff.\",\"name\":\"Dallas Life Foundation\",\"zip_code\":75215}],\"cities\":[{\"county_id\":215,\"id\":264,\"name\":\"Dallas\",\"state\":\"Texas\"},{\"county_id\":215,\"id\":265,\"name\":\"Farmers Branch\",\"state\":\"Texas\"}],\"county_poverty_percentage\":16.3,\"county_poverty_population\":413956,\"id\":215,\"name\":\"Dallas County\",\"state\":\"Texas\"},{\"charities\":[{\"address\":\"3117 West Marshall\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":77.0,\"charity_navigator_financial_score\":78.07,\"charity_navigator_score\":77.52,\"city_id\":266,\"county_id\":216,\"fight_poverty_score\":77.52,\"id\":289,\"mission_statement\":\"Founded in 1955, Hiway 80 Rescue Mission Ministries has been reaching out and touching lives for over 50 years. We are commissioned by our Lord to help the poor and needy not only when it is convenient, but when the needs arise. Therefore, in our community of East Texas, we hear the cries of the alcoholics, drug addicts and the battered single women or mothers that do not have an advocate. Hiway 80 Rescue Mission continues to provide emergency shelter for men, women and families who are homeless and in need of help.\",\"name\":\"Hiway 80 Rescue Mission Ministries\",\"zip_code\":75604}],\"cities\":[{\"county_id\":216,\"id\":266,\"name\":\"Longview\",\"state\":\"Texas\"}],\"county_poverty_percentage\":17.4,\"county_poverty_population\":20929,\"id\":216,\"name\":\"Gregg County\",\"state\":\"Texas\"}],\"page\":24,\"total_pages\":33}\n",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/api/county?page=24",
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "page",
+								"value": "24",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Content-Length",
+							"value": "23038",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jul 2018 01:34:44 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/county?page=25&results_per_page=9>; rel=\"next\", <http://api.fightpoverty.online/api/county?page=33&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/county?page=25&results_per_page=9>; rel=\"next\", <http://api.fightpoverty.online/api/county?page=33&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/2.7.15rc1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						}
+					],
+					"cookies": [],
+					"request": "89acc3fe-6895-4ba7-89a2-e845441c9908",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "ab20ae5d-195f-4441-b96f-8d8e8045538c",
+			"name": "Charities by cause",
+			"url": "api.fightpoverty.online/api/charity?q={\"filters\":[{\"name\":\"cause\",\"op\":\"eq\",\"val\":\"Food Banks, Food Pantries, and Food Distribution\"}]}",
+			"description": "Find charities by cause it supports.",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "q",
+					"value": "{\"filters\":[{\"name\":\"cause\",\"op\":\"eq\",\"val\":\"Food Banks, Food Pantries, and Food Distribution\"}]}",
+					"equals": true,
+					"description": "\"name\": is the attribute name\n\n\"op\": is the operation (\"eq\" means equal to)\n\n\"val\": is the value of the attribute. In this case the cause the charity supports\n\nSee [here](https://flask-restless.readthedocs.io/en/stable/searchformat.html#searchformat) for more info on building a request",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e6fd760e-12bd-411c-ad0d-bc5856a4838e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"expect response to have status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"expect reponse to have OK status\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"response should not have error\", function () {",
+							"    pm.response.to.not.be.error; ",
+							"});",
+							"",
+							"pm.test(\"response should have json body\", function () { ",
+							"    pm.response.to.have.jsonBody(\"\"); ",
+							"});",
+							"",
+							"pm.test(\"response should not have json body error\", function () {",
+							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"folder": "2d325e10-686c-461b-a279-1167bfcc206b",
+			"responses": [
+				{
+					"id": "db1dd323-92e5-49d0-993b-1b129af51a78",
+					"name": "Charities by cause",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"num_results\":237,\"objects\":[{\"address\":\"461 Glenbrook Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":85.0,\"charity_navigator_score\":89.39,\"city\":{\"county_id\":17,\"id\":26,\"name\":\"Stamford\",\"state\":\"Connecticut\"},\"city_id\":26,\"county\":{\"county_poverty_percentage\":8.6,\"county_poverty_population\":79966,\"id\":17,\"name\":\"Fairfield County\",\"state\":\"Connecticut\"},\"county_id\":17,\"fight_poverty_score\":89.39,\"id\":1,\"mission_statement\":\"The Food Bank of Lower Fairfield County is lower Fairfield County's primary hunger-relief organization. We provide food to approximately 75 non-profit agencies and programs that serve low income people in our six town service area through bags of groceries and congregate meals. These include soup kitchens, food pantries, child care programs, homeless shelters, senior centers, domestic violence safe houses, and rehabilitation programs. Our mission statement is to raise awareness of, and promote action to combat, hunger in these communities.\",\"name\":\"The Food Bank of Lower Fairfield County\",\"zip_code\":6906},{\"address\":\"70 South Bay Avenue\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":87.61,\"charity_navigator_score\":91.23,\"city\":{\"county_id\":5,\"id\":8,\"name\":\"Boston\",\"state\":\"Massachusetts\"},\"city_id\":8,\"county\":{\"county_poverty_percentage\":19.5,\"county_poverty_population\":143799,\"id\":5,\"name\":\"Suffolk County\",\"state\":\"Massachusetts\"},\"county_id\":5,\"fight_poverty_score\":91.23,\"id\":2,\"mission_statement\":\"Founded in 1981, The Greater Boston Food Bank is the largest hunger relief organization in New England, and one of the largest food banks in the country. <br><br>GBFB was able to meet or exceed all of our organizational goals for the 2014 fiscal year. Highlights from the past year include: - GBFB distributed over 50 million pounds of food, or over 40 million meals to community members in need through our member agencies and programs. <br><br>- Fresh produce accounted for one quarter of our overall distribution, a dramatic 230% increase from only three years ago. <br>- 25,000 volunteers donated their time to GBFB, saving $1 million in labor costs. <br>- GBFB's mobile markets and school-based pantries reached isolated and low-income communities with an average of 30 pounds of healthy food per household per distribution, such as frozen meats and fresh produce. \",\"name\":\"The Greater Boston Food Bank\",\"zip_code\":2118},{\"address\":\"97 North Hatfield Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":97.5,\"charity_navigator_score\":98.23,\"city\":{\"county_id\":1,\"id\":1,\"name\":\"Hatfield\",\"state\":\"Massachusetts\"},\"city_id\":1,\"county\":{\"county_poverty_percentage\":11.9,\"county_poverty_population\":16535,\"id\":1,\"name\":\"Hampshire County\",\"state\":\"Massachusetts\"},\"county_id\":1,\"fight_poverty_score\":98.23,\"id\":3,\"mission_statement\":\"Mission: To feed our neighbors in need and lead the community to end hunger.<br><br>Vision: A Western Massachusetts where no one goes hungry and everyone has access to nutritious food.<br><br>Overarching value: We believe that everyone has the right to healthy food regardless of their circumstances. <br><br>The Food Bank is the leader provider of emergency food and other food assistance to more than 223,457 individuals at risk of hunger in the four counties of Western Massachusetts (Hampden, Hampshire, Franklin and Berkshire counties). We also lead the community to end hunger through public education and advocacy.<br><br>For more information on how you can get involved in your community, visit www.foodbankwma.org<br><br>\",\"name\":\"The Food Bank of Western Massachusetts\",\"zip_code\":1038},{\"address\":\"265 Prospect Street\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":86.14,\"charity_navigator_score\":87.48,\"city\":{\"county_id\":1,\"id\":2,\"name\":\"Northampton\",\"state\":\"Massachusetts\"},\"city_id\":2,\"county\":{\"county_poverty_percentage\":11.9,\"county_poverty_population\":16535,\"id\":1,\"name\":\"Hampshire County\",\"state\":\"Massachusetts\"},\"county_id\":1,\"fight_poverty_score\":87.48,\"id\":4,\"mission_statement\":\"The Northampton Survival Center is an emergency food pantry that provides low-income individuals and families in 18 communities in Hampshire County with free food, clothing, personal care items, and referrals for emergency assistance. From its two locations in Northampton and Goshen, the Center distributes over 650,000 pounds of food each year. From its Hilltown Pantry in Goshen, the NSC distributes another 40,000 pounds of food each year in the nine northern hilltowns. All together, from its two locations, the NSC distributes about 2,500 pounds of food in nutritionally-balanced food boxes every weekday.\",\"name\":\"Northampton Survival Center\",\"zip_code\":1060},{\"address\":\"474 Boston Turnpike Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":95.21,\"charity_navigator_score\":95.58,\"city\":{\"county_id\":3,\"id\":4,\"name\":\"Shrewsbury\",\"state\":\"Massachusetts\"},\"city_id\":4,\"county\":{\"county_poverty_percentage\":9.6,\"county_poverty_population\":75902,\"id\":3,\"name\":\"Worcester County\",\"state\":\"Massachusetts\"},\"county_id\":3,\"fight_poverty_score\":95.58,\"id\":5,\"mission_statement\":\"The Worcester County Food Bank's (WCFB) mission is to engage, educate, and lead Worcester County in creating a hunger-free community. 95 percent of all donated resources go directly towards creating a hunger-free community.<br><br>WCFB is the leading anti-hunger organization in Central Massachusetts, distributing over 5 million pounds of donated food and grocery product in partnership with food donors, financial supporters, and volunteers. WCFB provides this product to a network of 138 partner agencies that have programs for feeding hungry people of all ages including food pantries, community meal sites, and shelters.<br><br>WCFB also advocates within the community and at the state and federal levels for systemic and sustainable solutions to the problem of hunger.\",\"name\":\"Worcester County Food Bank\",\"zip_code\":1545},{\"address\":\"200 Niantic Avenue\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":97.0,\"charity_navigator_financial_score\":78.85,\"charity_navigator_score\":84.89,\"city\":{\"county_id\":7,\"id\":11,\"name\":\"Providence\",\"state\":\"Rhode Island\"},\"city_id\":11,\"county\":{\"county_poverty_percentage\":15.8,\"county_poverty_population\":96214,\"id\":7,\"name\":\"Providence County\",\"state\":\"Rhode Island\"},\"county_id\":7,\"fight_poverty_score\":84.89,\"id\":6,\"mission_statement\":\"Our Mission<br><br>To improve the quality of life for all Rhode Islanders by advancing solutions to the problem of hunger.<br><br>Our Vision<br><br>We envision a state where no one goes hungry.\",\"name\":\"Rhode Island Community Food Bank\",\"zip_code\":2907},{\"address\":\"2 Research Parkway\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":92.0,\"charity_navigator_financial_score\":88.78,\"charity_navigator_score\":90.25,\"city\":{\"county_id\":16,\"id\":21,\"name\":\"Wallingford\",\"state\":\"Connecticut\"},\"city_id\":21,\"county\":{\"county_poverty_percentage\":11.4,\"county_poverty_population\":94687,\"id\":16,\"name\":\"New Haven County\",\"state\":\"Connecticut\"},\"county_id\":16,\"fight_poverty_score\":90.25,\"id\":7,\"mission_statement\":\"Founded in 1982, the Connecticut Food Bank is the largest centralized source of charitable food donations in Connecticut. The Connecticut Food Bank is a private organization whose mission is to provide nutritious food to people in need by supplying food products and resources to eligible agencies throughout our service area in Connecticut, and to promote public awareness about the problem of hunger. The Connecticut Food Bank provides grocery products to some 700 soup kitchens, shelters, food pantries, and day programs in Fairfield, Litchfield, Middlesex, New Haven, New London and Windham counties.\",\"name\":\"Connecticut Food Bank\",\"zip_code\":6492},{\"address\":\"10 Davids Drive\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":88.61,\"charity_navigator_score\":91.94,\"city\":{\"county_id\":30,\"id\":44,\"name\":\"Hauppauge\",\"state\":\"New York\"},\"city_id\":44,\"county\":{\"county_poverty_percentage\":7.6,\"county_poverty_population\":111341,\"id\":30,\"name\":\"Suffolk County\",\"state\":\"New York\"},\"county_id\":30,\"fight_poverty_score\":91.94,\"id\":8,\"mission_statement\":\"Long Island Cares, Inc.-The Harry Chapin Food Bank is the regional food bank for Nassau and Suffolk County. Founded by the late singer/songwriter and social activist, Harry Chapin in 1980, Long Island Cares brings together all available resources for the benefit of the hungry and food insecure on Long Island and, to the best of our ability, provides for the humanitarian needs of our community. Our goals are to improve food security for families, sponsor programs that help individuals and families achieve self-sufficiency, and educate the general public about the causes and consequences of hunger and food insecurity on Long Island. Our organization contracts with New York State and the Department of Health, Hunger Prevention Nutrition Assistance Program, and the USDA Emergency Food Assistance Program to administer two of the government's major hunger relief programs for the Long Island Region\",\"name\":\"Long Island Cares\",\"zip_code\":11788},{\"address\":\"15 Grumman Road W STE 1450\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":87.41,\"charity_navigator_score\":91.09,\"city\":{\"county_id\":29,\"id\":43,\"name\":\"Bethpage\",\"state\":\"New York\"},\"city_id\":43,\"county\":{\"county_poverty_percentage\":6.1,\"county_poverty_population\":82192,\"id\":29,\"name\":\"Nassau County\",\"state\":\"New York\"},\"county_id\":29,\"fight_poverty_score\":91.09,\"id\":9,\"mission_statement\":\"Island Harvest Food Bank is a leading hunger-relief organization that provides food and other resources to people in need. Always treating those it helps with dignity and respect, our goal is to end hunger and reduce poverty on Long Island through efficient food collection and distribution; enhanced hunger-awareness and nutrition-education programs; job training; and direct services targeted at children, senior citizens, veterans and others at risk. More than 94% of resources expended directly support our programs and services for 316,000 Long Islanders. Island Harvest is a lead agency in the region's emergency-response preparedness for food and product distribution, and is a member of Feeding America, the nation's leading domestic hunger-relief organization.  More information can be found at www.islandharvest.org. \",\"name\":\"Island Harvest\",\"zip_code\":11714}],\"page\":1,\"total_pages\":27}\n",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/api/charity?q={\"filters\":[{\"name\":\"cause\",\"op\":\"eq\",\"val\":\"Food Banks, Food Pantries, and Food Distribution\"}]}",
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "q",
+								"value": "{\"filters\":[{\"name\":\"cause\",\"op\":\"eq\",\"val\":\"Food Banks, Food Pantries, and Food Distribution\"}]}",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Content-Length",
+							"value": "11134",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jul 2018 01:07:22 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/charity?page=2&results_per_page=9>; rel=\"next\", <http://api.fightpoverty.online/api/charity?page=27&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/charity?page=2&results_per_page=9>; rel=\"next\", <http://api.fightpoverty.online/api/charity?page=27&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/2.7.15rc1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						}
+					],
+					"cookies": [],
+					"request": "ab20ae5d-195f-4441-b96f-8d8e8045538c",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "ba6e5f5b-1854-4662-99e1-babf65299e46",
+			"name": "County by id",
+			"url": "api.fightpoverty.online/api/county/:id",
+			"description": "Find a county by its unique id created by the FightPoverty DB",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": "1"
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bec19428-3b44-448e-af2d-816be382a270",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"expect response to have status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"expect reponse to have OK status\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"response should not have error\", function () {",
+							"    pm.response.to.not.be.error; ",
+							"});",
+							"",
+							"pm.test(\"response should have json body\", function () { ",
+							"    pm.response.to.have.jsonBody(\"\"); ",
+							"});",
+							"",
+							"pm.test(\"response should not have json body error\", function () {",
+							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"folder": "e60c2ad5-ce0e-48dc-ad88-d24aa7575117",
+			"responses": [
+				{
+					"id": "4f55be85-b8e0-4d30-aa27-63c123930666",
+					"name": "County by id",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"charities\":[{\"address\":\"97 North Hatfield Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":97.5,\"charity_navigator_score\":98.23,\"city_id\":1,\"county_id\":1,\"fight_poverty_score\":98.23,\"id\":3,\"mission_statement\":\"Mission: To feed our neighbors in need and lead the community to end hunger.<br><br>Vision: A Western Massachusetts where no one goes hungry and everyone has access to nutritious food.<br><br>Overarching value: We believe that everyone has the right to healthy food regardless of their circumstances. <br><br>The Food Bank is the leader provider of emergency food and other food assistance to more than 223,457 individuals at risk of hunger in the four counties of Western Massachusetts (Hampden, Hampshire, Franklin and Berkshire counties). We also lead the community to end hunger through public education and advocacy.<br><br>For more information on how you can get involved in your community, visit www.foodbankwma.org<br><br>\",\"name\":\"The Food Bank of Western Massachusetts\",\"zip_code\":1038},{\"address\":\"265 Prospect Street\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":86.14,\"charity_navigator_score\":87.48,\"city_id\":2,\"county_id\":1,\"fight_poverty_score\":87.48,\"id\":4,\"mission_statement\":\"The Northampton Survival Center is an emergency food pantry that provides low-income individuals and families in 18 communities in Hampshire County with free food, clothing, personal care items, and referrals for emergency assistance. From its two locations in Northampton and Goshen, the Center distributes over 650,000 pounds of food each year. From its Hilltown Pantry in Goshen, the NSC distributes another 40,000 pounds of food each year in the nine northern hilltowns. All together, from its two locations, the NSC distributes about 2,500 pounds of food in nutritionally-balanced food boxes every weekday.\",\"name\":\"Northampton Survival Center\",\"zip_code\":1060}],\"cities\":[{\"county_id\":1,\"id\":1,\"name\":\"Hatfield\",\"state\":\"Massachusetts\"},{\"county_id\":1,\"id\":2,\"name\":\"Northampton\",\"state\":\"Massachusetts\"}],\"county_poverty_percentage\":11.9,\"county_poverty_population\":16535,\"id\":1,\"name\":\"Hampshire County\",\"state\":\"Massachusetts\"}\n",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/api/county/:id",
+						"pathVariableData": [
+							{
+								"key": "id",
+								"value": "1"
+							}
+						],
+						"queryParams": [],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Content-Length",
+							"value": "2339",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jul 2018 01:38:06 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/2.7.15rc1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						}
+					],
+					"cookies": [],
+					"request": "ba6e5f5b-1854-4662-99e1-babf65299e46",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {
+				"id": "1"
+			}
+		},
+		{
+			"id": "d8fab649-c17a-457f-aa54-7636d686c30c",
+			"name": "Cities paginated",
+			"url": "api.fightpoverty.online/api/city",
+			"description": "Get all cities in FightPoverty db paginated",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c63952c3-61ef-460e-9352-81ca9f4f55a7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"expect response to have status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"expect reponse to have OK status\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"response should not have error\", function () {",
+							"    pm.response.to.not.be.error; ",
+							"});",
+							"",
+							"pm.test(\"response should have json body\", function () { ",
+							"    pm.response.to.have.jsonBody(\"\"); ",
+							"});",
+							"",
+							"pm.test(\"response should not have json body error\", function () {",
+							"    pm.response.to.not.have.jsonBody(\"error\"); ",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"folder": "d6e69e02-9a3e-4b79-8dcb-b8d0296d6206",
+			"responses": [
+				{
+					"id": "69cd4f2a-14de-47ac-ac42-13b9842f0134",
+					"name": "All cities paginated",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"num_results\":360,\"objects\":[{\"charities\":[{\"address\":\"97 North Hatfield Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":97.5,\"charity_navigator_score\":98.23,\"city_id\":1,\"county_id\":1,\"fight_poverty_score\":98.23,\"id\":3,\"mission_statement\":\"Mission: To feed our neighbors in need and lead the community to end hunger.<br><br>Vision: A Western Massachusetts where no one goes hungry and everyone has access to nutritious food.<br><br>Overarching value: We believe that everyone has the right to healthy food regardless of their circumstances. <br><br>The Food Bank is the leader provider of emergency food and other food assistance to more than 223,457 individuals at risk of hunger in the four counties of Western Massachusetts (Hampden, Hampshire, Franklin and Berkshire counties). We also lead the community to end hunger through public education and advocacy.<br><br>For more information on how you can get involved in your community, visit www.foodbankwma.org<br><br>\",\"name\":\"The Food Bank of Western Massachusetts\",\"zip_code\":1038}],\"county\":{\"county_poverty_percentage\":11.9,\"county_poverty_population\":16535,\"id\":1,\"name\":\"Hampshire County\",\"state\":\"Massachusetts\"},\"county_id\":1,\"id\":1,\"name\":\"Hatfield\",\"state\":\"Massachusetts\"},{\"charities\":[{\"address\":\"265 Prospect Street\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":86.14,\"charity_navigator_score\":87.48,\"city_id\":2,\"county_id\":1,\"fight_poverty_score\":87.48,\"id\":4,\"mission_statement\":\"The Northampton Survival Center is an emergency food pantry that provides low-income individuals and families in 18 communities in Hampshire County with free food, clothing, personal care items, and referrals for emergency assistance. From its two locations in Northampton and Goshen, the Center distributes over 650,000 pounds of food each year. From its Hilltown Pantry in Goshen, the NSC distributes another 40,000 pounds of food each year in the nine northern hilltowns. All together, from its two locations, the NSC distributes about 2,500 pounds of food in nutritionally-balanced food boxes every weekday.\",\"name\":\"Northampton Survival Center\",\"zip_code\":1060}],\"county\":{\"county_poverty_percentage\":11.9,\"county_poverty_population\":16535,\"id\":1,\"name\":\"Hampshire County\",\"state\":\"Massachusetts\"},\"county_id\":1,\"id\":2,\"name\":\"Northampton\",\"state\":\"Massachusetts\"},{\"charities\":[{\"address\":\"10 Mill Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":80.13,\"charity_navigator_score\":83.94,\"city_id\":3,\"county_id\":2,\"fight_poverty_score\":83.94,\"id\":396,\"mission_statement\":\"Established in 1892, the goal of the Springfield Rescue Mission is to meet the physical and spiritual needs of the hungry, homeless, addicted and poor by introducing them to Christ and helping them apply the Word of God to every area of their lives. The Emergency Shelter on Taylor Street meets the immediate and basic needs of homeless men. Each guest is encouraged to enter a local or regional rehabilitation program to deal with the issues that led them to homelessness. The Transitional Living Program meets basic life needs while allowing the guest to work on the next phase of rehabilitation; such as finding gainful employment, budgeting their money, obtaining an apartment, returning to family, or returning to college as well as taking actions necessary to become a productive citizen.\",\"name\":\"Springfield Rescue Mission\",\"zip_code\":1102}],\"county\":{\"county_poverty_percentage\":16.5,\"county_poverty_population\":74898,\"id\":2,\"name\":\"Hampden County\",\"state\":\"Massachusetts\"},\"county_id\":2,\"id\":3,\"name\":\"Springfield\",\"state\":\"Massachusetts\"},{\"charities\":[{\"address\":\"474 Boston Turnpike Road\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":95.21,\"charity_navigator_score\":95.58,\"city_id\":4,\"county_id\":3,\"fight_poverty_score\":95.58,\"id\":5,\"mission_statement\":\"The Worcester County Food Bank's (WCFB) mission is to engage, educate, and lead Worcester County in creating a hunger-free community. 95 percent of all donated resources go directly towards creating a hunger-free community.<br><br>WCFB is the leading anti-hunger organization in Central Massachusetts, distributing over 5 million pounds of donated food and grocery product in partnership with food donors, financial supporters, and volunteers. WCFB provides this product to a network of 138 partner agencies that have programs for feeding hungry people of all ages including food pantries, community meal sites, and shelters.<br><br>WCFB also advocates within the community and at the state and federal levels for systemic and sustainable solutions to the problem of hunger.\",\"name\":\"Worcester County Food Bank\",\"zip_code\":1545}],\"county\":{\"county_poverty_percentage\":9.6,\"county_poverty_population\":75902,\"id\":3,\"name\":\"Worcester County\",\"state\":\"Massachusetts\"},\"county_id\":3,\"id\":4,\"name\":\"Shrewsbury\",\"state\":\"Massachusetts\"},{\"charities\":[{\"address\":\"412 Hampshire Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":85.22,\"charity_navigator_score\":89.54,\"city_id\":5,\"county_id\":4,\"fight_poverty_score\":89.54,\"id\":246,\"mission_statement\":\"Lazarus House Ministries is spiritually based and welcomes all in the name of God. We provide a continuum of care encompassing, but not limited to: shelter, food, clothing, advocacy, education, work preparation, health services, a listening ear, a welcoming heart, and the restoration of dignity and self-respect to people who are poor and in dire need. Although we are a faith-based ministry, we are not affiliated with any church. We serve to empower our guests to move beyond poverty and crisis and to become productive members of their community.\",\"name\":\"Lazarus House\",\"zip_code\":1841}],\"county\":{\"county_poverty_percentage\":10.7,\"county_poverty_population\":81646,\"id\":4,\"name\":\"Essex County\",\"state\":\"Massachusetts\"},\"county_id\":4,\"id\":5,\"name\":\"Lawrence\",\"state\":\"Massachusetts\"},{\"charities\":[{\"address\":\"73 Buffum Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":92.0,\"charity_navigator_financial_score\":90.15,\"charity_navigator_score\":91.02,\"city_id\":6,\"county_id\":4,\"fight_poverty_score\":91.02,\"id\":274,\"mission_statement\":\"Founded in 1981, the Massachusetts Coalition for the Homeless (MCH) is committed to ensuring that everyone has a place to call home. MCH's policy work and programs address this issue on three fronts. First, the Coalition provides bridges over short-term crisis, helping homeless and at-risk people to relocate quickly into new housing or avoid homelessness altogether. Second, MCH works to ensure adequate and appropriate shelter if homelessness is unavoidable. Third, MCH advocates for long-term solutions to the housing crisis, promoting government support for income and housing resources so that all Massachusetts residents can obtain and maintain safe, affordable housing. As MCH works to address the causes, not just the symptoms of homelessness, it remains committed to creating opportunities for families and individuals to advocate for their own needs.\",\"name\":\"Massachusetts Coalition for the Homeless\",\"zip_code\":1902}],\"county\":{\"county_poverty_percentage\":10.7,\"county_poverty_population\":81646,\"id\":4,\"name\":\"Essex County\",\"state\":\"Massachusetts\"},\"county_id\":4,\"id\":6,\"name\":\"Lynn\",\"state\":\"Massachusetts\"},{\"charities\":[{\"address\":\"302 Essex Avenue\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":93.0,\"charity_navigator_financial_score\":90.07,\"charity_navigator_score\":91.4,\"city_id\":7,\"county_id\":4,\"fight_poverty_score\":91.4,\"id\":245,\"mission_statement\":\"Founded in 1981, Wellspring House empowers individuals and families to live more secure lives through basic needs assistance, education and job training. Our basic needs assistance program provides emergency shelter for families, housing search assistance for families living in motels, emergency homeless prevention funding and guidance, assistance for recently homeless families, permanent homes for 11 low-income people at our lodging house, and advocacy for affordable housing and issues related to homelessness. Wellspring House also offers education and job training opportunities through curriculums that are designed to make sure that adult students can access information in different learning styles, and respectful of the adult learner.\",\"name\":\"Wellspring House\",\"zip_code\":1930}],\"county\":{\"county_poverty_percentage\":10.7,\"county_poverty_population\":81646,\"id\":4,\"name\":\"Essex County\",\"state\":\"Massachusetts\"},\"county_id\":4,\"id\":7,\"name\":\"Gloucester\",\"state\":\"Massachusetts\"},{\"charities\":[{\"address\":\"70 South Bay Avenue\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":87.61,\"charity_navigator_score\":91.23,\"city_id\":8,\"county_id\":5,\"fight_poverty_score\":91.23,\"id\":2,\"mission_statement\":\"Founded in 1981, The Greater Boston Food Bank is the largest hunger relief organization in New England, and one of the largest food banks in the country. <br><br>GBFB was able to meet or exceed all of our organizational goals for the 2014 fiscal year. Highlights from the past year include: - GBFB distributed over 50 million pounds of food, or over 40 million meals to community members in need through our member agencies and programs. <br><br>- Fresh produce accounted for one quarter of our overall distribution, a dramatic 230% increase from only three years ago. <br>- 25,000 volunteers donated their time to GBFB, saving $1 million in labor costs. <br>- GBFB's mobile markets and school-based pantries reached isolated and low-income communities with an average of 30 pounds of healthy food per household per distribution, such as frozen meats and fresh produce. \",\"name\":\"The Greater Boston Food Bank\",\"zip_code\":2118},{\"address\":\"39 Kingston Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":84.05,\"charity_navigator_score\":88.37,\"city_id\":8,\"county_id\":5,\"fight_poverty_score\":88.37,\"id\":242,\"mission_statement\":\"Founded in 1899, the Boston Rescue Mission offers resources that prevent and end homelessness. We support the recovery, health, faith and independence of those who have a history of substance abuse, incarceration, and homelessness. We raise awareness about the root causes of these life risks, and serve everyone with respect, integrity and grace. We aim to reflect the teachings of Jesus and the love of God in all we do. At the Boston Rescue Mission, our programs and services focus a great deal on preventing homelessness. Our range of services also strives to meet the needs of a population of female ex-offenders. The goal of this re-entry program is to reduce recidivism, increase public safety, and help female ex-offenders to re-enter society as independent women living fulfilling and crime-free lives.\",\"name\":\"Boston Rescue Mission\",\"zip_code\":2111},{\"address\":\"444 Harrison Avenue\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":85.99,\"charity_navigator_score\":87.4,\"city_id\":8,\"county_id\":5,\"fight_poverty_score\":87.4,\"id\":243,\"mission_statement\":\"Pine Street Inn works to be a community of respect and hope for each guest it serves; to be a resource through which neighbors and friends can help to meet the basic needs of others; and to serve as a national leader in the fight to end homelessness. Our services include permanent supportive housing, emergency and transitional shelter, over 3,000 prepared meals served each day, street outreach, job training, and mental health support and substance abuse treatment. Founded in 1969, Pine Street Inn serves more than 1,300 homeless individuals daily and 10,000 annually, providing the full spectrum of services to help men and women reach their highest level of independence and get back to a place they can call home.\",\"name\":\"Pine Street Inn\",\"zip_code\":2118},{\"address\":\"889 Harrison Avenue\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":93.0,\"charity_navigator_financial_score\":92.32,\"charity_navigator_score\":92.65,\"city_id\":8,\"county_id\":5,\"fight_poverty_score\":92.65,\"id\":244,\"mission_statement\":\"Since 1974 poor and homeless women have found an oasis of hope and nourishment at Rosie's Place. The mission of Rosie's Place is to help women maintain their dignity, seek opportunity and find security in their lives. With the help of people who believe change is possible and share our vision of justice, Rosie's Place has accomplished amazing things, both big and small. Each year: 74,000 nutritionally balanced meals are served in our warm and cheery dining room; 800 women choose free non-perishable food items and fresh produce from our groceries program each month; more than 500 women find safety and nurturing in our emergency and short-term housing; and advocates help more than 100 women find a home of their own and avoid eviction.\",\"name\":\"Rosie's Place\",\"zip_code\":2118},{\"address\":\"17 Court Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":97.0,\"charity_navigator_financial_score\":80.03,\"charity_navigator_score\":85.72,\"city_id\":8,\"county_id\":5,\"fight_poverty_score\":85.72,\"id\":247,\"mission_statement\":\"The New England Center and Home for Veterans (NECHV) was founded in 1989 and is one of the Nation's largest private resource providers for Veterans of every era who face challenges and/or are at-risk of homelessness.<br><br>The Center currently houses approximately 280 male and female Veterans every night at its downtown Boston facility. It has a capacity to provide transitional and emergency housing for 183 Veterans who are working to escape homelessness; and permanent supportive housing units for 97 Veterans.<br><br>NECHV is continually expanding, refining and improving its programs of service to ensure it is able to address the complex challenges that Veterans may face. Collaborative partnerships with medical facilities, government agencies, educational institutions, the businesses community, and other community-based service providers have enabled NECHV to emerge as one of the country's largest private Veteran service providers.<br>\",\"name\":\"New England Center and Home for Veterans\",\"zip_code\":2108},{\"address\":\"67 Newbury Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":89.19,\"charity_navigator_score\":91.84,\"city_id\":8,\"county_id\":5,\"fight_poverty_score\":91.84,\"id\":269,\"mission_statement\":\"Since 1982, thousands of women in Greater Boston have found refuge and welcome at Women's Lunch Place. <br><br>Women's Lunch Place provides a safe, comfortable day time shelter, nutritious food, and vital services for women experiencing homelessness or poverty. We treat women with dignity and respect, and foster a community committed to meeting each woman's needs. <br><br>We are open six days a week, year-round, to serve anyone who identifies as a woman, with no requirements to receive any service. In the words of one guest, \\\"I was half a person in the street and they put me together.\\\"\",\"name\":\"Women's Lunch Place\",\"zip_code\":2116},{\"address\":\"39 Boylston Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":79.38,\"charity_navigator_score\":83.47,\"city_id\":8,\"county_id\":5,\"fight_poverty_score\":83.47,\"id\":270,\"mission_statement\":\"Founded in 1984, St. Francis House is New England's largest day shelter for the poor and homeless. We are nonprofit and nonsectarian, providing basic and rehabilitative services designed to help homeless adults establish lives independent of shelters and institutions. Our goal is to provide our guests with everything they need to reclaim their dignity and rebuild their lives: nutritious meals, clothing, access to medical care, counseling, vocational rehabilitation, and housing. Vocational rehabilitation, in particular, is a strategic institutional goal, focused on helping our guests re-enter the workforce and positively engage with the world, strengthening themselves, their families, and the social and economic fabric of our communities.<br><br>St. Francis House provides 800 meals per day and is the only place in Boston where adults can receive a free breakfast and lunch every day of the year, no questions asked. \",\"name\":\"St. Francis House\",\"zip_code\":2116}],\"county\":{\"county_poverty_percentage\":19.5,\"county_poverty_population\":143799,\"id\":5,\"name\":\"Suffolk County\",\"state\":\"Massachusetts\"},\"county_id\":5,\"id\":8,\"name\":\"Boston\",\"state\":\"Massachusetts\"},{\"charities\":[{\"address\":\"341 Broadway\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":86.47,\"charity_navigator_score\":90.02,\"city_id\":9,\"county_id\":6,\"fight_poverty_score\":90.02,\"id\":248,\"mission_statement\":\"On The Rise's mission is to support the initiative and strength of women living in crisis or homelessness. In a physically and psychologically safe environment, we build the relationships and provide the tools that each woman needs to rise to her potential. On The Rise annually reaches and assists nearly 400 of the most highly marginalized and socially isolated women. We use a relational model designed to offer respect, dignity, connection, information, guidance and hope to women who have fallen through the cracks of our social service system. We meet each woman where she is, help her build on her strengths, and partner with her on her journey from surviving, to living, to thriving.\",\"name\":\"On The Rise\",\"zip_code\":2139}],\"county\":{\"county_poverty_percentage\":7.7,\"county_poverty_population\":117964,\"id\":6,\"name\":\"Middlesex County\",\"state\":\"Massachusetts\"},\"county_id\":6,\"id\":9,\"name\":\"Cambridge\",\"state\":\"Massachusetts\"}],\"page\":1,\"total_pages\":40}\n",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/api/city",
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Content-Length",
+							"value": "18202",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jul 2018 01:32:56 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/city?page=2&results_per_page=9>; rel=\"next\", <http://api.fightpoverty.online/api/city?page=40&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/city?page=2&results_per_page=9>; rel=\"next\", <http://api.fightpoverty.online/api/city?page=40&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/2.7.15rc1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						}
+					],
+					"cookies": [],
+					"request": "d8fab649-c17a-457f-aa54-7636d686c30c",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				},
+				{
+					"id": "dfbfa0d7-222a-4551-99e3-d01618a958e7",
+					"name": "Page 38 of Cities",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"num_results\":360,\"objects\":[{\"charities\":[{\"address\":\"1400 Yosemite Boulevard\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":93.0,\"charity_navigator_financial_score\":76.55,\"charity_navigator_score\":82.69,\"city_id\":334,\"county_id\":268,\"fight_poverty_score\":82.69,\"id\":552,\"mission_statement\":\"Since 1948 the Modesto Gospel Mission has provided nutritious meals, warm beds, and a place of safety for thousands of poor and homeless men, women, boys and girls. The Mission's staff is committed to sharing the Gospel of Jesus Christ, and meeting the physical, spiritual, and emotional needs of every man, woman, boy and girl who comes to the Mission for help. Five meals are served every day of the year. The Mission shelters approximately 2,000 men, women, boys, and girls each year. Besides providing clothing for the men, women, and children who are sheltering with us, the Mission's Community Distribution Center is open for distribution of clothing and small household items to needy families. There are also various medical programs available at the Mission.\",\"name\":\"Modesto Gospel Mission\",\"zip_code\":95354}],\"county\":{\"county_poverty_percentage\":14.5,\"county_poverty_population\":77913,\"id\":268,\"name\":\"Stanislaus County\",\"state\":\"California\"},\"county_id\":268,\"id\":334,\"name\":\"Modesto\",\"state\":\"California\"},{\"charities\":[{\"address\":\"3990 Brickway Boulevard\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":99.26,\"charity_navigator_score\":99.47,\"city_id\":335,\"county_id\":269,\"fight_poverty_score\":99.47,\"id\":159,\"mission_statement\":\"The mission of The Redwood Empire Food Bank (REFB) is to end hunger in our community. Founded in 1987, REFB is Sonoma County's largest hunger-relief organization. We acquire food and distribute it through a network of charitable agencies and our own food assistance programs, and also provide food to Lake, Mendocino, Humboldt, and Del Norte Counties through smaller food banks. In addition, the REFB advocates for effective legislation that will provide long-term solutions to hunger in our community. During fiscal year 2011-2012, over 13 million pounds of food was distributed to feed 78,000 people in need of food assistance each month.\",\"name\":\"The Redwood Empire Food Bank\",\"zip_code\":95403},{\"address\":\"1821 Piner Road\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":89.0,\"charity_navigator_financial_score\":81.26,\"charity_navigator_score\":84.63,\"city_id\":335,\"county_id\":269,\"fight_poverty_score\":84.63,\"id\":554,\"mission_statement\":\"Redwood Gospel Mission serves Sonoma County and the Santa Rosa metropolitan area. The Mission has been offering help and hope for the homeless, hungry, and those caught in addictions since 1963. More than just a soup kitchen, we are located on four sites in Santa Rosa, which encompass a men's mission and homeless Shelter, a women's mission, a women's homeless shelter, and our administrative offices, the Ministry Support Center. In addition, we have a thrift store, open six days a week. We are a proud member of the Association of Gospel Rescue Missions.\",\"name\":\"Redwood Gospel Mission\",\"zip_code\":95403}],\"county\":{\"county_poverty_percentage\":9.4,\"county_poverty_population\":46604,\"id\":269,\"name\":\"Sonoma County\",\"state\":\"California\"},\"county_id\":269,\"id\":335,\"name\":\"Santa Rosa\",\"state\":\"California\"},{\"charities\":[{\"address\":\"307 West 14th Street\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":92.52,\"charity_navigator_score\":94.0,\"city_id\":336,\"county_id\":270,\"fight_poverty_score\":94.0,\"id\":228,\"mission_statement\":\"Food for People is working to eliminate hunger and improve the health and well-being of our community through access to healthy and nutritious foods, community education and advocacy. Food for People is designated as the official food bank for Humboldt County. Currently, we operate a total of 14 community food programs, each of which is designated to address the needs of those who are experiencing hunger and food insecurity.\",\"name\":\"Food for People\",\"zip_code\":95501}],\"county\":{\"county_poverty_percentage\":20.0,\"county_poverty_population\":26632,\"id\":270,\"name\":\"Humboldt County\",\"state\":\"California\"},\"county_id\":270,\"id\":336,\"name\":\"Eureka\",\"state\":\"California\"},{\"charities\":[{\"address\":\"9820 Dino Drive\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":77.0,\"charity_navigator_financial_score\":100.0,\"charity_navigator_score\":83.73,\"city_id\":337,\"county_id\":271,\"fight_poverty_score\":83.73,\"id\":84,\"mission_statement\":\"Elk Grove Food Bank Services (EGFBS) was founded in 1973 at a local church by the Elk Grove Ministerial Association. Since its founding EGFBS has distributed over 5,412,130 meals and approximately 9,800,000 pounds of food in our local community and surrounding areas. For 43 years EGFBS has led the fight against hunger by working with caring donors, volunteers, foundations, local government, churches and community groups. Over the years the Food Bank has expanded and evolved to serve the needs of food insecure individuals by providing emergency food, eight mobile distribution sites, CalFresh, clothing, nutrition classes and other services at no cost.\",\"name\":\"Elk Grove Food Bank Services\",\"zip_code\":95624}],\"county\":{\"county_poverty_percentage\":16.3,\"county_poverty_population\":243760,\"id\":271,\"name\":\"Sacramento County\",\"state\":\"California\"},\"county_id\":271,\"id\":337,\"name\":\"Elk Grove\",\"state\":\"California\"},{\"charities\":[{\"address\":\"4550 Business Drive\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":75.0,\"charity_navigator_financial_score\":85.64,\"charity_navigator_score\":79.61,\"city_id\":338,\"county_id\":272,\"fight_poverty_score\":79.61,\"id\":161,\"mission_statement\":\"The Food Bank of El Dorado County's mission is to provide comprehensive services in collaboration with other hunger response agencies that will help transform the lives of people in need by providing nutritious food; advocating for and participating in various programs, including nutrition education, which will promote self sufficiency; raising awareness and educating the general public on local hunger, its causes and consequences; and acting as an advocate for a population that sometimes have few officials to speak for their needs.\",\"name\":\"Food Bank of El Dorado County\",\"zip_code\":95682}],\"county\":{\"county_poverty_percentage\":8.7,\"county_poverty_population\":16073,\"id\":272,\"name\":\"El Dorado County\",\"state\":\"California\"},\"county_id\":272,\"id\":338,\"name\":\"Cameron Park\",\"state\":\"California\"},{\"charities\":[{\"address\":\"5800 Foodlink Street\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":93.0,\"charity_navigator_financial_score\":90.62,\"charity_navigator_score\":91.72,\"city_id\":339,\"county_id\":271,\"fight_poverty_score\":91.72,\"id\":160,\"mission_statement\":\"California Emergency Foodlink was founded in 1992 with the mission of finding sensible solutions to hunger that effectively address its root causes: poverty and joblessness. To accomplish its mission Foodlink has implemented a mission strategy of building better communities by providing jobs, preventing hunger and training for the future. At no charge to recipient agencies, Foodlink delivers more than 100 million pounds of food per year throughout California. Foodlink delivers government commodities from The Emergency Food Assistance Program (TEFAP) as well as fresh produce collected under the statewide agricultural food rescue program, Donate-Don't Dump (DDD).\",\"name\":\"California Emergency Foodlink\",\"zip_code\":95828},{\"address\":\"1800 28th Street\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":88.0,\"charity_navigator_financial_score\":85.97,\"charity_navigator_score\":86.94,\"city_id\":339,\"county_id\":271,\"fight_poverty_score\":86.94,\"id\":217,\"mission_statement\":\"Created by the community for the community in 1968, River City Food Bank began as River City Community Services. River City Food Bank helps people avoid a downward spiral and work toward self-reliance by providing a short-term food supply when they are unable to meet basic living expenses. Clients who meet income guidelines receive a three-day emergency food supply up to once a month. In addition to food supplies, River City Food Bank is also a unique Sacramento food outreach program that provides nutritional counseling. Nutrition education programs help clients shop better by demonstrating the number of healthy meals they can create from the same few healthy food staples.\",\"name\":\"River City Food Bank\",\"zip_code\":95816},{\"address\":\"400 Bannon Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":78.0,\"charity_navigator_financial_score\":76.03,\"charity_navigator_score\":76.99,\"city_id\":339,\"county_id\":271,\"fight_poverty_score\":76.99,\"id\":553,\"mission_statement\":\"Since 1962 the Union Gospel Mission has provided food, clothing, shelter and a life-changing Gospel message to the homeless and the poor of Sacramento. The Mission has grown to serve more than 9,000 meals monthly. Every night, we shelter 84 men. Our Women's Clothing Closet offers Bible study and a huge variety of essential items such as clothing, purses, shoes, and sundries to assist them with their daily needs, help them prepare for work; and for their children. We offer haircuts, mail service and showers, continuously. We provide food baskets to families and the elderly. Nightly nondenominational services and volunteer outreach programs give support for those who rarely hear an encouraging word from the Gospel. Our 9-month drug and alcohol rehabilitation program is free of charge and accommodates 24 men with a Bible structured curriculum. A vocational training and job placement program helps men find new beginnings, restoring dignity to broken lives, and providing hope.\",\"name\":\"Union Gospel Mission, Sacramento\",\"zip_code\":95811}],\"county\":{\"county_poverty_percentage\":16.3,\"county_poverty_population\":243760,\"id\":271,\"name\":\"Sacramento County\",\"state\":\"California\"},\"county_id\":271,\"id\":339,\"name\":\"Sacramento\",\"state\":\"California\"},{\"charities\":[{\"address\":\"2842 South Market Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":93.0,\"charity_navigator_financial_score\":74.45,\"charity_navigator_score\":81.26,\"city_id\":340,\"county_id\":273,\"fight_poverty_score\":81.26,\"id\":545,\"mission_statement\":\"Founded in 1964 by a group of concerned Christians, the Good News Rescue Mission offers a hand up and the opportunity for New Life to thousands of men, women and children in our community. The purpose of the Good News Rescue Mission is to bring Good News to the poor, homeless, or needy of Shasta County by: Sharing the love of God exemplified by the life and ministry of Jesus Christ; Providing emergency subsistence services (food, shelter, and clothing); Providing long term recovery services; and Educating and equipping the people of Shasta County to effectively minister to needy people.\",\"name\":\"Good News Rescue Mission\",\"zip_code\":96001}],\"county\":{\"county_poverty_percentage\":17.2,\"county_poverty_population\":30359,\"id\":273,\"name\":\"Shasta County\",\"state\":\"California\"},\"county_id\":273,\"id\":340,\"name\":\"Redding\",\"state\":\"California\"},{\"charities\":[{\"address\":\"760 Kolu Street\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":96.21,\"charity_navigator_score\":97.32,\"city_id\":341,\"county_id\":274,\"fight_poverty_score\":97.32,\"id\":237,\"mission_statement\":\"The Maui Food Bank helps the hungry in Maui County by collecting and distributing food through community partnerships. It is our goal to end hunger on Maui. We work toward that goal by distributing food and advocating for improvement in government food programs and food policies. A statewide network of suppliers allows the Maui Food Bank to turn each dollar donated into 6 lbs. of non-perishable groceries, as well as fresh produce, bread, meat, fish and poultry. This year the Maui Food Bank will distribute over 1.8 million pounds of food and serve over 10,000 people a month who are in need of food.\",\"name\":\"Maui Food Bank\",\"zip_code\":96793}],\"county\":{\"county_poverty_percentage\":9.5,\"county_poverty_population\":15578,\"id\":274,\"name\":\"Maui County\",\"state\":\"Hawaii\"},\"county_id\":274,\"id\":341,\"name\":\"Wailuku\",\"state\":\"Hawaii\"},{\"charities\":[{\"address\":\"2611 Kilihau Street\",\"cause\":\"Food Banks, Food Pantries, and Food Distribution\",\"charity_navigator_accountability_score\":100.0,\"charity_navigator_financial_score\":90.89,\"charity_navigator_score\":93.55,\"city_id\":342,\"county_id\":275,\"fight_poverty_score\":93.55,\"id\":236,\"mission_statement\":\"The people of Hawaii are one ohana. The Hawaii Foodbank provides food so that no one in our family goes hungry. We work to gather food and support from our communities. We then distribute food through charitable agencies to those in need. Our mission is from the heart, and we will fulfill our mission with integrity, humanity and aloha. Founded in 1982, The Hawaii Foodbank is the only nonprofit agency in the state of Hawaii that collects, warehouses and distributes mass quantities of both perishable and non-perishable food to 250 member agencies on Oahu and Kauai, as well as food banks on the Big Island and Maui . The Hawaii Foodbank forms a vital link between the food donors and our member agencies by providing services in collecting, sorting, salvaging and distributing food. The Hawaii Foodbank also supports its member agencies through financial and educational assistance.\",\"name\":\"Hawaii Foodbank\",\"zip_code\":96819},{\"address\":\"546 Ka'aahi Street\",\"cause\":\"Homeless Services\",\"charity_navigator_accountability_score\":96.0,\"charity_navigator_financial_score\":90.0,\"charity_navigator_score\":92.38,\"city_id\":342,\"county_id\":275,\"fight_poverty_score\":92.38,\"id\":571,\"mission_statement\":\"The Institute for Human Services (IHS), founded in 1978, provides respite for those who are unsheltered and solutions that transform the lives of homeless and at-risk people. IHS remains the only 24-hour walk-in, emergency shelter on Oahu and continues to provide a full range of services to men, women and families with children who are homeless and in danger of becoming homeless. In FY2008, IHS provided services to over 2,800 individuals in our community. Our two emergency shelters, one for single women and families with children, and the other for single men provided 113,230 bed nights to a total of 1,538 unique individuals and served 255,703 meals to shelter guests and other individuals in need. Our Housing Placement Program served 761 unduplicated persons in 172 families.\",\"name\":\"The Institute for Human Services\",\"zip_code\":96817}],\"county\":{\"county_poverty_percentage\":8.5,\"county_poverty_population\":81341,\"id\":275,\"name\":\"Honolulu County\",\"state\":\"Hawaii\"},\"county_id\":275,\"id\":342,\"name\":\"Honolulu\",\"state\":\"Hawaii\"}],\"page\":38,\"total_pages\":40}\n",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "api.fightpoverty.online/api/city?page=38",
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "page",
+								"value": "38",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Content-Length",
+							"value": "15194",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jul 2018 01:32:28 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/city?page=39&results_per_page=9>; rel=\"next\", <http://api.fightpoverty.online/api/city?page=40&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Link",
+							"value": "<http://api.fightpoverty.online/api/city?page=39&results_per_page=9>; rel=\"next\", <http://api.fightpoverty.online/api/city?page=40&results_per_page=9>; rel=\"last\"",
+							"name": "Link",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.14.1 Python/2.7.15rc1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						}
+					],
+					"cookies": [],
+					"request": "d8fab649-c17a-457f-aa54-7636d686c30c",
+					"collection": "2ff1c063-a220-4896-ae4c-869f6b79e3cc"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		}
+	]
+}
