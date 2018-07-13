@@ -25,8 +25,8 @@ clean:
 	rm -rf ./datasets/Cities/*.pyc		  || :
 	rm -rf ./datasets/Counties/*.pyc      || :
 	rm -rf ./datasets/Python_Utils/*.pyc  || :
-	rm -rf ./States/*.pyc 			      || :
-	rm -rf ./Zip_Codes/*.pyc 			  || :
+	rm -rf ./datasets/States/*.pyc 		  || :
+	rm -rf ./datasets/Zip_Codes/*.pyc 	  || :
 	rm -r  *.tmp						  || :
 	rm -rf __pycache__  				  || :
 	rm -rf .mypy_cache  				  || :
@@ -38,7 +38,7 @@ format:
 	autopep8 -i -r  ./datasets
 
 
-checkFormat:
+checkFormat: .pylintrc
 	-pylint   tests.py
 	-pylint   main.py
 	-pylint   ./datasets/Charities/add_charities_to_db.py
