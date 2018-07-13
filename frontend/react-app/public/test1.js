@@ -1,20 +1,13 @@
-var charles_commits = 0;
-var chris_commits = 0;
-var kevin_commits = 0;
-var yijie_commits = 0;
-var justin_commits = 0;
-var unidentified_commits = 0;
-
-var charles_issues = 0;
 var chris_issues = 0;
 var kevin_issues = 0;
 var yijie_issues = 0;
 var justin_issues = 0;
 var unidentified_issues = 0;
-
+var total_commits = 0;
+for(let pg = 1; pg < 5; pg++) {
 $.ajax(
   {
-    url: "https://gitlab.com/api/v4/projects/7268012/repository/commits?page=1&per_page=1000&private_token=wYwwhFPaUQFis_Zj7_y1",
+    url: "https://gitlab.com/api/v4/projects/7268012/repository/commits?page=" + pg + "&per_page=100&private_token=wYwwhFPaUQFis_Zj7_y1",
     async: true,
     crossDomain: true,
     contentType: "application/json; charset=utf-8",
@@ -23,7 +16,7 @@ $.ajax(
   }).done(function(response)
     {
       console.log(response);
-      $("#total_commits").html(response.length);
+      total_commits += response.length;
       for(var i in response)
       {
         var name = response[i].committer_name;
@@ -40,14 +33,18 @@ $.ajax(
         else
           unidentified_commits++;
       }
-
       $("#charles_commits").html(charles_commits);
       $("#chris_commits").html(chris_commits);
       $("#kevin_commits").html(kevin_commits);
       $("#yijie_commits").html(yijie_commits);
       $("#justin_commits").html(justin_commits);
       $("#unidentified_commits").html(unidentified_commits);
+      $("#total_commits").html(total_commits);
     });
+  console.log("https://gitlab.com/api/v4/projects/7268012/repository/commits?page=" + pg + "&per_page=100&private_token=wYwwhFPaUQFis_Zj7_y1");
+}
+
+console.log(chris_commits);
 
 $.ajax(
   {
