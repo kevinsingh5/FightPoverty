@@ -25,7 +25,7 @@ TestBackend.pyx: tests.py main.py .pylintrc
 	-pylint   ./datasets/Zip_Codes/add_known_locations_to_db.py
 	-pylint   ./datasets/Zip_Codes/change_data_from_csv.py	
 	python 	  tests.py -b
-
+	@echo "ALL BACKEND TESTS PASSING"
 
 test: TestBackend.pyx
 
