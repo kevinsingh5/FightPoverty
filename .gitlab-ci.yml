@@ -7,10 +7,12 @@ stages:
 
 #Production stage
 staging:   
-    stage: staging   
+    stage: staging  
+    image: python 3.6 
     before_script: 
     # run tests
     - cd backend/
+    - make install
     - make run
     - make test
     - echo "all tests passed!"
