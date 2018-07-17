@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
-class NavBar extends Component {
- 
-  render(){
 
+
+
+class NavBar extends Component {
+  
+  render(){
 
 
   return(
@@ -24,9 +26,13 @@ class NavBar extends Component {
             		<li className="nav-item active">
             			<a className="nav-link " href="../charities">Charities</a>
             		</li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="../search">Search</a>
+                </li>
             		<li className="nav-item active">
              			<a className="nav-link" href="../about">About</a>
             		</li>
+                
          		</ul>
         	</div>
     	</nav>

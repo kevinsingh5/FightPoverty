@@ -57,3 +57,16 @@ export async function getSpecificCity (city) {
 }
 
 
+export async function generalCitySearch (text, pageNumber) {
+  	  const response = await axios.get(backendAPI+ 'api/city?q={"filters":[{"name":"name","op":"like","val":' + '"%' + text + '%"' + "}]}&page=" + pageNumber + '&results_per_page=3');
+	  // .then(function (response) {
+	  //   console.log(response);
+	  //   return response.data.objects;
+	  // })
+	  // .catch(function (error) {
+	  //   console.log(error);
+	  // });
+	  // console.log("hello");
+	  return response.data;
+
+}

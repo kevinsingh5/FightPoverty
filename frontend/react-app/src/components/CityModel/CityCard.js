@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import Highlight from 'react-highlighter';
 
 class CityCard extends Component {
   
@@ -15,7 +16,8 @@ class CityCard extends Component {
         <Link to={{pathname: '/cities/'+ this.props.cityInfo.name, state: this.props.cityInfo}} style = {{color:'black'}}>
          <img className="card-img-top" alt = "" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" src="http://www.foodieoncampus.com/wp-content/uploads/2016/01/City-Skyline.jpg" />
          <div className="card-body">
-            <h2 className="card-title">{this.props.cityInfo.name}</h2>
+                                                                              <Highlight search="ma">
+<h2 className="card-title">{this.props.cityInfo.name}</h2> </Highlight>
          </div>
          </Link>
 
