@@ -1,7 +1,7 @@
 import requests
 import json
-from google_images_download import google_images_download
-
+# from google_images_download import google_images_download
+import google_images_download.google_images_download.google_images_download as google_images_download
 
 def main():
     #county_url = 'http://api.fightpoverty.online/api/county'
@@ -14,13 +14,19 @@ def main():
     # get_counties()
     get_charities()
 
-    return 
+    return
 
 
 def make_call(url, page):
     headers = {'Content-Type': 'application/json'}
-    response = requests.get(url, params=page, headers=headers)
-    assert response.status_code == 200
+    try:
+        response = requests.get(url, params=page, headers=headers)
+        #assert response.status_code == 200
+        if response.status_code != 200:
+            print("WARNING: Response code from %s is not 200" % url)
+    except Exception as e:
+        print("ERROR: Couldn't establish connection to URL %s - %s" % (url, e))
+
     data = response.json()
     return data
 
@@ -28,6 +34,7 @@ def make_call(url, page):
 def get_cities():
     city_url = 'http://api.fightpoverty.online/api/city'
     cities = []
+    image_directory = "cities"
 
     pages = make_call(city_url, "1")["total_pages"]
     print(pages)
@@ -37,11 +44,11 @@ def get_cities():
         data = make_call(city_url, page)
         objects = data["objects"]
         for obj in objects:
-            city_state = obj["name"] + " " + obj["state"]
+            city_state = obj["name"] # + " " + obj["state"]
             print(city_state)
             cities.append(city_state)
 
-    get_images(cities, "def")
+    get_images(cities, image_directory)
 
 
 def get_counties():
@@ -57,7 +64,7 @@ def get_counties():
         data = make_call(url, page)
         objects = data["objects"]
         for obj in objects:
-            county_state = obj["name"] + " " + obj["state"]
+            county_state = obj["name"] # + " " + obj["state"]
             print(county_state)
             counties.append(county_state)
 
@@ -77,7 +84,7 @@ def get_charities():
         data = make_call(url, page)
         objects = data["objects"]
         for obj in objects:
-            charity = obj["name"] + " "
+            charity = obj["name"]
             print(charity)
             charities.append(charity)
 
