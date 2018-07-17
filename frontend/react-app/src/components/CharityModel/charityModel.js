@@ -70,7 +70,7 @@ class CharityModel extends Component {
           </div>
           
 
-    <div style  = {{width: "50%",  margin: "0 auto"}}>
+    <div>
     <Pagination className = "pagination"
       pageRangeDisplayed={10}
       activePage={this.state.activePage}
