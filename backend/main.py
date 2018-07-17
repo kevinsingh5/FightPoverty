@@ -128,6 +128,10 @@ class County(DB.Model):
     county_poverty_percentage = DB.Column(DB.Float)
     county_poverty_population = DB.Column(DB.Integer)
 
+    # Multiplier between 0.75 and 1.25 to multiply charity's charity_navigator_score
+    # based on county it resides in's poverty stats
+    fight_poverty_multiplier = DB.Column(DB.Float)
+
     __table_args__ = (
         # Must have unique county/state combo
         DB.UniqueConstraint('name', 'state', name='county_state_index'),
