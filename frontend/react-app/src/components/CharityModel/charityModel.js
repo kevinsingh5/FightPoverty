@@ -24,7 +24,6 @@ class CharityModel extends Component {
   }
 
   async handlePageChange(pageNumber) {
-    // console.log(`active page is ${pageNumber}`);
     const newCharities = await getMoreCharities(pageNumber);
     this.setState({activePage: pageNumber, charities: newCharities});
     window.scrollTo(0, 0)
@@ -43,6 +42,22 @@ class CharityModel extends Component {
           <p className="lead text-muted">Learn about different charities across the U.S.</p>
         </div>
       </section>
+  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button" > A-Z </button>
+    <div class="dropdown-divider"></div>
+    <button class="dropdown-item" type="button"> Z-A </button>
+      <div class="dropdown-divider"></div>
+    <button class="dropdown-item" type="button" >FightPoverty Score: 0-100 </button>
+      <div class="dropdown-divider"></div>
+    <button class="dropdown-item" type="button">FightPoverty Score: 100-0 </button>
+
+
+  </div>
+</div>
 
       <div className="album py-5 bg-dark">
         <div className="container">
