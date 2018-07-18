@@ -32,9 +32,6 @@ class NavBar extends Component {
             		<li className={getNavItem("charities")}>
             			<a className="nav-link " href="../charities">Charities</a>
             		</li>
-                <li className={getNavItem("search")}>
-                  <a className="nav-link" href="../search">Search</a>
-                </li>
             		<li className={getNavItem("about")}>
              			<a className="nav-link" href="../about">About</a>
             		</li>

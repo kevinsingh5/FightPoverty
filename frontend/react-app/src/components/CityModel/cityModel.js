@@ -16,6 +16,7 @@ class CityModel extends Component {
     };
 
     this.handlePageChange = this.handlePageChange.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
  
 
@@ -33,15 +34,15 @@ class CityModel extends Component {
     this.setState({activePage: pageNumber, cities: newCities});
   }
 
-  async handleSearch(parentObj) {
+  async handleSearch() {
     var newKeyword = document.getElementById("keywords").value;
-    await parentObj.setState({searchTerm: newKeyword});
+    await this.setState({searchTerm: newKeyword});
 
-    const cityResponse = await citySearch(parentObj.state.searchTerm,1)
+    const cityResponse = await citySearch(this.state.searchTerm,1)
     const cities = cityResponse.objects;
     const numOfCities = cityResponse.num_results;
 
-    await parentObj.setState({ cities: cities, totalNum: numOfCities, activePage: 1});
+    await this.setState({ cities: cities, totalNum: numOfCities, activePage: 1});
   }
 
 
@@ -55,7 +56,7 @@ class CityModel extends Component {
               <div className="container" style={{ marginBottom: "50px" }}>
               <h1 className="jumbotron-heading" >Cities </h1>
               <p className="lead text-muted">Browse our large database that contains information on over 350 cities in the U.S.</p>
-              <Search searchTerm={this.state.searchTerm} updateTerm={this.handleSearch} parentThis={this} />
+              <Search searchTerm={this.state.searchTerm} updateTerm={this.handleSearch} />
               </div>
           </section>
 
@@ -64,7 +65,7 @@ class CityModel extends Component {
 
               <div className="row">
               {this.state.cities.map((dynamicCity, i) => <CityCard 
-                  key = {i} cityInfo = {dynamicCity}/>)}
+                  key = {i} cityInfo = {dynamicCity} search = {this.state.searchTerm}/>)}
               </div>
         </div>
     </div>

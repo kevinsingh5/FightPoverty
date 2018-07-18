@@ -30,39 +30,12 @@ class Search extends Component {
     this.handleCharitiesPageChange = this.handleCharitiesPageChange.bind(this);
     this.handleCitiesPageChange = this.handleCitiesPageChange.bind(this);
     this.handleCountiesPageChange = this.handleCountiesPageChange.bind(this);
-    this.updateTerm = this.updateTerm.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({ searchTerm: nextProps.searchTerm, searched: !!nextProps.searchTerm });  
   }
  
-   async updateTerm(){
-    var newKeyword = document.getElementById("keywords").value;
-    //setState is slow
-    await this.setState({searchTerm: newKeyword});
-
-    const charityResponse = await generalCharitySearch(this.state.searchTerm, 1);
-    const charities = charityResponse.objects;
-    const numOfCharities = charityResponse.num_results;
-    const cityResponse = await generalCitySearch(this.state.searchTerm,1);
-    const cities = cityResponse.objects; 
-    const numOfCities = cityResponse.num_results;
-    const countyResponse = await generalCountySearch(this.state.searchTerm,1)
-    const counties = countyResponse.objects;
-    const numOfCounties = countyResponse.num_results;
-
-    await this.setState({ 
-      searched:true, 
-      charities: charities, 
-      totalNumCharities: numOfCharities, 
-      cities: cities, 
-      totalNumCities: numOfCities, 
-      counties:counties, 
-      totalNumCounties:numOfCounties 
-    });
-
- }
 
  async routeToSearchPage () {
   var newKeyword = document.getElementById("keywords").value;
@@ -100,8 +73,6 @@ class Search extends Component {
         totalNumCounties:numOfCounties 
       });
 
-      console.log()
-
     }
 
   }
@@ -128,7 +99,6 @@ class Search extends Component {
 
   render() {
     const updateTerm = this.props.updateTerm
-    const parentThis = this.props.parentThis
 
     const thisIsCharitySearch = window.location.pathname.includes("charities")
     const thisIsCitySearch = window.location.pathname.includes("cities")
@@ -166,7 +136,7 @@ class Search extends Component {
             }
 
             {!thisIsGeneralSearch &&
-              <button className=" btn-outline-success my-2 my-sm-0" type="button" onClick = {() => updateTerm(parentThis)}> Search</button>
+              <button className=" btn-outline-success my-2 my-sm-0" type="button" onClick = {updateTerm}> Search</button>
             }
 
             </form>

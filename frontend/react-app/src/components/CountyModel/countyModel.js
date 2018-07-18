@@ -17,7 +17,7 @@ class CountyModel extends Component {
       searchTerm: ''
     };
     this.handlePageChange = this.handlePageChange.bind(this);
-
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
 
@@ -35,15 +35,15 @@ class CountyModel extends Component {
     this.setState({activePage: pageNumber, counties: newCounties});
   }
 
-  async handleSearch(parentObj) {
+  async handleSearch() {
     var newKeyword = document.getElementById("keywords").value;
-    await parentObj.setState({searchTerm: newKeyword});
+    await this.setState({searchTerm: newKeyword});
 
-    const countyResponse = await countySearch(parentObj.state.searchTerm,1)
+    const countyResponse = await countySearch(this.state.searchTerm,1)
     const counties = countyResponse.objects;
     const numOfCounties = countyResponse.num_results;
 
-    await parentObj.setState({ counties: counties, totalNum: numOfCounties, activePage: 1});
+    await this.setState({ counties: counties, totalNum: numOfCounties, activePage: 1});
   }
 
   render() {
@@ -56,7 +56,7 @@ class CountyModel extends Component {
                         <div className="container" style={{ marginBottom: "50px" }}>
                           <h1 className="jumbotron-heading">Counties</h1>
                           <p className="lead text-muted">Look up any of the counties in the U.S. and find out information about local charities and poverty statistics</p>
-                          <Search searchTerm={this.state.searchTerm} updateTerm={this.handleSearch} parentThis={this} />
+                          <Search searchTerm={this.state.searchTerm} updateTerm={this.handleSearch} />
                         </div>
                  </section>
                  <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" align="center">Filter by: </a>
@@ -71,7 +71,7 @@ class CountyModel extends Component {
 
                   <div className="row">
                     {this.state.counties.map((dynamicCounty, i) => <CountyCard 
-                          key = {i} countyInfo = {dynamicCounty} />)}
+                          key = {i} countyInfo = {dynamicCounty} search = {this.state.searchTerm} />)}
                 </div>
                 </div>
             

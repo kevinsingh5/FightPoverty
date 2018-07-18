@@ -20,6 +20,7 @@ class CharityModel extends Component {
     this.updateFilter = this.updateFilter.bind(this);
     this.updatePageWithFilters = this.updatePageWithFilters.bind(this);
     this.updateSort = this.updateSort.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   
@@ -69,16 +70,15 @@ class CharityModel extends Component {
       this.updatePageWithFilters();
     }
 
-    async handleSearch(parentObj) {
+    async handleSearch() {
       var newKeyword = document.getElementById("keywords").value;
-      //setState is slow
-      await parentObj.setState({searchTerm: newKeyword});
+      await this.setState({searchTerm: newKeyword});
 
-      const charityResponse = await charitySearch(parentObj.state.searchTerm, 1);
+      const charityResponse = await charitySearch(this.state.searchTerm, 1);
       const charities = charityResponse.objects;
       const numOfCharities = charityResponse.num_results;
 
-      await parentObj.setState({ charities: charities, totalNum: numOfCharities, activePage: 1});
+      await this.setState({ charities: charities, totalNum: numOfCharities, activePage: 1});
     }
 
 
@@ -90,7 +90,7 @@ class CharityModel extends Component {
         <div className="container" style={{ marginBottom: "50px" }}>
           <h1 className="jumbotron-heading">Charities</h1>
           <p className="lead text-muted">Learn about different charities across the U.S.</p>
-          <Search searchTerm={this.state.searchTerm} updateTerm={this.handleSearch} parentThis={this} />
+          <Search searchTerm={this.state.searchTerm} updateTerm={this.handleSearch} />
         </div>
        
       </section>
