@@ -173,6 +173,9 @@ footer p {
    max-height:100%;
 }
 
+.pagination {
+  justify-content: center;
+}
 
 .pagination a {
     color: black;

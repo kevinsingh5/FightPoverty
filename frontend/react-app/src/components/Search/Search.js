@@ -125,7 +125,7 @@ class Search extends Component {
 
                                       </div>
 
-                                      <div style  = {{width: "50% " ,  margin: "0 auto"}}>
+                                      <div>
                                       <Pagination 
                                       pageRangeDisplayed={5}
                                       activePage={this.state.charitiesActivePage}
@@ -148,7 +148,7 @@ class Search extends Component {
                                       </div>
                                      
                                       </div>
-                                      <div style  = {{width: "50%",  margin: "0 auto"}}>
+                                      <div>
                                       <Pagination
                                       pageRangeDisplayed={5}
                                       activePage={this.state.citiesActivePage}
@@ -170,9 +170,8 @@ class Search extends Component {
                                         </div>
 
                                         
-                                        <div style  = {{width: "50%",  margin: "0 auto"}}>
+                                        <div>
                                         <Pagination
-
                                         pageRangeDisplayed={5}
                                         activePage={this.state.countiesActivePage}
                                         activeLinkClass = "active"
