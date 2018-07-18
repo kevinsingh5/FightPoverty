@@ -21,7 +21,7 @@ div h2{
 
 .card-img-top {
     width: 100%;
-    height: 30vw;
+    height: 25vw;
     object-fit: fill;
 }
 #check{
@@ -190,11 +190,14 @@ footer p {
     color: black;
 }
 
+
 .pagination a:hover:not(.active) {
   background-color: gray;
 }
 
-
+.nav-item .active{
+  color: #00FF00 !important;
+}
 
 .nav-item a:hover:not(.active) {
   color: #00FF00 !important;
@@ -203,5 +206,26 @@ footer p {
 
 .highlight{
   background-color: #00FF00;
+}
+
+.card{
+  transition: all .4s ease-in-out;
+}
+.card:hover{
+  transform: scale(1.05);
+}
+
+.card:hover .card-title{
+  font-weight: bold;
+}
+
+.card:hover .card-body{
+  background-color:#738375;
+}
+
+
+.card-title{
+  font-family: 'Amatic SC', cursive;
+  font-size: 44px;
 }
 

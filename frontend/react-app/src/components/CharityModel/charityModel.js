@@ -11,11 +11,13 @@ class CharityModel extends Component {
       charities:[],
       totalNum: 0,
       sort:"none",
-      stateFilters:[],
-      states:[]
+      stateFilters:"",
+      scoreFilter: "",
     };
     this.handlePageChange = this.handlePageChange.bind(this);
-    this.updateFilter = this.updateFilter.bind(this);
+    this.updateStateFilter = this.updateStateFilter.bind(this);
+    this.updateScoreFilter = this.updateScoreFilter.bind(this);
+
     this.updatePageWithFilters = this.updatePageWithFilters.bind(this);
     this.updateSort = this.updateSort.bind(this);
 
@@ -26,7 +28,7 @@ class CharityModel extends Component {
   
 
   async componentWillMount () {
-    const charitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,1)
+    const charitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,this.state.scoreFilter,1)
     const charities = charitiesResponse.objects;
     const numOfCharities = charitiesResponse.num_results;
 
@@ -34,7 +36,7 @@ class CharityModel extends Component {
   }
 
   async handlePageChange(pageNumber) {
-    const newCharitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,pageNumber);
+    const newCharitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,this.state.scoreFilter,pageNumber);
     const newCharities = newCharitiesResponse.objects;
     this.setState({activePage: pageNumber, charities: newCharities});
     window.scrollTo(0, 0)
@@ -42,30 +44,33 @@ class CharityModel extends Component {
   }
 
 
-    async updateFilter(e){
-    console.log(e.target.value);
-    var newFilters = this.state.stateFilters.concat(e.target.value);
-    console.log(newFilters);
-    //setState is slow 
-    await this.setState({stateFilters: newFilters});
-    this.updatePageWithFilters();
+    async updateStateFilter(e){
+        //setState is slow 
+        await this.setState({stateFilters: e.target.value});
+        this.updatePageWithFilters();
+
+
+  }
+
+
+    async updateScoreFilter(e){
+        await this.setState({scoreFilter: e.target.value});
+        this.updatePageWithFilters();
 
 
   }
     async updatePageWithFilters(){
-    console.log("CHECK")
-    const charitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,1);
-    const charities = charitiesResponse.objects;
-    const numOfCharities = charitiesResponse.num_results;
+        const charitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,this.state.scoreFilter,1);
+        const charities = charitiesResponse.objects;
+        const numOfCharities = charitiesResponse.num_results;
 
-    this.setState({ charities: charities, totalNum: numOfCharities, activePage: 1});
+        this.setState({ charities: charities, totalNum: numOfCharities, activePage: 1});
 
     }
 
 
     async updateSort(e){
       var newSort = e.target.value;
-      console.log(newSort);
       await this.setState({sort: newSort});
       this.updatePageWithFilters();
     }
@@ -87,9 +92,9 @@ class CharityModel extends Component {
 
   <div class="dropdown" style={{display : 'inline-block'}}>
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort:
+    Sort
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+  <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
     <button class="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort} > A-Z </button>
     <div class="dropdown-divider"></div>
     <button class="dropdown-item" type="button" value='ZA' onClick={this.updateSort}> Z-A </button>
@@ -104,14 +109,39 @@ class CharityModel extends Component {
 
 <div class="dropdown" style={{display : 'inline-block'}}>
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Filter by State:
+    Filter by State
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button" value = 'Texas' onClick = {this.updateFilter}> Texas </button>
+  <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button" value = 'Texas' onClick = {this.updateStateFilter}> Texas </button>
     <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value="Kansas" onClick = {this.updateFilter}> Kansas </button>
+    <button class="dropdown-item" type="button" value='Kansas' onClick = {this.updateStateFilter}> Kansas </button>
       <div class="dropdown-divider"></div>
     <button class="dropdown-item" type="button"> Montana </button>
+
+      
+  </div>
+</div>
+
+
+<div class="dropdown" style={{display : 'inline-block'}}>
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Filter by FightPoverty Score
+  </button>
+  <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button" value = '50' onClick = {this.updateScoreFilter}> > 50 </button>
+    <div class="dropdown-divider"></div>
+    <button class="dropdown-item" type="button" value='60' onClick = {this.updateScoreFilter}> > 60 </button>
+      <div class="dropdown-divider"></div>
+    <button class="dropdown-item" type="button" value='70' onClick = {this.updateScoreFilter}> > 70 </button>
+      <div class="dropdown-divider"></div>
+      <button class="dropdown-item" type="button" value='80' onClick = {this.updateScoreFilter}> > 80 </button>
+      <div class="dropdown-divider"></div>
+      <button class="dropdown-item" type="button" value='90' onClick = {this.updateScoreFilter}> > 90 </button>
+      <div class="dropdown-divider"></div>
+      <button class="dropdown-item" type="button" value='95' onClick = {this.updateScoreFilter}> > 95 </button>
+      <div class="dropdown-divider"></div>
+
+
       
   </div>
 </div>

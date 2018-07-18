@@ -7,13 +7,9 @@ import Pagination from "react-js-pagination";
 import CharityCard from '../CharityModel/CharityCard.js';
 import CountyCard from '../CountyModel/CountyCard.js';
 import CityCard from '../CityModel/CityCard.js';
-var Highlight = require('react-highlighter');
 
 
-function highlight(text){
-  
-    window.find(text,false,false,false,false,false,true);
-  }
+
 
 
 
@@ -59,12 +55,7 @@ class Search extends Component {
 
  }
 
-  async componentWillMount () {
-    window.scrollTo(0,0);
-    highlight(this.state.searchTerm);
-
-  }
-
+ 
   async handleCharitiesPageChange(pageNumber) {
     const newCharities = await generalCharitySearch(this.state.searchTerm, pageNumber);
     this.setState({charitiesActivePage: pageNumber, charities: newCharities.objects});
@@ -90,40 +81,64 @@ class Search extends Component {
     const keywords = this.state.searchTerm;
     let searchPrompt;
     if(hasSearched){
-        searchPrompt = <p> Showing results for "{keywords}" </p> 
+        searchPrompt = <h1 className="jumbotron-heading"> Showing results for "{keywords}" </h1>
     }
+    else{
+      searchPrompt = <h1 className="jumbotron-heading"> Search </h1>
+    }
+    let charityPrompt;
+    if(this.state.charities.length == 0  && hasSearched){
+        charityPrompt = <div className="row" style= {{justifyContent: "center"}}> <p> No charity results found </p> </div>
+    }
+    else{
+      charityPrompt = <div className="row"> {this.state.charities.map((dynamicCharity, i) => <CharityCard 
+                                      key = {i} charityInfo = {dynamicCharity} search = {this.state.searchTerm}/>)}  </div>
+    }
+    let cityPrompt;
+    if(this.state.cities.length == 0  && hasSearched){
+      cityPrompt = <div className="row" style= {{justifyContent: "center"}}> <p> No city results found </p> </div>
+    }
+    else{
+      cityPrompt = <div className="row"> {this.state.cities.map((dynamicCity, i) => <CityCard 
+                                      key = {i} cityInfo = {dynamicCity} search = {this.state.searchTerm}/>)}  </div>
+    }
+    let countyPrompt;
+    if(this.state.counties.length == 0 && hasSearched){
+        countyPrompt = <div className="row" style= {{justifyContent: "center"}}> <p> No county results found </p> </div>
+    }
+    else{
+      countyPrompt = <div className="row"> {this.state.counties.map((dynamicCounty, i) => <CountyCard 
+                                        key = {i} countyInfo = {dynamicCounty} search = {this.state.searchTerm} />)}  </div>
+    }
+
+
 
     return (
       <div>
                     <section className="jumbotron text-center">
                     <div className="container">
-                      <h1 className="jumbotron-heading">  Search</h1>
+                       {searchPrompt}
                       <p> Look up anything in our database </p>
-                       <form className="form-inline mt-2 mt-md-0" style  = {{width: "50% " ,  margin: "0 auto"}}>
+                       <form className="form-inline mt-2 mt-md-0" action="fightpoverty.online/home" method="GET" style  = {{justifyContent: "center"}}>
             <input className="form-control mr-sm-2" type="text" id = "keywords" placeholder="Enter keywords" aria-label="Search" />
             <button className=" btn-outline-success my-2 my-sm-0" type="button" onClick = {this.updateTerm}> Search</button>
             </form>
-                    {searchPrompt}
+                    
                     </div>
                   </section>
 
+                    {hasSearched ? 
 
                       <div className="album py-5 bg-light">
 
 
 
-
+                          
                                       <div className="container">
                                       <h1 align= "center"> Charity Results </h1>
-                                      <div className="row">
-
-
-                                      {this.state.charities.map((dynamicCharity, i) => <CharityCard 
-                                      key = {i} charityInfo = {dynamicCharity} search = {this.state.searchTerm}/>)} 
-                                      </div>
+                                      {charityPrompt}
                                       </div>
 
-                                      </div>
 
                                       <div>
                                       <Pagination 
@@ -141,11 +156,7 @@ class Search extends Component {
                                       <div className="container">
                                       <h1 align= "center"> City Results </h1>
 
-                                      <div className="row">
-                                      {this.state.cities.map((dynamicCity, i) => <CityCard 
-                                      key = {i} cityInfo = {dynamicCity} search = {this.state.searchTerm}/>)}
-
-                                      </div>
+                                      {cityPrompt}
                                      
                                       </div>
                                       <div>
@@ -163,10 +174,7 @@ class Search extends Component {
 
                                         <div className="container">
                                         <h1 align= "center" > County Results </h1>
-                                        <div className="row">
-                                        {this.state.counties.map((dynamicCounty, i) => <CountyCard 
-                                        key = {i} countyInfo = {dynamicCounty} search = {this.state.searchTerm} />)}
-                                        </div>
+                                        {countyPrompt}
                                         </div>
 
                                         
@@ -179,8 +187,10 @@ class Search extends Component {
                                         totalItemsCount={this.state.totalNumCounties}
                                         onChange={this.handleCountiesPageChange}
                                         />
+                                 </div>
 
-                                            </div>
+
+                       </div> : null}
 
                                         
 
