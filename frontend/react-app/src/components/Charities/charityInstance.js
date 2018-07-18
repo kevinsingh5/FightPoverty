@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import CityCard from '../CityModel/CityCard.js';
 import CountyCard from '../CountyModel/CountyCard.js';
 import {getSpecificCounty} from '../../queries/countyQueries';
 import {getSpecificCity} from '../../queries/cityQueries';
 
-
+var mapBounds = [0, 0, 0, 0];
 
 class CharityInstance extends Component {
   constructor(props){
@@ -19,8 +20,21 @@ class CharityInstance extends Component {
     const city = await getSpecificCity(this.props.location.state.city.name);
     const county = await getSpecificCounty(this.props.location.state.county.name);
 
+    var this2 = this;
+    // search for city coordinates
+    $.getJSON('https://nominatim.openstreetmap.org/search?q=' + this.props.location.state.address + ',+' + this.props.location.state.city.name + ',+' + this.props.location.state.city.state + '&format=json', function(data) {
+      // do stuff with the data
+      console.log(data);
+      if(data.length > 0) {
+        var loc = data[0];
+        //console.log(location);
+        mapBounds = loc['boundingbox'];
+        console.log(data);
+        this2.setState({ cityInfo: city, countyInfo: county});
+      }
+    });
 
-    this.setState({ cityInfo: city, countyInfo: county });
+    //this.setState({ cityInfo: city, countyInfo: county });
   }
   
   componentDidMount() {
@@ -38,6 +52,20 @@ class CharityInstance extends Component {
                   </div>
               </section>
 
+              <div class="row-fluid">
+                <div class="span4 text-right">
+                  <a class="twitter-share-button"
+                    href={"https://twitter.com/intent/tweet?text=" + this.props.location.state.name + "%20has%20a%20FightPoverty%20score%20of%20" + this.props.location.state.fight_poverty_score + "%21%0A"}
+                    data-size="large">
+                  Tweet</a>
+                  <br/>
+                  <div class="fb-share-button"
+                    data-href={document.URL}
+                    data-layout="button_count" data-size="large">
+                  </div>
+                </div>
+              </div>
+
               <ul> 
                 <li>Cause: {this.props.location.state.cause}</li>
                 <li>Address: {this.props.location.state.address}</li>
@@ -49,6 +77,11 @@ class CharityInstance extends Component {
                 <li><a href= 'https://www.charitynavigator.org/index.cfm?bay=content.view&cpid=35'>CharityNavigator's Financial Score</a>: {this.props.location.state.charity_navigator_financial_score}</li>
                 <li>FightPoverty Rating: {this.props.location.state.fight_poverty_score}</li>
               </ul>
+              <div align="center">
+                <iframe width='600' height='450' src={"https://www.openstreetmap.org/export/embed.html?bbox=" + mapBounds[2] + "%2C" + mapBounds[0] + "%2C" + mapBounds[3] + "%2C" + mapBounds[1]} frameBorder="0" allowFullScreen></iframe>
+                <br/>
+                <small><a href={"https://www.openstreetmap.org/search?query=" + this.props.location.state.address + "%2C%20" + this.props.location.state.city.name + "%2C%20" + this.props.location.state.city.state + "#map=13"}>View Larger Map</a></small>
+              </div>
 
               <h1 align="center"> Cities related to {this.props.location.state.name}</h1>
             <div align="center">
