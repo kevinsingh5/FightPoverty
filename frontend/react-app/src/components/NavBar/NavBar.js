@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
-class NavBar extends Component {
- 
-  render(){
 
+
+
+class NavBar extends Component {
+  
+  render(){
 
 
   return(
@@ -15,18 +17,22 @@ class NavBar extends Component {
         	</button>
         	<div className="collapse navbar-collapse" id="navbarCollapse">
          		<ul className="navbar-nav ml-auto">
-            		<li className="nav-item"> 
-              			<a className="nav-link active" href="../cities">Cities<span className="sr-only">(current)</span></a>
+            		<li className="nav-item active"> 
+              			<a className="nav-link " href="../cities">Cities<span className="sr-only">(current)</span></a>
            		 	</li>
-           			<li className="nav-item">
-             			<a className="nav-link active" href="../counties">Counties</a>
+           			<li className="nav-item active">
+             			<a className="nav-link" href="../counties">Counties</a>
            			</li>
-            		<li className="nav-item">
-            			<a className="nav-link active" href="../charities">Charities</a>
+            		<li className="nav-item active">
+            			<a className="nav-link " href="../charities">Charities</a>
             		</li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="../search">Search</a>
+                </li>
             		<li className="nav-item active">
              			<a className="nav-link" href="../about">About</a>
             		</li>
+                
          		</ul>
         	</div>
     	</nav>

@@ -7,7 +7,39 @@ stages:
 
 #Production stage
 staging:   
-    stage: staging   
+    stage: staging  
+    image: python:3.6 
+    before_script:
+    # run tests
+    - cd backend/
+    - make install
+    - cd ..
+    # generate ssh key   
+    - mkdir -p ~/.ssh     
+    - echo -e "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa     
+    - chmod 600 ~/.ssh/id_rsa     
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'   
+    script:   
+    - pwd
+    - ls -al
+    - bash .gitlab-stage.sh   
+    # after_script:
+    # - pwd
+    # - cd backend
+    # - chmod 774 datasets/python_utils/*
+    # - ls -al datasets/python_utils/
+    # - make test
+    # - echo "all tests passed!"
+    only:
+    - deployment
+    #environment:     
+    #   name: production     
+    #   url: https://your.url.com   
+    when: manual
+
+deploy:
+    stage: deployment
+    # image: alpine
     before_script: 
     #generate ssh key   
     - mkdir -p ~/.ssh     
@@ -16,21 +48,5 @@ staging:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'   
     script:     
     - bash .gitlab-deploy.sh   
-    only:
-    - deployment
-    #environment:     
-    #   name: production     
-    #   url: https://your.url.com   
-    #when: manual
-
-deploy:
-    stage: deployment
-    image: python:3.6
-    script:
-    - pip install awscli
-    - aws s3 cp ./static/ s3://fightpoverty.online/ --recursive     # copy all website files into the S3 bucket
-    #- aws s3 cp ./api/index.html s3://api.fightpoverty.online/      # copy the api html file to its respective bucket
-    #- aws s3 cp ./datasets/ s3://api.fightpoverty.online/ --recursive --exclude "*" --include "*.json"      # copy json datasets into api bucket
-    #- bash .gitlab-deploy.sh
     only:
     - deployment

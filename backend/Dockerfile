@@ -8,10 +8,10 @@ WORKDIR /app
 RUN pip install -r requirements.txt
 COPY . /app
 ENV DB="testdb"
-ENV USER="root"
+ENV USER_NAME="root"
 ENV PASSWORD="downing"
 ENV HOST="mysql01"
 ENV PORT="3306"
+ENV EXPOSE_ON_PORT="80"
 ENTRYPOINT ["python"]
 CMD ["main.py"]
-

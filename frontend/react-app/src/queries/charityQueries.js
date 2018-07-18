@@ -54,4 +54,37 @@ export async function getSpecificCharity (charity) {
 	  // });
 	  // console.log("hello");
 	  return response.data.objects;
+
 }
+
+export async function generalCharitySearch (txt, pageNumber) {
+  	const response = await axios.get(backendAPI+ 'api/charity?q={"filters":[{"name":"name","op":"like","val":' +  '"%' + txt + '%"' +  '}]}&page=' + pageNumber +  '&results_per_page=3');
+	  // .then(function (response) {
+	  //   console.log(response);
+	  //   return response.data.objects;
+	  // })
+	  // .catch(function (error) {
+	  //   console.log(error);
+	  // });
+	  // console.log("hello");
+	  return response.data;
+
+}
+
+export async function sortCharitiesAZ (txt, pageNumber) {
+  	const response = await axios.get(backendAPI+ 'api/charity?q={"order_by":[{"field":"name","direction":"asc"}]}');
+	  // .then(function (response) {
+	  //   console.log(response);
+	  //   return response.data.objects;
+	  // })
+	  // .catch(function (error) {
+	  //   console.log(error);
+	  // });
+	  // console.log("hello");
+	  return response.data.objects;
+
+}
+
+
+
+

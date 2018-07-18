@@ -52,7 +52,7 @@ class CityModel extends Component {
               </div>
         </div>
     </div>
-    <div style={{display: 'flex', justifyContent: 'center'}}>
+    <div style  = {{width: "50%",  margin: "0 auto"}}>
     <Pagination
     pageRangeDisplayed={10}
     activePage={this.state.activePage}

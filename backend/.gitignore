@@ -1,3 +1,4 @@
 /models
 *.pyc
 main_dev.py
+.pylintrc

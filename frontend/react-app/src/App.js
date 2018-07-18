@@ -9,7 +9,7 @@ import CityInstance from './components/Cities/cityInstance'
 import CountyInstance from './components/Counties/countyInstance'
 import CharityInstance from './components/Charities/charityInstance'
 import About from './components/About/About'
-
+import Search from './components/Search/Search'
 
 
 
@@ -24,6 +24,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Carousel} />
             <Route exact path='/home' component={Carousel} />
+            <Route exact path='/search' component={Search} />
             <Route exact path='/cities' component={CityModel} />
             <Route path='/cities/:name' component={CityInstance} />
             <Route exact path='/counties' component={CountyModel} />
