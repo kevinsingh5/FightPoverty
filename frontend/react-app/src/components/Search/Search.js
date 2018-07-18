@@ -7,7 +7,7 @@ import Pagination from "react-js-pagination";
 import CharityCard from '../CharityModel/CharityCard.js';
 import CountyCard from '../CountyModel/CountyCard.js';
 import CityCard from '../CityModel/CityCard.js';
-import Highlight from 'react-highlighter';
+var Highlight = require('react-highlighter');
 
 
 function highlight(text){
@@ -97,7 +97,7 @@ class Search extends Component {
       <div>
                     <section className="jumbotron text-center">
                     <div className="container">
-                      <h1 className="jumbotron-heading">Search</h1>
+                      <h1 className="jumbotron-heading">  Search</h1>
                       <p> Look up anything in our database </p>
                        <form className="form-inline mt-2 mt-md-0" style  = {{width: "50% " ,  margin: "0 auto"}}>
             <input className="form-control mr-sm-2" type="text" id = "keywords" placeholder="Enter keywords" aria-label="Search" />
@@ -116,8 +116,10 @@ class Search extends Component {
                                       <div className="container">
                                       <h1 align= "center"> Charity Results </h1>
                                       <div className="row">
+
+
                                       {this.state.charities.map((dynamicCharity, i) => <CharityCard 
-                                      key = {i} charityInfo = {dynamicCharity}/>)}
+                                      key = {i} charityInfo = {dynamicCharity} search = {this.state.searchTerm}/>)} 
                                       </div>
                                       </div>
 
@@ -141,7 +143,7 @@ class Search extends Component {
 
                                       <div className="row">
                                       {this.state.cities.map((dynamicCity, i) => <CityCard 
-                                      key = {i} cityInfo = {dynamicCity}/>)}
+                                      key = {i} cityInfo = {dynamicCity} search = {this.state.searchTerm}/>)}
 
                                       </div>
                                      
@@ -163,7 +165,7 @@ class Search extends Component {
                                         <h1 align= "center" > County Results </h1>
                                         <div className="row">
                                         {this.state.counties.map((dynamicCounty, i) => <CountyCard 
-                                        key = {i} countyInfo = {dynamicCounty} />)}
+                                        key = {i} countyInfo = {dynamicCounty} search = {this.state.searchTerm} />)}
                                         </div>
                                         </div>
 
@@ -184,9 +186,7 @@ class Search extends Component {
                                         
 
 
-                      
                   
-
 
 
     </div>

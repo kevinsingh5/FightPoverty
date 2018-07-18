@@ -9,26 +9,66 @@ class CharityModel extends Component {
     this.state = {
       activePage: 0,
       charities:[],
-      totalNum: 0
+      totalNum: 0,
+      sort:"none",
+      stateFilters:[],
+      states:
     };
     this.handlePageChange = this.handlePageChange.bind(this);
+    this.updateFilter = this.updateFilter.bind(this);
+    this.updatePageWithFilters = this.updatePageWithFilters.bind(this);
+    this.updateSort = this.updateSort.bind(this);
+
+
+
 
   }
- 
+  
 
   async componentWillMount () {
-    const charities = await getCharities()
-    const numOfCharities = await getNumOfCharities();
+    const charitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,1)
+    const charities = charitiesResponse.objects;
+    const numOfCharities = charitiesResponse.num_results;
 
     this.setState({ charities: charities, totalNum: numOfCharities, activePage: 1});
   }
 
   async handlePageChange(pageNumber) {
-    const newCharities = await getMoreCharities(pageNumber);
+    const newCharitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,pageNumber);
+    const newCharities = newCharitiesResponse.objects;
     this.setState({activePage: pageNumber, charities: newCharities});
     window.scrollTo(0, 0)
 
   }
+
+
+    async updateFilter(e){
+    console.log(e.target.value);
+    var newFilters = this.state.stateFilters.concat(e.target.value);
+    console.log(newFilters);
+    //setState is slow 
+    await this.setState({stateFilters: newFilters});
+    this.updatePageWithFilters();
+
+
+  }
+    async updatePageWithFilters(){
+    console.log("CHECK")
+    const charitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,1);
+    const charities = charitiesResponse.objects;
+    const numOfCharities = charitiesResponse.num_results;
+
+    this.setState({ charities: charities, totalNum: numOfCharities, activePage: 1});
+
+    }
+
+
+    async updateSort(e){
+      var newSort = e.target.value;
+      console.log(newSort);
+      await this.setState({sort: newSort});
+      this.updatePageWithFilters();
+    }
 
 
 
@@ -42,22 +82,41 @@ class CharityModel extends Component {
           <p className="lead text-muted">Learn about different charities across the U.S.</p>
         </div>
       </section>
-  <div class="dropdown">
+
+
+
+  <div class="dropdown" style={{display : 'inline-block'}}>
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown
+    Sort:
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button" > A-Z </button>
+    <button class="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort} > A-Z </button>
     <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button"> Z-A </button>
+    <button class="dropdown-item" type="button" value='ZA' onClick={this.updateSort}> Z-A </button>
       <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" >FightPoverty Score: 0-100 </button>
+    <button class="dropdown-item" type="button" value= "0100" onClick={this.updateSort}>FightPoverty Score: 0-100 </button>
       <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button">FightPoverty Score: 100-0 </button>
+    <button class="dropdown-item" type="button" value= "1000" onClick={this.updateSort}>FightPoverty Score: 100-0 </button>
 
 
   </div>
 </div>
+
+<div class="dropdown" style={{display : 'inline-block'}}>
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Filter by State:
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button" value = 'Texas' onClick = {this.updateFilter}> Texas </button>
+    <div class="dropdown-divider"></div>
+    <button class="dropdown-item" type="button" value="Kansas" onClick = {this.updateFilter}> Kansas </button>
+      <div class="dropdown-divider"></div>
+    <button class="dropdown-item" type="button"> Montana </button>
+      
+  </div>
+</div>
+
+
 
       <div className="album py-5 bg-dark">
         <div className="container">
