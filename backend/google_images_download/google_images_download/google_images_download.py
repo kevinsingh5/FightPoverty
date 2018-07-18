@@ -760,7 +760,7 @@ class googleimagesdownload:
 
         ######Initialization and Validation of user arguments
         if arguments['keywords']:
-            search_keyword = [str(item) for item in arguments['keywords'].split(',')]
+            search_keyword = [item.encode('utf-8') for item in arguments['keywords'].split(',')]
 
         if arguments['keywords_from_file']:
             search_keyword = self.keywords_from_file(arguments['keywords_from_file'])
@@ -829,7 +829,7 @@ class googleimagesdownload:
         
         image_name_gen = None
         if arguments['image_name']:
-            image_name_list = [str(item) for item in arguments['image_name'].split(',')]
+            image_name_list = [item.encode('utf-8') for item in arguments['image_name'].split(',')]
             image_name_gen = self.names_iter(image_name_list)
 
         paths = {}
