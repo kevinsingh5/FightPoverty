@@ -44,7 +44,7 @@ def get_cities():
         data = make_call(city_url, page)
         objects = data["objects"]
         for obj in objects:
-            city_state = obj["name"] # + " " + obj["state"]
+            city_state = obj["name"].strip() # + " " + obj["state"]
             print(city_state)
             cities.append(city_state)
 
@@ -64,7 +64,7 @@ def get_counties():
         data = make_call(url, page)
         objects = data["objects"]
         for obj in objects:
-            county_state = obj["name"] # + " " + obj["state"]
+            county_state = obj["name"].strip() # + " " + obj["state"]
             print(county_state)
             counties.append(county_state)
 
@@ -79,23 +79,22 @@ def get_charities():
     pages = make_call(url, "1")["total_pages"]
     print(pages)
 
-    for p in range(1,3):
+    for p in range(1,pages):
         page = {"page":p}
         data = make_call(url, page)
         objects = data["objects"]
         for obj in objects:
-            charity = obj["name"]
+            charity = obj["name"].strip()
             print(charity)
             charities.append(charity)
 
     get_images(charities, image_directory)
 
 
-
 def get_images(keywords, image_directory):
     image_response = google_images_download.googleimagesdownload()
-    arguments = {"keywords":", ".join(keywords), "limit":1, "format":"jpg", "aspect_ratio":"square", "image_directory":image_directory,
-        "size":">640*480", "output_directory":"images", "no_numbering":True}
+    arguments = {"keywords":",".join(keywords), "limit":1, "aspect_ratio":"square", "image_directory":image_directory,
+        "size":">640*480", "output_directory":"images", "no_numbering":True, "image_name":",".join(keywords)}
     #paths = image_response.download(arguments)      #passing arguments to download function
     image_response.download(arguments)
 

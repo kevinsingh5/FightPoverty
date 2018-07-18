@@ -39,7 +39,7 @@ args_list = ["keywords", "keywords_from_file", "prefix_keywords", "suffix_keywor
              "exact_size", "aspect_ratio", "type", "time", "time_range", "delay", "url", "single_image",
              "output_directory", "image_directory", "no_directory", "proxy", "similar_images", "specific_site",
              "print_urls", "print_size", "print_paths", "metadata", "extract_metadata", "socket_timeout",
-             "thumbnail", "language", "prefix", "chromedriver", "related_images", "safe_search", "no_numbering"]
+             "thumbnail", "language", "prefix", "chromedriver", "related_images", "safe_search", "no_numbering", "image_name"]
 
 
 def user_input():
@@ -62,6 +62,7 @@ def user_input():
     else:
         # Taking command line arguments from users
         parser = argparse.ArgumentParser()
+        parser.add_argument('-in', '--image_name', help='assign an image name to save', type=str, required=False)
         parser.add_argument('-k', '--keywords', help='delimited list input', type=str, required=False)
         parser.add_argument('-kf', '--keywords_from_file', help='extract list of keywords from a text file', type=str, required=False)
         parser.add_argument('-sk', '--suffix_keywords', help='comma separated additional words added after to main keyword', type=str, required=False)
@@ -548,9 +549,12 @@ class googleimagesdownload:
             download_message = "IOError on an image...trying next one..." + " Error: " + str(e)
         return download_status, download_message
 
+    def names_iter(self, li):
+        for i in li:
+            yield i
 
     # Download Images
-    def download_image(self,image_url,image_format,main_directory,dir_name,count,print_urls,socket_timeout,prefix,print_size,no_numbering):
+    def download_image(self,image_url,image_format,main_directory,dir_name,count,print_urls,socket_timeout,prefix,print_size,no_numbering,arguments,name):
         if print_urls:
             print("Image URL: " + image_url)
         try:
@@ -568,16 +572,28 @@ class googleimagesdownload:
                 response.close()
 
                 # keep everything after the last '/'
-                image_name = str(image_url[(image_url.rfind('/')) + 1:])
-                image_name = image_name.lower()
-                # if no extension then add it
-                # remove everything after the image name
-                if image_format == "":
-                    image_name = image_name + "." + "jpg"
-                elif image_format == "jpeg":
-                    image_name = image_name[:image_name.find(image_format) + 4]
+                if image_url.rfind('?media id='):
+                    image_name = str(image_url[(image_url.rfind('?media id=')) + 1:])    
                 else:
-                    image_name = image_name[:image_name.find(image_format) + 3]
+                    image_name = str(image_url[(image_url.rfind('/')) + 1:])
+                #image_name = image_name.lower()
+
+                image_format = str(image_url[(image_url.rfind('.')) + 1:])
+                print("IMAGE FORMAT %s" % image_format)
+                if arguments['image_name']:
+                    #image_name = str(next(image_name_gen)) + "." + image_format
+                    image_name = name + "." + image_format
+                # if no extension then add it
+                #### remove everything after the image name
+                # if image_format == "":
+                #     image_name = image_name + "." + "jpg"
+                # elif image_format == "jpeg":
+                #     image_name = image_name[:image_name.find(image_format) + 4]
+                #     #image_name = image_name + "." + "jpeg"
+                # elif image_format == "jpg":
+                #     image_name = image_name + "." + "jpg"
+                # else:
+                #     image_name = image_name[:image_name.find(image_format) + 3]
 
                 # prefix name in image
                 if prefix:
@@ -685,7 +701,7 @@ class googleimagesdownload:
 
 
     # Getting all links with the help of '_images_get_next_image'
-    def _get_all_items(self,page,main_directory,dir_name,limit,arguments):
+    def _get_all_items(self,page,main_directory,dir_name,limit,arguments,image_name):
         items = []
         abs_path = []
         errorCount = 0
@@ -704,9 +720,9 @@ class googleimagesdownload:
                     print("\nImage Metadata: " + str(object))
 
                 items.append(object)  # Append all the links in the list named 'Links'
-
+                
                 #download the images
-                download_status,download_message,return_image_name,absolute_path = self.download_image(object['image_link'],object['image_format'],main_directory,dir_name,count,arguments['print_urls'],arguments['socket_timeout'],arguments['prefix'],arguments['print_size'],arguments['no_numbering'])
+                download_status,download_message,return_image_name,absolute_path = self.download_image(object['image_link'],object['image_format'],main_directory,dir_name,count,arguments['print_urls'],arguments['socket_timeout'],arguments['prefix'],arguments['print_size'],arguments['no_numbering'],arguments,image_name)
                 print(download_message)
                 if download_status == "success":
 
@@ -810,6 +826,11 @@ class googleimagesdownload:
             os.environ["http_proxy"] = arguments['proxy']
             os.environ["https_proxy"] = arguments['proxy']
             ######Initialization Complete
+        
+        image_name_gen = None
+        if arguments['image_name']:
+            image_name_list = [str(item) for item in arguments['image_name'].split(',')]
+            image_name_gen = self.names_iter(image_name_list)
 
         paths = {}
         for pky in prefix_keywords:
@@ -839,8 +860,10 @@ class googleimagesdownload:
                     else:
                         raw_html = self.download_extended_page(url,arguments['chromedriver'])
 
+                    image_name = str(next(image_name_gen))
+
                     print("Starting Download...")
-                    items,errorCount,abs_path = self._get_all_items(raw_html,main_directory,dir_name,limit,arguments)    #get all image items and download images
+                    items,errorCount,abs_path = self._get_all_items(raw_html,main_directory,dir_name,limit,arguments,image_name)    #get all image items and download images
                     paths[pky + search_keyword[i] + sky] = abs_path
 
                     #dumps into a text file
