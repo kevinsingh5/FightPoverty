@@ -1,12 +1,24 @@
 #!/usr/bin/env python
-import unittest
-from selenium import webdriver
 
+import unittest
+import time
+import re
+from selenium import webdriver
+from selenium.webdriver.common.by import By 
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC 
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.keys import Keys
+
+#Selenium Test Cases
+#./guitests.py to run
 class FightPoverty(unittest.TestCase):
 
 	def setUp(self):
+		self.home_url = 'http://www.fightpoverty.online/'
 		self.browser = webdriver.Firefox()
-		self.addCleanup(self.browser.quit)
+		self.browser.get(self.home_url)
+		self.browser.maximize_window()
 
 	#Test Case 1 Good
 	def testPageTitle(self):
@@ -69,6 +81,67 @@ class FightPoverty(unittest.TestCase):
 		if href_data is None:
 			is_clickable = False
 
+	#Test Case 11 Good
+	def test_title(self):
+		self.assertEqual(self.browser.title, 'FightPoverty')
+
+	#Test Case 12 Good
+	def test_about_page(self):
+		navbar_link = self.browser.find_element_by_link_text('About').click()
+		self.assertEqual(self.browser.current_url, 'http://www.fightpoverty.online/about')
+
+	#Test Case 13 Good
+	def test_city_navbar(self):
+		self.browser.get("http://fightpoverty.online/cities")
+		try:
+			self.browser.find_element_by_class_name("navbar-brand").click()
+			pass
+		except NoSuchElementException:
+			self.fail("The element does not exist")
+
+	#Test Case 14 Good
+	def test_county_navbar(self):
+		self.browser.get("http://fightpoverty.online/counties")
+		try:
+			self.browser.find_element_by_class_name("navbar-brand").click()
+			pass
+		except NoSuchElementException:
+			self.fail("The element does not exist")
+
+	#Test Case 15 Good
+	def test_charities_navbar(self):
+		self.browser.get("http://fightpoverty.online/charities")
+		try:
+			self.browser.find_element_by_class_name("navbar-brand").click()
+			pass
+		except NoSuchElementException:
+			self.fail("The element does not exist")
+
+	#Test Case 16 Good
+	def test_all_nav_bar_links_together(self):
+		time.sleep(1)
+
+		self.browser.find_element_by_link_text('Cities').click()
+		self.assertEqual("http://www.fightpoverty.online/cities", self.browser.current_url)
+
+		time.sleep(1)
+
+		self.browser.find_element_by_link_text('Counties').click()
+		self.assertEqual("http://www.fightpoverty.online/counties", self.browser.current_url)
+
+		time.sleep(1)
+
+		self.browser.find_element_by_link_text('Charities').click()
+		self.assertEqual("http://www.fightpoverty.online/charities", self.browser.current_url)
+
+		time.sleep(1)
+
+		self.browser.find_element_by_link_text('About').click()
+		self.assertEqual("http://www.fightpoverty.online/about", self.browser.current_url)
+
+
+	def tearDown(self):
+		self.browser.quit()
 
 if __name__ == '__main__':
 	unittest.main(verbosity=2)
