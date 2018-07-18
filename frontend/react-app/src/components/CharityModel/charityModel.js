@@ -12,7 +12,7 @@ class CharityModel extends Component {
       totalNum: 0,
       sort:"none",
       stateFilters:[],
-      states:
+      states:[]
     };
     this.handlePageChange = this.handlePageChange.bind(this);
     this.updateFilter = this.updateFilter.bind(this);
