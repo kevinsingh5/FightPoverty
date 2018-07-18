@@ -8,6 +8,8 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restless import APIManager
 from flask_cors import CORS
+from sqlalchemy import *
+from sqlalchemy.orm import *
 
 
 DB_NAME = os.environ.get("DB", None)
@@ -128,6 +130,10 @@ class County(DB.Model):
     county_poverty_percentage = DB.Column(DB.Float)
     county_poverty_population = DB.Column(DB.Integer)
 
+    # Multiplier between 0.75 and 1.25 to multiply charity's charity_navigator_score
+    # based on county it resides in's poverty stats
+    fight_poverty_multiplier = DB.Column(DB.Float)
+
     __table_args__ = (
         # Must have unique county/state combo
         DB.UniqueConstraint('name', 'state', name='county_state_index'),
@@ -161,6 +167,15 @@ try:
     DB.create_all()
 except Exception as exp:
     print('Failed to drop/create tables', exp)
+
+
+@app.route("/charity/city", methods=['GET'])
+def get_charity_by_city_name():
+    # take input_body and run SQL query to get charity by city name
+
+    # return result of SQL query
+    print(request.args.get('name', '') + " fdfdfdff")
+    return str(City.query.order_by(City.name).all())
 
 
 if __name__ == "__main__":
