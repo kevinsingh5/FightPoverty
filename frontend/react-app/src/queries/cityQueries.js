@@ -70,3 +70,17 @@ export async function generalCitySearch (text, pageNumber) {
 	  return response.data;
 
 }
+
+export async function citySearch (text, pageNumber) {
+	const response = await axios.get(backendAPI+ 'api/city?q={"filters":[{"name":"name","op":"like","val":' + '"%' + text + '%"' + "}]}&page=" + pageNumber + '&results_per_page=9');
+  // .then(function (response) {
+  //   console.log(response);
+  //   return response.data.objects;
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
+  // });
+  // console.log("hello");
+  return response.data;
+
+}

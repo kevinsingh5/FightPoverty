@@ -71,6 +71,20 @@ export async function generalCharitySearch (txt, pageNumber) {
 
 }
 
+export async function charitySearch (txt, pageNumber) {
+	const response = await axios.get(backendAPI+ 'api/charity?q={"filters":[{"name":"name","op":"like","val":' +  '"%' + txt + '%"' +  '}]}&page=' + pageNumber +  '&results_per_page=9');
+	// .then(function (response) {
+	//   console.log(response);
+	//   return response.data.objects;
+	// })
+	// .catch(function (error) {
+	//   console.log(error);
+	// });
+	// console.log("hello");
+	return response.data;
+
+}
+
 export async function getCharities(sort,stateFilters, pageNumber){
 	let response;
 	const numStateFilters = stateFilters.length

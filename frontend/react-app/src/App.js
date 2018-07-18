@@ -25,6 +25,7 @@ class App extends Component {
             <Route exact path='/' component={Carousel} />
             <Route exact path='/home' component={Carousel} />
             <Route exact path='/search' component={Search} />
+            <Route path='/search/:searchterm' component={Search} />
             <Route exact path='/cities' component={CityModel} />
             <Route path='/cities/:name' component={CityInstance} />
             <Route exact path='/counties' component={CountyModel} />
@@ -35,6 +36,15 @@ class App extends Component {
             <Route exact path='/about' component={About} />
           </Switch>
         </div>
+        
+        <footer class="container">
+          
+
+
+          <p class="float-right"><a href="#">Back to top</a></p>
+          <p>&copy; FightPoverty.online. &middot;</p>
+        </footer>
+
       </div>
       
     );

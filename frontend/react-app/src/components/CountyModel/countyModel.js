@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { getCounties, getMoreCounties, getNumOfCounties } from '../../queries/countyQueries';
+import { getCounties, getMoreCounties, getNumOfCounties, countySearch } from '../../queries/countyQueries';
 import Pagination from "react-js-pagination";
 import CountyCard from './CountyCard.js'
+import Search from '../Search/Search.js';
 
 
 
@@ -12,7 +13,8 @@ class CountyModel extends Component {
     this.state = {
       activePage: 1,
       counties: [],
-      totalNum: 0
+      totalNum: 0,
+      searchTerm: ''
     };
     this.handlePageChange = this.handlePageChange.bind(this);
 
@@ -33,6 +35,17 @@ class CountyModel extends Component {
     this.setState({activePage: pageNumber, counties: newCounties});
   }
 
+  async handleSearch(parentObj) {
+    var newKeyword = document.getElementById("keywords").value;
+    await parentObj.setState({searchTerm: newKeyword});
+
+    const countyResponse = await countySearch(parentObj.state.searchTerm,1)
+    const counties = countyResponse.objects;
+    const numOfCounties = countyResponse.num_results;
+
+    await parentObj.setState({ counties: counties, totalNum: numOfCounties, activePage: 1});
+  }
+
   render() {
 
     return (
@@ -40,10 +53,10 @@ class CountyModel extends Component {
             
                  <section className="jumbotron text-center">
                 
-                        <div className="container">
+                        <div className="container" style={{ marginBottom: "50px" }}>
                           <h1 className="jumbotron-heading">Counties</h1>
                           <p className="lead text-muted">Look up any of the counties in the U.S. and find out information about local charities and poverty statistics</p>
-            
+                          <Search searchTerm={this.state.searchTerm} updateTerm={this.handleSearch} parentThis={this} />
                         </div>
                  </section>
                  <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" align="center">Filter by: </a>

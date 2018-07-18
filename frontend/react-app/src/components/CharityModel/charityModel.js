@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { getCharities,getMoreCharities, getNumOfCharities } from '../../queries/charityQueries';
+import { getCharities, charitySearch } from '../../queries/charityQueries';
 import Pagination from "react-js-pagination";
 import CharityCard from './CharityCard.js';
+import Search from '../Search/Search.js';
 
 class CharityModel extends Component {
   constructor(props) {
@@ -12,17 +13,15 @@ class CharityModel extends Component {
       totalNum: 0,
       sort:"none",
       stateFilters:[],
-      states:[]
+      states:[],
+      searchTerm: ''
     };
     this.handlePageChange = this.handlePageChange.bind(this);
     this.updateFilter = this.updateFilter.bind(this);
     this.updatePageWithFilters = this.updatePageWithFilters.bind(this);
     this.updateSort = this.updateSort.bind(this);
-
-
-
-
   }
+
   
 
   async componentWillMount () {
@@ -70,17 +69,30 @@ class CharityModel extends Component {
       this.updatePageWithFilters();
     }
 
+    async handleSearch(parentObj) {
+      var newKeyword = document.getElementById("keywords").value;
+      //setState is slow
+      await parentObj.setState({searchTerm: newKeyword});
+
+      const charityResponse = await charitySearch(parentObj.state.searchTerm, 1);
+      const charities = charityResponse.objects;
+      const numOfCharities = charityResponse.num_results;
+
+      await parentObj.setState({ charities: charities, totalNum: numOfCharities, activePage: 1});
+    }
+
 
 
   render() {
-
     return (
       <div>
         <section className="jumbotron text-center">
-        <div className="container">
+        <div className="container" style={{ marginBottom: "50px" }}>
           <h1 className="jumbotron-heading">Charities</h1>
           <p className="lead text-muted">Learn about different charities across the U.S.</p>
+          <Search searchTerm={this.state.searchTerm} updateTerm={this.handleSearch} parentThis={this} />
         </div>
+       
       </section>
 
 
@@ -123,7 +135,7 @@ class CharityModel extends Component {
 
           <div className="row">
             {this.state.charities.map((dynamicCharity, i) => <CharityCard 
-                  key = {i} charityInfo = {dynamicCharity}/>)}
+                  key = {i} charityInfo = {dynamicCharity} search = {this.state.searchTerm} />)}
           </div>
           </div>
           </div>

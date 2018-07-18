@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { getCities, getMoreCities,getNumOfCities } from '../../queries/cityQueries';
+import { getCities, getMoreCities,getNumOfCities, citySearch } from '../../queries/cityQueries';
 import Pagination from "react-js-pagination";
 import CityCard from './CityCard.js'
+import Search from '../Search/Search.js';
+
 
 class CityModel extends Component {
   constructor(props) {
@@ -9,7 +11,8 @@ class CityModel extends Component {
     this.state = {
       activePage: 1,
       cities : [],
-      totalNum: 0
+      totalNum: 0,
+      searchTerm: ''
     };
 
     this.handlePageChange = this.handlePageChange.bind(this);
@@ -30,6 +33,18 @@ class CityModel extends Component {
     this.setState({activePage: pageNumber, cities: newCities});
   }
 
+  async handleSearch(parentObj) {
+    var newKeyword = document.getElementById("keywords").value;
+    await parentObj.setState({searchTerm: newKeyword});
+
+    const cityResponse = await citySearch(parentObj.state.searchTerm,1)
+    const cities = cityResponse.objects;
+    const numOfCities = cityResponse.num_results;
+
+    await parentObj.setState({ cities: cities, totalNum: numOfCities, activePage: 1});
+  }
+
+
 
 
   render() {
@@ -37,9 +52,10 @@ class CityModel extends Component {
     return (
         <div>
           <section className="jumbotron text-center">
-              <div className="container">
-              <h1 className="jumbotron-heading">Cities </h1>
+              <div className="container" style={{ marginBottom: "50px" }}>
+              <h1 className="jumbotron-heading" >Cities </h1>
               <p className="lead text-muted">Browse our large database that contains information on over 350 cities in the U.S.</p>
+              <Search searchTerm={this.state.searchTerm} updateTerm={this.handleSearch} parentThis={this} />
               </div>
           </section>
 
