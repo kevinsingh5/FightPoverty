@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { getCharities, charitySearch } from '../../queries/charityQueries';
+import { getCharities, getCharities2 } from '../../queries/charityQueries';
 import Pagination from "react-js-pagination";
 import CharityCard from './CharityCard.js';
 import Search from '../Search/Search.js';
+
+const RESULTS_PER_PAGE = 9
 
 class CharityModel extends Component {
   constructor(props) {
@@ -11,7 +13,7 @@ class CharityModel extends Component {
       activePage: 0,
       charities:[],
       totalNum: 0,
-      sort:"none",
+      sort: "none",
       stateFilters:[],
       scoreFilter: "",
       states:[],
@@ -29,7 +31,15 @@ class CharityModel extends Component {
   
 
   async componentWillMount () {
-    const charitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,this.state.scoreFilter,1)
+    const charitiesResponse = await getCharities2(
+      this.state.searchTerm, 
+      this.state.sort,
+      this.state.stateFilters,
+      this.state.scoreFilter,
+      1,
+      RESULTS_PER_PAGE
+    )
+
     const charities = charitiesResponse.objects;
     const numOfCharities = charitiesResponse.num_results;
 
@@ -37,7 +47,15 @@ class CharityModel extends Component {
   }
 
   async handlePageChange(pageNumber) {
-    const newCharitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,this.state.scoreFilter,pageNumber);
+    const newCharitiesResponse = await getCharities2(
+      this.state.searchTerm, 
+      this.state.sort,
+      this.state.stateFilters,
+      this.state.scoreFilter,
+      pageNumber,
+      RESULTS_PER_PAGE
+    )
+
     const newCharities = newCharitiesResponse.objects;
     this.setState({activePage: pageNumber, charities: newCharities});
     window.scrollTo(0, 0)
@@ -47,9 +65,12 @@ class CharityModel extends Component {
 
   async updateStateFilter(e){
         //setState is slow 
-        await this.setState({stateFilters: e.target.value});
-        this.updatePageWithFilters();
 
+        let newStateFilters = this.state.stateFilters
+        newStateFilters.push(e.target.value)
+
+        await this.setState({ stateFilters: newStateFilters });
+        this.updatePageWithFilters();
 
   }
 
@@ -61,7 +82,14 @@ class CharityModel extends Component {
 
   }
     async updatePageWithFilters(){
-        const charitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,this.state.scoreFilter,1);
+        const charitiesResponse = await getCharities2(
+          this.state.searchTerm, 
+          this.state.sort,
+          this.state.stateFilters,
+          this.state.scoreFilter,
+          1,
+          RESULTS_PER_PAGE
+        );
         const charities = charitiesResponse.objects;
         const numOfCharities = charitiesResponse.num_results;
 
@@ -80,7 +108,15 @@ class CharityModel extends Component {
       var newKeyword = document.getElementById("keywords").value;
       await this.setState({searchTerm: newKeyword});
 
-      const charityResponse = await charitySearch(this.state.searchTerm, 1);
+      const charityResponse = await getCharities2(
+        this.state.searchTerm, 
+        this.state.sort, 
+        this.state.stateFilters,
+        this.state.scoreFilter,
+        1,
+        RESULTS_PER_PAGE
+      )
+
       const charities = charityResponse.objects;
       const numOfCharities = charityResponse.num_results;
 
@@ -181,7 +217,7 @@ class CharityModel extends Component {
       pageRangeDisplayed={10}
       activePage={this.state.activePage}
       activeLinkClass = "active"
-      itemsCountPerPage={9}
+      itemsCountPerPage={RESULTS_PER_PAGE}
       totalItemsCount={this.state.totalNum}
       onChange={this.handlePageChange}
     />

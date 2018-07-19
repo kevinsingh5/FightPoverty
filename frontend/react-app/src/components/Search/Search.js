@@ -112,14 +112,12 @@ class Search extends Component {
 
     let searchPrompt;
     if(hasSearched){
-      console.log('here1')
         if (thisIsGeneralSearch && 
             (this.state.charities.length > 0 || 
              this.state.cities.length > 0 ||
              this.state.counties.length > 0)) {
           searchPrompt = `Showing results for "${keywords}"`
         } else if (thisIsGeneralSearch) {
-          console.log('here2')
           searchPrompt = <div className="row" style= {{justifyContent: "center"}}> <p> No results found </p> </div>
         }
 
