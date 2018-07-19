@@ -105,7 +105,7 @@ class CityModel extends Component {
     Sort by
   </button>
   <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button" value= 'AZ' id = onClick={this.updateSort} >Name: A-Z </button>
+    <button class="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort} >Name: A-Z </button>
     <div class="dropdown-divider"></div>
     <button class="dropdown-item" type="button" value='ZA' onClick={this.updateSort}>Name: Z-A </button>
 
