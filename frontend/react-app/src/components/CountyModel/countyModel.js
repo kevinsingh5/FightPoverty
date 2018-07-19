@@ -13,7 +13,7 @@ class CountyModel extends Component {
     this.state = {
       activePage: 1,
       counties: [],
-      searchTerm: ''
+      searchTerm: '',
       totalNum: 0,
       sort:"none",
       stateFilter:"",
