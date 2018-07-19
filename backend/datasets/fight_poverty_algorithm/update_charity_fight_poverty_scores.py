@@ -20,7 +20,7 @@ CUR.execute("SELECT charity.id, charity_navigator_score, fight_poverty_multiplie
             FROM county \
             INNER JOIN charity \
             ON charity.county_id = county.id"
-)
+            )
 
 CHARITIES = CUR.fetchall()
 
@@ -41,7 +41,7 @@ for charity in CHARITIES:
     # Max out at 100
     if fight_poverty_score >= 100:
         fight_poverty_score = 100
-        
+
     # round to 2 decimals
     fight_poverty_score = float("{0:.2f}".format(fight_poverty_score))
 
@@ -51,7 +51,7 @@ for charity in CHARITIES:
 
 print('Inserting into db... expected time is ~45 seconds')
 CUR.executemany(
-    SQL_QUERY, 
+    SQL_QUERY,
     ARRAY_OF_TUPLES_TO_INSERT
 )
 print('Done inserting')

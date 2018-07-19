@@ -1,17 +1,18 @@
 '''
 Module to run tests on Python modules used to set up backend
 '''
-
+import sys
 import os
 import unittest
 import mysql.connector
 import requests
 
-# pylint: disable=relative-import
-import datasets.python_utils.json_scraper as scraper
-import datasets.python_utils.json_utils as json_utils
-import datasets.python_utils.state_utils as state_utils
-import datasets.python_utils.mysql_utils as sql_utils
+# pylint: disable=import-error, wrong-import-position, wrong-import-order
+sys.path.insert(0, './datasets/python_utils')
+import json_scraper as scraper
+import json_utils as json_utils
+import state_utils as state_utils
+import mysql_utils as sql_utils
 
 
 class TestPythonUtils(unittest.TestCase):
