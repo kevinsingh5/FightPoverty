@@ -45,7 +45,7 @@ class About extends Component {
 
             <p>No. of Issues: <span id="justin_issues"></span></p>
 
-            <p>No. of Unit Tests: 0</p>
+            <p>No. of Unit Tests: 25</p>
 
 
           </div>
@@ -65,7 +65,7 @@ class About extends Component {
 
             <p>No. of Issues: <span id="chris_issues"></span></p>
 
-            <p>No. of Unit Tests: 0 </p>
+            <p>No. of Unit Tests: 21 </p>
 
           </div>
 
@@ -85,7 +85,7 @@ class About extends Component {
 
             <p>No. of Issues: <span id="charles_issues"></span></p>
 
-            <p>No. of Unit Tests: 0</p>
+            <p>No. of Unit Tests: 22</p>
 
           </div>
 
@@ -140,7 +140,7 @@ class About extends Component {
 
           <p>Total no. of Issues: <span id="total_issues"></span></p>
 
-          <p>Total no. of Unit Tests: 0</p>
+          <p>Total no. of Unit Tests: 68</p>
 
           <h2 className="my-4">Data</h2>
 
