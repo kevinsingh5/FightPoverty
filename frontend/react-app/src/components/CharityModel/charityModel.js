@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { getCharities,getMoreCharities, getNumOfCharities } from '../../queries/charityQueries';
+import { getCharities, getCharities2 } from '../../queries/charityQueries';
 import Pagination from "react-js-pagination";
 import CharityCard from './CharityCard.js';
+import Search from '../Search/Search.js';
+
+const RESULTS_PER_PAGE = 9
 
 class CharityModel extends Component {
   constructor(props) {
@@ -10,9 +13,11 @@ class CharityModel extends Component {
       activePage: 0,
       charities:[],
       totalNum: 0,
-      sort:"none",
-      stateFilters:"",
+      sort: "none",
+      stateFilters:[],
       scoreFilter: "",
+      states:[],
+      searchTerm: ''
     };
     this.handlePageChange = this.handlePageChange.bind(this);
     this.updateStateFilter = this.updateStateFilter.bind(this);
@@ -20,15 +25,21 @@ class CharityModel extends Component {
 
     this.updatePageWithFilters = this.updatePageWithFilters.bind(this);
     this.updateSort = this.updateSort.bind(this);
-
-
-
-
+    this.handleSearch = this.handleSearch.bind(this);
   }
+
   
 
   async componentWillMount () {
-    const charitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,this.state.scoreFilter,1)
+    const charitiesResponse = await getCharities2(
+      this.state.searchTerm, 
+      this.state.sort,
+      this.state.stateFilters,
+      this.state.scoreFilter,
+      1,
+      RESULTS_PER_PAGE
+    )
+
     const charities = charitiesResponse.objects;
     const numOfCharities = charitiesResponse.num_results;
 
@@ -36,7 +47,15 @@ class CharityModel extends Component {
   }
 
   async handlePageChange(pageNumber) {
-    const newCharitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,this.state.scoreFilter,pageNumber);
+    const newCharitiesResponse = await getCharities2(
+      this.state.searchTerm, 
+      this.state.sort,
+      this.state.stateFilters,
+      this.state.scoreFilter,
+      pageNumber,
+      RESULTS_PER_PAGE
+    )
+
     const newCharities = newCharitiesResponse.objects;
     this.setState({activePage: pageNumber, charities: newCharities});
     window.scrollTo(0, 0)
@@ -44,11 +63,14 @@ class CharityModel extends Component {
   }
 
 
-    async updateStateFilter(e){
+  async updateStateFilter(e){
         //setState is slow 
-        await this.setState({stateFilters: e.target.value});
-        this.updatePageWithFilters();
 
+        let newStateFilters = this.state.stateFilters
+        newStateFilters.push(e.target.value)
+
+        await this.setState({ stateFilters: newStateFilters });
+        this.updatePageWithFilters();
 
   }
 
@@ -60,7 +82,14 @@ class CharityModel extends Component {
 
   }
     async updatePageWithFilters(){
-        const charitiesResponse = await getCharities(this.state.sort,this.state.stateFilters,this.state.scoreFilter,1);
+        const charitiesResponse = await getCharities2(
+          this.state.searchTerm, 
+          this.state.sort,
+          this.state.stateFilters,
+          this.state.scoreFilter,
+          1,
+          RESULTS_PER_PAGE
+        );
         const charities = charitiesResponse.objects;
         const numOfCharities = charitiesResponse.num_results;
 
@@ -75,33 +104,57 @@ class CharityModel extends Component {
       this.updatePageWithFilters();
     }
 
+    async handleSearch() {
+      var newKeyword = document.getElementById("keywords").value;
+      await this.setState({searchTerm: newKeyword});
+
+      const charityResponse = await getCharities2(
+        this.state.searchTerm, 
+        this.state.sort, 
+        this.state.stateFilters,
+        this.state.scoreFilter,
+        1,
+        RESULTS_PER_PAGE
+      )
+
+      const charities = charityResponse.objects;
+      const numOfCharities = charityResponse.num_results;
+
+      await this.setState({ charities: charities, totalNum: numOfCharities, activePage: 1});
+    }
+
 
 
   render() {
-
     return (
       <div>
         <section className="jumbotron text-center">
-        <div className="container">
+        <div className="container" style={{ marginBottom: "50px" }}>
           <h1 className="jumbotron-heading">Charities</h1>
           <p className="lead text-muted">Learn about different charities across the U.S.</p>
+          <Search 
+            searchTerm={this.state.searchTerm} 
+            updateTerm={this.handleSearch} 
+            charitiesFound={this.state.charities.length > 0}
+          />
         </div>
+       
       </section>
 
 
 
   <div class="dropdown" style={{display : 'inline-block'}}>
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort
+    Sort by
   </button>
   <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort} > A-Z </button>
+    <button class="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort} >Name: A-Z </button>
     <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value='ZA' onClick={this.updateSort}> Z-A </button>
+    <button class="dropdown-item" type="button" value='ZA' onClick={this.updateSort}>Name: Z-A </button>
       <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value= "0100" onClick={this.updateSort}>FightPoverty Score: 0-100 </button>
+    <button class="dropdown-item" type="button" value= "0100" onClick={this.updateSort}>FightPoverty Score: Low to High </button>
       <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value= "1000" onClick={this.updateSort}>FightPoverty Score: 100-0 </button>
+    <button class="dropdown-item" type="button" value= "1000" onClick={this.updateSort}>FightPoverty Score: High to Low </button>
 
 
   </div>
@@ -116,7 +169,7 @@ class CharityModel extends Component {
     <div class="dropdown-divider"></div>
     <button class="dropdown-item" type="button" value='Kansas' onClick = {this.updateStateFilter}> Kansas </button>
       <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button"> Montana </button>
+    <button class="dropdown-item" type="button" value='Montana' onClick = {this.updateStateFilter} > Montana </button>
 
       
   </div>
@@ -153,7 +206,7 @@ class CharityModel extends Component {
 
           <div className="row">
             {this.state.charities.map((dynamicCharity, i) => <CharityCard 
-                  key = {i} charityInfo = {dynamicCharity}/>)}
+                  key = {i} charityInfo = {dynamicCharity} search = {this.state.searchTerm} />)}
           </div>
           </div>
           </div>
@@ -164,7 +217,7 @@ class CharityModel extends Component {
       pageRangeDisplayed={10}
       activePage={this.state.activePage}
       activeLinkClass = "active"
-      itemsCountPerPage={9}
+      itemsCountPerPage={RESULTS_PER_PAGE}
       totalItemsCount={this.state.totalNum}
       onChange={this.handlePageChange}
     />

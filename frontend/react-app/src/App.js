@@ -25,6 +25,7 @@ class App extends Component {
             <Route exact path='/' component={Carousel} />
             <Route exact path='/home' component={Carousel} />
             <Route exact path='/search' component={Search} />
+            <Route path='/search/:searchterm' component={Search} />
             <Route exact path='/cities' component={CityModel} />
             <Route path='/cities/:name' component={CityInstance} />
             <Route exact path='/counties' component={CountyModel} />
@@ -35,6 +36,20 @@ class App extends Component {
             <Route exact path='/about' component={About} />
           </Switch>
         </div>
+        
+        <footer class="container">
+          About Us
+          
+          <br />
+          <br />
+
+          Our goal is to allow users to browse a database that ranks charities aiming to fight poverty in cities around the United States. Easily find charities and organizations in your city or county you would like to help out! Our intended users are those who want to help others in need and make an impact not only in their community, but those across the U.S.
+          <br />
+          <br />
+          <p class="float-right"><a href="#">Back to top</a></p>
+          <p>&copy; FightPoverty.online. &middot;</p>
+        </footer>
+
       </div>
       
     );
