@@ -177,6 +177,96 @@ class TestPythonUtils(unittest.TestCase):
 
         self.assertEqual(resp, 'Welcome to the Fight Poverty API!')
 
+    def test_searching(self):
+        '''
+        Testing flask restless is handling search terms properly
+        '''
+        flaskless_app_server = 'http://api.fightpoverty.online/'
+        api = flaskless_app_server + 'api/city'
+        city_names_matching = 'los'
+
+        # Build filter query. '%25' is equivalent to '%'
+        request_with_filtering = api + '?q={                    \
+            "filters": [                                        \
+                {                                               \
+                    "name": "name",                             \
+                    "op": "like",                               \
+                    "val": "%25' + city_names_matching + '%25"  \
+                }                                               \
+            ]                                                   \
+        }'
+
+        resp = requests.get(request_with_filtering).json()
+
+        city_name = resp['objects'][0]['name']
+
+        self.assertEqual(city_name, 'Los Angeles')
+
+    def test_filtering(self):
+        '''
+        Testing flask restless is properly filtering
+        '''
+        flaskless_app_server = 'http://api.fightpoverty.online/'
+        api = flaskless_app_server + 'api/charity'
+        fight_poverty_scores_above = 95
+
+        request_with_filtering = api + '?q={                            \
+            "filters": [                                                \
+                {                                                       \
+                    "name": "fight_poverty_score",                      \
+                    "op": "ge",                                         \
+                    "val": "' + str(fight_poverty_scores_above) + '"    \
+                }                                                       \
+            ]                                                           \
+        }'
+
+        resp = requests.get(request_with_filtering).json()
+
+        charities = resp['objects']
+
+        self.assertGreater(len(charities), 0)
+
+        # Make sure scores greater than original value
+        for charity in charities:
+            self.assertGreaterEqual(
+                charity['fight_poverty_score'], fight_poverty_scores_above)
+
+    def test_sorting(self):
+        '''
+        Testing flask restless is properly sorting
+        '''
+        flaskless_app_server = 'http://api.fightpoverty.online/'
+        api = flaskless_app_server + 'api/city'
+
+        # Filter by name in ascending order (A-Z)
+        request_with_sorting = api + '?q={     \
+            "order_by": [                      \
+                {                              \
+                    "field": "name",           \
+                    "direction": "asc"         \
+                }                              \
+            ]                                  \
+        }'
+
+        resp = requests.get(request_with_sorting).json()
+        cities = resp['objects']
+
+        # Make sure cities ordered by name in ascending order
+        city_iter1 = iter(cities)
+        city_iter2 = iter(cities)
+
+        try:
+            city_iter2.next()
+
+            while True:
+                city1 = city_iter1.next()
+                city2 = city_iter2.next()
+
+                # Make sure subsequent name is always >= preceding
+                self.assertGreaterEqual(city2['name'], city1['name'])
+        except StopIteration:
+            pass
+
 
 if __name__ == '__main__':
     unittest.main()
