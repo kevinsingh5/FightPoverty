@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getCharities, getCharities2 } from '../../queries/charityQueries';
+import { getCharities} from '../../queries/charityQueries';
 import Pagination from "react-js-pagination";
 import CharityCard from './CharityCard.js';
 import Search from '../Search/Search.js';
@@ -32,7 +32,7 @@ class CharityModel extends Component {
   
 
   async componentWillMount () {
-    const charitiesResponse = await getCharities2(
+    const charitiesResponse = await getCharities(
       this.state.searchTerm, 
       this.state.sort,
       this.state.stateFilters,
@@ -48,7 +48,7 @@ class CharityModel extends Component {
   }
 
   async handlePageChange(pageNumber) {
-    const newCharitiesResponse = await getCharities2(
+    const newCharitiesResponse = await getCharities(
       this.state.searchTerm, 
       this.state.sort,
       this.state.stateFilters,
@@ -83,7 +83,7 @@ class CharityModel extends Component {
 
   }
     async updatePageWithFilters(){
-        const charitiesResponse = await getCharities2(
+        const charitiesResponse = await getCharities(
           this.state.searchTerm, 
           this.state.sort,
           this.state.stateFilters,
@@ -109,7 +109,7 @@ class CharityModel extends Component {
       var newKeyword = document.getElementById("keywords").value;
       await this.setState({searchTerm: newKeyword});
 
-      const charityResponse = await getCharities2(
+      const charityResponse = await getCharities(
         this.state.searchTerm, 
         this.state.sort, 
         this.state.stateFilters,
@@ -145,7 +145,7 @@ class CharityModel extends Component {
 
 
   <div class="dropdown" style={{display : 'inline-block'}}>
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Sort by
   </button>
   <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
@@ -162,7 +162,7 @@ class CharityModel extends Component {
 </div>
 
 <div class="dropdown" style={{display : 'inline-block'}}>
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="stateFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Filter by State
   </button>
   <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2">
@@ -179,7 +179,7 @@ class CharityModel extends Component {
 
 
 <div class="dropdown" style={{display : 'inline-block'}}>
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="filterScore" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Filter by FightPoverty Score
   </button>
   <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2">

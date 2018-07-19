@@ -152,7 +152,6 @@ export async function getCities(
 		// Finished with query filter string
 		link += "}"
 	}
-	console.log(link);
 	try{
 		response = await axios.get(link);
 	}

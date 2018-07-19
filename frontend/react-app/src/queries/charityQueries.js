@@ -2,19 +2,7 @@ import { backendAPI }  from '../config.js'
 import axios from 'axios';
 
 
-export async function getNumOfCharities () {
-  const response = await axios.get(backendAPI+ 'api/charity')
-	  // .then(function (response) {
-	  //   console.log(response);
-	  //   return response.data.objects;
-	  // })
-	  // .catch(function (error) {
-	  //   console.log(error);
-	  // });
-	  // console.log("hello");
-	  return response.data.num_results;
-	  
-}
+
 
 export async function getMoreCharities (pageNumber) {
   const response = await axios.get(backendAPI+ 'api/charity?page=' + pageNumber);
@@ -74,7 +62,7 @@ export async function charitySearch (txt, pageNumber) {
 
 
 
-export async function getCharities2(
+export async function getCharities(
 	searchTerm, 
 	sort, 
 	stateFilters, 
@@ -156,7 +144,6 @@ export async function getCharities2(
 		// Finished with query filter string
 		link += "}"
 	}
-	console.log(link);
 	try{
 	response = await axios.get(link);
 	}

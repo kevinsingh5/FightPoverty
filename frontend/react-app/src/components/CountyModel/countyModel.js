@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getCounties, getMoreCounties, getNumOfCounties, countySearch,getCounties2 } from '../../queries/countyQueries';
+import { getCounties} from '../../queries/countyQueries';
 import Pagination from "react-js-pagination";
 import CountyCard from './CountyCard.js'
 import Search from '../Search/Search.js';
@@ -35,14 +35,14 @@ class CountyModel extends Component {
 
 
   async componentWillMount () {
-    const countiesResponse = await getCounties2(this.state.searchTerm,this.state.sort,this.state.stateFilters,this.state.percentFilter,1);
+    const countiesResponse = await getCounties(this.state.searchTerm,this.state.sort,this.state.stateFilters,this.state.percentFilter,1,RESULTS_PER_PAGE);
     const counties = countiesResponse.objects;
     const numOfCounties = countiesResponse.num_results;
     this.setState({ counties: counties, totalNum: numOfCounties, activePage: 1 });
   }
 
  async handlePageChange(pageNumber) {
-    const newCountiesResponse = await getCounties2(this.state.searchTerm,this.state.sort,this.state.stateFilters,this.state.percentFilter,pageNumber);
+    const newCountiesResponse = await getCounties(this.state.searchTerm,this.state.sort,this.state.stateFilters,this.state.percentFilter,pageNumber, RESULTS_PER_PAGE);
     const newCounties = newCountiesResponse.objects;
     this.setState({activePage: pageNumber, counties: newCounties});
     window.scrollTo(0, 0)
@@ -69,7 +69,7 @@ class CountyModel extends Component {
 
   }
     async updatePageWithFilters(){
-      const countyResponse = await getCounties2(
+      const countyResponse = await getCounties(
         this.state.searchTerm, 
         this.state.sort, 
         this.state.stateFilters,
@@ -96,7 +96,7 @@ class CountyModel extends Component {
       var newKeyword = document.getElementById("keywords").value;
       await this.setState({searchTerm: newKeyword});
 
-      const countyResponse = await getCounties2(
+      const countyResponse = await getCounties(
         this.state.searchTerm, 
         this.state.sort, 
         this.state.percentFilter,
@@ -130,7 +130,7 @@ class CountyModel extends Component {
                  </section>
 
       <div class="dropdown" style={{display : 'inline-block'}}>
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Sort by
   </button>
   <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
@@ -147,7 +147,7 @@ class CountyModel extends Component {
 </div>
 
 <div class="dropdown" style={{display : 'inline-block'}}>
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="stateFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Filter by State
   </button>
   <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2">
@@ -161,10 +161,10 @@ class CountyModel extends Component {
 
 
 <div class="dropdown" style={{display : 'inline-block'}}>
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="filterPercent" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Filter by Poverty Percent
   </button>
-  <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2">
+  <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2" >
     <button class="dropdown-item" type="button" value = '9' onClick = {this.updatePercentFilter}>  &lt; 9% </button>
     <div class="dropdown-divider"></div>
     <button class="dropdown-item" type="button" value = '12' onClick = {this.updatePercentFilter}>  9-12% </button>
