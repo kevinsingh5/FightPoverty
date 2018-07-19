@@ -56,7 +56,11 @@ class CityModel extends Component {
               <div className="container" style={{ marginBottom: "50px" }}>
               <h1 className="jumbotron-heading" >Cities </h1>
               <p className="lead text-muted">Browse our large database that contains information on over 350 cities in the U.S.</p>
-              <Search searchTerm={this.state.searchTerm} updateTerm={this.handleSearch} />
+              <Search 
+                searchTerm={this.state.searchTerm} 
+                updateTerm={this.handleSearch} 
+                citiesFound={this.state.cities.length > 0}
+              />
               </div>
           </section>
 

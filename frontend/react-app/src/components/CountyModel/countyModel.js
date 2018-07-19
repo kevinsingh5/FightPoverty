@@ -56,7 +56,11 @@ class CountyModel extends Component {
                         <div className="container" style={{ marginBottom: "50px" }}>
                           <h1 className="jumbotron-heading">Counties</h1>
                           <p className="lead text-muted">Look up any of the counties in the U.S. and find out information about local charities and poverty statistics</p>
-                          <Search searchTerm={this.state.searchTerm} updateTerm={this.handleSearch} />
+                          <Search 
+                            searchTerm={this.state.searchTerm} 
+                            updateTerm={this.handleSearch} 
+                            countiesFound={this.state.counties.length > 0}
+                          />
                         </div>
                  </section>
                  <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" align="center">Filter by: </a>

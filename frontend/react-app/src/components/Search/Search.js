@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { getCharities, getNumOfCharities,generalCharitySearch } from '../../queries/charityQueries';
-import { getCities,  getNumOfCities, generalCitySearch} from '../../queries/cityQueries';
-import { getCounties, getNumOfCounties, generalCountySearch} from '../../queries/countyQueries';
+import { generalCharitySearch } from '../../queries/charityQueries';
+import { generalCitySearch} from '../../queries/cityQueries';
+import { generalCountySearch} from '../../queries/countyQueries';
 
-import Pagination from "react-js-pagination";
 import CharityCard from '../CharityModel/CharityCard.js';
 import CountyCard from '../CountyModel/CountyCard.js';
 import CityCard from '../CityModel/CityCard.js';
@@ -113,36 +112,36 @@ class Search extends Component {
 
     let searchPrompt;
     if(hasSearched){
-        searchPrompt = <h1 className="jumbotron-heading"> Showing results for "{keywords}" </h1>
-    }
-    else{
-      searchPrompt = <h1 className="jumbotron-heading"> Search </h1>
-    }
-    let charityPrompt;
-    if(this.state.charities.length == 0  && hasSearched){
-        charityPrompt = <div className="row" style= {{justifyContent: "center"}}> <p> No charity results found </p> </div>
-    }
-    else{
-      charityPrompt = <div className="row"> {this.state.charities.map((dynamicCharity, i) => <CharityCard 
-                                      key = {i} charityInfo = {dynamicCharity} search = {this.state.searchTerm}/>)}  </div>
-    }
-    let cityPrompt;
-    if(this.state.cities.length == 0  && hasSearched){
-      cityPrompt = <div className="row" style= {{justifyContent: "center"}}> <p> No city results found </p> </div>
-    }
-    else{
-      cityPrompt = <div className="row"> {this.state.cities.map((dynamicCity, i) => <CityCard 
-                                      key = {i} cityInfo = {dynamicCity} search = {this.state.searchTerm}/>)}  </div>
-    }
-    let countyPrompt;
-    if(this.state.counties.length == 0 && hasSearched){
-        countyPrompt = <div className="row" style= {{justifyContent: "center"}}> <p> No county results found </p> </div>
-    }
-    else{
-      countyPrompt = <div className="row"> {this.state.counties.map((dynamicCounty, i) => <CountyCard 
-                                        key = {i} countyInfo = {dynamicCounty} search = {this.state.searchTerm} />)}  </div>
-    }
+      console.log('here1')
+        if (thisIsGeneralSearch && 
+            (this.state.charities.length > 0 || 
+             this.state.cities.length > 0 ||
+             this.state.counties.length > 0)) {
+          searchPrompt = `Showing results for "${keywords}"`
+        } else if (thisIsGeneralSearch) {
+          console.log('here2')
+          searchPrompt = <div className="row" style= {{justifyContent: "center"}}> <p> No results found </p> </div>
+        }
 
+        if (thisIsCharitySearch && this.props.charitiesFound) {
+          searchPrompt = `Showing charities that match "${keywords}"`
+        } else if (thisIsCharitySearch) {
+          searchPrompt = <div className="row" style= {{justifyContent: "center"}}> <p> No charity results found </p> </div>
+        }
+
+        if (thisIsCitySearch && this.props.citiesFound) {
+          searchPrompt = `Showing cities that match "${keywords}"`
+        } else if (thisIsCitySearch) {
+          searchPrompt = <div className="row" style= {{justifyContent: "center"}}> <p> No city results found </p> </div>
+        }
+
+        if (thisIsCountySearch && this.props.countiesFound) {
+          searchPrompt = `Showing counties that match "${keywords}"`
+        } else if (thisIsCountySearch) {
+          searchPrompt = <div className="row" style= {{justifyContent: "center"}}> <p> No county results found </p> </div>
+        }
+
+    }
 
 
     return (
@@ -169,21 +168,25 @@ class Search extends Component {
             }
 
             </form>
+            
+            <div style={{ marginTop: !!searchPrompt ? "15px" : "0px" }}>
+              {searchPrompt}  
+            </div>          
                     
                     </div>
                  
 
-                  {thisIsGeneralSearch && this.state.searched && 
-                    <GeneralSearchResults 
-                      searchTerm={this.state.searchTerm}
-                      charities={this.state.charities}
-                      cities={this.state.cities}
-                      counties={this.state.counties}
-                      totalNumCities={this.state.totalNumCities}
-                      totalNumCounties={this.state.totalNumCounties}
-                      totalNumCharities={this.state.totalNumCharities}
-                    />
-                  }
+            {thisIsGeneralSearch && this.state.searched && 
+              <GeneralSearchResults 
+                searchTerm={this.state.searchTerm}
+                charities={this.state.charities}
+                cities={this.state.cities}
+                counties={this.state.counties}
+                totalNumCities={this.state.totalNumCities}
+                totalNumCounties={this.state.totalNumCounties}
+                totalNumCharities={this.state.totalNumCharities}
+              />
+            }
    
     </div>
 

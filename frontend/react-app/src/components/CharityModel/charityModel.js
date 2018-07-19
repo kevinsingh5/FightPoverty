@@ -96,7 +96,11 @@ class CharityModel extends Component {
         <div className="container" style={{ marginBottom: "50px" }}>
           <h1 className="jumbotron-heading">Charities</h1>
           <p className="lead text-muted">Learn about different charities across the U.S.</p>
-          <Search searchTerm={this.state.searchTerm} updateTerm={this.handleSearch} />
+          <Search 
+            searchTerm={this.state.searchTerm} 
+            updateTerm={this.handleSearch} 
+            charitiesFound={this.state.charities.length > 0}
+          />
         </div>
        
       </section>
