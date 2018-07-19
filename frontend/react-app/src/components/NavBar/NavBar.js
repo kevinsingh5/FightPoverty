@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-
+import '../../styles.css' 
 
 
 class NavBar extends Component {
@@ -10,7 +9,7 @@ class NavBar extends Component {
 
 		const currentPath = window.location.pathname
 		const getNavItem = (activeElement) => {
-			return currentPath.includes(activeElement) ? "nav-item active" : "nav-item"
+			return currentPath.includes(activeElement) ? "nav-link active" : "nav-link"
 		}
 
 
@@ -23,19 +22,18 @@ class NavBar extends Component {
         	</button>
         	<div className="collapse navbar-collapse" id="navbarCollapse">
          		<ul className="navbar-nav ml-auto">
-            		<li className={getNavItem("cities")}> 
-              			<a className="nav-link " href="../cities">Cities<span className="sr-only">(current)</span></a>
+            		<li className= "nav-item"> 
+              			<a className={getNavItem("cities")} href="../cities">Cities<span className="sr-only">(current)</span></a>
            		 	</li>
-           			<li className={getNavItem("counties")}>
-             			<a className="nav-link" href="../counties">Counties</a>
+           			<li className="nav-item">
+             			<a className={getNavItem("counties")} href="../counties">Counties</a>
            			</li>
-            		<li className={getNavItem("charities")}>
-            			<a className="nav-link " href="../charities">Charities</a>
+            		<li className="nav-item">
+            			<a className={getNavItem("charities")} href="../charities">Charities</a>
             		</li>
-            		<li className={getNavItem("about")}>
-             			<a className="nav-link" href="../about">About</a>
+            		<li className="nav-item">
+             			<a className={getNavItem("about")} href="../about">About</a>
             		</li>
-                
          		</ul>
         	</div>
     	</nav>

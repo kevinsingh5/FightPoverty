@@ -60,7 +60,7 @@ class Carousel extends Component {
               <span className="sr-only">Next</span>
             </a>
         </div>
-        <div style={{ position: "absolute", "top": "110px", "left": "0", "right": "0" }}>
+        <div style={{ position: "absolute", "top": "120px", "left": "0", "right": "0" }}>
           <Search />
         </div>
     </div>

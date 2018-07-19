@@ -113,8 +113,37 @@ class Search extends Component {
 
     let searchPrompt;
     if(hasSearched){
-        searchPrompt = <p> Showing results for "{keywords}" </p> 
+        searchPrompt = <h1 className="jumbotron-heading"> Showing results for "{keywords}" </h1>
     }
+    else{
+      searchPrompt = <h1 className="jumbotron-heading"> Search </h1>
+    }
+    let charityPrompt;
+    if(this.state.charities.length == 0  && hasSearched){
+        charityPrompt = <div className="row" style= {{justifyContent: "center"}}> <p> No charity results found </p> </div>
+    }
+    else{
+      charityPrompt = <div className="row"> {this.state.charities.map((dynamicCharity, i) => <CharityCard 
+                                      key = {i} charityInfo = {dynamicCharity} search = {this.state.searchTerm}/>)}  </div>
+    }
+    let cityPrompt;
+    if(this.state.cities.length == 0  && hasSearched){
+      cityPrompt = <div className="row" style= {{justifyContent: "center"}}> <p> No city results found </p> </div>
+    }
+    else{
+      cityPrompt = <div className="row"> {this.state.cities.map((dynamicCity, i) => <CityCard 
+                                      key = {i} cityInfo = {dynamicCity} search = {this.state.searchTerm}/>)}  </div>
+    }
+    let countyPrompt;
+    if(this.state.counties.length == 0 && hasSearched){
+        countyPrompt = <div className="row" style= {{justifyContent: "center"}}> <p> No county results found </p> </div>
+    }
+    else{
+      countyPrompt = <div className="row"> {this.state.counties.map((dynamicCounty, i) => <CountyCard 
+                                        key = {i} countyInfo = {dynamicCounty} search = {this.state.searchTerm} />)}  </div>
+    }
+
+
 
     return (
       <div>
@@ -140,7 +169,7 @@ class Search extends Component {
             }
 
             </form>
-                    {searchPrompt}
+                    
                     </div>
                  
 

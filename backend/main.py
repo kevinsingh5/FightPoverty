@@ -169,15 +169,6 @@ except Exception as exp:
     print('Failed to drop/create tables', exp)
 
 
-@app.route("/charity/city", methods=['GET'])
-def get_charity_by_city_name():
-    # take input_body and run SQL query to get charity by city name
-
-    # return result of SQL query
-    print(request.args.get('name', '') + " fdfdfdff")
-    return str(City.query.order_by(City.name).all())
-
-
 if __name__ == "__main__":
     APP.debug = False
     APP.run(host='0.0.0.0', port=EXPOSE_ON_PORT)
