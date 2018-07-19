@@ -74,8 +74,7 @@ export async function charitySearch (txt, pageNumber) {
 export async function getCharities(sort,stateFilters,scoreFilter, pageNumber){
 	var link="";
 	var response;
-	const numStateFilters = stateFilters.length
-	console.log("scorefilter is" + scoreFilter);
+	
 	if(sort == "none"){
 		if(stateFilters == ""){
 			link = backendAPI + 'api/charity?page=' + pageNumber;
@@ -179,7 +178,6 @@ export async function getCharities(sort,stateFilters,scoreFilter, pageNumber){
 		}
 
 	}
-	console.log(link);
 	
 	response = await axios.get(link);
 
