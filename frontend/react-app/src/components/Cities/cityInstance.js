@@ -18,7 +18,7 @@ class CityInstance extends Component {
 
   async componentWillMount () {
     // console.log(this.props.location.state.charities[0].name)
-    const charity = await getSpecificCharity(this.props.location.state.charities[0].name)
+    const charity = await getSpecificCharity(this.props.location.state.charities[0].name);
     // console.log(charity)
     const county = await getSpecificCounty(this.props.location.state.county.name);
     //console.log(county);
@@ -47,8 +47,10 @@ class CityInstance extends Component {
   }
 
 
-  render() {
 
+
+  render() {
+    console.log(this.state.charityInfo)
     return (
       
 <div>
@@ -84,6 +86,7 @@ class CityInstance extends Component {
         <small><a href={"https://www.openstreetmap.org/search?query=" + this.props.location.state.name + "%2C%20" + this.props.location.state.state + "#map=13"}>View Larger Map</a></small>
       </div>
         <h1 align="center"> Charities in {this.props.location.state.name}</h1>
+
       <div align="center">
         {this.state.charityInfo.map((dynamicCharity, i) => <CharityCard 
                   key = {i} charityInfo = {dynamicCharity}/>)}  

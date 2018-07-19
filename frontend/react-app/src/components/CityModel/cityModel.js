@@ -38,7 +38,7 @@ class CityModel extends Component {
   }
 
   async handlePageChange(pageNumber) {
-    const newCitiesResponse = await getCities(this.state.searchTerm,this.state.sort,this.state.stateFilters, 1, RESULTS_PER_PAGE);
+    const newCitiesResponse = await getCities(this.state.searchTerm,this.state.sort,this.state.stateFilters, pageNumber, RESULTS_PER_PAGE);
     const newCities = newCitiesResponse.objects;
     this.setState({activePage: pageNumber, cities: newCities});
     window.scrollTo(0, 0)
@@ -101,11 +101,11 @@ class CityModel extends Component {
           </section>
 
 <div class="dropdown" style={{display : 'inline-block'}}>
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Sort by
   </button>
   <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort} >Name: A-Z </button>
+    <button class="dropdown-item" type="button" value= 'AZ' id = onClick={this.updateSort} >Name: A-Z </button>
     <div class="dropdown-divider"></div>
     <button class="dropdown-item" type="button" value='ZA' onClick={this.updateSort}>Name: Z-A </button>
 
@@ -114,7 +114,7 @@ class CityModel extends Component {
 </div>
 
 <div class="dropdown" style={{display : 'inline-block'}}>
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="stateFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Filter by State
   </button>
   <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2">

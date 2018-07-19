@@ -20,10 +20,12 @@ log-graph:
 
 deploy:
 	git checkout deployment
-	git merge origin/master
-	git push origin deployment
+	git pull
+	# git merge origin/master
+	git merge master
+	git push # origin deployment
 	git checkout master
-	@echo "deployment successful!"
+	@echo "***deployment successful!***"
 
 pull:
 	git status

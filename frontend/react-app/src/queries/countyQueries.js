@@ -1,22 +1,7 @@
 import { backendAPI }  from '../config.js'
 import axios from 'axios';
 
-/*
 
-export async function getCounties () {
-  const response = await axios.get(backendAPI+ 'api/county')
-	  // .then(function (response) {
-	  //   console.log(response);
-	  //   return response.data.objects;
-	  // })
-	  // .catch(function (error) {
-	  //   console.log(error);
-	  // });
-	  // console.log("hello");
-	  return response.data.objects;
-	  
-}
-*/
 export async function getNumOfCounties () {
   const response = await axios.get(backendAPI+ 'api/county')
 	  // .then(function (response) {
@@ -88,7 +73,7 @@ export async function countySearch (text, pageNumber){
 
 }
 
-export async function getCounties2(
+export async function getCounties(
 	searchTerm, 
 	sort, 
 	stateFilters, 
@@ -135,8 +120,17 @@ export async function getCounties2(
 				if ((!!searchTerm && stateFilters.length === 0) || stateFilters.length > 0) {
 					link += ","
 				}
+				if(percentFilt > 9 &&  percentFilt < 24){
+					link += `{"name":"county_poverty_percentage","op":"ge","val":"${percentFilt-3}"},{"name":"county_poverty_percentage","op":"le","val":"${percentFilt}"}`
+				}
+				else if(percentFilt === 9){
+					link += `{"name":"county_poverty_percentage","op":"le","val":"${percentFilt}"}`;
 
-				link += `{"name":"county_poverty_percentage","op":"ge","val":"${percentFilt-3}"},{"name":"county_poverty_percentage","op":"le","val":"${percentFilt}"}`
+				}
+				else if(percentFilt === 24){
+					link += `{"name":"county_poverty_percentage","op":"ge","val":"${percentFilt-3}"}`;
+
+				}
 			}
 			
 
@@ -170,8 +164,6 @@ export async function getCounties2(
 		// Finished with query filter string
 		link += "}"
 	}
-	console.log(link);
-	
 	try{
 		response = await axios.get(link);
 	}
