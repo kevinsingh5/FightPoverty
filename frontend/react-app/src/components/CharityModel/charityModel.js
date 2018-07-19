@@ -44,7 +44,7 @@ class CharityModel extends Component {
   }
 
 
-    async updateStateFilter(e){
+  async updateStateFilter(e){
         //setState is slow 
         await this.setState({stateFilters: e.target.value});
         this.updatePageWithFilters();
@@ -92,16 +92,16 @@ class CharityModel extends Component {
 
   <div class="dropdown" style={{display : 'inline-block'}}>
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort
+    Sort by
   </button>
   <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort} > A-Z </button>
+    <button class="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort} >Name: A-Z </button>
     <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value='ZA' onClick={this.updateSort}> Z-A </button>
+    <button class="dropdown-item" type="button" value='ZA' onClick={this.updateSort}>Name: Z-A </button>
       <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value= "0100" onClick={this.updateSort}>FightPoverty Score: 0-100 </button>
+    <button class="dropdown-item" type="button" value= "0100" onClick={this.updateSort}>FightPoverty Score: Low to High </button>
       <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value= "1000" onClick={this.updateSort}>FightPoverty Score: 100-0 </button>
+    <button class="dropdown-item" type="button" value= "1000" onClick={this.updateSort}>FightPoverty Score: High to Low </button>
 
 
   </div>
@@ -116,7 +116,7 @@ class CharityModel extends Component {
     <div class="dropdown-divider"></div>
     <button class="dropdown-item" type="button" value='Kansas' onClick = {this.updateStateFilter}> Kansas </button>
       <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button"> Montana </button>
+    <button class="dropdown-item" type="button" value='Montana' onClick = {this.updateStateFilter} > Montana </button>
 
       
   </div>
