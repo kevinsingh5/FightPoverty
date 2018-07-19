@@ -23,13 +23,13 @@ staging:
     - pwd
     - ls -al
     - bash .gitlab-stage.sh   
-    # after_script:
-    # - pwd
-    # - cd backend
-    # - chmod 774 datasets/python_utils/*
-    # - ls -al datasets/python_utils/
-    # - make test
-    # - echo "all tests passed!"
+    after_script:
+    - pwd
+    - cd backend
+    - chmod 774 datasets/python_utils/*
+    - ls -al datasets/python_utils/
+    - make test
+    - echo "all tests passed!"
     only:
     - deployment
     #environment:     
