@@ -57,6 +57,7 @@ deploy:
     after_script:
     - pwd
     - cd frontend/react-app/
+    - apt-get install -y python3-pip
     - pip install -r requirements.txt
     - python guitests.py
     - echo "***ALL FRONTEND TESTS PASSING***"
