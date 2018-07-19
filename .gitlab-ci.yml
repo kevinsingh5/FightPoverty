@@ -22,7 +22,8 @@ staging:
     script:   
     - pwd
     - ls -al
-    - apt-get install -y ssh rsync
+    - apt-get update 
+    - apt-get install -y rsync
     - bash .gitlab-stage.sh   
     after_script:
     - pwd
