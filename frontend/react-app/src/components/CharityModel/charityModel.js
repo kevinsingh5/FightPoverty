@@ -3,6 +3,7 @@ import { getCharities, getCharities2 } from '../../queries/charityQueries';
 import Pagination from "react-js-pagination";
 import CharityCard from './CharityCard.js';
 import Search from '../Search/Search.js';
+import {stateList} from '../../queries/listOfStates.js'
 
 const RESULTS_PER_PAGE = 9
 
@@ -16,7 +17,7 @@ class CharityModel extends Component {
       sort: "none",
       stateFilters:[],
       scoreFilter: "",
-      states:[],
+      states: stateList,
       searchTerm: ''
     };
     this.handlePageChange = this.handlePageChange.bind(this);
@@ -165,11 +166,12 @@ class CharityModel extends Component {
     Filter by State
   </button>
   <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button" value = 'Texas' onClick = {this.updateStateFilter}> Texas </button>
-    <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value='Kansas' onClick = {this.updateStateFilter}> Kansas </button>
-      <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value='Montana' onClick = {this.updateStateFilter} > Montana </button>
+
+
+  {/*makes all state buttons */}
+    {this.state.states.map((stateButton,i) => <div><button class="dropdown-item" type="button" value= {stateButton} 
+      onClick = {this.updateStateFilter} > {stateButton} </button>  <div class="dropdown-divider"></div></div>
+    )}
 
       
   </div>

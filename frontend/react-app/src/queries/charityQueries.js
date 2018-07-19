@@ -71,119 +71,7 @@ export async function charitySearch (txt, pageNumber) {
 }
 
 
-export async function getCharities(sort, stateFilters, scoreFilter, pageNumber){
-	var link = "";
-	var response;
-	
-	if(sort == "none"){
-		if(stateFilters == ""){
-			link = backendAPI + 'api/charity?page=' + pageNumber;
-			if(scoreFilter != ""){
-				link += '&q={"filters":[{"name":"fight_poverty_score","op":"ge","val":' + scoreFilter + '}]}';
-			}
 
-		}
-		else{
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" + '{"filters":[{"name":"city","op":"has","val":{"name":"state","op":"eq","val":"' + stateFilters +  '"}}';
-			if(scoreFilter != ""){
-				link += ',{"name":"fight_poverty_score","op":"ge","val":' + scoreFilter + '}';
-			}
-			link += ']}';
-		}
-			
-		
-		
-		
-	}
-
-	else if(sort == "AZ"){
-		if(stateFilters == ""){
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"name","direction":"asc"}]';
-			if(scoreFilter != ""){
-				link += ',"filters":[{"name":"fight_poverty_score","op":"ge","val":' + scoreFilter +  '}]';
-			}
-			link += '}';
-		}
-
-		
-		else {
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"name","direction":"asc"}],'+ '"filters":[{"name":"city","op":"has","val":{"name":"state","op":"eq","val":"'+ stateFilters + '"}}';
-			if(scoreFilter != ""){
-				link += ',{"name":"fight_poverty_score","op":"ge","val":' + scoreFilter + '}';
-			}
-			link += ']}';
-		}
-
-
-	
-
-	}
-
-	else if(sort == "ZA"){
-		if(stateFilters == ""){
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"name","direction":"desc"}]';
-			if(scoreFilter != ""){
-				link += ',"filters":[{"name":"fight_poverty_score","op":"ge","val":' + scoreFilter +  '}]';
-			}
-			link += '}';
-		}
-		else{
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"name","direction":"desc"}],'+ '"filters":[{"name":"city","op":"has","val":{"name":"state","op":"eq","val":"'+ stateFilters + '"}}';
-			if(scoreFilter != ""){
-				link += ',{"name":"fight_poverty_score","op":"ge","val":' + scoreFilter + '}';
-			}
-			link += ']}';
-		}
-
-
-	}
-
-	else if(sort == "0100"){
-		if(stateFilters == ""){
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"fight_poverty_score","direction":"asc"}]';
-			if(scoreFilter != ""){
-				link += ',"filters":[{"name":"fight_poverty_score","op":"ge","val":' + scoreFilter +  '}]';
-			}
-			link += '}';
-		}
-		else{
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"fight_poverty_score","direction":"asc"}],'+ '"filters":[{"name":"city","op":"has","val":{"name":"state","op":"eq","val":"'+ stateFilters + '"}}';
-			if(scoreFilter != ""){
-				link += ',{"name":"fight_poverty_score","op":"ge","val":' + scoreFilter + '}';
-			}
-			link += ']}';
-		}
-
-
-
-
-	}
-
-	else if(sort == "1000"){
-		if(stateFilters == ""){
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"fight_poverty_score","direction":"desc"}]';
-			if(scoreFilter != ""){
-				link += ',"filters":[{"name":"fight_poverty_score","op":"ge","val":' + scoreFilter +  '}]';
-			}
-			link += '}';
-
-		}
-		else{
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"fight_poverty_score","direction":"desc"}],'+ '"filters":[{"name":"city","op":"has","val":{"name":"state","op":"eq","val":"'+ stateFilters + '"}}';
-			if(scoreFilter != ""){
-				link += ',{"name":"fight_poverty_score","op":"ge","val":' + scoreFilter + '}';
-			}
-			link += ']}';
-
-		}
-
-	}
-	
-	response = await axios.get(link);
-
-	return response.data;
-
-}
 
 
 export async function getCharities2(
@@ -208,7 +96,7 @@ export async function getCharities2(
 
 			// ADD SEARCH TERM
 			if (!!searchTerm) {
-				link += `{"name":"name","op":"like","val":"%${searchTerm}%"}`
+				link += `{"name":"name","op":"like","val":"%25${searchTerm}%25"}`
 			}
 
 			// ADD STATE FILTER
@@ -268,8 +156,15 @@ export async function getCharities2(
 		// Finished with query filter string
 		link += "}"
 	}
-	
+	console.log(link);
+	try{
 	response = await axios.get(link);
+	}
+	catch(err){
+	 	response = {data:{objects:[], num_results:0}};
+
+	}
+
 
 	return response.data;
 

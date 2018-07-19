@@ -73,91 +73,95 @@ export async function citySearch (text, pageNumber) {
 
 }
 
-/*
 
-export async function getCities(sort,stateFilters,pageNumber){
-	var link="";
+
+export async function getCities(
+	searchTerm, 
+	sort, 
+	stateFilters, 
+	pageNumber, 
+	results_per_page
+){
+	var link = backendAPI + 'api/city?results_per_page=' + results_per_page + '&page=' + (pageNumber || 1) ; // 1 if no pageNumber provided
 	var response;
-	
-	if(sort == "none"){
-		if(stateFilters == ""){
-			link = bac
 
+
+	if (!!searchTerm || sort !== "none" || stateFilters.length > 0) {
+		link += "&q={"
+
+		// Determine all filters
+		if (!!searchTerm || stateFilters.length > 0) {
+			link += `"filters":[`
+			
+
+			// ADD SEARCH TERM
+			if (!!searchTerm) {
+				link += `{"name":"name","op":"like","val":"%25${searchTerm}%25"}`
+			}
+
+			// ADD STATE FILTER
+			if (stateFilters.length > 0) {
+				if (!!searchTerm) {
+					link += ","
+				}
+
+				link += `{"or":[`
+
+				stateFilters.forEach((stateFilter, i) => {
+					i > 0 ? link += `,` : ''					
+					link += `{"name":"state","op":"eq","val":"${stateFilter}"}`				
+				})		
+				
+				link += `]}`
+			}
+
+/*
+			// ADD SCORE FILTER
+			if (!!scoreFilter) {
+				if ((!!searchTerm && stateFilters.length === 0) || stateFilters.length > 0) {
+					link += ","
+				}
+
+				link += `{"name":"fight_poverty_score","op":"ge","val":"${scoreFilter}"}`
+			}
+		*/
+
+			// Done with filters
+			link += `]`
+			
+
+			if (sort !== "none") {
+				link += `,`
+			}
 		}
-		else{
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" + '{"filters":[{"name":"city","op":"has","val":{"name":"state","op":"eq","val":"' + stateFilters +  '"}}';
+				
+
+		if (sort !== "none") {
+			link += `"order_by":[{"field":`
 			
-		}
-			
-		
-		
-		
-	}
+			if (sort === "AZ") {
+				link += `"name","direction":"asc"`
+			} else if (sort === "ZA") {
+				link += `"name","direction":"desc"`
+			}
 
-	else if(sort == "AZ"){
-		if(stateFilters == ""){
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"name","direction":"asc"}]';
-			
-		}
-
-		
-		else {
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"name","direction":"asc"}],'+ '"filters":[{"name":"city","op":"has","val":{"name":"state","op":"eq","val":"'+ stateFilters + '"}}';
-			
-		}
-
-
-	
-
-	}
-
-	else if(sort == "ZA"){
-		if(stateFilters == ""){
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"name","direction":"desc"}]';
-			
-		}
-		else{
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"name","direction":"desc"}],'+ '"filters":[{"name":"city","op":"has","val":{"name":"state","op":"eq","val":"'+ stateFilters + '"}}';
-			
-		}
-
-
-	}
-
-	else if(sort == "0100"){
-		if(stateFilters == ""){
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"fight_poverty_score","direction":"asc"}]';
-			
-		}
-		else{
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"fight_poverty_score","direction":"asc"}],'+ '"filters":[{"name":"city","op":"has","val":{"name":"state","op":"eq","val":"'+ stateFilters + '"}}';
-			
-		}
-
-
-
-
-	}
-
-	else if(sort == "1000"){
-		if(stateFilters == ""){
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"fight_poverty_score","direction":"desc"}]';
-			
-			
-
-		}
-		else{
-			link = backendAPI + 'api/charity?page=' + pageNumber+ "&q=" +'{"order_by":[{"field":"fight_poverty_score","direction":"desc"}],'+ '"filters":[{"name":"city","op":"has","val":{"name":"state","op":"eq","val":"'+ stateFilters + '"}}';
-			
-
+			// Finished with sort param
+			link += `}]`				
 		}
 
+		// Finished with query filter string
+		link += "}"
 	}
 	console.log(link);
-	
-	response = await axios.get(link);
+	try{
+		response = await axios.get(link);
+	}
+	catch(err){
+	 	response = {data:{objects:[], num_results:0}};
+
+	}
 
 	return response.data;
 
 }
-*/
+
