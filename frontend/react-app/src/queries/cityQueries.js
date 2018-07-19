@@ -96,7 +96,7 @@ export async function getCities(
 
 			// ADD SEARCH TERM
 			if (!!searchTerm) {
-				link += `{"name":"name","op":"like","val":"%${searchTerm}%"}`
+				link += `{"name":"name","op":"like","val":"%25${searchTerm}%25"}`
 			}
 
 			// ADD STATE FILTER
