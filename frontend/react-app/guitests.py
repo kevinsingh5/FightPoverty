@@ -9,6 +9,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC 
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.chrome.options import Options
 
 #Selenium Test Cases
 #./guitests.py to run
@@ -16,7 +18,7 @@ class FightPoverty(unittest.TestCase):
 
 	def setUp(self):
 		self.home_url = 'http://www.fightpoverty.online/'
-		self.browser = webdriver.Firefox()
+		self.browser = webdriver.Chrome()
 		self.browser.get(self.home_url)
 		self.browser.maximize_window()
 
@@ -64,7 +66,7 @@ class FightPoverty(unittest.TestCase):
 	#Test Case 8 Good
 	def testCountyPageText(self):
 		self.browser.get('http://fightpoverty.online/counties')
-		element = self.browser.find_element_by_xpath('//*[@id="content"]/div/div/div/div[1]/section/div/p').text
+		element = self.browser.find_element_by_xpath('//*[@id="content"]/div/div/div/section/div/p').text
 		self.assertIn('Look up any of the counties in the U.S. and find out information about local charities and poverty statistics', element)
 
 	#Test Case 9 Good
@@ -139,6 +141,152 @@ class FightPoverty(unittest.TestCase):
 		self.browser.find_element_by_link_text('About').click()
 		self.assertEqual("http://www.fightpoverty.online/about", self.browser.current_url)
 
+	# Test Case 17 Good
+	def test_search_cities(self):
+		self.browser.get("http://www.fightpoverty.online/cities")
+		
+		# find search box
+		part1 = self.browser.find_element_by_id("keywords")
+		part1.click()
+		part1.send_keys("Austin")
+
+		time.sleep(1)
+
+		# find search button
+		part2 = self.browser.find_element_by_xpath('//*[@id="content"]/div/div/div/section/div/div/div/form/button')
+		part2.click()
+
+		time.sleep(1)
+
+		# click on Austin
+		part3 = self.browser.find_element_by_xpath('//*[@id="content"]/div/div/div/div[3]/div/div/div/div/a/div/h2/span/strong')
+		part3.click()
+
+		time.sleep(1)
+		
+		self.assertEqual("http://www.fightpoverty.online/cities/Austin",self.browser.current_url)
+
+	# Test Case 18 Good
+	def test_search_counties(self):
+		self.browser.get("http://www.fightpoverty.online/counties")
+		
+		# find search box
+		part1 = self.browser.find_element_by_id("keywords")
+		part1.click()
+		part1.send_keys("Milwaukee")
+
+		time.sleep(1)
+
+		# find search button
+		part2 = self.browser.find_element_by_xpath('//*[@id="content"]/div/div/div/section/div/div/div/form/button')
+		part2.click()
+
+		time.sleep(1)
+
+		# click on Milwaukee County
+		part3 = self.browser.find_element_by_xpath('//*[@id="content"]/div/div/div/div[4]/div/div/div/div/a/div')
+		part3.click()
+
+		time.sleep(1)
+		
+		self.assertEqual("http://www.fightpoverty.online/counties/Milwaukee%20County",self.browser.current_url)
+
+	# Test Case 19 Good
+	def test_search_charities(self):
+		self.browser.get("http://www.fightpoverty.online/charities")
+
+		# find search box
+		part1 = self.browser.find_element_by_id("keywords")
+		part1.click()
+		part1.send_keys("stewpot")
+
+		time.sleep(1)
+
+		# find search button
+		part2 = self.browser.find_element_by_xpath('//*[@id="content"]/div/div/div/section/div/div/div/form/button')
+		part2.click()
+
+		time.sleep(1)
+
+		# click on Stewpot Community Services
+		part3 = self.browser.find_element_by_xpath('//*[@id="content"]/div/div/div/div[4]/div/div/div/div/a/div')
+		part3.click()
+
+		time.sleep(1)
+		
+		self.assertEqual("http://www.fightpoverty.online/charities/Stewpot%20Community%20Services",self.browser.current_url)
+
+	# Test Case 20 Good
+	def test_sort_cities(self):
+		self.browser.get("http://www.fightpoverty.online/cities")
+
+		# select Sort by
+		searchLink = self.browser.find_element_by_id("sort")
+		searchLink.click()
+
+		time.sleep(1)
+
+		# select Name: A-Z
+		searchLink2 = self.browser.find_element_by_xpath('//*[@id="content"]/div/div/div/div[1]/div/button[1]')
+		searchLink2.click()
+
+		time.sleep(1)
+
+		# select Aberdeen
+		search2 = self.browser.find_element_by_xpath('//*[@id="content"]/div/div/div/div[3]/div/div/div[1]/div/a/div')
+		search2.click()
+
+		time.sleep(1)
+		
+		self.assertEqual("http://www.fightpoverty.online/cities/Aberdeen",self.browser.current_url)
+
+	# Test Case 21 Good
+	def test_filter_counties(self):
+		self.browser.get("http://www.fightpoverty.online/counties")
+
+		# select Filter by State
+		searchLink = self.browser.find_element_by_id("stateFilter")
+		searchLink.click()
+
+		time.sleep(1)
+
+		# select New York
+		searchLink2 = self.browser.find_element_by_xpath('//*[@id="content"]/div/div/div/div[2]/div/div[33]/button')
+		searchLink2.click()
+
+		time.sleep(1)
+
+		# select Erie County
+		search2 = self.browser.find_element_by_xpath('//*[@id="content"]/div/div/div/div[4]/div/div/div[8]/div/a/div')
+		search2.click()
+
+		time.sleep(1)
+		
+		self.assertEqual("http://www.fightpoverty.online/counties/Erie%20County",self.browser.current_url)
+
+	# Test Case 22 Good
+	def test_filter_charities(self):
+		self.browser.get("http://www.fightpoverty.online/charities")
+
+		# select Filter by FightPoverty Score
+		searchLink = self.browser.find_element_by_id("filterScore")
+		searchLink.click()
+
+		time.sleep(1)
+
+		# select >60
+		searchLink2 = self.browser.find_element_by_xpath('//*[@id="content"]/div/div/div/div[3]/div/button[2]')
+		searchLink2.click()
+
+		time.sleep(1)
+
+		# select Rhode Island Community Food Bank
+		search2 = self.browser.find_element_by_xpath('//*[@id="content"]/div/div/div/div[4]/div/div/div[6]/div/a/div')
+		search2.click()
+
+		time.sleep(1)
+		
+		self.assertEqual("http://www.fightpoverty.online/charities/Rhode%20Island%20Community%20Food%20Bank",self.browser.current_url)
 
 	def tearDown(self):
 		self.browser.quit()
