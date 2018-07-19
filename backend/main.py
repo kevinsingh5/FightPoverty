@@ -8,8 +8,6 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restless import APIManager
 from flask_cors import CORS
-from sqlalchemy import *
-from sqlalchemy.orm import *
 
 
 DB_NAME = os.environ.get("DB", None)
