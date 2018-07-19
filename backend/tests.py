@@ -168,9 +168,9 @@ class TestPythonUtils(unittest.TestCase):
 
         self.assertTrue(isinstance(cur, mysql.connector.cursor.MySQLCursor))
 
-    def test_flask_restless(self):
+    def test_flask_app(self):
         '''
-        Testing flask restless app is returning expected value
+        Testing flask app is returning expected value
         '''
         flaskless_app_server = 'http://api.fightpoverty.online/'
         resp = (requests.get(flaskless_app_server).content).decode('utf-8')
@@ -266,6 +266,100 @@ class TestPythonUtils(unittest.TestCase):
                 self.assertGreaterEqual(city2['name'], city1['name'])
         except StopIteration:
             pass
+
+    def test_complex_search_filter_sort(self):
+        '''
+        Testing complex search filter sort query
+        '''
+        flaskless_app_server = 'http://api.fightpoverty.online/'
+        api = flaskless_app_server + 'api/charity'
+        charity_names_matching = 'l'
+        fight_poverty_scores_above = 90
+
+        # Search charities matching 'l', fight_poverty_scores above 90,
+        # and sorted highest to lowest by fight_poverty_score
+        request_with_search_filter_sort = api + '?q={                   \
+            "filters": [                                                \
+                {                                                       \
+                    "name": "name",                                     \
+                    "op": "like",                                       \
+                    "val": "%25' + charity_names_matching + '%25"       \
+                },                                                      \
+                {                                                       \
+                    "name": "fight_poverty_score",                      \
+                    "op": "ge",                                         \
+                    "val": "' + str(fight_poverty_scores_above) + '"    \
+                }                                                       \
+            ],                                                          \
+            "order_by": [                                               \
+                {                                                       \
+                    "field": "fight_poverty_score",                     \
+                    "direction": "desc"                                 \
+                }                                                       \
+            ]                                                           \
+        }'
+
+        resp = requests.get(request_with_search_filter_sort).json()
+        charities = resp['objects']
+
+        # Make sure charities ordered by fight_poverty_score in descending order
+        charities_iter1 = iter(charities)
+        charities_iter2 = iter(charities)
+
+        try:
+            charities_iter2.next()
+
+            while True:
+                charity1 = charities_iter1.next()
+                charity2 = charities_iter2.next()
+
+                # Make sure preceding score name is always >= subsequent
+                self.assertGreaterEqual(
+                    charity1['fight_poverty_score'], charity2['fight_poverty_score'])
+
+                self.assertGreaterEqual(
+                    charity1['fight_poverty_score'], fight_poverty_scores_above)
+
+                # Make sure charity name contains letter (case-insensitive)
+                self.assertTrue(
+                    charity_names_matching in charity1['name'].lower())
+
+        except StopIteration:
+            pass
+
+    def test_flask_table_relationships(self):
+        '''
+        Testing flask restless relationship api. In other words, when one
+        table has a relationship to another, this test tests the api
+        construction to query that relationship.
+        '''
+        flaskless_app_server = 'http://api.fightpoverty.online/'
+        api = flaskless_app_server + 'api/charity'
+        city_name = 'Los Angeles'
+
+        # Find charities in city_name
+        request_with_relationship = api + '?q={       \
+            "filters": [                              \
+                {                                     \
+                    "name": "city",                   \
+                    "op": "has",                      \
+                    "val": {                          \
+                        "name": "name",               \
+                        "op": "eq",                   \
+                        "val": "' + city_name + '"    \
+                    }                                 \
+                }                                     \
+            ]                                         \
+        }'
+
+        resp = requests.get(request_with_relationship).json()
+
+        charities = resp['objects']
+
+        for charity in charities:
+            city_name_response = charity['city']['name']
+            self.assertEqual(city_name_response, city_name)
+
 
 
 if __name__ == '__main__':
