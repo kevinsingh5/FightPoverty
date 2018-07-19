@@ -67,9 +67,11 @@ function getPageCommits(pg) {
   );
 }
 
-function getPageIssues(pg) {
-  $.ajax({
-    url: "https://gitlab.com/api/v4/projects/7268012/issues?page=" + pg + "&per_page=100&private_token=wYwwhFPaUQFis_Zj7_y1",
+
+$.ajax(
+  {
+    url: "https://gitlab.com/api/v4/projects/7268012/issues?page=1&per_page=1000&private_token=wYwwhFPaUQFis_Zj7_y1",
+    async: true,
     crossDomain: true,
     contentType: "application/json; charset=utf-8",
     dataType: "json",

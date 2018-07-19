@@ -173,7 +173,7 @@ class TestPythonUtils(unittest.TestCase):
         Testing flask restless app is returning expected value
         '''
         flaskless_app_server = 'http://api.fightpoverty.online/'
-        resp = requests.get(flaskless_app_server).content
+        resp = str(requests.get(flaskless_app_server).content)
 
         self.assertEqual(resp, 'Welcome to the Fight Poverty API!')
 
