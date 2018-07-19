@@ -268,8 +268,15 @@ export async function getCharities2(
 		// Finished with query filter string
 		link += "}"
 	}
-	
+	console.log(link);
+	try{
 	response = await axios.get(link);
+	}
+	catch(err){
+	 	response = {data:{objects:[], num_results:0}};
+
+	}
+
 
 	return response.data;
 

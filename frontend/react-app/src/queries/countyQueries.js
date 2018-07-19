@@ -269,3 +269,99 @@ export async function countySearch (text, pageNumber){
   return response.data;
 
 }
+
+export async function getCounties2(
+	searchTerm, 
+	sort, 
+	stateFilters, 
+	percentFilter, 
+	pageNumber, 
+	results_per_page
+){
+	var link = backendAPI + 'api/county?results_per_page=' + results_per_page + '&page=' + (pageNumber || 1) ; // 1 if no pageNumber provided
+	var response;
+	var percentFilt = parseInt(percentFilter);
+
+	if (!!searchTerm || sort !== "none" || stateFilters.length > 0 || !!percentFilter) {
+		link += "&q={"
+
+		// Determine all filters
+		if (!!searchTerm || stateFilters.length > 0 || !!percentFilter) {
+			link += `"filters":[`
+			
+
+			// ADD SEARCH TERM
+			if (!!searchTerm) {
+				link += `{"name":"name","op":"like","val":"%${searchTerm}%"}`
+			}
+
+			// ADD STATE FILTER
+			if (stateFilters.length > 0) {
+				if (!!searchTerm) {
+					link += ","
+				}
+
+				link += `{"or":[`
+
+				stateFilters.forEach((stateFilter, i) => {
+					i > 0 ? link += `,` : ''					
+					link += `{"name":"state","op":"eq","val":"${stateFilter}"}`				
+				})		
+				
+				link += `]}`
+			}
+
+
+			// ADD PERCENT FILTER
+			if (!!percentFilter) {
+				if ((!!searchTerm && stateFilters.length === 0) || stateFilters.length > 0) {
+					link += ","
+				}
+
+				link += `{"name":"county_poverty_percentage","op":"ge","val":"${percentFilt-3}"},{"name":"county_poverty_percentage","op":"le","val":"${percentFilt}"}`
+			}
+			
+
+			// Done with filters
+			link += `]`
+			
+
+			if (sort !== "none") {
+				link += `,`
+			}
+		}
+				
+
+		if (sort !== "none") {
+			link += `"order_by":[{"field":`
+			
+			if (sort === "AZ") {
+				link += `"name","direction":"asc"`
+			} else if (sort === "ZA") {
+				link += `"name","direction":"desc"`
+			} else if (sort === "0100") {
+				link += `"county_poverty_percentage","direction":"asc"`
+			} else if (sort === "1000") {
+				link += `"county_poverty_percentage","direction":"desc"`
+			}
+
+			// Finished with sort param
+			link += `}]`				
+		}
+
+		// Finished with query filter string
+		link += "}"
+	}
+	console.log(link);
+	
+	try{
+		response = await axios.get(link);
+	}
+	catch(err){
+	 	response = {data:{objects:[], num_results:0}};
+
+	}
+
+	return response.data;
+
+}

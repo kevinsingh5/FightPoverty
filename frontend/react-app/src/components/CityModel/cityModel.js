@@ -1,10 +1,11 @@
-/*
 import React, { Component } from 'react';
-import { getCities, getMoreCities,getNumOfCities, citySearch } from '../../queries/cityQueries';
+import { getCities, citySearch } from '../../queries/cityQueries';
 import Pagination from "react-js-pagination";
 import CityCard from './CityCard.js'
 import Search from '../Search/Search.js';
+import {stateList} from '../../queries/listOfStates.js'
 
+const RESULTS_PER_PAGE = 9
 
 class CityModel extends Component {
   constructor(props) {
@@ -13,9 +14,11 @@ class CityModel extends Component {
       activePage: 1,
       cities : [],
       totalNum: 0,
-      searchTerm: ''
-      sort:"",
-      stateFilter:"",
+      sort:"none",
+      stateFilters:[],
+      states:stateList,
+      searchTerm: '',
+
     };
 
     this.handlePageChange = this.handlePageChange.bind(this);
@@ -28,39 +31,32 @@ class CityModel extends Component {
 
 
   async componentWillMount () {
-    const citiesResponse = await getCities(this.state.sort,this.state.stateFilter,1) 
+    const citiesResponse = await getCities(this.state.searchTerm,this.state.sort,this.state.stateFilters, 1, RESULTS_PER_PAGE) 
     const cities = citiesResponse.objects;
     const numOfCities = citiesResponse.num_results;
     this.setState({ cities: cities, totalNum: numOfCities, activePage:1}); 
   }
 
   async handlePageChange(pageNumber) {
-    const newCitiesResponse = await getCities(this.state.sort,this.state.stateFilter,pageNumber);
+    const newCitiesResponse = await getCities(this.state.searchTerm,this.state.sort,this.state.stateFilters, 1, RESULTS_PER_PAGE);
     const newCities = newCitiesResponse.objects;
     this.setState({activePage: pageNumber, cities: newCities});
     window.scrollTo(0, 0)
   }
 
-  async handleSearch() {
-    var newKeyword = document.getElementById("keywords").value;
-    await this.setState({searchTerm: newKeyword});
-
-    const cityResponse = await citySearch(this.state.searchTerm,1)
-    const cities = cityResponse.objects;
-    const numOfCities = cityResponse.num_results;
-
-    await this.setState({ cities: cities, totalNum: numOfCities, activePage: 1});
-  }
   
-    async updateStateFilter(e){
+  
+  async updateStateFilter(e){
+        let newStateFilters = this.state.stateFilters
+        newStateFilters.push(e.target.value)
         //setState is slow 
-        await this.setState({stateFilter: e.target.value});
+        await this.setState({stateFilters: newStateFilters});
         this.updatePageWithFilters();
   }
 
   
   async updatePageWithFilters(){
-        const citiesResponse = await getCities(this.state.sort,this.state.stateFilters,1);
+        const citiesResponse = await getCities(this.state.searchTerm,this.state.sort,this.state.stateFilters, 1, RESULTS_PER_PAGE);
         const cities = citiesResponse.objects;
         const numOfCities= citiesResponse.num_results;
 
@@ -74,6 +70,17 @@ class CityModel extends Component {
       await this.setState({sort: newSort});
       this.updatePageWithFilters();
     }
+
+    async handleSearch() {
+    var newKeyword = document.getElementById("keywords").value;
+    await this.setState({searchTerm: newKeyword});
+
+    const cityResponse = await getCities(this.state.searchTerm,this.state.sort,this.state.stateFilters, 1, RESULTS_PER_PAGE)
+    const cities = cityResponse.objects;
+    const numOfCities = cityResponse.num_results;
+
+    await this.setState({ cities: cities, totalNum: numOfCities, activePage: 1});
+  }
 
 
 
@@ -101,10 +108,6 @@ class CityModel extends Component {
     <button class="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort} >Name: A-Z </button>
     <div class="dropdown-divider"></div>
     <button class="dropdown-item" type="button" value='ZA' onClick={this.updateSort}>Name: Z-A </button>
-      <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value= "0100" onClick={this.updateSort}>FightPoverty Score: Low to High </button>
-      <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value= "1000" onClick={this.updateSort}>FightPoverty Score: High to Low </button>
 
 
   </div>
@@ -115,11 +118,10 @@ class CityModel extends Component {
     Filter by State
   </button>
   <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button" value = 'Texas' onClick = {this.updateStateFilter}> Texas </button>
-    <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value='Kansas' onClick = {this.updateStateFilter}> Kansas </button>
-      <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value='Montana' onClick = {this.updateStateFilter} > Montana </button>
+   {/*makes all state buttons */}
+    {this.state.states.map((stateButton,i) => <div><button class="dropdown-item" type="button" value= {stateButton} 
+      onClick = {this.updateStateFilter} > {stateButton} </button>  <div class="dropdown-divider"></div></div>
+    )}
 
       
   </div>
@@ -147,7 +149,7 @@ class CityModel extends Component {
     pageRangeDisplayed={10}
     activePage={this.state.activePage}
     activeLinkClass = "active"
-    itemsCountPerPage={9}
+    itemsCountPerPage={RESULTS_PER_PAGE}
     totalItemsCount={this.state.totalNum}
     onChange={this.handlePageChange}
     />
@@ -159,4 +161,3 @@ class CityModel extends Component {
 }
 
 export default CityModel;   
-*/

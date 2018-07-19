@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { getCounties, getMoreCounties, getNumOfCounties, countySearch } from '../../queries/countyQueries';
+import { getCounties, getMoreCounties, getNumOfCounties, countySearch,getCounties2 } from '../../queries/countyQueries';
 import Pagination from "react-js-pagination";
 import CountyCard from './CountyCard.js'
 import Search from '../Search/Search.js';
+import {stateList} from '../../queries/listOfStates.js'
 
 
+const RESULTS_PER_PAGE = 9;
 
 class CountyModel extends Component {
   constructor(props) {
@@ -16,8 +18,10 @@ class CountyModel extends Component {
       searchTerm: '',
       totalNum: 0,
       sort:"none",
-      stateFilter:"",
+      stateFilters:[],
       percentFilter: "",
+      states:stateList
+
     };
     this.handlePageChange = this.handlePageChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -31,34 +35,27 @@ class CountyModel extends Component {
 
 
   async componentWillMount () {
-    const countiesResponse = await getCounties(this.state.sort,this.state.stateFilter,this.state.percentFilter,1);
+    const countiesResponse = await getCounties2(this.state.searchTerm,this.state.sort,this.state.stateFilters,this.state.percentFilter,1);
     const counties = countiesResponse.objects;
     const numOfCounties = countiesResponse.num_results;
     this.setState({ counties: counties, totalNum: numOfCounties, activePage: 1 });
   }
 
  async handlePageChange(pageNumber) {
-    const newCountiesResponse = await getCounties(this.state.sort,this.state.stateFilter,this.state.percentFilter,pageNumber);
+    const newCountiesResponse = await getCounties2(this.state.searchTerm,this.state.sort,this.state.stateFilters,this.state.percentFilter,pageNumber);
     const newCounties = newCountiesResponse.objects;
     this.setState({activePage: pageNumber, counties: newCounties});
     window.scrollTo(0, 0)
 
   }
 
-  async handleSearch() {
-    var newKeyword = document.getElementById("keywords").value;
-    await this.setState({searchTerm: newKeyword});
-
-    const countyResponse = await countySearch(this.state.searchTerm,1)
-    const counties = countyResponse.objects;
-    const numOfCounties = countyResponse.num_results;
-
-    await this.setState({ counties: counties, totalNum: numOfCounties, activePage: 1});
-  }
+ 
 
   async updateStateFilter(e){
         //setState is slow 
-        await this.setState({stateFilter: e.target.value});
+        let newStateFilters = this.state.stateFilters;
+        newStateFilters.push(e.target.value);
+        await this.setState({stateFilter: newStateFilters});
         this.updatePageWithFilters();
 
 
@@ -72,13 +69,21 @@ class CountyModel extends Component {
 
   }
     async updatePageWithFilters(){
-        const countiesResponse = await getCounties(this.state.sort,this.state.stateFilter,this.state.percentFilter,1);
-        const counties = countiesResponse.objects;
-        const numOfCounties = countiesResponse.num_results;
+      const countyResponse = await getCounties2(
+        this.state.searchTerm, 
+        this.state.sort, 
+        this.state.stateFilters,
+        this.state.percentFilter,
+        1,
+        RESULTS_PER_PAGE
+      )
 
-        this.setState({ counties: counties, totalNum: numOfCounties, activePage: 1});
+      const counties = countyResponse.objects;
+      const numOfCounties = countyResponse.num_results;
 
-    }
+      await this.setState({ counties: counties, totalNum: numOfCounties, activePage: 1});
+  }
+
 
 
     async updateSort(e){
@@ -86,6 +91,25 @@ class CountyModel extends Component {
       await this.setState({sort: newSort});
       this.updatePageWithFilters();
     }
+
+     async handleSearch() {
+      var newKeyword = document.getElementById("keywords").value;
+      await this.setState({searchTerm: newKeyword});
+
+      const countyResponse = await getCounties2(
+        this.state.searchTerm, 
+        this.state.sort, 
+        this.state.percentFilter,
+        this.state.scoreFilter,
+        1,
+        RESULTS_PER_PAGE
+      )
+
+      const counties = countyResponse.objects;
+      const numOfCounties = countyResponse.num_results;
+
+      await this.setState({ counties: counties, totalNum: numOfCounties, activePage: 1});
+  }
 
   render() {
 
@@ -127,11 +151,9 @@ class CountyModel extends Component {
     Filter by State
   </button>
   <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button" value = 'Texas' onClick = {this.updateStateFilter}> Texas </button>
-    <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value='Kansas' onClick = {this.updateStateFilter}> Kansas </button>
-      <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value='Montana' onClick = {this.updateStateFilter}> Montana </button>
+   {this.state.states.map((stateButton,i) => <div><button class="dropdown-item" type="button" value= {stateButton} 
+      onClick = {this.updateStateFilter} > {stateButton} </button>  <div class="dropdown-divider"></div></div>
+    )}
 
       
   </div>
@@ -177,7 +199,7 @@ class CountyModel extends Component {
       pageRangeDisplayed={10}
       activePage={this.state.activePage}
       activeLinkClass = "active"
-      itemsCountPerPage={9}
+      itemsCountPerPage={RESULTS_PER_PAGE}
       totalItemsCount={this.state.totalNum}
       onChange={this.handlePageChange}
     />
