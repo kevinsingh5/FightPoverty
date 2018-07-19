@@ -12,7 +12,7 @@ for i in "${!array[@]}"; do
      ls -al
      echo "Copying front-end files..."
      # scp -r frontend/ ubuntu@${array[i]}:FightingPoverty/
-     rsync -auv frontend ubuntu@${array[i]}:FightingPoverty/
+     rsync -auv --delete frontend ubuntu@${array[i]}:FightingPoverty/
      echo "Connecting to EC2 host..."
      ssh ubuntu@${array[i]} "pwd && cd FightingPoverty/frontend/react-app/ && docker ps && docker stop reactapp && docker rm reactapp && echo Removed Docker container! && docker build -t react . && docker run -p 3000:3000 -d --name reactapp -t react && docker ps"
      echo "Successfully deployed React app on EC2 Docker container"

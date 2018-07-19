@@ -53,6 +53,12 @@ deploy:
     - ls -al
     - apt-get update 
     - apt-get install -y rsync
-    - bash .gitlab-deploy.sh   
+    - bash .gitlab-deploy.sh
+    after_script:
+    - pwd
+    - cd frontend/react-app/
+    - pip install -r requirements.txt
+    - python guitests.py
+    - echo "***ALL FRONTEND TESTS PASSING***"
     only:
     - deployment
