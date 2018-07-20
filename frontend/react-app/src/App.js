@@ -46,9 +46,13 @@ class App extends Component {
             <Route exact path='/home' component={Carousel} />
 
             <Route exact path='/search' render={()=> {
-              <Search charityImages={charityImages} countyImages={countyImages} cityImages={cityImages} />}}
+              return <Search charityImages={charityImages} countyImages={countyImages} cityImages={cityImages} />
+              }}
             />
-            <Route path='/search/:searchterm' component={Search} />
+            <Route path='/search/:searchterm' render={()=> {
+              return <Search charityImages={charityImages} countyImages={countyImages} cityImages={cityImages} />
+              }}
+            />
 
             <Route exact path='/cities' render={()=><CityModel images={cityImages}/>} />
             <Route path='/cities/:name' component={CityInstance} />

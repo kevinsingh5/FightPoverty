@@ -60,7 +60,7 @@ class GeneralSearchResults extends Component {
         searchTerm,
         totalNumCities,
         totalNumCounties,
-        totalNumCharities,
+        totalNumCharities,        
     } = this.props
 
     const {
