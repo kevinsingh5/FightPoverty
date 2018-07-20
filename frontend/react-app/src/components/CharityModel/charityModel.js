@@ -207,7 +207,7 @@ class CharityModel extends Component {
         <div className="container">
 
           <div className="row">
-            {this.state.charities.map((dynamicCharity, i) => <CharityCard 
+            {this.state.charities.map((dynamicCharity, i) => <CharityCard images={this.props.images}
                   key = {i} charityInfo = {dynamicCharity} search = {this.state.searchTerm} />)}
           </div>
           </div>
