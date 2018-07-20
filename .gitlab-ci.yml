@@ -41,7 +41,7 @@ staging:
 
 deploy:
     stage: deployment
-    # image: alpine
+    image: ubuntu:18.04
     before_script: 
     #generate ssh key   
     - mkdir -p ~/.ssh     
@@ -52,7 +52,20 @@ deploy:
     - pwd
     - ls -al
     - apt-get update 
-    - apt-get install -y rsync
-    - bash .gitlab-deploy.sh   
+    - apt-get install -y rsync openssh-client
+    - bash .gitlab-deploy.sh
+    after_script:
+    - pwd
+    - apt-get update
+    - apt-get install -y nodejs npm 
+    #- apt-get install -y chromium-browser chromium-chromedriver
+    #- which chromium-chromedriver
+    - npm install --global mocha
+    - cd frontend/react-app/
+    - npm install #--save-dev babel-loader babel-core babel-preset-env babel-preset-es2015 babel-preset-stage-2 babel-cli webpack
+    - mocha --compilers js:babel-core/register tests.js
+    #- pip install -r requirements.txt
+    #- python guitests.py
+    - echo "***ALL FRONTEND TESTS PASSING***"
     only:
     - deployment

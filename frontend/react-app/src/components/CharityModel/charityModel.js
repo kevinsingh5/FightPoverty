@@ -77,6 +77,9 @@ class CharityModel extends Component {
 
 
     async updateScoreFilter(e){
+        
+        document.getElementById("filterScore").innerHTML = `FightPoverty Score: > ${e.target.value}`
+        
         await this.setState({scoreFilter: e.target.value});
         this.updatePageWithFilters();
 
@@ -101,6 +104,18 @@ class CharityModel extends Component {
 
     async updateSort(e){
       var newSort = e.target.value;
+      if(newSort == 'AZ'){
+        document.getElementById("sort").innerHTML = "Name: A-Z"
+      }
+      else if(newSort == 'ZA'){
+        document.getElementById("sort").innerHTML = "Name: Z-A"
+      }
+      else if(newSort == '0100'){
+        document.getElementById("sort").innerHTML = "FightPoverty Score: Low-High"
+      }
+      else if(newSort == '1000'){
+        document.getElementById("sort").innerHTML = "FightPoverty Score: High-Low"
+      }
       await this.setState({sort: newSort});
       this.updatePageWithFilters();
     }
@@ -146,10 +161,10 @@ class CharityModel extends Component {
 
   <div class="dropdown" style={{display : 'inline-block'}}>
   <button class="btn btn-secondary dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort by
+    Sort:
   </button>
   <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort} >Name: A-Z </button>
+    <button class="dropdown-item" type="button" id = "AZ" value= 'AZ' onClick={this.updateSort} >Name: A-Z </button>
     <div class="dropdown-divider"></div>
     <button class="dropdown-item" type="button" value='ZA' onClick={this.updateSort}>Name: Z-A </button>
       <div class="dropdown-divider"></div>
