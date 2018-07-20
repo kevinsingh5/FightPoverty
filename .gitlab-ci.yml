@@ -56,9 +56,12 @@ deploy:
     - bash .gitlab-deploy.sh
     after_script:
     - pwd
-    - apt-get install chromium-browser chromium-chromedriver
+    - apt-get update
+    - apt-get install -y nodejs npm chromium-browser chromium-chromedriver
     - which chromium-chromedriver
+    - npm instal --global mocha
     - cd frontend/react-app/
+    - mocha --compilers js:babel-core/register tests.js
     - pip install -r requirements.txt
     - python guitests.py
     - echo "***ALL FRONTEND TESTS PASSING***"
