@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import { TwitterShareButton, FacebookShareButton, TwitterIcon, FacebookIcon } from 'react-share'; 
 import CityCard from '../CityModel/CityCard.js';
 import CountyCard from '../CountyModel/CountyCard.js';
 import {getSpecificCounty} from '../../queries/countyQueries';
@@ -52,19 +53,17 @@ class CharityInstance extends Component {
                   </div>
               </section>
 
-              <div class="row-fluid">
-                <div class="span4 text-right">
-                  <a class="twitter-share-button"
-                    href={"https://twitter.com/intent/tweet?text=" + this.props.location.state.name + "%20has%20a%20FightPoverty%20score%20of%20" + this.props.location.state.fight_poverty_score + "%21%0A"}
-                    data-size="large">
-                  Tweet</a>
-                  <br/>
-                  <div class="fb-share-button"
-                    data-href={document.URL}
-                    data-layout="button_count" data-size="large">
-                  </div>
-                </div>
-              </div>
+              <TwitterShareButton
+                className='float-right'
+                url={document.URL}
+                title={this.props.location.state.name + " has a FightPoverty score of " + this.props.location.state.fight_poverty_score + ":\n"}>
+                <TwitterIcon size={48} round />
+              </TwitterShareButton>
+              <FacebookShareButton
+                className='float-right'
+                url={document.URL}>
+                <FacebookIcon size={48} round />
+              </FacebookShareButton>
 
               <ul> 
                 <li>Cause: {this.props.location.state.cause}</li>
