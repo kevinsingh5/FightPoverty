@@ -52,7 +52,7 @@ deploy:
     - pwd
     - ls -al
     - apt-get update 
-    - apt-get install -y rsync
+    - apt-get install -y rsync openssh-client
     - bash .gitlab-deploy.sh
     after_script:
     - pwd
