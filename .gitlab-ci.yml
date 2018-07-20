@@ -56,8 +56,9 @@ deploy:
     - bash .gitlab-deploy.sh
     after_script:
     - pwd
+    - apt-get install chromium-browser chromium-chromedriver
+    - which chromium-chromedriver
     - cd frontend/react-app/
-    # - apt-get install -y python3-pip
     - pip install -r requirements.txt
     - python guitests.py
     - echo "***ALL FRONTEND TESTS PASSING***"
