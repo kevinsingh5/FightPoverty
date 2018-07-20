@@ -63,6 +63,25 @@ class CountyModel extends Component {
 
 
     async updatePercentFilter(e){
+        let val = parseInt(e.target.value);
+        if(val === 9){
+           document.getElementById("filterPercent").innerHTML = "Poverty Percentage: < 9%"
+        }
+        else if(val === 12){
+           document.getElementById("filterPercent").innerHTML = "Poverty Percentage: 9-12%"
+        }
+        else if(val === 15){
+           document.getElementById("filterPercent").innerHTML = "Poverty Percentage: 12-15%"
+        }
+        else if(val === 18){
+           document.getElementById("filterPercent").innerHTML = "Poverty Percentage: 15-18%"
+        }
+        else if(val === 21){
+           document.getElementById("filterPercent").innerHTML = "Poverty Percentage: 18-21%"
+        }
+        else if(val === 24){
+           document.getElementById("filterPercent").innerHTML = "Poverty Percentage: > 21%"
+        }
         await this.setState({percentFilter: e.target.value});
         this.updatePageWithFilters();
 
@@ -88,6 +107,18 @@ class CountyModel extends Component {
 
     async updateSort(e){
       var newSort = e.target.value;
+      if(newSort == 'AZ'){
+        document.getElementById("sort").innerHTML = "Name: A-Z"
+      }
+      else if(newSort == 'ZA'){
+        document.getElementById("sort").innerHTML = "Name: Z-A"
+      }
+      else if(newSort == '0100'){
+        document.getElementById("sort").innerHTML = "Poverty Percentage: Low-High"
+      }
+      else if(newSort == '1000'){
+        document.getElementById("sort").innerHTML = "Poverty Percentage: High-Low"
+      }
       await this.setState({sort: newSort});
       this.updatePageWithFilters();
     }
@@ -131,7 +162,7 @@ class CountyModel extends Component {
 
       <div class="dropdown" style={{display : 'inline-block'}}>
   <button class="btn btn-secondary dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort by
+    Sort:
   </button>
   <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
     <button class="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort}>Name: A-Z </button>
@@ -162,7 +193,7 @@ class CountyModel extends Component {
 
 <div class="dropdown" style={{display : 'inline-block'}}>
   <button class="btn btn-secondary dropdown-toggle" type="button" id="filterPercent" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Filter by Poverty Percent
+    Filter by Poverty Percentage
   </button>
   <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2" >
     <button class="dropdown-item" type="button" value = '9' onClick = {this.updatePercentFilter}>  &lt; 9% </button>

@@ -6,7 +6,7 @@ var justin_commits = 0;
 var unidentified_commits = 0;
 var total_commits = 0;
 
-var charles_issues;
+var charles_issues = 0;
 var chris_issues = 0;
 var kevin_issues = 0;
 var yijie_issues = 0;

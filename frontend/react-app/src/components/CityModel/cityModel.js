@@ -67,6 +67,12 @@ class CityModel extends Component {
 
     async updateSort(e){
       var newSort = e.target.value;
+      if(newSort == 'AZ'){
+        document.getElementById("sort").innerHTML = "Name: A-Z"
+      }
+      else if(newSort == 'ZA'){
+        document.getElementById("sort").innerHTML = "Name: Z-A"
+      }
       await this.setState({sort: newSort});
       this.updatePageWithFilters();
     }
@@ -102,7 +108,7 @@ class CityModel extends Component {
 
 <div class="dropdown" style={{display : 'inline-block'}}>
   <button class="btn btn-secondary dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort by
+    Sort:
   </button>
   <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
     <button class="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort} >Name: A-Z </button>
