@@ -183,6 +183,9 @@ class Search extends Component {
                 totalNumCities={this.state.totalNumCities}
                 totalNumCounties={this.state.totalNumCounties}
                 totalNumCharities={this.state.totalNumCharities}
+                charityImages={this.props.charityImages}
+                countyImages={this.props.countyImages}
+                cityImages={this.props.cityImages}
               />
             }
    
