@@ -41,7 +41,7 @@ staging:
 
 deploy:
     stage: deployment
-    image: python:3.6
+    image: ubuntu:18.04
     before_script: 
     #generate ssh key   
     - mkdir -p ~/.ssh     
