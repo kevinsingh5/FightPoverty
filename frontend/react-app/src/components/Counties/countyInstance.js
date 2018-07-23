@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import { TwitterShareButton, FacebookShareButton, TwitterIcon, FacebookIcon } from 'react-share';
 import CityCard from '../CityModel/CityCard.js';
 import CharityCard from '../CharityModel/CharityCard.js';
 import {getSpecificCharity} from '../../queries/charityQueries';
@@ -59,19 +60,17 @@ class CountyInstance extends Component {
                   </div>
               </section>
 
-              <div class="row-fluid">
-                <div class="span4 text-right">
-                  <a class="twitter-share-button"
-                    href={"https://twitter.com/intent/tweet?text=" + this.props.location.state.name + "%20has%20a%20poverty%20rate%20of%20" + this.props.location.state.county_poverty_percentage + "%25%3a%0A"}
-                    data-size="large">
-                  Tweet</a>
-                  <br/>
-                  <div class="fb-share-button"
-                    data-href={document.URL}
-                    data-layout="button_count" data-size="large">
-                  </div>
-                </div>
-              </div>
+              <TwitterShareButton 
+                className='float-right' 
+                url={document.URL} 
+                title={this.props.location.state.name + " has a poverty rate of " + this.props.location.state.county_poverty_percentage + "%:\n"}> 
+                <TwitterIcon size={48} round /> 
+              </TwitterShareButton> 
+              <FacebookShareButton 
+                className='float-right' 
+                url={document.URL}> 
+                <FacebookIcon size={48} round /> 
+              </FacebookShareButton> 
 
               <ul>
                 <li>Cities: {this.props.location.state.cities[0].name} </li> 
