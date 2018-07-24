@@ -160,7 +160,14 @@ class Visualization1 extends Component {
             .data(color.domain())
             .enter().append("g")
             .attr("class", "legend")
-            .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+            .attr("transform", function(d, i) { 
+                // Make sure ordering is correct
+                if (d === "<= .85x") {
+                    return "translate(0, 0)"; 
+                } else {
+                    return "translate(0," + (i + 1) * 20 + ")"; 
+                }
+            });
         
 
         // draw legend colored rectangles
@@ -187,6 +194,15 @@ class Visualization1 extends Component {
             .attr("text-anchor", "middle")  
             .style("font-size", "16px") 
             .text("County Poverty Stats");
+
+        // draw subtitle
+        svg.append("text")
+            .attr("x", (width / 2))             
+            .attr("y", 0 - (margin.top / 2) + 30)
+            .attr("text-anchor", "middle")  
+            .style("font-size", "12px") 
+            .text("Colored by Fight Poverty multiplier");
+
 
     }
 
