@@ -55,7 +55,7 @@ class CountyModel extends Component {
         //setState is slow 
         let newStateFilters = this.state.stateFilters;
         newStateFilters.push(e.target.value);
-        await this.setState({stateFilter: newStateFilters});
+        await this.setState({stateFilters: newStateFilters});
         this.updatePageWithFilters();
 
 
@@ -130,8 +130,8 @@ class CountyModel extends Component {
       const countyResponse = await getCounties(
         this.state.searchTerm, 
         this.state.sort, 
+        this.state.stateFilters,
         this.state.percentFilter,
-        this.state.scoreFilter,
         1,
         RESULTS_PER_PAGE
       )
