@@ -30,6 +30,27 @@ export async function getMoreCounties (pageNumber) {
 	  
 }
 
+
+export async function getAllCounties () {
+	let dataObjects = []
+	let response = await axios.get(backendAPI + 'api/county?page=1&results_per_page=100');
+	dataObjects.push(...response.data.objects)
+
+	const totalNumObjects = response.data.num_results
+	let currentPage = 1
+
+	while (currentPage * 100 < totalNumObjects) {
+		currentPage += 1
+		response = await axios.get(backendAPI + 'api/county?results_per_page=100&page=' + currentPage)
+		dataObjects.push(...response.data.objects)
+	}
+
+	return dataObjects
+}
+
+
+
+
 export async function getSpecificCounty (county) {
   const response = await axios.get(backendAPI+ 'api/county?q={"filters":[{"name":"name","op":"eq","val":"' + county + '"}]}');
 	  // .then(function (response) {

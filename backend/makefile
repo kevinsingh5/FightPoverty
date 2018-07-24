@@ -60,3 +60,15 @@ install:
 add: format test checkFormat clean
 	cd ..
 	git add .
+
+
+rebuildDatabaseFromScratch:
+	# for speed, enter credentials into ./datasets/python_utils/my_sql_utils.py
+	cd ./datasets/zip_codes && python add_known_locations_to_db.py  && \
+	cd ../charities 												&& \
+	python add_charities_to_db.py 									&& \
+	cd ../python_utils												&& \
+	python insert_into_mysql_db.py									&& \
+	cd ../fight_poverty_algorithm									&& \
+	python determine_fight_poverty_multipliers.py 					&& \
+	python update_charity_fight_poverty_scores.py

@@ -10,6 +10,7 @@ import CountyInstance from './components/Counties/countyInstance'
 import CharityInstance from './components/Charities/charityInstance'
 import About from './components/About/About'
 import Search from './components/Search/Search'
+import Visualizations from './components/Visualizations/Visualizations'
 
 
 // https://stackoverflow.com/questions/42118296/dynamically-import-images-from-a-directory-using-webpack
@@ -64,6 +65,8 @@ class App extends Component {
             <Route path='/charities/:name' component={CharityInstance}/>
 
             <Route exact path='/about' component={About} />
+
+            <Route exact path ='/visualizations' component={Visualizations} />
           </Switch>
         </div>
         
