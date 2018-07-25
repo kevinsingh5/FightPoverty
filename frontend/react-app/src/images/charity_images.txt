@@ -1,0 +1,584 @@
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/..?*
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/.[!.]*
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Abode Services.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ACCESS.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Adopt-A-Family.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Akron-Canton Regional Foodbank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Alameda County Community Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Allentown Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/All Faiths Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/America's Second Harvest of the Big Bend.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Anne Arundel County Food Bank Inc.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Arkansas Foodbank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Arkansas.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Arlington Street People's Assistance Network.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Arvada Community Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Association of Gospel Rescue Missions.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Atlanta Community Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Atlanta Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Atlantic City Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Back on My Feet.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Ballard Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Bay Area Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Bean's Cafe.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Bethesda Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Birch Community Services.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Blue Ridge Area Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Boston Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Boulder Shelter for the Homeless.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Brazos Valley Food Bank.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Bread of Life Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Bread of the Mighty Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Breakthrough Urban Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Bridge Communities.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Bridge House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Bridgeport Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Bridges Outreach.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Bridging.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Broad Street Ministry.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Buffalo City Mission.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Building Changes.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/California Emergency Foodlink.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Calvary Women's Services.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Camillus House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Capital Area Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Care and Share Food Bank for Southern Colorado.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/CaringWorks.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/CARITAS.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Carpenter's Shelter.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Carriage Town Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Cary Christian Center.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Center for the Homeless.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Central Illinois Foodbank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Central Iowa Shelter & Services.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Central Pennsylvania Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Central Texas Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Central Union Mission.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Channel One Regional Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Chapman Partnership.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Charlotte Family Housing.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Charlotte Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Chattanooga Area Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Cherry Street Mission Ministries.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Chicago Coalition for the Homeless.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Children's Restoration Network.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Christ House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Christian Community Action.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Christian HELP Foundation.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Christian Service Center for Central Florida.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Christian Services.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Chrysalis.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/CHUM.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Circle Of Concern.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/City Harvest.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/City Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/City Mission of Schenectady.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/City of Refuge.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/City Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/City Rescue Mission of Lansing.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/City Rescue Mission of Saginaw.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Cityteam.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/City Union Mission.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Clara White Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Clark County Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Coachella Valley Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Coalition for the Homeless.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Coalition for the Homeless of Central Florida.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Coalition on Temporary Shelter.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Colonial Heights Food Pantry.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Committee on Temporary Shelter.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Community Action House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Community Enrichment Center.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Community Food Bank.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Community Food Bank of Eastern Oklahoma.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Community FoodBank of New Jersey.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Community Food Bank of Southern Arizona.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Community Food Share.gif
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Community Harvest Food Bank of Northeast Indiana.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Community LINC.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Community Soup Kitchen and Outreach Center Inc.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Connecticut Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Connecticut.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Crossroads Center.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Cross Roads House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Crossroads Nogales Mission.JPG
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Dallas Life Foundation.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Daniel Pitino Shelter.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Dare to Care Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Deborah's Place.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Denver.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Denver Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Detroit Rescue Mission Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Downtown Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Downtown Women's Center.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/DuPage PADS.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Durham Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Eastern Illinois Foodbank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Eastside Community Ministry.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/East Texas Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Elk Grove Food Bank Services.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Emergency Food Network.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Erie City Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Eugene Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Everett Gospel Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/FACETS.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Facing Hunger.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Fairbanks Community Food Bank Service.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Fairhaven Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Faith Mission of Elkhart.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Family Emergency Shelter Coalition.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Family Gateway.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Family Promise.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Family Promise of Greater Cleveland.gif
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Farmers and Hunters Feeding the Hungry.gif
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Father Woody's Haven of Hope.JPG
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Feeding America Eastern Wisconsin.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Feeding America's Hungry Children.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Feeding America Southwest Virginia.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Feeding America West Michigan Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Feeding South Dakota.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Feeding South Florida.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Feeding Tampa Bay.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Feeding the Gulf Coast.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Feeding Westchester.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/FeedMore.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Feed My People.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Flathead Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Florida.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank Coalition of San Luis Obispo County.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank for Larimer County.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank for Monterey County.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank For New York City.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank for the Heartland.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Alaska.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Central & Eastern North Carolina.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Central New York.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Contra Costa and Solano.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Corpus Christi.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Delaware.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Eastern Michigan.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of El Dorado County.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Lincoln.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of North Central Arkansas.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Northeast Georgia.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Northeast Louisiana Inc.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Northern Indiana.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Northern Nevada.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Northwest Indiana.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Northwest Louisiana.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Foodbank of Santa Barbara County.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Siouxland.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Foodbank of Southeastern Virginia.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of South Jersey.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of the Albemarle.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of the Rio Grande Valley.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of the Rockies.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of West Central Texas.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Bank of Western New York.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Finders Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Finders.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food for Lane County.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food for Others.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food for People.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Gatherers.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Lifeline.gif
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/FoodLink for Tulare County.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Foodlink.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Food Pantry of Waukesha County.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Foodshare.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/FOOD Share.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Forgotten Harvest.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ForKids.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Fort Wayne.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Four States Christian Missions.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Franciscan Outreach.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Frederick Rescue Mission.svg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Fredericksburg Area Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/FreeStore FoodBank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Fresno Rescue Mission.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Frisco Family Services.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Fulfill.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Gateway180 :: Homelessness Reversed.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Gateway Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Georgia.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Gleaners Community Food Bank of Southeastern Michigan.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Gleaners Food Bank of Indiana.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/God's Pantry Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Golden Harvest Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Good News Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Good Samaritan Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Good Shepherd Center.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Good Shepherd Food Bank of Maine.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Goodwill Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Gospel Rescue Mission of Grants Pass.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Grace Centers of Hope.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Greater Baton Rouge Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Greater Berks Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Greater Chicago Food Depository.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Greater Cleveland Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Greater Pittsburgh Community Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Great Falls Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Greensboro Urban Ministry.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Guiding Light Mission.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Harbor Interfaith Services.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Harry Chapin Food Bank of Southwest Florida.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Harvesters: The Community Food Network.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Harvest Hope Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Harvest Texarkana.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Haven of Rest Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Haven of Rest Rescue Mission of Bristol.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Hawaii Foodbank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Healthcare for the Homeless.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/HEARTH.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Heartland Hope Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Helena Food Share.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Helping Up Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Hesed House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/HIDDEN HARVEST.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/High Plains Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Hiway 80 Rescue Mission Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/HomeFront.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Homeless Connections.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Homeless Empowerment Program.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Homeless Family Center.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Homeless Solutions.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Home Sweet Home Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Homes With Hope.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Homeward Bound of Marin.svg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Hope Clinic.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Hope Gospel Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Hope Helps.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Hope Ministries.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Horizon House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Houston Food Bank.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Houston.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Hunger Network of Greater Cleveland.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Hunger Task Force.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Idaho Foodbank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Imperial Valley Food Pantry.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Inc..jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Indiana.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Inspiration Corporation.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Interfaith Family Services.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Interfaith Food Pantry.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Interfaith Works.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Iowa.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Island Harvest.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Jackson Interfaith Shelter.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Jacobs & Cushman San Diego Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Jimmie Hale Mission.JPG
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/John 3:16 Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/JOIN.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Jon Bon Jovi Soul Foundation.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Jubilee Housing.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Kalamazoo Loaves & Fishes.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Kandiyohi County Food Shelf.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Kansas City Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Kansas Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Knox Area Rescue Ministries.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Kokomo Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Lakeview Pantry.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Larkin Street Youth Services.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Las Vegas Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Latern House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Lazarus House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Lexington Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/LifeMoves.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Lighthouse Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Light of Life Rescue Mission.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Linn Benton Food Share.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Little Rock.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Loaves and Fishes.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Loaves & Fishes Community Services.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Long Beach Rescue Mission.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Long Island Cares.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Los Angeles.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Los Angeles Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Los Angeles Regional Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Lotus House.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Loudoun Hunger Relief.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Louisiana.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Lowcountry Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/MANNA FoodBank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Manna Food Center.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Manna Food Pantries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Manna on Main Street.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Manos De Cristo.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Marian House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Marion Polk Food Share.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Martha O'Bryan Center.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Martha's Village and Kitchen.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Maryland Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Massachusetts Coalition for the Homeless.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Matt Talbot Kitchen & Outreach.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Maui Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Mel Trotter Ministries.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Memphis Union Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Men's Shelter of Charlotte.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Mercy's Gate.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Metrocrest Social Services.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Metropolitan Ministries.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Miami Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Mid America Assistance Coalition.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Middle Georgia Community Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Middleton Outreach Ministry.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Mid-Ohio Foodbank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Mid-South Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Midwest Food Bank.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Ministry With Community.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Miracle Hill Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Miriam's Kitchen.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Mission SOLANO.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Missoula Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Modesto Gospel Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Montana Food Bank Network.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Montgomery Area Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/MorningStar Mission Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Muncie Mission Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/MUST Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/My Friend's Place.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Nashville Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/National Alliance to End Homelessness.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/National Law Center on Homelessness and Poverty.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Neighborhood Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/New England Center and Home for Veterans.svg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/New Horizons.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/New York City Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ NFP.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Nicholas House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ NJ.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Northampton Survival Center.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/North Country Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Northeast Iowa Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Northern Illinois Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/North Helpline.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/North Kent Connect.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Northlands Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/North Texas Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Northwest Arkansas Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Northwest Harvest.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/N Street Village.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Oklahoma City.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Old Savannah City Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Oliver Gospel Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Olympia Union Gospel Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Omaha.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/One Family.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/On The Rise.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Open Door Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Open Door Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Open Doors Kalamazoo.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Operation Food Search.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Operation Nightwatch.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Orange County Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Oregon Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Orlando Union Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Our House.gif
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Ozarks Food Harvest.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Pacific House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/PADS Lake County.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Panama City Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Partnership for the Homeless.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Paul's Place.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/People's City Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Peoria Rescue Ministries.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Philabundance.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Phoenix Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Pine Street Inn.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Preble Street.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Presbyterian Night Shelter.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Primavera Foundation.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Project HOME.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Providence House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Providence Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Rainbow Village.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Raleigh Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Raphael House of San Francisco.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Reconciliation Outreach.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Redwood Gospel Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Regional Food Bank of Oklahoma.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Rescue Mission Alliance.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Rescue Mission of El Paso.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Rescue Mission of Middle Georgia.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Rescue Mission of Roanoke.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Rescue Mission of Trenton.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Rescue Mission.svg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/reStart.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Restoration Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Restore Hope Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Rhode Island Community Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Richmond Friends of the Homeless Ltd.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/River Bend Foodbank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/River City Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/River Food Pantry.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Roadrunner Food Bank of New Mexico.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Rockford Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Rock River Valley Pantry.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Rosie's Place.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Rotary First Harvest.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Rowan Helping Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Sacramento.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Safe Haven Family Shelter.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/SafeHouse Outreach.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Salina Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Samaritan Inns.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Samaritan Ministries.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Samaritan Ministry of Greater Washington.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/SAMMinistries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/San Antonio Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/San Diego Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Santa Barbara Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Sarah's Circle.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Save the Family.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/SeaGate Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/SeaShare.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Community Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Food Bank of Central Florida.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Food Bank of East Central Indiana.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Food Bank of East Tennessee.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Food Bank of Greater New Orleans and Acadiana.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Food Bank of Metrolina.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Food Bank of Middle Tennessee.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Food Bank of North Central Ohio.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Food Bank of Northeast Tennessee.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Food Bank of Northwest North Carolina.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Food Bank of Northwest Pennsylvania.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Food Bank of Orange County.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Food Bank of Santa Clara and San Mateo Counties.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Foodbank of Southern Wisconsin.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Foodbank of the Mahoning Valley.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Food Bank Santa Cruz County.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Heartland.svg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Inland Northwest.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Second Harvest Northern Lakes Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Shared Harvest Foodbank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Share Our Selves.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Sharing and Caring Hands.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Sheffield Place.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Shelter Partnership.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Shepherd's Table.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Shreveport-Bossier Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Solid Ground.gif
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Solutions for Change.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/SOME.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Southeast Missouri Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/South Plains Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Springfield Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Springfield Victory Mission.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Springs Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Star of Hope Mission.gif
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Stephen Center.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/STEP.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Stewpot Community Services.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/St. Francis Center.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/St. Francis House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/St. John Center.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/St. Louis Area Foodbank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/St. Mary's Food Bank Alliance.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/St. Patrick Center.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/St. Vincent de Paul Village.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Sulzbacher Center.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Sunday Breakfast Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Sunday Breakfast Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Sunnyvale Community Services.GIF
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Sunshine Division Portland Police Dept.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Sunshine Ministries.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Syracuse.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Table to Table.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Tacoma.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Target Hunger.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Tarrant Area Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Tedford Housing.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Tender Mercies.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/ Texas.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Action Center.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Billings Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Bowery Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The CornerStone Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Food Bank for Central & Northeast Missouri.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Food Bank of Central Louisiana.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Food Bank of Lower Fairfield County.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Foodbank of Southern California.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Food Bank of the Golden Crescent.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Food Bank of Western Massachusetts.jpeg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Foodbank.svg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Food Depot.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Food Group.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Gathering Place.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Gospel Mission.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Greater Boston Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Homeless Families Foundation.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The INN.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Institute for Human Services.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Lamb Center.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Light House Mission Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Lord's Place.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Midnight Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Mission at Kern County.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Night Ministry.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Open Door Shelter.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Redwood Empire Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Rescue Mission of Salt Lake.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Rescue Mission of the Mahoning Valley.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Rescue Mission.svg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Thermal Belt Outreach Ministry.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Road Home.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Samaritan Inn.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The San Francisco-Marin Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Shade Tree.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Society of St. Andrew.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/The Urban Ministry Center.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Three Square.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Thrive DC.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Together Omaha.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Toledo Northwestern Ohio Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Topeka Rescue Mission.JPG
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Transitions Homeless Recovery Center.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Treasure Coast Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Tri-City Union Gospel Mission.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Tulsa Day Center for the Homeless.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Turning Points.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Union Gospel Mission of Grays Harbor.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Union Gospel Mission of Tarrant County.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Union Gospel Mission.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Union Gospel Mission Twin Cities.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Union Mission Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Union Mission.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Union Rescue Mission.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Union Station Homeless Services.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/United Food Bank and Services of Plant City.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/United Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/United Methodist Open Door.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/University District Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Upper Valley Haven.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Urban Ministries of Durham.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Utah Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Valley Interfaith Community Resource Center.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Vermont Foodbank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Virginia Peninsula Foodbank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Visalia Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Vision House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Vogel Alcove.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Volunteer Ministry Center.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Volunteers Enlisted to Assist People.webp
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Warren Family Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Water Street Ministries.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Wayside Christian Mission.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Weld Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Wellspring House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Western Carolina Rescue Ministries.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Westmoreland County Food Bank.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/West Seattle Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/West Suburban Community Pantry.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/West Texas Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Wheeler Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Whosoever Gospel Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Wichita Falls Area Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Wichita Falls Faith Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/William Temple House.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/WINGS Program.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Winston-Salem Rescue Mission.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Women's Lunch Place.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Worcester County Food Bank.jpg
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/Yad Ezra.png
+https://s3.us-east-2.amazonaws.com/fightpoverty.online/images/charities/York Union Rescue Mission.png

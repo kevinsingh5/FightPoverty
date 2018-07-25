@@ -38,7 +38,7 @@ class CountyInstance extends Component {
       }
     });
 
-    //this.setState({ charityInfo: charity, cityInfo: city});
+    this.setState({ charityInfo: charity, cityInfo: city});
   }
 
   //scroll to top after clicking on card
@@ -77,6 +77,8 @@ class CountyInstance extends Component {
                 <li>State: {this.props.location.state.state}</li>
                 <li>Poverty Population: {this.props.location.state.county_poverty_population} </li>
                 <li>Poverty Percentage: {this.props.location.state.county_poverty_percentage}%</li>
+                <li>FightPoverty Multiplier: {this.props.location.state.fight_poverty_multiplier}</li>
+
               </ul>
               <div align="center">
                 <iframe width='600' height='450' src={"https://www.openstreetmap.org/export/embed.html?bbox=" + mapBounds[2] + "%2C" + mapBounds[0] + "%2C" + mapBounds[3] + "%2C" + mapBounds[1]} frameBorder="0" allowFullScreen></iframe>

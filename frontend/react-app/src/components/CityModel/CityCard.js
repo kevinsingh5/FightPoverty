@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import Highlight from 'react-highlighter';
+import { cityImages } from '../../images/city_images'
 
 
 class CityCard extends Component {
@@ -8,8 +9,8 @@ class CityCard extends Component {
 
   render() {
     let img_src = "http://www.foodieoncampus.com/wp-content/uploads/2016/01/City-Skyline.jpg"
-    if (!!this.props.images && !!this.props.images[this.props.cityInfo.name]) {
-      img_src = this.props.images[this.props.cityInfo.name]
+    if (!!cityImages && !!cityImages[this.props.cityInfo.name]) {
+      img_src = cityImages[this.props.cityInfo.name]
     }
 
 

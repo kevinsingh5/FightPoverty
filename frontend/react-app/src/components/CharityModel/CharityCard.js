@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { charityImages } from '../../images/charity_images'
 var Highlight = require('react-highlighter');
 
 
@@ -15,8 +16,8 @@ class CharityCard extends Component {
   render() {
     
     let img_src = "https://static.makeuseof.com/wp-content/uploads/2016/01/best-sponsor-charity-670x335.jpg"
-    if (!!this.props.images && !!this.props.images[this.props.charityInfo.name]) {
-      img_src = this.props.images[this.props.charityInfo.name]
+    if (!!charityImages && !!charityImages[this.props.charityInfo.name]) {
+      img_src = charityImages[this.props.charityInfo.name]
     }
 
 

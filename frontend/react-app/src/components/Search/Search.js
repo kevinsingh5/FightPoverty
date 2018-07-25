@@ -3,9 +3,6 @@ import { generalCharitySearch } from '../../queries/charityQueries';
 import { generalCitySearch} from '../../queries/cityQueries';
 import { generalCountySearch} from '../../queries/countyQueries';
 
-import CharityCard from '../CharityModel/CharityCard.js';
-import CountyCard from '../CountyModel/CountyCard.js';
-import CityCard from '../CityModel/CityCard.js';
 import GeneralSearchResults from './GeneralSearchResults';
 
 
@@ -183,9 +180,6 @@ class Search extends Component {
                 totalNumCities={this.state.totalNumCities}
                 totalNumCounties={this.state.totalNumCounties}
                 totalNumCharities={this.state.totalNumCharities}
-                charityImages={this.props.charityImages}
-                countyImages={this.props.countyImages}
-                cityImages={this.props.cityImages}
               />
             }
    

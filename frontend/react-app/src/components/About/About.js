@@ -212,6 +212,11 @@ class About extends Component {
 
           <h2 className="my-4">Links</h2>
 
+          <a href="./visualizations">Data Visualizations</a>
+          <br />
+          <br />
+
+
           <a href="http://gitlab.com/chris.amini/FightingPoverty">GitLab Repo</a>
           <br />
           <br />

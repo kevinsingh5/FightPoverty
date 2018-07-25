@@ -35,7 +35,7 @@ class CharityInstance extends Component {
       }
     });
 
-    //this.setState({ cityInfo: city, countyInfo: county });
+    this.setState({ cityInfo: city, countyInfo: county });
   }
   
   componentDidMount() {
@@ -74,6 +74,7 @@ class CharityInstance extends Component {
                 <li>Zip Code:  {this.props.location.state.zip_code}</li>
                 <li><a href= 'https://www.charitynavigator.org/index.cfm?bay=content.view&cpid=1093'>CharityNavigator's Accountability Score</a>: {this.props.location.state.charity_navigator_accountability_score} </li>
                 <li><a href= 'https://www.charitynavigator.org/index.cfm?bay=content.view&cpid=35'>CharityNavigator's Financial Score</a>: {this.props.location.state.charity_navigator_financial_score}</li>
+                <li>CharityNavigator Rating: {this.props.location.state.charity_navigator_score}</li>
                 <li>FightPoverty Rating: {this.props.location.state.fight_poverty_score}</li>
               </ul>
               <div align="center">

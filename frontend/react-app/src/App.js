@@ -10,33 +10,11 @@ import CountyInstance from './components/Counties/countyInstance'
 import CharityInstance from './components/Charities/charityInstance'
 import About from './components/About/About'
 import Search from './components/Search/Search'
-
-
-// https://stackoverflow.com/questions/42118296/dynamically-import-images-from-a-directory-using-webpack
-function importAll(r) {
-  let imageMap = {}
-
-  // EXTREMELY INEFFICIENT O(9 * O(N^2))
-  r.keys().map((imageTag, i) => {
-    const recordName = imageTag.substring(2, imageTag.length - 4)
-
-    imageMap[recordName] = r.keys().map(r)[i]
-  })
-
-  return imageMap
-}
-
-
-
-
+import Visualizations from './components/Visualizations/Visualizations'
 
 
 class App extends Component {
   render() {
-    const charityImages = importAll(require.context('./images/charities/', false, /\.(png|jpe?g|svg)$/));
-    const cityImages = importAll(require.context('./images/cities/', false, /\.(png|jpe?g|svg)$/));
-    const countyImages = importAll(require.context('./images/counties/', false, /\.(png|jpe?g|svg)$/));
-
     return(
       <div>
         <NavBar />
@@ -45,25 +23,21 @@ class App extends Component {
             <Route exact path='/' component={Carousel} />
             <Route exact path='/home' component={Carousel} />
 
-            <Route exact path='/search' render={()=> {
-              return <Search charityImages={charityImages} countyImages={countyImages} cityImages={cityImages} />
-              }}
-            />
-            <Route path='/search/:searchterm' render={()=> {
-              return <Search charityImages={charityImages} countyImages={countyImages} cityImages={cityImages} />
-              }}
-            />
+            <Route exact path='/search' component={Search} />
+            <Route path='/search/:searchterm' component={Search}/>
 
-            <Route exact path='/cities' render={()=><CityModel images={cityImages}/>} />
+            <Route exact path='/cities' component={CityModel} />
             <Route path='/cities/:name' component={CityInstance} />
 
-            <Route exact path='/counties' render={()=><CountyModel images={countyImages}/>} />
+            <Route exact path='/counties' component={CountyModel} />
             <Route path='/counties/:name' component={CountyInstance}/>
 
-            <Route exact path='/charities' render={()=><CharityModel images={charityImages}/>} />
+            <Route exact path='/charities' component={CharityModel} />
             <Route path='/charities/:name' component={CharityInstance}/>
 
             <Route exact path='/about' component={About} />
+
+            <Route exact path ='/visualizations' component={Visualizations} />
           </Switch>
         </div>
         

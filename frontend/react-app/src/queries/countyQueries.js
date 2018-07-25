@@ -30,6 +30,27 @@ export async function getMoreCounties (pageNumber) {
 	  
 }
 
+
+export async function getAllCounties () {
+	let dataObjects = []
+	let response = await axios.get(backendAPI + 'api/county?page=1&results_per_page=100');
+	dataObjects.push(...response.data.objects)
+
+	const totalNumObjects = response.data.num_results
+	let currentPage = 1
+
+	while (currentPage * 100 < totalNumObjects) {
+		currentPage += 1
+		response = await axios.get(backendAPI + 'api/county?results_per_page=100&page=' + currentPage)
+		dataObjects.push(...response.data.objects)
+	}
+
+	return dataObjects
+}
+
+
+
+
 export async function getSpecificCounty (county) {
   const response = await axios.get(backendAPI+ 'api/county?q={"filters":[{"name":"name","op":"eq","val":"' + county + '"}]}');
 	  // .then(function (response) {
@@ -44,7 +65,7 @@ export async function getSpecificCounty (county) {
 }
 
 export async function generalCountySearch (text, pageNumber){
-  	  const response = await axios.get(backendAPI+ 'api/county?q={"filters":[{"name":"name","op":"like","val":' + '"%' + text + '%"' + "}]}"+ "&" + "page=" + pageNumber + '&results_per_page=3');
+  	  const response = await axios.get(backendAPI+ 'api/county?q={"filters":[{"name":"name","op":"like","val":' + '"%25' + text + '%25"' + "}]}"+ "&" + "page=" + pageNumber + '&results_per_page=3');
 	  // .then(function (response) {
 	  //   console.log(response);
 	  //   return response.data.objects;
@@ -60,7 +81,7 @@ export async function generalCountySearch (text, pageNumber){
 
 
 export async function countySearch (text, pageNumber){
-	const response = await axios.get(backendAPI+ 'api/county?q={"filters":[{"name":"name","op":"like","val":' + '"%' + text + '%"' + "}]}"+ "&" + "page=" + pageNumber + '&results_per_page=9');
+	const response = await axios.get(backendAPI+ 'api/county?q={"filters":[{"name":"name","op":"like","val":' + '"%25' + text + '%25"' + "}]}"+ "&" + "page=" + pageNumber + '&results_per_page=9');
   // .then(function (response) {
   //   console.log(response);
   //   return response.data.objects;
