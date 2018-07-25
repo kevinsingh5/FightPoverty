@@ -36,7 +36,7 @@ class CityInstance extends Component {
       }
     });
 
-    //this.setState({ charityInfo: charity, countyInfo: county});
+    this.setState({ charityInfo: charity, countyInfo: county});
     
     //console.log(this.props.location.state.state);
   }
