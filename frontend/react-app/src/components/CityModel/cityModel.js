@@ -26,6 +26,8 @@ class CityModel extends Component {
     this.updatePageWithFilters = this.updatePageWithFilters.bind(this);
     this.updateSort = this.updateSort.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.reset = this.reset.bind(this);
+
   }
  
 
@@ -47,6 +49,15 @@ class CityModel extends Component {
   
   
   async updateStateFilter(e){
+
+        let state = e.target.value;
+        console.log(this.state.stateFilters.length)
+        if(this.state.stateFilters.length == 0){
+          document.getElementById("stateFilter").innerHTML = "State: " + state; 
+        }
+        else{
+          document.getElementById("stateFilter").innerHTML += `, ${state}`; 
+        }
         let newStateFilters = this.state.stateFilters
         newStateFilters.push(e.target.value)
         //setState is slow 
@@ -87,6 +98,14 @@ class CityModel extends Component {
 
     await this.setState({ cities: cities, totalNum: numOfCities, activePage: 1});
   }
+  async reset(){
+      document.getElementById("sort").innerHTML = "Sort"
+      document.getElementById("stateFilter").innerHTML = "Filter by State";
+
+
+      await this.setState({sort: "none", stateFilters: []})
+      this.updatePageWithFilters();
+    }
 
 
 
@@ -105,33 +124,34 @@ class CityModel extends Component {
               />
               </div>
           </section>
-
-<div class="dropdown" style={{display : 'inline-block'}}>
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort:
+<div className="dropdown" style={{display : 'inline-block'}}>
+  <button className="btn btn-secondary dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort
   </button>
-  <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort} >Name: A-Z </button>
-    <div class="dropdown-divider"></div>
-    <button class="dropdown-item" type="button" value='ZA' onClick={this.updateSort}>Name: Z-A </button>
+  <div className="dropdown-menu " aria-labelledby="dropdownMenu2">
+    <button className="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort} >Name: A-Z </button>
+    <div className="dropdown-divider"></div>
+    <button className="dropdown-item" type="button" value='ZA' onClick={this.updateSort}>Name: Z-A </button>
 
 
   </div>
 </div>
 
-<div class="dropdown" style={{display : 'inline-block'}}>
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="stateFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<div className="dropdown" style={{display : 'inline-block'}}>
+  <button className="btn btn-secondary dropdown-toggle" type="button" id="stateFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Filter by State
   </button>
-  <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2">
+  <div className="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
    {/*makes all state buttons */}
-    {this.state.states.map((stateButton,i) => <div><button class="dropdown-item" type="button" value= {stateButton} 
-      onClick = {this.updateStateFilter} > {stateButton} </button>  <div class="dropdown-divider"></div></div>
+    {this.state.states.map((stateButton,i) => <div><button className="dropdown-item" type="button" value= {stateButton} 
+      onClick = {this.updateStateFilter} > {stateButton} </button>  <div className="dropdown-divider"></div></div>
     )}
 
       
   </div>
 </div>
+<button type="button" class="btn btn-danger" onClick = {this.reset}>Reset</button>
+
 
 
 

@@ -27,6 +27,8 @@ class CharityModel extends Component {
     this.updatePageWithFilters = this.updatePageWithFilters.bind(this);
     this.updateSort = this.updateSort.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.reset = this.reset.bind(this);
+
   }
 
   
@@ -65,6 +67,14 @@ class CharityModel extends Component {
 
 
   async updateStateFilter(e){
+        let state = e.target.value;
+        console.log(this.state.stateFilters.length)
+        if(this.state.stateFilters.length == 0){
+          document.getElementById("stateFilter").innerHTML = "State: " +  state; 
+        }
+        else{
+          document.getElementById("stateFilter").innerHTML += `, ${state}`; 
+        }
         //setState is slow 
 
         let newStateFilters = this.state.stateFilters
@@ -138,6 +148,15 @@ class CharityModel extends Component {
 
       await this.setState({ charities: charities, totalNum: numOfCharities, activePage: 1});
     }
+    async reset(){
+      document.getElementById("sort").innerHTML = "Sort"
+      document.getElementById("filterScore").innerHTML = "Filter by FightPoverty Score"
+      document.getElementById("stateFilter").innerHTML = "Filter by State";
+
+
+      await this.setState({sort: "none", stateFilters: [], scoreFilter:""})
+      this.updatePageWithFilters();
+    }
 
 
 
@@ -159,9 +178,10 @@ class CharityModel extends Component {
 
 
 
+
   <div class="dropdown" style={{display : 'inline-block'}}>
   <button class="btn btn-secondary dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort:
+    Sort
   </button>
   <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
     <button class="dropdown-item" type="button" id = "AZ" value= 'AZ' onClick={this.updateSort} >Name: A-Z </button>
@@ -180,7 +200,7 @@ class CharityModel extends Component {
   <button class="btn btn-secondary dropdown-toggle" type="button" id="stateFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Filter by State
   </button>
-  <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2">
+  <div class="dropdown-menu  scrollable-menu" aria-labelledby="dropdownMenu2">
 
 
   {/*makes all state buttons */}
@@ -197,7 +217,7 @@ class CharityModel extends Component {
   <button class="btn btn-secondary dropdown-toggle" type="button" id="filterScore" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Filter by FightPoverty Score
   </button>
-  <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2">
+  <div class="dropdown-menu  scrollable-menu" aria-labelledby="dropdownMenu2">
     <button class="dropdown-item" type="button" value = '50' onClick = {this.updateScoreFilter}> > 50 </button>
     <div class="dropdown-divider"></div>
     <button class="dropdown-item" type="button" value='60' onClick = {this.updateScoreFilter}> > 60 </button>
@@ -215,6 +235,9 @@ class CharityModel extends Component {
       
   </div>
 </div>
+
+<button type="button" class="btn btn-danger" onClick = {this.reset}>Reset</button>
+
 
 
 

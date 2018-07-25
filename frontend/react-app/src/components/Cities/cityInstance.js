@@ -33,14 +33,14 @@ class CityInstance extends Component {
     const county = await getSpecificCounty(city[0].county.name);
     var this2 = this;
     // search for city coordinates
-    $.getJSON('https://nominatim.openstreetmap.org/search?q=' + this.state.name + ',+' + this.state.state + '&format=json', function(data) {
+    await $.getJSON('https://nominatim.openstreetmap.org/search?q=' + this.state.name + ',+' + this.state.state + '&format=json', function(data) {
       // do stuff with the data
       //console.log(data);
       if(data.length > 0) {
         var loc = data[0];
         //console.log(location);
         mapBounds = loc['boundingbox'];
-        this2.setState({ charityInfo: charity, countyInfo: county});
+        // this2.setState({ charityInfo: charity, countyInfo: county});
       }
     });
 
