@@ -217,7 +217,7 @@ class CountyModel extends Component {
   <button class="btn btn-secondary dropdown-toggle" type="button" id="filterPercent" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Filter by Poverty Percentage
   </button>
-  <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2" >
+  <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2" >
     <button class="dropdown-item" type="button" value = '9' onClick = {this.updatePercentFilter}>  &lt; 9% </button>
     <div class="dropdown-divider"></div>
     <button class="dropdown-item" type="button" value = '12' onClick = {this.updatePercentFilter}>  9-12% </button>
