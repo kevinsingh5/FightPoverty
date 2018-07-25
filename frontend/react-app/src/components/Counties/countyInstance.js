@@ -5,7 +5,7 @@ import CityCard from '../CityModel/CityCard.js';
 import CharityCard from '../CharityModel/CharityCard.js';
 import {getSpecificCharity} from '../../queries/charityQueries';
 import {getSpecificCity} from '../../queries/cityQueries';
-
+import {getSpecificCounty} from '../../queries/countyQueries';
 var mapBounds = [0, 0, 0, 0];
 
 
@@ -14,20 +14,35 @@ class CountyInstance extends Component {
     super(props);
     this.state = { 
       charityInfo: [],
-      cityInfo: []
+      cityInfo: [],
+      name:"",
+      cities:"",
+      state:"",
+      percent:"",
+      multiplier:"",
+      population:0
     };
   }
 
 
 
   async componentWillMount () {
-    const charity = await getSpecificCharity(this.props.location.state.charities[0].name)
-    const city = await getSpecificCity(this.props.location.state.cities[0].name);
+    
+    
+      var parts = window.location.href.split('/');
+      var link = parts.pop();
+      const county = await getSpecificCounty(link);
+      this.setState({name: county[0].name, cities: county[0].cities[0].name,state:county[0].cities[0].state,
+        percent:county[0].county_poverty_percentage,multiplier:county[0].fight_poverty_multiplier,population: county[0].county_poverty_population})
 
-    console.log(this.props.location.state.name);
+    
+  
+    const charity = await getSpecificCharity(county[0].charities[0].name)
+    const city = await getSpecificCity(county[0].cities[0].name);
+
     var this2 = this;
     // search for city coordinates
-    $.getJSON('https://nominatim.openstreetmap.org/search?q=' + this.props.location.state.name + ',+' + this.props.location.state.state + '&format=json', function(data) {
+    $.getJSON('https://nominatim.openstreetmap.org/search?q=' + this.state.name + ',+' + this.state.state + '&format=json', function(data) {
       // do stuff with the data
       console.log(data);
       if(data.length > 0) {
@@ -55,7 +70,7 @@ class CountyInstance extends Component {
           
               <section className="jumbotron text-center">
                   <div className="container">
-                    <h1 className="jumbotron-heading">{this.props.location.state.name}</h1>
+                    <h1 className="jumbotron-heading">{this.state.name}</h1>
                     <p className="lead text-muted"></p>
                   </div>
               </section>
@@ -63,7 +78,7 @@ class CountyInstance extends Component {
               <TwitterShareButton 
                 className='float-right' 
                 url={document.URL} 
-                title={this.props.location.state.name + " has a poverty rate of " + this.props.location.state.county_poverty_percentage + "%:\n"}> 
+                title={this.state.name + " has a poverty rate of " + this.state.percent + "%:\n"}> 
                 <TwitterIcon size={48} round /> 
               </TwitterShareButton> 
               <FacebookShareButton 
@@ -73,26 +88,26 @@ class CountyInstance extends Component {
               </FacebookShareButton> 
 
               <ul>
-                <li>Cities: {this.props.location.state.cities[0].name} </li> 
-                <li>State: {this.props.location.state.state}</li>
-                <li>Poverty Population: {this.props.location.state.county_poverty_population} </li>
-                <li>Poverty Percentage: {this.props.location.state.county_poverty_percentage}%</li>
-                <li>FightPoverty Multiplier: {this.props.location.state.fight_poverty_multiplier}</li>
+                <li>Cities: {this.state.cities} </li> 
+                <li>State: {this.state.state}</li>
+                <li>Poverty Population: {this.state.population} </li>
+                <li>Poverty Percentage: {this.state.percent}%</li>
+                <li>FightPoverty Multiplier: {this.state.multiplier}</li>
 
               </ul>
               <div align="center">
                 <iframe width='600' height='450' src={"https://www.openstreetmap.org/export/embed.html?bbox=" + mapBounds[2] + "%2C" + mapBounds[0] + "%2C" + mapBounds[3] + "%2C" + mapBounds[1]} frameBorder="0" allowFullScreen></iframe>
                 <br/>
-                <small><a href={"https://www.openstreetmap.org/search?query=" + this.props.location.state.name + "%2C%20" + this.props.location.state.state + "#map=13"}>View Larger Map</a></small>
+                <small><a href={"https://www.openstreetmap.org/search?query=" + this.state.name + "%2C%20" + this.state.state + "#map=13"}>View Larger Map</a></small>
               </div>
-              <h1 align="center"> Cities related to {this.props.location.state.name}</h1>
+              <h1 align="center"> Cities related to {this.state.name}</h1>
              <div align="center">
                 {this.state.cityInfo.splice(0,1).map((dynamicCity, i) => <CityCard 
                   key = {i} cityInfo = {dynamicCity}/>)}
               </div>
 
 
-            <h1 align="center"> Charities related to {this.props.location.state.name}</h1>
+            <h1 align="center"> Charities related to {this.state.name}</h1>
             <div align = "center">
               {this.state.charityInfo.splice(0,1).map((dynamicCharity, i) => <CharityCard 
                   key = {i} charityInfo = {dynamicCharity}/>)}
