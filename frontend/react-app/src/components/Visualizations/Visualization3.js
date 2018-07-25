@@ -21,7 +21,8 @@ class Visualization3 extends Component {
     }
 
     async createBarChart() {
-        const node = this.node
+        const bars = this.bars
+        const yaxis = this.yaxis
 
         var margin = {top: 40, right: 40, bottom: 30, left: 80},
         width = viz3_width - margin.left - margin.right,
@@ -49,29 +50,39 @@ class Visualization3 extends Component {
                 return "<strong>" + d.county + ":</strong> <span style='color:orange'>" + d.percentage * 100 + "%</span>";
             })
 
+
         
-        var svg = d3.select(node).append("svg")
+        var barChartSvg = d3.select(bars).append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-        
-        svg.call(tip);
 
+
+        // y axis
+        var yAxisSvg = d3.select(yaxis).append("svg")
+            // .attr("width", 200)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+
+        barChartSvg.call(tip);
 
         const data = await d3.tsv("https://s3.us-east-2.amazonaws.com/unemployment-stats/county-poverty.tsv", type)
-
 
         x.domain(data.map(function(d) { return d.county; }));
         y.domain([0, d3.max(data, function(d) { return d.percentage; })]);
 
         
-        svg.append("g")
+        barChartSvg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
             // .call(xAxis);
-        
-        svg.append("g")
+
+
+        // y axis
+        yAxisSvg.append("g")
             .attr("class", "y axis")
             .call(yAxis)
             .append("text")
@@ -82,7 +93,7 @@ class Visualization3 extends Component {
             .text("Poverty %");
 
         
-        svg.selectAll(".bar")
+        barChartSvg.selectAll(".bar")
             .data(data)
             .enter().append("rect")
             .attr("class", "bar")
@@ -111,14 +122,34 @@ class Visualization3 extends Component {
     render() {
 
         return (
-            <div style={{ paddingTop: '100px' }}>
-                <svg 
-                    ref={node => this.node = node} 
-                    width={viz3_width} 
-                    height={viz3_height} 
-                    style={{ display: 'block', margin: 'auto' }}
-                />
-            </div>            
+            <div style={{ 
+                paddingTop: '100px', 
+                textAlign: 'center', 
+                color: 'black',
+                width: '90%',
+                margin: 'auto'
+            }}>
+                Charity Scores
+                <div>
+                    <div style={{ float: 'left', marginLeft: '-40px' }}>
+                        <svg 
+                            ref={yaxis => this.yaxis = yaxis} 
+                            width={85} 
+                            height={viz3_height} 
+
+                        />
+                    </div>
+
+                    <div style={{ overflow: 'auto' }}>
+                        <svg 
+                            ref={bars => this.bars = bars} 
+                            width={viz3_width} 
+                            height={viz3_height} 
+                        /> 
+                    </div> 
+
+                </div>
+            </div>
         )
     }
 }
