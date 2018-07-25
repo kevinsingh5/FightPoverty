@@ -3,6 +3,7 @@ import '../../App.css'
 import { select } from 'd3-selection'
 import './vis1.css'
 import { getAllCounties } from '../../queries/countyQueries'
+import { viz1_height, viz1_width } from './visualization-styles'
 var d3 = require('d3')
 
 
@@ -24,7 +25,7 @@ class Visualization1 extends Component {
 
     async createLineChart() {
         const node = this.node
-        var svgWidth = 700, svgHeight = 450;
+        var svgWidth = viz1_width, svgHeight = viz1_height;
         var margin = { top: 20, right: 20, bottom: 30, left: 50 };
         var width = svgWidth - margin.left - margin.right;
         var height = svgHeight - margin.top - margin.bottom;
@@ -89,7 +90,6 @@ class Visualization1 extends Component {
 
         // load data
         const data = await getAllCounties()
-        console.log(data)
 
         // don't want dots overlapping axis, so add in buffer to data domain
         xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
@@ -213,8 +213,8 @@ class Visualization1 extends Component {
             <div style={{ paddingTop: '100px' }}>
                 <svg 
                     ref={node => this.node = node} 
-                    width={700} 
-                    height={450} 
+                    width={viz1_width} 
+                    height={viz1_height} 
                     style={{ display: 'block', margin: 'auto' }}
                 />
             </div>            
