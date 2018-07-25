@@ -31,7 +31,7 @@ export async function getSpecificCharity (charity) {
 }
 
 export async function generalCharitySearch (txt, pageNumber) {
-  	const response = await axios.get(backendAPI+ 'api/charity?q={"filters":[{"name":"name","op":"like","val":' +  '"%' + txt + '%"' +  '}]}&page=' + pageNumber +  '&results_per_page=3');
+  	const response = await axios.get(backendAPI+ 'api/charity?q={"filters":[{"name":"name","op":"like","val":' +  '"%25' + txt + '%25"' +  '}]}&page=' + pageNumber +  '&results_per_page=3');
 	  // .then(function (response) {
 	  //   console.log(response);
 	  //   return response.data.objects;
@@ -45,7 +45,7 @@ export async function generalCharitySearch (txt, pageNumber) {
 }
 
 export async function charitySearch (txt, pageNumber) {
-	const response = await axios.get(backendAPI+ 'api/charity?q={"filters":[{"name":"name","op":"like","val":' +  '"%' + txt + '%"' +  '}]}&page=' + pageNumber +  '&results_per_page=9');
+	const response = await axios.get(backendAPI+ 'api/charity?q={"filters":[{"name":"name","op":"like","val":' +  '"%25' + txt + '%25"' +  '}]}&page=' + pageNumber +  '&results_per_page=9');
 	// .then(function (response) {
 	//   console.log(response);
 	//   return response.data.objects;

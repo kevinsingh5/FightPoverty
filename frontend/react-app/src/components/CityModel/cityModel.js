@@ -145,7 +145,7 @@ class CityModel extends Component {
           <div className="container">
 
               <div className="row">
-              {this.state.cities.map((dynamicCity, i) => <CityCard images={this.props.images}
+              {this.state.cities.map((dynamicCity, i) => <CityCard
                   key = {i} cityInfo = {dynamicCity} search = {this.state.searchTerm}/>)}
               </div>
         </div>
