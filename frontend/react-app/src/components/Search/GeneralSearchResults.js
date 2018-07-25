@@ -81,7 +81,7 @@ class GeneralSearchResults extends Component {
                                       <div className="row">
 
 
-                                      {charities.map((dynamicCharity, i) => <CharityCard images={this.props.charityImages}
+                                      {charities.map((dynamicCharity, i) => <CharityCard 
                                       key = {i} charityInfo = {dynamicCharity} search = {searchTerm}/>)} 
                                       </div>
                                       </div>
@@ -105,7 +105,7 @@ class GeneralSearchResults extends Component {
                                       <h1 align= "center"> City Results </h1>
 
                                       <div className="row">
-                                      {cities.map((dynamicCity, i) => <CityCard images={this.props.cityImages}
+                                      {cities.map((dynamicCity, i) => <CityCard
                                       key = {i} cityInfo = {dynamicCity} search = {searchTerm}/>)}
 
                                       </div>
@@ -127,7 +127,7 @@ class GeneralSearchResults extends Component {
                                         <div className="container">
                                         <h1 align= "center" > County Results </h1>
                                         <div className="row">
-                                        {counties.map((dynamicCounty, i) => <CountyCard images={this.props.countyImages}
+                                        {counties.map((dynamicCounty, i) => <CountyCard
                                         key = {i} countyInfo = {dynamicCounty} search = {searchTerm} />)}
                                         </div>
                                         </div>

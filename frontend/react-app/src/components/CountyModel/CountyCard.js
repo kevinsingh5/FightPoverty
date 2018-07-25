@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { countyImages } from '../../images/county_images'
 var Highlight = require('react-highlighter');
 
 
@@ -9,8 +10,8 @@ class CountyCard extends Component {
 
   render() {
     let img_src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Usa_counties_large.svg/580px-Usa_counties_large.svg.png"
-    if (!!this.props.images && !!this.props.images[this.props.countyInfo.name]) {
-      img_src = this.props.images[this.props.countyInfo.name]
+    if (!!countyImages && !!countyImages[this.props.countyInfo.name]) {
+      img_src = countyImages[this.props.countyInfo.name]
     }
 
 

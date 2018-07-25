@@ -144,8 +144,6 @@ class CountyModel extends Component {
 
   render() {
 
-    console.log(this.props.images)
-
     return (
       <div>
             
@@ -220,7 +218,7 @@ class CountyModel extends Component {
                 <div className="container">
 
                   <div className="row">
-                    {this.state.counties.map((dynamicCounty, i) => <CountyCard images={this.props.images}
+                    {this.state.counties.map((dynamicCounty, i) => <CountyCard
                           key = {i} countyInfo = {dynamicCounty} search = {this.state.searchTerm} />)}
                 </div>
                 </div>

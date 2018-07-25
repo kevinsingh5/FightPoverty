@@ -65,7 +65,7 @@ export async function getSpecificCounty (county) {
 }
 
 export async function generalCountySearch (text, pageNumber){
-  	  const response = await axios.get(backendAPI+ 'api/county?q={"filters":[{"name":"name","op":"like","val":' + '"%' + text + '%"' + "}]}"+ "&" + "page=" + pageNumber + '&results_per_page=3');
+  	  const response = await axios.get(backendAPI+ 'api/county?q={"filters":[{"name":"name","op":"like","val":' + '"%25' + text + '%25"' + "}]}"+ "&" + "page=" + pageNumber + '&results_per_page=3');
 	  // .then(function (response) {
 	  //   console.log(response);
 	  //   return response.data.objects;
@@ -81,7 +81,7 @@ export async function generalCountySearch (text, pageNumber){
 
 
 export async function countySearch (text, pageNumber){
-	const response = await axios.get(backendAPI+ 'api/county?q={"filters":[{"name":"name","op":"like","val":' + '"%' + text + '%"' + "}]}"+ "&" + "page=" + pageNumber + '&results_per_page=9');
+	const response = await axios.get(backendAPI+ 'api/county?q={"filters":[{"name":"name","op":"like","val":' + '"%25' + text + '%25"' + "}]}"+ "&" + "page=" + pageNumber + '&results_per_page=9');
   // .then(function (response) {
   //   console.log(response);
   //   return response.data.objects;
