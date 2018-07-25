@@ -1,0 +1,257 @@
+<!-- <!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 12px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: maroon;
+}
+
+.bar:hover {
+  fill: orangered ;
+}
+
+.x.axis path {
+  display: inline;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+</style>
+
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+<script>
+
+var margin = {top: 40, right: 40, bottom: 30, left: 80},
+    width = 2000 - margin.left - margin.right,
+    height = 1000 - margin.top - margin.bottom;
+
+var formatPercent = d3.format(".2f");
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(formatPercent);
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "<strong>" + d.charity + ":</strong> <span style='color:orange'>" + d.charity + "</span>";
+  })
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.call(tip);
+
+d3.tsv("charity-score.tsv", type, function(error, data) {
+  
+  x.domain(data.map(function(d) { return d.charity; }));
+  y.domain([0, d3.max(data, function(d) { return d.charity; })]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      //.call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 9)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Poverty %");
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.charity); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.charity); })
+      .attr("y2", function(d) { return y(d.fp_score)})
+      .attr("height", function(d) { return height - y(d.charity); })
+      .attr("height", function(d) { return height - y2(d.charity); })
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide)
+
+});
+
+function type(d) {
+  d.charity = +d.charity;
+  return d;
+}
+
+</script>
+</body> -->
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+body {
+  font: 10px sans-serif;
+}
+.y.axisRight text {
+    fill: orange;
+}
+.y.axisLeft text {
+    fill: steelblue;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.bar1 {
+  fill: steelblue;
+}
+.bar2 {
+  fill: orange;
+}
+.x.axis path {
+  display: none;
+}
+</style>
+
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+var margin = {top: 120, right: 100, bottom: 120, left: 100},
+    width = 4000 - margin.left - margin.right,
+    height = 1000 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y0 = d3.scale.linear().domain([50, 120]).range([height, 0]),
+    y1 = d3.scale.linear().domain([50, 120]).range([height, 0]);
+
+// create x axis
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+// create left yAxis
+var yAxisLeft = d3.svg.axis().scale(y0).ticks(6).orient("left");
+// create right yAxis
+var yAxisRight = d3.svg.axis().scale(y1).ticks(6).orient("right");
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("class", "graph")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.tsv("charity-score.tsv", type, function(error, data) {
+  x.domain(data.map(function(d) { return d.charity; }));
+  y0.domain([0, d3.max(data, function(d) { return d.cn_score; })]);
+  y1.domain([0, d3.max(data, function(d) { return d.fp_score; })]);
+  
+  
+  svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+  
+  svg.append("g")
+      .attr("class", "y axis axisLeft")
+      .attr("transform", "translate(0,0)")
+      .call(yAxisLeft)
+    .append("text")
+      .attr("y", 6)
+      .attr("dy", "-2em")
+      .style("text-anchor", "end")
+      .style("text-anchor", "middle")
+      .text("Charity Navigator Score");
+
+  svg.append("g")
+      .attr("class", "y axis axisRight")
+      .attr("transform", "translate(" + (width) + ", 0)")
+      .call(yAxisRight)
+    .append("text")
+      .attr("y", 6)
+      .attr("dy", "-2em")
+      .attr("dx", "2em")
+      .style("text-anchor", "middle")
+      .text("Fight Poverty Score");
+
+  bars = svg.selectAll(".bar").data(data).enter();
+
+  bars.append("rect")
+    .attr("class", "bar1")
+    .attr("x", function(d) { return x(d.charity); })
+    .attr("width", x.rangeBand()/2)
+    .attr("y", function(d) { return y0(d.cn_score); })
+	    .attr("height", function(d,i,j) { return height - y0(d.cn_score); }); 
+  
+  bars.append("rect")
+    .attr("class", "bar2")
+    .attr("x", function(d) { return x(d.charity) + x.rangeBand()/2; })
+    .attr("width", x.rangeBand()/2)
+    .attr("y", function(d) { return y1(d.fp_score); })
+	    .attr("height", function(d,i,j) { return height - y1(d.fp_score); }); 
+});
+
+function type(d) {
+  d.cn_score = +d.cn_score;
+  return d;
+}
+</script>
+</body>
