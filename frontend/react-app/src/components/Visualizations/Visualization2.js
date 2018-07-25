@@ -75,7 +75,7 @@ class Visualization2 extends Component {
         
 
         const us = await d3.json("https://d3js.org/us-10m.v1.json")
-        await d3.tsv("https://gitlab.com/chris.amini/FightingPoverty/raw/6642182e34e84e46aad91437ffd987497dc3e80b/frontend/react-app/src/components/Visualizations/percentages.tsv", 
+        await d3.tsv("https://s3.us-east-2.amazonaws.com/unemployment-stats/percentages.tsv", 
             function(d) { 
                 unemployment.set(d.id, +d.rate); 
             }
