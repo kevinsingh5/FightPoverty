@@ -5,6 +5,8 @@ import CountyCard from '../CountyModel/CountyCard.js';
 import CharityCard from '../CharityModel/CharityCard.js';
 import {getSpecificCharity} from '../../queries/charityQueries';
 import {getSpecificCounty} from '../../queries/countyQueries';
+import {getSpecificCity} from '../../queries/cityQueries';
+
 
 var mapBounds = [0, 0, 0, 0];
 
@@ -13,19 +15,25 @@ class CityInstance extends Component {
     super(props);
     this.state = { 
       charityInfo : [],
-      countyInfo : []
+      countyInfo : [],
+      name:"",
+      state:"",
+      county:"",
     };
   }
 
   async componentWillMount () {
-    // console.log(this.props.location.state.charities[0].name)
-    const charity = await getSpecificCharity(this.props.location.state.charities[0].name);
-    // console.log(charity)
-    const county = await getSpecificCounty(this.props.location.state.county.name);
-    //console.log(county);
+
+    var parts = window.location.href.split('/');
+    var link = parts.pop();
+    const city = await getSpecificCity(link);
+    this.setState({name: city[0].name, state: city[0].state , county:city[0].county.name});
+
+    const charity = await getSpecificCharity(city[0].charities[0].name);
+    const county = await getSpecificCounty(city[0].county.name);
     var this2 = this;
     // search for city coordinates
-    $.getJSON('https://nominatim.openstreetmap.org/search?q=' + this.props.location.state.name + ',+' + this.props.location.state.state + '&format=json', function(data) {
+    $.getJSON('https://nominatim.openstreetmap.org/search?q=' + this.state.name + ',+' + this.state.state + '&format=json', function(data) {
       // do stuff with the data
       //console.log(data);
       if(data.length > 0) {
@@ -57,7 +65,7 @@ class CityInstance extends Component {
 <div>
               <section className="jumbotron text-center">
                   <div className="container">
-                    <h1 className="jumbotron-heading">{this.props.location.state.name}</h1>
+                    <h1 className="jumbotron-heading">{this.state.name}</h1>
                     <p className="lead text-muted"></p>
                   </div>
               </section>
@@ -65,7 +73,7 @@ class CityInstance extends Component {
               <TwitterShareButton 
                 className='float-right' 
                 url={document.URL} 
-                title={"Charites in " + this.props.location.state.name + ", " + this.props.location.state.state + ":\n"}> 
+                title={"Charites in " + this.state.name + ", " + this.state.state + ":\n"}> 
                 <TwitterIcon size={48} round /> 
               </TwitterShareButton> 
               <FacebookShareButton 
@@ -75,24 +83,24 @@ class CityInstance extends Component {
               </FacebookShareButton> 
 
               <ul>
-                <li>State: {this.props.location.state.state} </li>
-                <li>Counties: {this.props.location.state.county.name}</li>
+                <li>State: {this.state.state} </li>
+                <li>Counties: {this.state.county}</li>
 
               </ul>
       <div align="center">
         <iframe width='600' height='450' src={"https://www.openstreetmap.org/export/embed.html?bbox=" + mapBounds[2] + "%2C" + mapBounds[0] + "%2C" + mapBounds[3] + "%2C" + mapBounds[1]} frameBorder="0" allowFullScreen></iframe>
         
         <br/>
-        <small><a href={"https://www.openstreetmap.org/search?query=" + this.props.location.state.name + "%2C%20" + this.props.location.state.state + "#map=13"}>View Larger Map</a></small>
+        <small><a href={"https://www.openstreetmap.org/search?query=" + this.state.name + "%2C%20" + this.state.state + "#map=13"}>View Larger Map</a></small>
       </div>
-        <h1 align="center"> Charities in {this.props.location.state.name}</h1>
+        <h1 align="center"> Charities in {this.state.name}</h1>
 
       <div align="center">
         {this.state.charityInfo.map((dynamicCharity, i) => <CharityCard 
                   key = {i} charityInfo = {dynamicCharity}/>)}  
       </div>
 
-        <h1 align="center"> Counties related to {this.props.location.state.name}</h1>
+        <h1 align="center"> Counties related to {this.state.name}</h1>
       <div align = "center">
         {this.state.countyInfo.splice(0,1).map((dynamicCounty, i) => <CountyCard 
                           key = {i} countyInfo = {dynamicCounty} />)}
