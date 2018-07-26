@@ -19,6 +19,9 @@ class CityInstance extends Component {
       name:"",
       state:"",
       county:"",
+      average_charity_navigator_score:0,
+      average_fight_poverty_score:0
+
     };
   }
 
@@ -29,7 +32,8 @@ class CityInstance extends Component {
     const city = await getSpecificCity(link);
     if(!!city[0]){
 
-    this.setState({name: city[0].name, state: city[0].state , county:city[0].county.name});
+    this.setState({name: city[0].name, state: city[0].state , county:city[0].county.name, average_charity_navigator_score: city[0].average_charity_navigator_score,
+      average_fight_poverty_score: city[0].average_fight_poverty_score});
     }
     const charity = city[0].charities;
     const county = await getSpecificCounty(city[0].county.name);
@@ -86,7 +90,10 @@ class CityInstance extends Component {
 
               <ul>
                 <li>State: {this.state.state} </li>
-                <li>Counties: {this.state.county}</li>
+                <li>County: {this.state.county}</li>
+                <li>Average CharityNavigator Score: {this.state.average_charity_navigator_score}</li>
+                <li>Average FightPoverty Score: {this.state.average_fight_poverty_score}</li>
+
 
               </ul>
       <div align="center">
