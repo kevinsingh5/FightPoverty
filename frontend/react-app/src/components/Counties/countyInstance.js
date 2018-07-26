@@ -37,23 +37,22 @@ class CountyInstance extends Component {
 
     
   
-    const charity = await getSpecificCharity(county[0].charities[0].name)
-    const city = await getSpecificCity(county[0].cities[0].name);
+    const charity = county[0].charities
+    const city = county[0].cities;
 
     var this2 = this;
     // search for city coordinates
-    $.getJSON('https://nominatim.openstreetmap.org/search?q=' + this.state.name + ',+' + this.state.state + '&format=json', function(data) {
+    await $.getJSON('https://nominatim.openstreetmap.org/search?q=' + this.state.name + ',+' + this.state.state + '&format=json', function(data) {
       // do stuff with the data
       console.log(data);
       if(data.length > 0) {
         var loc = data[0];
         //console.log(location);
         mapBounds = loc['boundingbox'];
-        this2.setState({ charityInfo: charity, cityInfo: city});
       }
     });
 
-    this.setState({ charityInfo: charity, cityInfo: city});
+   this.setState({ charityInfo: charity, cityInfo: city});
   }
 
   //scroll to top after clicking on card
@@ -100,19 +99,27 @@ class CountyInstance extends Component {
                 <br/>
                 <small><a href={"https://www.openstreetmap.org/search?query=" + this.state.name + "%2C%20" + this.state.state + "#map=13"}>View Larger Map</a></small>
               </div>
-              <h1 align="center"> Cities related to {this.state.name}</h1>
+              <h1 align="center"> Cities in {this.state.name}</h1>
              <div align="center">
-                {this.state.cityInfo.splice(0,1).map((dynamicCity, i) => <CityCard 
+                <div className="row" style={{justifyContent:"center"}}>
+
+                {this.state.cityInfo.map((dynamicCity, i) => <CityCard 
                   key = {i} cityInfo = {dynamicCity}/>)}
+              </div>
               </div>
 
 
-            <h1 align="center"> Charities related to {this.state.name}</h1>
-            <div align = "center">
-              {this.state.charityInfo.splice(0,1).map((dynamicCharity, i) => <CharityCard 
-                  key = {i} charityInfo = {dynamicCharity}/>)}
+            <h1 align="center"> Charities in {this.state.name}</h1>
 
+
+            <div className="row" style={{justifyContent:"center"}}>
+
+              {this.state.charityInfo.map((dynamicCharity, i) => <CharityCard 
+                  key = {i} charityInfo = {dynamicCharity}/>)}
             </div>
+
+
+          
        </div>
           
           

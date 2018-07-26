@@ -30,6 +30,8 @@ class CountyModel extends Component {
 
     this.updatePageWithFilters = this.updatePageWithFilters.bind(this);
     this.updateSort = this.updateSort.bind(this);
+    this.reset = this.reset.bind(this);
+
 
   }
 
@@ -52,6 +54,16 @@ class CountyModel extends Component {
  
 
   async updateStateFilter(e){
+        let state = e.target.value;
+        console.log(this.state.stateFilters.length)
+        if(this.state.stateFilters.length == 0){
+          document.getElementById("stateFilter").innerHTML = "State: " + state; 
+        }
+        else{
+          document.getElementById("stateFilter").innerHTML += `, ${state}`; 
+        }
+
+
         //setState is slow 
         let newStateFilters = this.state.stateFilters;
         newStateFilters.push(e.target.value);
@@ -142,6 +154,16 @@ class CountyModel extends Component {
       await this.setState({ counties: counties, totalNum: numOfCounties, activePage: 1});
   }
 
+  async reset(){
+      document.getElementById("sort").innerHTML = "Sort"
+      document.getElementById("filterPercent").innerHTML = "Filter by Poverty Percentage"
+      document.getElementById("stateFilter").innerHTML = "Filter by State";
+
+
+      await this.setState({sort: "none", stateFilters: [], percentFilter:""})
+      this.updatePageWithFilters();
+    }
+
   render() {
 
     return (
@@ -158,11 +180,12 @@ class CountyModel extends Component {
                             countiesFound={this.state.counties.length > 0}
                           />
                         </div>
+
                  </section>
 
       <div class="dropdown" style={{display : 'inline-block'}}>
   <button class="btn btn-secondary dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort:
+    Sort
   </button>
   <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
     <button class="dropdown-item" type="button" value= 'AZ' onClick={this.updateSort}>Name: A-Z </button>
@@ -181,7 +204,7 @@ class CountyModel extends Component {
   <button class="btn btn-secondary dropdown-toggle" type="button" id="stateFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Filter by State
   </button>
-  <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2">
+  <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
    {this.state.states.map((stateButton,i) => <div><button class="dropdown-item" type="button" value= {stateButton} 
       onClick = {this.updateStateFilter} > {stateButton} </button>  <div class="dropdown-divider"></div></div>
     )}
@@ -195,7 +218,7 @@ class CountyModel extends Component {
   <button class="btn btn-secondary dropdown-toggle" type="button" id="filterPercent" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Filter by Poverty Percentage
   </button>
-  <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenu2" >
+  <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2" >
     <button class="dropdown-item" type="button" value = '9' onClick = {this.updatePercentFilter}>  &lt; 9% </button>
     <div class="dropdown-divider"></div>
     <button class="dropdown-item" type="button" value = '12' onClick = {this.updatePercentFilter}>  9-12% </button>
@@ -213,11 +236,15 @@ class CountyModel extends Component {
   </div>
 </div>
 
+<button type="button" class="btn btn-danger" onClick = {this.reset}>Reset</button>
+
+
 
                  <div className="album py-5 bg-dark">
                 <div className="container">
 
                   <div className="row">
+                    
                     {this.state.counties.map((dynamicCounty, i) => <CountyCard
                           key = {i} countyInfo = {dynamicCounty} search = {this.state.searchTerm} />)}
                 </div>

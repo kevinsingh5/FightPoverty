@@ -35,7 +35,7 @@ class CharityInstance extends Component {
      var parts = window.location.href.split('/');
       var link = parts.pop();
       const charity = await getSpecificCharity(link);
-      this.setState({name: charity[0].name, cause: charity[0].cause,city:charity[0].city.name,
+      await this.setState({name: charity[0].name, cause: charity[0].cause,city:charity[0].city.name,
         county:charity[0].county.name,state:charity[0].city.state,zip_code: charity[0].zip_code, 
         acc_score:charity[0].charity_navigator_accountability_score,fin_score:charity[0].charity_navigator_financial_score,cn_score:charity[0].charity_navigator_score,
       fp_score:charity[0].fight_poverty_score, address: charity[0].address, mission_statement: charity[0].mission_statement})
@@ -45,7 +45,7 @@ class CharityInstance extends Component {
 
     var this2 = this;
     // search for city coordinates
-    $.getJSON('https://nominatim.openstreetmap.org/search?q=' + this.state.address + ',+' + this.state.city + ',+' + this.state.state + '&format=json', function(data) {
+    await $.getJSON('https://nominatim.openstreetmap.org/search?q=' + this.state.address + ',+' + this.state.city + ',+' + this.state.state + '&format=json', function(data) {
       // do stuff with the data
       console.log(data);
       if(data.length > 0) {
@@ -53,7 +53,6 @@ class CharityInstance extends Component {
         //console.log(location);
         mapBounds = loc['boundingbox'];
         console.log(data);
-        this2.setState({ cityInfo: city, countyInfo: county});
       }
     });
 
