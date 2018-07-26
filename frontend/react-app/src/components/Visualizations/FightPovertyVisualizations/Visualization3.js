@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../../App.css'
+import '../../../App.css'
 import d3tip from 'd3-tip'
 import './vis3.css'
 import { viz3_height, viz3_width } from './visualization-styles'

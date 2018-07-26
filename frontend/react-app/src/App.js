@@ -10,7 +10,8 @@ import CountyInstance from './components/Counties/countyInstance'
 import CharityInstance from './components/Charities/charityInstance'
 import About from './components/About/About'
 import Search from './components/Search/Search'
-import Visualizations from './components/Visualizations/Visualizations'
+import Visualizations from './components/Visualizations/FightPovertyVisualizations/Visualizations'
+import PropXVisualizations from './components/Visualizations/PropXVisualizations/PropXVisualizations'
 
 
 class App extends Component {
@@ -38,6 +39,8 @@ class App extends Component {
             <Route exact path='/about' component={About} />
 
             <Route exact path ='/visualizations' component={Visualizations} />
+
+            <Route exact path ='/propxvisualizations' component={PropXVisualizations} />
           </Switch>
         </div>
         

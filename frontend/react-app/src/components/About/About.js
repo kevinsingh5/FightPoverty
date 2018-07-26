@@ -216,6 +216,11 @@ class About extends Component {
           <br />
           <br />
 
+          
+          <a href="./propxvisualizations">Our Provider's Visualizations</a>
+          <br />
+          <br />
+
 
           <a href="http://gitlab.com/chris.amini/FightingPoverty">GitLab Repo</a>
           <br />

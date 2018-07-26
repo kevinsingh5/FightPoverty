@@ -26,9 +26,9 @@ class Visualizations extends Component {
             </div>
         </section>
 
+        <Visualization2 />
         <Visualization1 /> 
-        <Visualization2 data={[5,3,1,3]} size={[500,500]}/>
-        <Visualization3 data={[1,29,1,3]} size={[500,500]}/>
+        <Visualization3 />
 
       </div>
 
