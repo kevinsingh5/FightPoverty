@@ -5,11 +5,21 @@ var Highlight = require('react-highlighter');
 
 
 class CharityCard extends Component {
-  constructor(props) {
-    super(props);
-
+  constructor(props){
+    super(props)
     this.state = {
-      charityImage: ''
+      isHovering:false
+    }
+      this.handleMouseHover = this.handleMouseHover.bind(this);
+
+  }
+  handleMouseHover() {
+    this.setState(this.toggleHoverState);
+  }
+
+  toggleHoverState(state) {
+    return {
+      isHovering: !state.isHovering,
     };
   }
 
@@ -23,6 +33,8 @@ class CharityCard extends Component {
 
     return (
   <div className="col-md-4" style={{justifyContent:"center"}}>
+              <div onMouseEnter={this.handleMouseHover} onMouseLeave={this.handleMouseHover}>
+
 
                     <div className="card mb-4 box-shadow ">
 
@@ -40,10 +52,24 @@ class CharityCard extends Component {
                           <div className="card-body">
 
                       <h2 className="card-title"><Highlight search= {this.props.search}>{this.props.charityInfo.name}</Highlight></h2>
-                    
+        {this.state.isHovering &&
+          <div className="card-attributes">
+            <ul>
+              <li>Cause: {this.props.charityInfo.cause}</li>
+              <li>CharityNavigator Accountability Score: {this.props.charityInfo.charity_navigator_accountability_score}</li>
+              <li>CharityNavigator Financial Score: {this.props.charityInfo.charity_navigator_financial_score}</li>
+              <li>CharityNavigator Rating: {this.props.charityInfo.charity_navigator_score}</li>
+              <li>FightPoverty Rating: {this.props.charityInfo.fight_poverty_score}</li>
+
+
+
+            </ul>
+          </div>
+        }
                            </div>
                         </Link>
           </div>
+        </div>
           </div>
           
    
