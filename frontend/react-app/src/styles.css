@@ -221,7 +221,7 @@ footer p {
 }
 
 .card:hover .card-body{
-  background-color:#738375;
+  background-color:#CAC7C6  ;
 }
 
 
@@ -234,5 +234,10 @@ footer p {
     height: auto;
     max-height: 200px;
     overflow-x: hidden;
+}
+
+.card-attributes{
+  font-family: 'Amatic SC';
+  font-size: 25px;
 }
 

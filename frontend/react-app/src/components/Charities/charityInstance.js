@@ -105,7 +105,7 @@ class CharityInstance extends Component {
               </div>
 
               <h1 align="center"> Cities related to {this.state.name}</h1>
-            <div align="center">
+            <div className="row" style={{justifyContent:"center"}}>
                  {this.state.cityInfo.splice(0,1).map((dynamicCity, i) => <CityCard 
                   key = {i} cityInfo = {dynamicCity}/>)}
 
@@ -113,7 +113,7 @@ class CharityInstance extends Component {
 
 
             <h1 align="center"> Counties related to {this.state.name}</h1>
-            <div align = "center">
+            <div className="row" style={{justifyContent:"center"}}>
               {this.state.countyInfo.splice(0,1).map((dynamicCounty, i) => <CountyCard 
                           key = {i} countyInfo = {dynamicCounty} />)}
 

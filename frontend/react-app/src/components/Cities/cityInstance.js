@@ -95,21 +95,17 @@ class CityInstance extends Component {
       </div>
         <h1 align="center"> Charities in {this.state.name}</h1>
 
-      <div align="center">
                    <div className="row" style={{justifyContent:"center"}}>
 
         {this.state.charityInfo.map((dynamicCharity, i) => <CharityCard 
                   key = {i} charityInfo = {dynamicCharity}/>)}  
       </div>
-      </div>
 
         <h1 align="center"> Counties related to {this.state.name}</h1>
-      <div align = "center">
            <div className="row" style={{justifyContent:"center"}}>
 
         {this.state.countyInfo.splice(0,1).map((dynamicCounty, i) => <CountyCard 
                           key = {i} countyInfo = {dynamicCounty} />)}
-          </div>
           </div>
 
       

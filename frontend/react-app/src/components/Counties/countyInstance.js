@@ -100,12 +100,10 @@ class CountyInstance extends Component {
                 <small><a href={"https://www.openstreetmap.org/search?query=" + this.state.name + "%2C%20" + this.state.state + "#map=13"}>View Larger Map</a></small>
               </div>
               <h1 align="center"> Cities in {this.state.name}</h1>
-             <div align="center">
                 <div className="row" style={{justifyContent:"center"}}>
 
                 {this.state.cityInfo.map((dynamicCity, i) => <CityCard 
-                  key = {i} cityInfo = {dynamicCity}/>)}
-              </div>
+                  key = {i} cityInfo = {dynamicCity} countyName = {this.state.name}/>)}
               </div>
 
 

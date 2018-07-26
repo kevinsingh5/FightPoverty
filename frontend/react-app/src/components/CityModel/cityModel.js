@@ -18,7 +18,6 @@ class CityModel extends Component {
       stateFilters:[],
       states:stateList,
       searchTerm: '',
-
     };
 
     this.handlePageChange = this.handlePageChange.bind(this);
@@ -38,6 +37,8 @@ class CityModel extends Component {
     const numOfCities = citiesResponse.num_results;
     this.setState({ cities: cities, totalNum: numOfCities, activePage:1}); 
   }
+
+
 
   async handlePageChange(pageNumber) {
     const newCitiesResponse = await getCities(this.state.searchTerm,this.state.sort,this.state.stateFilters, pageNumber, RESULTS_PER_PAGE);
