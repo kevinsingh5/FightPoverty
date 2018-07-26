@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../../App.css'
+import '../../../App.css'
 import { select } from 'd3-selection'
 import { viz2_height, viz2_width } from './visualization-styles'
 import './vis2.css'

@@ -4,5 +4,6 @@ Flask-SQLAlchemy
 Flask-Restless
 Flask-Cors
 mysql-connector
+mysql-connector-python
 mysql-connector-python-rf
 requests

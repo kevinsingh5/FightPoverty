@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import '../../App.css'
+import '../../../App.css'
 import { select } from 'd3-selection'
 import './vis1.css'
-import { getAllCounties } from '../../queries/countyQueries'
+import { getAllCounties } from '../../../queries/countyQueries'
 import { viz1_height, viz1_width } from './visualization-styles'
 var d3 = require('d3')
 
@@ -136,7 +136,7 @@ class Visualization1 extends Component {
                     .transition()
                     .duration(200)
                     .style('left', (d3.event.pageX ) + 'px')
-                    .style('top', (d3.event.pageY / 1.15) + 'px')
+                    .style('top', (d3.event.pageY / 1.08) + 'px')
                     .style("opacity", .9);  
 
                 tooltip.html(
