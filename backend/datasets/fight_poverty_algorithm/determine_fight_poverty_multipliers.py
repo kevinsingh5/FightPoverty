@@ -80,9 +80,12 @@ def determine_charity_navigator_multiplier(poverty_percentage, poverty_populatio
     Gets average of the poverty percentage multiplier and population multiplier
     '''
     percentage_multiplier = determine_poverty_percentage_multiplier(
-        poverty_percentage)
+        poverty_percentage
+    )
+    
     population_multiplier = determine_poverty_population_multiplier(
-        poverty_population)
+        poverty_population
+    )
 
     return (percentage_multiplier + population_multiplier) / 2
 
@@ -122,7 +125,9 @@ for known_county in KNOWN_COUNTIES:
 
     if poverty_percentage and poverty_population:
         fight_poverty_multiplier = determine_charity_navigator_multiplier(
-            poverty_percentage, poverty_population)
+            poverty_percentage,
+            poverty_population
+        )
 
     tuple_to_insert = (fight_poverty_multiplier, county_id)
     ARRAY_OF_TUPLES_TO_INSERT.append(tuple_to_insert)
