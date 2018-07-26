@@ -22,7 +22,8 @@ class CharityCard extends Component {
 
 
     return (
-  <div className="col-md-4">
+  <div className="col-md-4" style={{justifyContent:"center"}}>
+
                     <div className="card mb-4 box-shadow ">
 
                        <Link to={{pathname: '/charities/'+ this.props.charityInfo.name, state: this.props.charityInfo}} style = {{color:'black', textDecoration: 'none'}}>
@@ -44,6 +45,7 @@ class CharityCard extends Component {
                         </Link>
           </div>
           </div>
+          
    
   );
 
