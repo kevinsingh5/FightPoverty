@@ -256,11 +256,11 @@ class TestPythonUtils(unittest.TestCase):
         city_iter2 = iter(cities)
 
         try:
-            city_iter2.next()
+            next(city_iter2)
 
             while True:
-                city1 = city_iter1.next()
-                city2 = city_iter2.next()
+                city1 = next(city_iter1)
+                city2 = next(city_iter2)
 
                 # Make sure subsequent name is always >= preceding
                 self.assertGreaterEqual(city2['name'], city1['name'])
@@ -307,11 +307,11 @@ class TestPythonUtils(unittest.TestCase):
         charities_iter2 = iter(charities)
 
         try:
-            charities_iter2.next()
+            next(charities_iter2)
 
             while True:
-                charity1 = charities_iter1.next()
-                charity2 = charities_iter2.next()
+                charity1 = next(charities_iter1)
+                charity2 = next(charities_iter2)
 
                 # Make sure preceding score name is always >= subsequent
                 self.assertGreaterEqual(
