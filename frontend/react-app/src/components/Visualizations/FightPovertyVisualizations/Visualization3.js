@@ -24,7 +24,7 @@ class Visualization3 extends Component {
         const bars = this.bars
         const yaxis = this.yaxis
 
-        var margin = {top: 40, right: 40, bottom: 30, left: 80},
+        var margin = {top: 120, right: 100, bottom: 120, left: 100},
         width = viz3_width - margin.left - margin.right,
         height = viz3_height - margin.top - margin.bottom;
 
@@ -34,85 +34,97 @@ class Visualization3 extends Component {
             .rangeRound([0, width])
             .round(true)
             .padding(.2)
-        
-        var y = d3.scaleLinear()
-            .range([height, 0]);
-        
+
+        var y0 = d3.scaleLinear().domain([40, 100]).range([height, 0]),
+            y1 = d3.scaleLinear().domain([40, 100]).range([height, 0]);
+       
+        // create x axis
         var xAxis = d3.axisBottom(x);
+
+        // create left yAxis
+        var yAxisLeft = d3.axisLeft().scale(y0).ticks(6);
+
+        // create right yAxis
+        var yAxisRight = d3.axisRight().scale(y1).ticks(6);
         
-        var yAxis = d3.axisLeft(y)
-            .tickFormat(formatPercent);
-        
-        var tip = d3tip()
+        var tip_cn = d3tip()
             .attr('class', 'd3-tip')
             .offset([-10, 0])
             .html(function(d) {
-                return "<strong>" + d.county + ":</strong> <span style='color:orange'>" + d.percentage * 100 + "%</span>";
+                return "<strong>" + d.charity + " Charity Navigator Score:</strong>" +
+                "<span style='color:orange'>&nbsp;" + d.cn_score + "</span>";
+            })
+
+        var tip_fp = d3tip()
+            .attr('class', 'd3-tip')
+            .offset([-10, 0])
+            .html(function(d) {
+                return "<strong>" + d.charity + " Fight Poverty Score:</strong>" +
+                "<span style='color:orange'>&nbsp;" + d.fp_score + "</span>";
             })
 
 
-        
         var barChartSvg = d3.select(bars).append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
+            .attr("class", "graph")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
-        // y axis
-        var yAxisSvg = d3.select(yaxis).append("svg")
-            // .attr("width", 200)
+        var yAxisSvg = d3.select(yaxis)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
+            .attr("class", "graph")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    
 
-        barChartSvg.call(tip);
 
-        const data = await d3.tsv("https://s3.us-east-2.amazonaws.com/unemployment-stats/county-poverty.tsv", type)
+        const data = await d3.tsv("https://s3.us-east-2.amazonaws.com/unemployment-stats/charity-score.tsv", type)
 
-        x.domain(data.map(function(d) { return d.county; }));
-        y.domain([0, d3.max(data, function(d) { return d.percentage; })]);
-
-        
-        barChartSvg.append("g")
-            .attr("class", "x axis")
-            .attr("transform", "translate(0," + height + ")")
-            // .call(xAxis);
-
+        x.domain(data.map(function(d) { return d.charity; }));
+        y0.domain([40, d3.max(data, function(d) { return d.cn_score; })]);
+        y1.domain([40, d3.max(data, function(d) { return d.fp_score; })]);
+          
 
         // y axis
+        // barChartSvg.append("g")
         yAxisSvg.append("g")
-            .attr("class", "y axis")
-            .call(yAxis)
+            .attr("class", "y axis axisLeft")
+            .attr("transform", "translate(0,0)")
+            .call(yAxisLeft)
             .append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 9)
-            .attr("dy", ".71em")
+            .attr("y", 6)
+            .attr("dy", "-2em")
             .style("text-anchor", "end")
-            .text("Poverty %");
+            .style("text-anchor", "beginning")
+            .text("Score");
 
+        const barsSvg = barChartSvg.selectAll(".bar").data(data).enter();
+
+        barsSvg.append("rect")
+            .attr("class", "bar1")
+            .attr("x", function(d) { return x(d.charity); })
+            .attr("width", x.bandwidth() / 2)
+            .attr("y", function(d) { return y0(d.cn_score); })
+            .attr("height", function(d,i,j) { return height - y0(d.cn_score); }) 
+            .on('mouseover', tip_cn.show)
+            .on('mouseout', tip_cn.hide)
         
-        barChartSvg.selectAll(".bar")
-            .data(data)
-            .enter().append("rect")
-            .attr("class", "bar")
-            .attr("x", function(d) { 
-                return x(d.county); 
-            })
-            .attr("width", x.bandwidth())
-            .attr("y", function(d) { 
-                return y(d.percentage); 
-            })
-            .attr("height", function(d) { 
-                return height - y(d.percentage); 
-            })
-            .on('mouseover', tip.show)
-            .on('mouseout', tip.hide)
+        barsSvg.append("rect")
+            .attr("class", "bar2")
+            .attr("x", function(d) { return x(d.charity) + x.bandwidth() / 2; })
+            .attr("width", x.bandwidth() / 2)
+            .attr("y", function(d) { return y1(d.fp_score); })
+            .attr("height", function(d,i,j) { return height - y1(d.fp_score); }) 
+            .on('mouseover', tip_fp.show)
+            .on('mouseout', tip_fp.hide)
+
+
+
+        barChartSvg.call(tip_cn).call(tip_fp);
 
         
         function type(d) {
-            d.percentage = +d.percentage;
+            d.cn_score = +d.cn_score;
             return d;
         }
 
@@ -129,12 +141,23 @@ class Visualization3 extends Component {
                 width: '90%',
                 margin: 'auto'
             }}>
+                <h5>
                 Charity Scores
-                <div>
+                </h5>
+
+                <h6 style={{ color: 'orange'}}>
+                Charity Navigator Score
+                </h6>
+
+                <h6 style={{ color: 'lightseagreen'}}>
+                Fight Poverty Score
+                </h6>
+
+                <div style={{ marginTop: '-50px' }}>
                     <div style={{ float: 'left', marginLeft: '-40px' }}>
                         <svg 
                             ref={yaxis => this.yaxis = yaxis} 
-                            width={85} 
+                            width={110} 
                             height={viz3_height} 
 
                         />

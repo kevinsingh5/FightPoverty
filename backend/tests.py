@@ -361,6 +361,5 @@ class TestPythonUtils(unittest.TestCase):
             self.assertEqual(city_name_response, city_name)
 
 
-
 if __name__ == '__main__':
     unittest.main()

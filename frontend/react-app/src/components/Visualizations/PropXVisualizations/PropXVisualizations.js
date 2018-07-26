@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropXVisualization1 from './PropXVisualization1';
-// import PropXVisualization2 from './PropXVisualization2';
-// import PropXVisualization3 from './PropXVisualization3';
+import PropXVisualization2 from './PropXVisualization2';
+import PropXVisualization3 from './Visualization3';
 
 
 class PropXVisualizations extends Component {
@@ -33,10 +33,11 @@ class PropXVisualizations extends Component {
         
         
         <PropXVisualization1 /> 
-        {/*
         <PropXVisualization2 />
+
+        
         <PropXVisualization3 />
-        */}
+        
 
       </div>
 

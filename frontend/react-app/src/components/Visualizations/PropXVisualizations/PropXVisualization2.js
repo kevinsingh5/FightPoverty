@@ -1,50 +1,26 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
+import React, { Component } from 'react'
+import '../../../App.css'
+import './PropXvis2.css'
+import { viz1_height, viz1_width } from './propx-visualization-styles'
+import axios from 'axios'
+var d3 = require('d3')
 
-.arc text {
-	font: 14px sans-serif;
-	text-anchor: middle;
-}
 
-.arc polyline{
-	opacity: .9;
-	stroke: black;
-	stroke-width: 2px;
-	fill: none;
-}
-
-.arc path {
-	stroke: #fff;
-}
-
-.tooltip {
-        background: #eee;
-        box-shadow: 0 0 5px #999999;
-        color: #333;
-        display: none;
-        font-size: 12px;
-        left: 130px;
-        padding: 10px;
-        position: absolute;
-        text-align: center;
-        top: 95px;
-        width: 80px;
-        z-index: 10;
-}
-
-</style>
-<p>Bills that got enacted, by party</p>
-<p id="textText">Getting data</p>
-<div id="chart"></div>
-<svg width="440" height="440"></svg>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script>
 
 var passedBills = {"R": 0, "D": 0};
 var lawData = [];
 
-function drawLawChart(dataList) {
+class PropXVisualization2 extends Component {
+	constructor(props){
+		super(props)
+		this.drawLawChart = this.drawLawChart.bind(this);
+		this.getLawData = this.getLawData.bind(this);
+	}
+	
+
+	drawLawChart(dataList) {
+	const node = this.node
+
 	let color = d3.scaleOrdinal(['#FF0000','#0000FF','#C0C0C0']);
 	let partyNumbers = [];
 	let partyLabels = [];
@@ -56,7 +32,7 @@ function drawLawChart(dataList) {
 	}
 	//console.log(total);
 
-	let svg = d3.selectAll("svg"),
+		let svg = d3.select(node),
        	width = 300,
    		height = 300,
         radius = Math.min(width, height) / 2,
@@ -79,14 +55,14 @@ function drawLawChart(dataList) {
                 	.attr("class", "arc");
 
     arcs.append("g")
-    	.attr("class", "labels");
+    	.attr("class", "labels2");
 
     arcs.append("g")
-		.attr("class", "lines");
+		.attr("class", "lines2");
 
-    let tooltip = d3.select("#chart")
+    let tooltip = d3.select("#chart2")
         	.append("div")
-        	.attr("class", "tooltip");
+        	.attr("class", "tooltip3");
 
     tooltip.append("div")
         	.attr("class", "count");
@@ -122,7 +98,7 @@ function drawLawChart(dataList) {
 		.innerRadius(radius * 0.9)
 		.outerRadius(radius * 0.9);
 
-    let text = d3.select(".labels").selectAll("text")
+    let text = d3.select(".labels2").selectAll("text")
 		.data(pie(partyNumbers));
 
 	text.enter()
@@ -162,7 +138,7 @@ function drawLawChart(dataList) {
 	text.exit()
 		.remove();
 
-	var polyline = d3.select(".lines").selectAll("polyline")
+	var polyline = d3.select(".lines2").selectAll("polyline")
 		.data(pie(partyNumbers));
 
 	polyline.enter()
@@ -185,8 +161,8 @@ function drawLawChart(dataList) {
 		.remove();
 }
 
-function getLawData(pgNum) {
-	d3.json("http://api.propxdoeswhat.me/api/laws?page=" + pgNum + "&results_per_page=100", function(data) {
+async getLawData(pgNum) {
+	let data = await d3.json("http://api.propxdoeswhat.me/api/laws?page=" + pgNum + "&results_per_page=100")
 			let totalPgs = data["total_pages"];
 			document.getElementById("textText").innerHTML = "Getting data from page " + pgNum + " out of " + totalPgs;
 			let billList = data["objects"];
@@ -196,16 +172,38 @@ function getLawData(pgNum) {
 				}
 			}
 			if(pgNum < totalPgs) {
-				drawLawChart(passedBills);
-				getLawData(pgNum + 1);
+				this.drawLawChart(passedBills);
+				this.getLawData(pgNum + 1);
 			}
 			else {
 				// Finished getting data, draw stuff now
-				drawLawChart(passedBills);
+				this.drawLawChart(passedBills);
 			}
-	});
+	
+}
+render(){
+	this.getLawData(1);
+	return(
+			<div>
+
+		<div style={{ paddingTop: '100px', textAlign: 'center', color: 'black' }}>
+                <h1> Number of Bills Enacted by Party </h1>
+                <p id="textText" >Getting data</p>
+                <div id="chart2"></div>
+                <svg 
+                	ref={node => this.node = node} 
+
+                    width={viz1_width} 
+                    height={viz1_height} 
+                    style={{ display: 'block', margin: 'auto' }}
+                />
+            </div>            
+</div>
+	)
+
 }
 
-getLawData(1);
+}
 
-</script>
+
+export default PropXVisualization2;

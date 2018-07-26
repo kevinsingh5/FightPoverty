@@ -18,18 +18,19 @@ test: TestBackend.pyx
 
 
 clean:
-	rm -r  .pylintrc				      || :
-	rm -rf *.pyc 						  || :
-	rm -rf ./datasets/*.pyc 			  || :
-	rm -rf ./datasets/charities/*.pyc     || :
-	rm -rf ./datasets/cities/*.pyc		  || :
-	rm -rf ./datasets/counties/*.pyc      || :
-	rm -rf ./datasets/python_utils/*.pyc  || :
-	rm -rf ./datasets/states/*.pyc 		  || :
-	rm -rf ./datasets/zip_codes/*.pyc 	  || :
-	rm -r  *.tmp						  || :
-	rm -rf __pycache__  				  || :
-	rm -rf .mypy_cache  				  || :
+	rm -r  .pylintrc				      				|| :
+	rm -rf *.pyc 						  				|| :
+	rm -rf ./datasets/*.pyc 			  				|| :
+	rm -rf ./datasets/charities/*.pyc     				|| :
+	rm -rf ./datasets/cities/*.pyc		  				|| :
+	rm -rf ./datasets/counties/*.pyc      				|| :
+	rm -rf ./datasets/python_utils/*.pyc  				|| :
+	rm -rf ./datasets/states/*.pyc 		  				|| :
+	rm -rf ./datasets/zip_codes/*.pyc 	  				|| :
+	rm -rf ./datasets/fight_poverty_algorithm/*.pyc		|| :
+	rm -r  *.tmp						  				|| :
+	rm -rf __pycache__  				  				|| :
+	rm -rf .mypy_cache  				  				|| :
 
 
 format:
@@ -47,6 +48,7 @@ checkFormat: .pylintrc
 	-pylint	  ./datasets/python_utils/*.py
 	-pylint   ./datasets/states/*.py
 	-pylint   ./datasets/zip_codes/*.py
+	-pylint	  ./datasets/fight_poverty_algorithm/*.py
 
 
 run:
@@ -68,7 +70,10 @@ rebuildDatabaseFromScratch:
 	cd ../charities 												&& \
 	python add_charities_to_db.py 									&& \
 	cd ../python_utils												&& \
+	# use ./Counties and ./Counties/counties.json for next line
 	python insert_into_mysql_db.py									&& \
 	cd ../fight_poverty_algorithm									&& \
 	python determine_fight_poverty_multipliers.py 					&& \
-	python update_charity_fight_poverty_scores.py
+	python update_charity_fight_poverty_scores.py					&& \
+	cd ../cities													&& \
+	python update_average_scores.py

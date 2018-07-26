@@ -61,11 +61,11 @@ class PropXVisualization1 extends Component {
             partyCount: {"R": 0, "D": 0, "I": 0}
         };
 
-        this.drawPieChart = this.drawPieChart.bind(this)
+		this.drawPieChart = this.drawPieChart.bind(this)
+		this.updatePartyCount = this.updatePartyCount.bind(this)
     }
 
     async componentDidMount() {
-        console.log('here')
         await this.drawPieChart()
         this.updatePartyCount(1)
     }
@@ -116,9 +116,9 @@ class PropXVisualization1 extends Component {
             .attr("class", "lines");
             
 
-        let tooltip = d3.select("chart")
+		let tooltip = d3.select("#chart")
         	.append("div")
-        	.attr("class", "tooltip");
+        	.attr("class", "tooltip2");
 
         tooltip.append("div")
         	.attr("class", "count");
@@ -172,9 +172,9 @@ class PropXVisualization1 extends Component {
 
 		text.transition().duration(500)
 		.attrTween("transform", function(d) {
-			node._current = node._current || d;
-			var interpolate = d3.interpolate(node._current, d);
-			node._current = interpolate(0);
+			this._current = this._current || d;
+			var interpolate = d3.interpolate(this._current, d);
+			this._current = interpolate(0);
 			return function(t) {
 				var d2 = interpolate(t);
 				var pos = outerArc.centroid(d2);
@@ -183,11 +183,11 @@ class PropXVisualization1 extends Component {
 			};
 		})
 		.styleTween("text-anchor", function(d){
-			node._current = node._current || d;
-			var interpolate = d3.interpolate(node._current, d);
-			node._current = interpolate(0);
-			let t1 = d3.select(node)["_groups"][0][0];
-			d3.select(node)["_groups"][0][0]["innerHTML"] = partyLabels[d.index] + ": " + d.data;
+			this._current = this._current || d;
+			var interpolate = d3.interpolate(this._current, d);
+			this._current = interpolate(0);
+			let t1 = d3.select(this)["_groups"][0][0];
+			d3.select(this)["_groups"][0][0]["innerHTML"] = partyLabels[d.index] + ": " + d.data;
 			return function(t) {
 				var d2 = interpolate(t);
 				return midAngle(d2) < Math.PI ? "start":"end";
@@ -205,9 +205,9 @@ class PropXVisualization1 extends Component {
 
 		polyline.transition().duration(500)
 			.attrTween("points", function(d){
-				node._current = node._current || d;
-				var interpolate = d3.interpolate(node._current, d);
-				node._current = interpolate(0);
+				this._current = this._current || d;
+				var interpolate = d3.interpolate(this._current, d);
+				this._current = interpolate(0);
 				return function(t) {
 					var d2 = interpolate(t);
 					var pos = outerArc.centroid(d2);
@@ -222,11 +222,7 @@ class PropXVisualization1 extends Component {
 
 
     async updatePartyCount(pgNum) {
-        console.log(pgNum)
-
         const data = await getPoliticians(pgNum)
-
-        console.log(data)
 
         let partyCount = this.state.partyCount
 
@@ -251,9 +247,9 @@ class PropXVisualization1 extends Component {
             this.setState({ partyCount: partyCount }, async function () {
                 await this.drawPieChart();
                 this.updatePartyCount(pgNum + 1);
-            })
-            return
-        }
+            })            
+		}
+		return
     }
 
 

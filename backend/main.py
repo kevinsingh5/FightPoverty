@@ -110,6 +110,9 @@ class City(DB.Model):
     county = DB.relationship(
         'County', backref=DB.backref('cities', lazy='dynamic'))
 
+    average_charity_navigator_score = DB.Column(DB.Float)
+    average_fight_poverty_score = DB.Column(DB.Float)
+
     __table_args__ = (
         # Must have unique city/state combo
         DB.UniqueConstraint('name', 'state', name='city_state_index'),

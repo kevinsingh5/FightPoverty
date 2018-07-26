@@ -20,7 +20,7 @@ CUR.execute("SELECT charity.id, charity_navigator_score, fight_poverty_multiplie
             FROM county \
             INNER JOIN charity \
             ON charity.county_id = county.id"
-            )
+            ) 
 
 CHARITIES = CUR.fetchall()
 
@@ -49,7 +49,7 @@ for charity in CHARITIES:
     ARRAY_OF_TUPLES_TO_INSERT.append(tuple_to_insert)
 
 
-print('Inserting into db... expected time is ~45 seconds')
+print('Inserting into db (expected time is ~45 seconds)...')
 CUR.executemany(
     SQL_QUERY,
     ARRAY_OF_TUPLES_TO_INSERT
