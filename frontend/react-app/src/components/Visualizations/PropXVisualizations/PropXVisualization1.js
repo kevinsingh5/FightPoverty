@@ -61,11 +61,11 @@ class PropXVisualization1 extends Component {
             partyCount: {"R": 0, "D": 0, "I": 0}
         };
 
-        this.drawPieChart = this.drawPieChart.bind(this)
+		this.drawPieChart = this.drawPieChart.bind(this)
+		this.updatePartyCount = this.updatePartyCount.bind(this)
     }
 
     async componentDidMount() {
-        console.log('here')
         await this.drawPieChart()
         this.updatePartyCount(1)
     }
@@ -118,7 +118,7 @@ class PropXVisualization1 extends Component {
 
         let tooltip = d3.select("chart")
         	.append("div")
-        	.attr("class", "tooltip");
+        	.attr("class", "tooltip2");
 
         tooltip.append("div")
         	.attr("class", "count");
@@ -132,7 +132,7 @@ class PropXVisualization1 extends Component {
         	})
         	.attr("d", arc)
         	.on("mouseover", function(d) {
-        		d3.select(this).transition()
+        		d3.select(node).transition()
         			.duration(500)
         			.attr("d", bigArc);
         		tooltip.select(".count").html(partyLabels[d.index] + ": " + d.data);
@@ -140,7 +140,7 @@ class PropXVisualization1 extends Component {
         		tooltip.style('display', 'block');
         	})
         	.on("mouseout", function(d) {
-        		d3.select(this).transition()
+        		d3.select(node).transition()
         			.duration(500)
         			.attr("d", arc);
         		tooltip.style("display", "none");
@@ -251,9 +251,9 @@ class PropXVisualization1 extends Component {
             this.setState({ partyCount: partyCount }, async function () {
                 await this.drawPieChart();
                 this.updatePartyCount(pgNum + 1);
-            })
-            return
-        }
+            })            
+		}
+		return
     }
 
 

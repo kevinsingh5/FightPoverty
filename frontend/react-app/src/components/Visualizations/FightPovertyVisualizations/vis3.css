@@ -5,16 +5,28 @@
   shape-rendering: crispEdges;
 }
 
-.bar {
-  fill: maroon;
+.y.axisRight text {
+  fill: darkorange;
+}
+.y.axisLeft text {
+  fill: black;
 }
 
-.bar:hover {
-  fill: orangered ;
+.bar2 {
+  fill: lightseagreen;
 }
 
-.x.axis path {
-  display: inline;
+.bar2:hover {
+  fill: darkslateblue;
+}
+
+
+.bar1 {
+  fill: orange;
+}
+
+.bar1:hover {
+  fill: salmon ;
 }
 
 .d3-tip {
