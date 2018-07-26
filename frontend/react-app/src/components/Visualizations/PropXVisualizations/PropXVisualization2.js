@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../../../App.css'
-import './PropXvis1.css'
+import './PropXvis2.css'
 import { viz1_height, viz1_width } from './propx-visualization-styles'
 import axios from 'axios'
 var d3 = require('d3')
@@ -55,14 +55,14 @@ class PropXVisualization2 extends Component {
                 	.attr("class", "arc");
 
     arcs.append("g")
-    	.attr("class", "labels");
+    	.attr("class", "labels2");
 
     arcs.append("g")
-		.attr("class", "lines");
+		.attr("class", "lines2");
 
-    let tooltip = d3.select("#chart")
+    let tooltip = d3.select("#chart2")
         	.append("div")
-        	.attr("class", "tooltip");
+        	.attr("class", "tooltip3");
 
     tooltip.append("div")
         	.attr("class", "count");
@@ -98,7 +98,7 @@ class PropXVisualization2 extends Component {
 		.innerRadius(radius * 0.9)
 		.outerRadius(radius * 0.9);
 
-    let text = d3.select(".labels").selectAll("text")
+    let text = d3.select(".labels2").selectAll("text")
 		.data(pie(partyNumbers));
 
 	text.enter()
@@ -138,7 +138,7 @@ class PropXVisualization2 extends Component {
 	text.exit()
 		.remove();
 
-	var polyline = d3.select(".lines").selectAll("polyline")
+	var polyline = d3.select(".lines2").selectAll("polyline")
 		.data(pie(partyNumbers));
 
 	polyline.enter()
@@ -187,9 +187,9 @@ render(){
 			<div>
 
 		<div style={{ paddingTop: '100px', textAlign: 'center', color: 'black' }}>
-                <h1> Politicians by Party </h1>
+                <h1> Number of Bills Enacted by Party </h1>
                 <p id="textText" >Getting data</p>
-                <div id="chart"></div>
+                <div id="chart2"></div>
                 <svg 
                 	ref={node => this.node = node} 
 
