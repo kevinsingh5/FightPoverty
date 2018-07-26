@@ -35,10 +35,13 @@ class CharityInstance extends Component {
      var parts = window.location.href.split('/');
       var link = parts.pop();
       const charity = await getSpecificCharity(link);
+      if(!!charity[0]){
+
       await this.setState({name: charity[0].name, cause: charity[0].cause,city:charity[0].city.name,
         county:charity[0].county.name,state:charity[0].city.state,zip_code: charity[0].zip_code, 
         acc_score:charity[0].charity_navigator_accountability_score,fin_score:charity[0].charity_navigator_financial_score,cn_score:charity[0].charity_navigator_score,
       fp_score:charity[0].fight_poverty_score, address: charity[0].address, mission_statement: charity[0].mission_statement})
+    }
 
     const city = await getSpecificCity(charity[0].city.name);
     const county = await getSpecificCounty(charity[0].county.name);

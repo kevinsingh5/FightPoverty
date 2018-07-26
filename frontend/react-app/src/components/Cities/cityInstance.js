@@ -27,8 +27,10 @@ class CityInstance extends Component {
     var parts = window.location.href.split('/');
     var link = parts.pop();
     const city = await getSpecificCity(link);
-    this.setState({name: city[0].name, state: city[0].state , county:city[0].county.name});
+    if(!!city[0]){
 
+    this.setState({name: city[0].name, state: city[0].state , county:city[0].county.name});
+    }
     const charity = city[0].charities;
     const county = await getSpecificCounty(city[0].county.name);
     var this2 = this;
