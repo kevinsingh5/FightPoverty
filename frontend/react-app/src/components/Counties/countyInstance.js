@@ -32,8 +32,10 @@ class CountyInstance extends Component {
       var parts = window.location.href.split('/');
       var link = parts.pop();
       const county = await getSpecificCounty(link);
-      this.setState({name: county[0].name, cities: county[0].cities[0].name,state:county[0].cities[0].state,
+      if(!!county[0]){
+      this.setState({name:county[0].name, cities: county[0].cities[0].name,state:county[0].cities[0].state,
         percent:county[0].county_poverty_percentage,multiplier:county[0].fight_poverty_multiplier,population: county[0].county_poverty_population})
+      }
 
     
   
