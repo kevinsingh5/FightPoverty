@@ -29,7 +29,7 @@ class CityInstance extends Component {
     const city = await getSpecificCity(link);
     this.setState({name: city[0].name, state: city[0].state , county:city[0].county.name});
 
-    const charity = await getSpecificCharity(city[0].charities[0].name);
+    const charity = city[0].charities;
     const county = await getSpecificCounty(city[0].county.name);
     var this2 = this;
     // search for city coordinates
@@ -96,15 +96,20 @@ class CityInstance extends Component {
         <h1 align="center"> Charities in {this.state.name}</h1>
 
       <div align="center">
+                   <div className="row" style={{justifyContent:"center"}}>
+
         {this.state.charityInfo.map((dynamicCharity, i) => <CharityCard 
                   key = {i} charityInfo = {dynamicCharity}/>)}  
+      </div>
       </div>
 
         <h1 align="center"> Counties related to {this.state.name}</h1>
       <div align = "center">
+           <div className="row" style={{justifyContent:"center"}}>
+
         {this.state.countyInfo.splice(0,1).map((dynamicCounty, i) => <CountyCard 
                           key = {i} countyInfo = {dynamicCounty} />)}
-
+          </div>
           </div>
 
       

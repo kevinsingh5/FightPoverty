@@ -180,6 +180,7 @@ class CountyModel extends Component {
                             countiesFound={this.state.counties.length > 0}
                           />
                         </div>
+
                  </section>
 
       <div class="dropdown" style={{display : 'inline-block'}}>
@@ -243,6 +244,7 @@ class CountyModel extends Component {
                 <div className="container">
 
                   <div className="row">
+                    
                     {this.state.counties.map((dynamicCounty, i) => <CountyCard
                           key = {i} countyInfo = {dynamicCounty} search = {this.state.searchTerm} />)}
                 </div>

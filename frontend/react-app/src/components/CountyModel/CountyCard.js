@@ -16,7 +16,7 @@ class CountyCard extends Component {
 
 
     return (
-    <div className="col-md-4">
+    <div className="col-md-4" style={{justifyContent:"center"}}>
               <div className="card mb-4 box-shadow">
                  <Link to={{pathname: '/counties/'+ this.props.countyInfo.name, state: this.props.countyInfo}} style = {{color:'black', textDecoration:"none"}}>
 

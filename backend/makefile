@@ -10,7 +10,7 @@ FILES := tests.py 	\
 
 TestBackend.pyx: tests.py
 	# make 	checkFormat	
-	python 	tests.py -b
+	python2	tests.py -b
 	@echo 	"ALL BACKEND TESTS PASSING"
 
 
