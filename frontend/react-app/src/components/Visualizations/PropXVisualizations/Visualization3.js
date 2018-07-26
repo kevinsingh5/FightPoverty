@@ -117,7 +117,7 @@ render(){
 			<div>
 
 		<div style={{ paddingTop: '100px', textAlign: 'center', color: 'black' }}>
-                <h1> Number of Bills Enacted by Party </h1>
+                <h1> Number of Laws by Subject </h1>
                 <div id="chart"></div>
                 <svg 
                 	ref={node => this.node = node} 
