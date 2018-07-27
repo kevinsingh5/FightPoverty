@@ -33,11 +33,11 @@ class Visualization2 extends Component {
         var path = d3.geoPath();
         
         var x = d3.scaleLinear()
-            .domain([0,.25,.50, .75, 1.00, 1.25])
+            .domain([.75, .90,1.05,1.15, 1.25])
             .rangeRound([550,610]);
         
         var color = d3.scaleThreshold()
-            .domain([0,.25,.50, .75, 1.00, 1.25])
+            .domain([.75, .90,1.05,1.15, 1.25])
             .range(d3.schemePuBu[6]);
         
         var g = svg.append("g")
