@@ -33,12 +33,12 @@ class Visualization2 extends Component {
         var path = d3.geoPath();
         
         var x = d3.scaleLinear()
-            .domain([0,9, 12, 15, 18, 21, 35])
-            .rangeRound([550,630]);
+            .domain([0,.25,.50, .75, 1.00, 1.25])
+            .rangeRound([550,610]);
         
         var color = d3.scaleThreshold()
-            .domain([0,9, 12, 15, 18, 21, 35])
-            .range(d3.schemePuBu[7]);
+            .domain([0,.25,.50, .75, 1.00, 1.25])
+            .range(d3.schemePuBu[6]);
         
         var g = svg.append("g")
             .attr("class", "key")
@@ -64,18 +64,18 @@ class Visualization2 extends Component {
             .attr("fill", "#000")
             .attr("text-anchor", "start")
             .attr("font-weight", "bold")
-            .text("Poverty Percentage");
+            .text("FightPoverty Multiplier");
         
         g.call(d3.axisBottom(x)
             .tickSize(13)
-            .tickFormat(function(x, i) { return i ? x : x + "%"; })
+            .tickFormat(function(x, i) { return i ? x : x + ""; })
             .tickValues(color.domain()))
             .select(".domain")
             .remove();
         
 
         const us = await d3.json("https://d3js.org/us-10m.v1.json")
-        await d3.tsv("https://s3.us-east-2.amazonaws.com/unemployment-stats/percentages.tsv", 
+        await d3.tsv("https://s3.us-east-2.amazonaws.com/unemployment-stats/county_codes.tsv", 
             function(d) { 
                 unemployment.set(d.id, +d.rate); 
             }
@@ -86,10 +86,16 @@ class Visualization2 extends Component {
             .selectAll("path")
             .data(feature(us, us.objects.counties).features)
             .enter().append("path")
-            .attr("fill", function(d) { return color(d.rate = unemployment.get(d.id)); })
+            .attr("fill", function(d) { 
+                if (unemployment.get(d.id) != null){ return color(d.rate = unemployment.get(d.id))}
+                else{
+                    return "grey";
+                } 
+
+            })
             .attr("d", path)
             .append("title")
-            .text(function(d) { return d.rate + "%"; });
+            .text(function(d) { return d.rate + ""; });
                 
 
         svg.append("path")
