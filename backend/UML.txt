@@ -19,6 +19,8 @@ City : id: Integer PrimaryKey
 City : name: String(80) Index NOT NULLABLE
 City : state: String(40) NOT NULLABLE
 City : county_id: Integer ForeignKey(County.id) NOT NULLABLE
+City : average_charity_navigator_score: Float
+City : average_fight_poverty_score: Float
 
 
 class County

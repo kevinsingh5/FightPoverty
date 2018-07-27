@@ -93,7 +93,10 @@ class CountyInstance extends Component {
                 <li>State: {this.state.state}</li>
                 <li>Poverty Population: {this.state.population} </li>
                 <li>Poverty Percentage: {this.state.percent}%</li>
-                <li>FightPoverty Multiplier: {this.state.multiplier}</li>
+                <li> <a href="../about">
+                FightPoverty Multiplier 
+                </a>: {this.state.multiplier}</li>
+              
 
               </ul>
               <div align="center">

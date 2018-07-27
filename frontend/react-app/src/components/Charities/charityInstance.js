@@ -98,8 +98,8 @@ class CharityInstance extends Component {
                 <li>Zip Code:  {this.state.zip_code}</li>
                 <li><a href= 'https://www.charitynavigator.org/index.cfm?bay=content.view&cpid=1093'>CharityNavigator's Accountability Score</a>: {this.state.acc_score} </li>
                 <li><a href= 'https://www.charitynavigator.org/index.cfm?bay=content.view&cpid=35'>CharityNavigator's Financial Score</a>: {this.state.fin_score}</li>
-                <li>CharityNavigator Rating: {this.state.cn_score}</li>
-                <li>FightPoverty Rating: {this.state.fp_score}</li>
+                <li><a href= 'https://www.charitynavigator.org/index.cfm?bay=content.view&cpid=1287'>CharityNavigator Rating</a>: {this.state.cn_score}</li>
+                <li><a href= '../about'>FightPoverty Rating</a>: {this.state.fp_score}</li>
               </ul>
               <div align="center">
                 <iframe width='600' height='450' src={"https://www.openstreetmap.org/export/embed.html?bbox=" + mapBounds[2] + "%2C" + mapBounds[0] + "%2C" + mapBounds[3] + "%2C" + mapBounds[1]} frameBorder="0" allowFullScreen></iframe>

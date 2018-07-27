@@ -19,6 +19,45 @@ class About extends Component {
              aiming to fight poverty in cities around the United States. Easily find charities and organizations in your city or county you would like to help out! Our intended users are those who want to help others in need and make an impact not only in their community, but those across the U.S.
           </p>
 
+          <h1>Our Scoring Algorithm</h1>
+
+          <h5>Fight Poverty Multiplier</h5>
+
+          <p>
+
+              We aggregated a database of charities aiming to fight poverty from&nbsp;
+              <a href="https://www.charitynavigator.org/">
+                www.charitynavigator.org
+              </a>.
+              Charity Navigator provided us with an&nbsp;
+              <a href="https://www.charitynavigator.org/index.cfm?bay=content.view&cpid=1287">
+                overall score
+              </a>
+              &nbsp;for each charity. 
+              
+              We then used the&nbsp;
+              <a href="https://www.census.gov/data/developers/data-sets/Poverty-Statistics.html">
+              US census
+              </a>
+              &nbsp;to get poverty stats for the counties each charity operates in.
+
+              We&nbsp;
+              <a href="https://gitlab.com/chris.amini/FightingPoverty/blob/master/backend/datasets/fight_poverty_algorithm/Algorithm%20Analysis.xlsx">
+              analyzed these stats
+              </a>
+              &nbsp;to come up with a multiplier for each county.
+          </p>
+
+          <h5>Fight Poverty Score</h5>
+
+          <p>
+
+              Finally, we multiplied each charity's Charity Navigator score by the county's
+              Fight Poverty multiplier to come up with our Fight Poverty score for each charity. 
+              The score is maxed out at 100.
+
+          </p>
+
         </div>
         <div className="row">
 
