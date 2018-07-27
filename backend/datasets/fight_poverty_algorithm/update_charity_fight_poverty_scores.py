@@ -20,7 +20,7 @@ CUR.execute("SELECT charity.id, charity_navigator_score, fight_poverty_multiplie
             FROM county \
             INNER JOIN charity \
             ON charity.county_id = county.id"
-            ) 
+            )  # pylint: disable=bad-continuation
 
 CHARITIES = CUR.fetchall()
 
@@ -54,5 +54,5 @@ CUR.executemany(
     SQL_QUERY,
     ARRAY_OF_TUPLES_TO_INSERT
 )
-print('Done inserting')
+print('Finished inserting')
 CNX.commit()

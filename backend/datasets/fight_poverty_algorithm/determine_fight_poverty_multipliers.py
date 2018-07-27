@@ -7,12 +7,10 @@ operates in is. The poorer the county, the higher the multiplier.
 import sys
 
 
-def determine_poverty_percentage_multiplier(poverty_percentage):
+def determine_poverty_percent_mult(poverty_percentage):
     '''
     Assessed all data to come up with reasonable multipliers.
     '''
-    assert poverty_percentage is not None
-
     multiplier = 0.0
 
     if poverty_percentage > 21.5:
@@ -41,12 +39,10 @@ def determine_poverty_percentage_multiplier(poverty_percentage):
     return multiplier
 
 
-def determine_poverty_population_multiplier(poverty_population):
+def determine_poverty_pop_mult(poverty_population):
     '''
     Assessed all data to come up with reasonable multipliers.
     '''
-    assert poverty_population is not None
-
     multiplier = 0.0
 
     if poverty_population > 200000:
@@ -75,15 +71,15 @@ def determine_poverty_population_multiplier(poverty_population):
     return multiplier
 
 
-def determine_charity_navigator_multiplier(poverty_percentage, poverty_population):
+def determine_charity_nav_mult(poverty_percentage, poverty_population):
     '''
     Gets average of the poverty percentage multiplier and population multiplier
     '''
-    percentage_multiplier = determine_poverty_percentage_multiplier(
+    percentage_multiplier = determine_poverty_percent_mult(
         poverty_percentage
     )
-    
-    population_multiplier = determine_poverty_population_multiplier(
+
+    population_multiplier = determine_poverty_pop_mult(
         poverty_population
     )
 
@@ -96,47 +92,43 @@ sys.path.insert(0, "../python_utils")
 from mysql_utils import connect_to_mysql_db
 
 
-# Connect to SQL db
-(CNX, CUR) = connect_to_mysql_db(None)
+if __name__ == "__main__":
+    # Connect to SQL db
+    (CNX, CUR) = connect_to_mysql_db(None)
 
+    # FIRST GET ALL KNOWN COUNTIES. These are counties we have charities for
+    CUR.execute(
+        "SELECT id, county_poverty_percentage, county_poverty_population FROM county")
+    KNOWN_COUNTIES = CUR.fetchall()
 
-# FIRST GET ALL KNOWN COUNTIES. These are counties we have charities for
-CUR.execute(
-    "SELECT id, county_poverty_percentage, county_poverty_population FROM county")
-KNOWN_COUNTIES = CUR.fetchall()
+    SQL_QUERY = "UPDATE county \
+    SET fight_poverty_multiplier=%s \
+    WHERE id=%s"
 
+    ARRAY_OF_TUPLES_TO_INSERT = []
 
-SQL_QUERY = "UPDATE county \
-SET fight_poverty_multiplier=%s \
-WHERE id=%s"
+    # Iterate over counties determining fight poverty score and updating db
+    for known_county in KNOWN_COUNTIES:
+        county_id = known_county[0]
+        poverty_percent = known_county[1]
+        poverty_pop = known_county[2]
 
+        # Default is 1 if no poverty stats
+        fight_poverty_multiplier = 1.0
 
-ARRAY_OF_TUPLES_TO_INSERT = []
+        if poverty_percent and poverty_pop:
+            fight_poverty_multiplier = determine_charity_nav_mult(
+                poverty_percent,
+                poverty_pop
+            )
 
+        tuple_to_insert = (fight_poverty_multiplier, county_id)
+        ARRAY_OF_TUPLES_TO_INSERT.append(tuple_to_insert)
 
-# Iterate over counties determining fight poverty score and updating db
-for known_county in KNOWN_COUNTIES:
-    county_id = known_county[0]
-    poverty_percentage = known_county[1]
-    poverty_population = known_county[2]
-
-    # Default is 1 if no poverty stats
-    fight_poverty_multiplier = 1.0
-
-    if poverty_percentage and poverty_population:
-        fight_poverty_multiplier = determine_charity_navigator_multiplier(
-            poverty_percentage,
-            poverty_population
-        )
-
-    tuple_to_insert = (fight_poverty_multiplier, county_id)
-    ARRAY_OF_TUPLES_TO_INSERT.append(tuple_to_insert)
-
-
-print('Inserting into db... expected time is ~30 seconds')
-CUR.executemany(
-    SQL_QUERY,
-    ARRAY_OF_TUPLES_TO_INSERT
-)
-print('Done inserting')
-CNX.commit()
+    print('Inserting into db... expected time is ~30 seconds')
+    CUR.executemany(
+        SQL_QUERY,
+        ARRAY_OF_TUPLES_TO_INSERT
+    )
+    print('Done inserting')
+    CNX.commit()

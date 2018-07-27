@@ -1,5 +1,5 @@
 '''
-Module that gets the average Charity Navigator and Fight Poverty scores of charities 
+Module that gets the average Charity Navigator and Fight Poverty scores of charities
 in each city.
 '''
 import sys
@@ -23,7 +23,7 @@ CUR.execute("SELECT city_id, AVG(charity_navigator_score), AVG(fight_poverty_sco
                     ON charity.city_id = city.id \
             ) AS t \
             GROUP BY city_id"
-            )
+            )  # pylint: disable=bad-continuation
 
 
 CITIES = CUR.fetchall()
