@@ -12,17 +12,17 @@
 
 ## Website: [FightPoverty.online]
 
-#### Git SHA: 3d06989ae9e8ed0603bf845f5fe946478f65d509
+#### Git SHA: 11a14d6ae5dcf6a681dfe14e5c1e898f8125222a
 
 #### Estimated completion time:
-#### Chris - 40 hours
-#### Kevin - 40 hours
-#### Charlie - 40 hours
-#### Justin - 40 hours
-#### Yijie - 40 hours
+#### Chris - 30 hours
+#### Kevin - 25 hours
+#### Charlie - 30 hours
+#### Justin - 30 hours
+#### Yijie - 25 hours
 
 #### Actual completion time:
-#### Everyone- 45 hours
+#### Everyone- 35 hours
 
 #### Comments: Poverty doesn't stand a chance! 
 
