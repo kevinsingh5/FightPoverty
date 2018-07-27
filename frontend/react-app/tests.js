@@ -1,5 +1,5 @@
 const assert = require('assert');
-import { getCounties, getSpecificCounty} from './src/queries/countyQueries'
+import {getCounties, getSpecificCounty} from './src/queries/countyQueries'
 import {getCities, getSpecificCity} from './src/queries/cityQueries'
 import {getCharities, getSpecificCharity} from './src/queries/charityQueries'
 
